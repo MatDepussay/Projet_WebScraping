@@ -1,0 +1,123 @@
+{
+  "url": "https://www.kaggle.com/datasets/rohanrao/formula-1-world-championship-1950-2020?select=pit_stops.csv",
+  "description": "Table pitStop Kaggle",
+  "data": [
+    {
+      "raceId": "851",
+      "driverId": "17",
+      "stopNumber": "2",
+      "lapNumber": "25",
+      "PStime": "14:44:03",
+      "PSduration": 20,
+      "PSmilliseconds": 20000
+    },
+    {
+      "raceId": "858",
+      "driverId": "17",
+      "stopNumber": "2",
+      "lapNumber": "35",
+      "PStime": "18:06:07",
+      "PSduration": 20,
+      "PSmilliseconds": 20000
+    },
+    {
+      "raceId": "879",
+      "driverId": "4",
+      "stopNumber": "2",
+      "lapNumber": "18",
+      "PStime": "14:29:41",
+      "PSduration": 23,
+      "PSmilliseconds": 23000
+    },
+    {
+      "raceId": "886",
+      "driverId": "16",
+      "stopNumber": "2",
+      "lapNumber": "37",
+      "PStime": "14:53:24",
+      "PSduration": 21,
+      "PSmilliseconds": 21000
+    },
+    {
+      "raceId": "896",
+      "driverId": "20",
+      "stopNumber": "1",
+      "lapNumber": "2",
+      "PStime": "15:06:36",
+      "PSduration": 24,
+      "PSmilliseconds": 24000
+    },
+    {
+      "raceId": "954",
+      "driverId": "826",
+      "stopNumber": "1",
+      "lapNumber": "17",
+      "PStime": "14:26:28",
+      "PSduration": 23,
+      "PSmilliseconds": 23000
+    },
+    {
+      "raceId": "959",
+      "driverId": "20",
+      "stopNumber": "3",
+      "lapNumber": "46",
+      "PStime": "15:06:01",
+      "PSduration": 19,
+      "PSmilliseconds": 19000
+    },
+    {
+      "raceId": "998",
+      "driverId": "830",
+      "stopNumber": "2",
+      "lapNumber": "33",
+      "PStime": "15:05:35",
+      "PSduration": 28,
+      "PSmilliseconds": 28000
+    },
+    {
+      "raceId": "1022",
+      "driverId": "807",
+      "stopNumber": "2",
+      "lapNumber": "31",
+      "PStime": "16:15:01",
+      "PSduration": 23,
+      "PSmilliseconds": 23000
+    },
+    {
+      "raceId": "1026",
+      "driverId": "822",
+      "stopNumber": "1",
+      "lapNumber": "17",
+      "PStime": "14:40:21",
+      "PSduration": 23,
+      "PSmilliseconds": 23000
+    },
+    {
+      "raceId": "1047",
+      "driverId": "842",
+      "stopNumber": "1",
+      "lapNumber": "10",
+      "PStime": "17:31:33",
+      "PSduration": 22,
+      "PSmilliseconds": 22000
+    },
+    {
+      "raceId": "1060",
+      "driverId": "853",
+      "stopNumber": "1",
+      "lapNumber": "27",
+      "PStime": "15:37:15",
+      "PSduration": 22,
+      "PSmilliseconds": 22000
+    },
+    {
+      "raceId": "1132",
+      "driverId": "852",
+      "stopNumber": "1",
+      "lapNumber": "27",
+      "PStime": "15:45:52",
+      "PSduration": 30,
+      "PSmilliseconds": 30000
+    }
+  ]
+}
