@@ -145,7 +145,7 @@ class PitStops(BaseModel):
     stopNumber: str
     lapNumber: str
     PStime: str
-    PSduration: int
+    PSduration: str #remplacer le 19/11 car bug les lignes
     PSmilliseconds: int
 
 class Qualifiying(BaseModel):
