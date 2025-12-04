@@ -6,10 +6,6 @@
       "date": "1. Brésil 27 mars",
       "drivers": [
         {
-          "name": "1 BRA",
-          "points": "2 PAC"
-        },
-        {
           "name": "M. SCHUMACHER",
           "points": "10"
         },
@@ -115,10 +111,6 @@
       "gp_name": "2. Pacifique 17 avr",
       "date": "2. Pacifique 17 avr",
       "drivers": [
-        {
-          "name": "1 BRA",
-          "points": "3 SMR"
-        },
         {
           "name": "M. SCHUMACHER",
           "points": "10"
@@ -226,10 +218,6 @@
       "date": "3. Saint-Marin 1 mai",
       "drivers": [
         {
-          "name": "1 BRA",
-          "points": "4 MCO"
-        },
-        {
           "name": "M. SCHUMACHER",
           "points": "10"
         },
@@ -335,10 +323,6 @@
       "gp_name": "4. Monaco 15 mai",
       "date": "4. Monaco 15 mai",
       "drivers": [
-        {
-          "name": "1 BRA",
-          "points": "5 ESP"
-        },
         {
           "name": "M. SCHUMACHER",
           "points": "10"
@@ -446,10 +430,6 @@
       "date": "5. Espagne 29 mai",
       "drivers": [
         {
-          "name": "1 BRA",
-          "points": "6 CAN"
-        },
-        {
           "name": "M. SCHUMACHER",
           "points": "6"
         },
@@ -555,10 +535,6 @@
       "gp_name": "6. Canada 12 juin",
       "date": "6. Canada 12 juin",
       "drivers": [
-        {
-          "name": "1 BRA",
-          "points": "7 FRA"
-        },
         {
           "name": "M. SCHUMACHER",
           "points": "10"
@@ -666,10 +642,6 @@
       "date": "7. France 3 juil",
       "drivers": [
         {
-          "name": "1 BRA",
-          "points": "8 GBR"
-        },
-        {
           "name": "M. SCHUMACHER",
           "points": "10"
         },
@@ -775,10 +747,6 @@
       "gp_name": "8. Grande-Bretagne 10 juil",
       "date": "8. Grande-Bretagne 10 juil",
       "drivers": [
-        {
-          "name": "1 BRA",
-          "points": "9 DEU"
-        },
         {
           "name": "M. SCHUMACHER",
           "points": "-"
@@ -886,10 +854,6 @@
       "date": "9. Allemagne 31 juil",
       "drivers": [
         {
-          "name": "1 BRA",
-          "points": "10 HUN"
-        },
-        {
           "name": "M. SCHUMACHER",
           "points": "-"
         },
@@ -995,10 +959,6 @@
       "gp_name": "10. Hongrie 14 août",
       "date": "10. Hongrie 14 août",
       "drivers": [
-        {
-          "name": "1 BRA",
-          "points": "11 BEL"
-        },
         {
           "name": "M. SCHUMACHER",
           "points": "10"
@@ -1106,10 +1066,6 @@
       "date": "11. Belgique 28 août",
       "drivers": [
         {
-          "name": "1 BRA",
-          "points": "12 ITA"
-        },
-        {
           "name": "M. SCHUMACHER",
           "points": "-"
         },
@@ -1215,10 +1171,6 @@
       "gp_name": "12. Italie 11 sept",
       "date": "12. Italie 11 sept",
       "drivers": [
-        {
-          "name": "1 BRA",
-          "points": "13 PRT"
-        },
         {
           "name": "M. SCHUMACHER",
           "points": null
@@ -1326,10 +1278,6 @@
       "date": "13. Portugal 25 sept",
       "drivers": [
         {
-          "name": "1 BRA",
-          "points": "14 EUR"
-        },
-        {
           "name": "M. SCHUMACHER",
           "points": null
         },
@@ -1435,10 +1383,6 @@
       "gp_name": "14. Europe 16 oct",
       "date": "14. Europe 16 oct",
       "drivers": [
-        {
-          "name": "1 BRA",
-          "points": "15 JPN"
-        },
         {
           "name": "M. SCHUMACHER",
           "points": "10"
@@ -1546,10 +1490,6 @@
       "date": "15. Japon 6 nov",
       "drivers": [
         {
-          "name": "1 BRA",
-          "points": "16 AUS"
-        },
-        {
           "name": "M. SCHUMACHER",
           "points": "6"
         },
@@ -1655,10 +1595,6 @@
       "gp_name": "16. Australie 13 nov",
       "date": "16. Australie 13 nov",
       "drivers": [
-        {
-          "name": "1 BRA",
-          "points": null
-        },
         {
           "name": "M. SCHUMACHER",
           "points": "-"

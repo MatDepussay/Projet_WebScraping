@@ -6,10 +6,6 @@
       "date": "1. Australie 9 mars",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "2 BRA"
-        },
-        {
           "name": "J. VILLENEUVE",
           "points": "-"
         },
@@ -95,10 +91,6 @@
       "gp_name": "2. Brésil 30 mars",
       "date": "2. Brésil 30 mars",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "3 ARG"
-        },
         {
           "name": "J. VILLENEUVE",
           "points": "10"
@@ -186,10 +178,6 @@
       "date": "3. Argentine 13 avr",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "4 SMR"
-        },
-        {
           "name": "J. VILLENEUVE",
           "points": "10"
         },
@@ -275,10 +263,6 @@
       "gp_name": "4. Saint-Marin 27 avr",
       "date": "4. Saint-Marin 27 avr",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "5 MCO"
-        },
         {
           "name": "J. VILLENEUVE",
           "points": "-"
@@ -366,10 +350,6 @@
       "date": "5. Monaco 11 mai",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "6 ESP"
-        },
-        {
           "name": "J. VILLENEUVE",
           "points": "-"
         },
@@ -455,10 +435,6 @@
       "gp_name": "6. Espagne 25 mai",
       "date": "6. Espagne 25 mai",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "7 CAN"
-        },
         {
           "name": "J. VILLENEUVE",
           "points": "10"
@@ -546,10 +522,6 @@
       "date": "7. Canada 15 juin",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "8 FRA"
-        },
-        {
           "name": "J. VILLENEUVE",
           "points": "-"
         },
@@ -635,10 +607,6 @@
       "gp_name": "8. France 29 juin",
       "date": "8. France 29 juin",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "9 GBR"
-        },
         {
           "name": "J. VILLENEUVE",
           "points": "3"
@@ -726,10 +694,6 @@
       "date": "9. Grande-Bretagne 13 juil",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "10 DEU"
-        },
-        {
           "name": "J. VILLENEUVE",
           "points": "10"
         },
@@ -815,10 +779,6 @@
       "gp_name": "10. Allemagne 27 juil",
       "date": "10. Allemagne 27 juil",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "11 HUN"
-        },
         {
           "name": "J. VILLENEUVE",
           "points": "-"
@@ -906,10 +866,6 @@
       "date": "11. Hongrie 10 août",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "12 BEL"
-        },
-        {
           "name": "J. VILLENEUVE",
           "points": "10"
         },
@@ -995,10 +951,6 @@
       "gp_name": "12. Belgique 24 août",
       "date": "12. Belgique 24 août",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "13 ITA"
-        },
         {
           "name": "J. VILLENEUVE",
           "points": "2"
@@ -1086,10 +1038,6 @@
       "date": "13. Italie 7 sept",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "14 AUT"
-        },
-        {
           "name": "J. VILLENEUVE",
           "points": "2"
         },
@@ -1175,10 +1123,6 @@
       "gp_name": "14. Autriche 21 sept",
       "date": "14. Autriche 21 sept",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "15 LUX"
-        },
         {
           "name": "J. VILLENEUVE",
           "points": "10"
@@ -1266,10 +1210,6 @@
       "date": "15. Luxembourg 28 sept",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "16 JPN"
-        },
-        {
           "name": "J. VILLENEUVE",
           "points": "10"
         },
@@ -1356,10 +1296,6 @@
       "date": "16. Japon 12 oct",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "17 EUR"
-        },
-        {
           "name": "J. VILLENEUVE",
           "points": "-"
         },
@@ -1445,10 +1381,6 @@
       "gp_name": "17. Europe 26 oct",
       "date": "17. Europe 26 oct",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": null
-        },
         {
           "name": "J. VILLENEUVE",
           "points": "4"

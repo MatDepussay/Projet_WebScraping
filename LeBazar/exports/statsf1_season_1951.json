@@ -6,10 +6,6 @@
       "date": "1. Suisse 27 mai",
       "drivers": [
         {
-          "name": "1 CHE",
-          "points": "2 500"
-        },
-        {
           "name": "J. FANGIO",
           "points": "9"
         },
@@ -91,10 +87,6 @@
       "gp_name": "2. Indianapolis 30 mai",
       "date": "2. Indianapolis 30 mai",
       "drivers": [
-        {
-          "name": "1 CHE",
-          "points": "3 BEL"
-        },
         {
           "name": "J. FANGIO",
           "points": null
@@ -178,10 +170,6 @@
       "date": "3. Belgique 17 juin",
       "drivers": [
         {
-          "name": "1 CHE",
-          "points": "4 FRA"
-        },
-        {
           "name": "J. FANGIO",
           "points": "(1)"
         },
@@ -263,10 +251,6 @@
       "gp_name": "4. France 1 juil",
       "date": "4. France 1 juil",
       "drivers": [
-        {
-          "name": "1 CHE",
-          "points": "5 GBR"
-        },
         {
           "name": "J. FANGIO",
           "points": "(5)"
@@ -350,10 +334,6 @@
       "date": "5. Grande-Bretagne 14 juil",
       "drivers": [
         {
-          "name": "1 CHE",
-          "points": "6 DEU"
-        },
-        {
           "name": "J. FANGIO",
           "points": "6"
         },
@@ -435,10 +415,6 @@
       "gp_name": "6. Allemagne 29 juil",
       "date": "6. Allemagne 29 juil",
       "drivers": [
-        {
-          "name": "1 CHE",
-          "points": "7 ITA"
-        },
         {
           "name": "J. FANGIO",
           "points": "7"
@@ -522,10 +498,6 @@
       "date": "7. Italie 16 sept",
       "drivers": [
         {
-          "name": "1 CHE",
-          "points": "8 ESP"
-        },
-        {
           "name": "J. FANGIO",
           "points": "-"
         },
@@ -607,10 +579,6 @@
       "gp_name": "8. Espagne 28 oct",
       "date": "8. Espagne 28 oct",
       "drivers": [
-        {
-          "name": "1 CHE",
-          "points": "Pts"
-        },
         {
           "name": "J. FANGIO",
           "points": "9"

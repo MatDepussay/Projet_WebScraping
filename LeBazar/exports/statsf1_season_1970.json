@@ -6,10 +6,6 @@
       "date": "1. Afrique du Sud 7 mars",
       "drivers": [
         {
-          "name": "1 ZAF",
-          "points": "2 ESP"
-        },
-        {
           "name": "J. RINDT",
           "points": "-"
         },
@@ -115,10 +111,6 @@
       "gp_name": "2. Espagne 19 avr",
       "date": "2. Espagne 19 avr",
       "drivers": [
-        {
-          "name": "1 ZAF",
-          "points": "3 MCO"
-        },
         {
           "name": "J. RINDT",
           "points": "-"
@@ -226,10 +218,6 @@
       "date": "3. Monaco 10 mai",
       "drivers": [
         {
-          "name": "1 ZAF",
-          "points": "4 BEL"
-        },
-        {
           "name": "J. RINDT",
           "points": "9"
         },
@@ -335,10 +323,6 @@
       "gp_name": "4. Belgique 7 juin",
       "date": "4. Belgique 7 juin",
       "drivers": [
-        {
-          "name": "1 ZAF",
-          "points": "5 NLD"
-        },
         {
           "name": "J. RINDT",
           "points": "-"
@@ -446,10 +430,6 @@
       "date": "5. Pays-Bas 21 juin",
       "drivers": [
         {
-          "name": "1 ZAF",
-          "points": "6 FRA"
-        },
-        {
           "name": "J. RINDT",
           "points": "9"
         },
@@ -555,10 +535,6 @@
       "gp_name": "6. France 5 juil",
       "date": "6. France 5 juil",
       "drivers": [
-        {
-          "name": "1 ZAF",
-          "points": "7 GBR"
-        },
         {
           "name": "J. RINDT",
           "points": "9"
@@ -666,10 +642,6 @@
       "date": "7. Grande-Bretagne 18 juil",
       "drivers": [
         {
-          "name": "1 ZAF",
-          "points": "8 DEU"
-        },
-        {
           "name": "J. RINDT",
           "points": "9"
         },
@@ -775,10 +747,6 @@
       "gp_name": "8. Allemagne 2 août",
       "date": "8. Allemagne 2 août",
       "drivers": [
-        {
-          "name": "1 ZAF",
-          "points": "9 AUT"
-        },
         {
           "name": "J. RINDT",
           "points": "9"
@@ -886,10 +854,6 @@
       "date": "9. Autriche 16 août",
       "drivers": [
         {
-          "name": "1 ZAF",
-          "points": "10 ITA"
-        },
-        {
           "name": "J. RINDT",
           "points": "-"
         },
@@ -995,10 +959,6 @@
       "gp_name": "10. Italie 6 sept",
       "date": "10. Italie 6 sept",
       "drivers": [
-        {
-          "name": "1 ZAF",
-          "points": "11 CAN"
-        },
         {
           "name": "J. RINDT",
           "points": "-"
@@ -1106,10 +1066,6 @@
       "date": "11. Canada 20 sept",
       "drivers": [
         {
-          "name": "1 ZAF",
-          "points": "12 USA"
-        },
-        {
           "name": "J. RINDT",
           "points": null
         },
@@ -1216,10 +1172,6 @@
       "date": "12. Etats-Unis 4 oct",
       "drivers": [
         {
-          "name": "1 ZAF",
-          "points": "13 MEX"
-        },
-        {
           "name": "J. RINDT",
           "points": null
         },
@@ -1325,10 +1277,6 @@
       "gp_name": "13. Mexique 25 oct",
       "date": "13. Mexique 25 oct",
       "drivers": [
-        {
-          "name": "1 ZAF",
-          "points": "Pts"
-        },
         {
           "name": "J. RINDT",
           "points": null

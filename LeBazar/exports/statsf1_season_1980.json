@@ -6,10 +6,6 @@
       "date": "1. Argentine 13 janv",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "2 BRA"
-        },
-        {
           "name": "A. JONES",
           "points": "9"
         },
@@ -99,10 +95,6 @@
       "gp_name": "2. Brésil 27 janv",
       "date": "2. Brésil 27 janv",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "3 ZAF"
-        },
         {
           "name": "A. JONES",
           "points": "4"
@@ -194,10 +186,6 @@
       "date": "3. Afrique du Sud 1 mars",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "4 USO"
-        },
-        {
           "name": "A. JONES",
           "points": "-"
         },
@@ -287,10 +275,6 @@
       "gp_name": "4. Etats-Unis Ouest 30 mars",
       "date": "4. Etats-Unis Ouest 30 mars",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "5 BEL"
-        },
         {
           "name": "A. JONES",
           "points": "-"
@@ -382,10 +366,6 @@
       "date": "5. Belgique 4 mai",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "6 MCO"
-        },
-        {
           "name": "A. JONES",
           "points": "6"
         },
@@ -475,10 +455,6 @@
       "gp_name": "6. Monaco 18 mai",
       "date": "6. Monaco 18 mai",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "7 FRA"
-        },
         {
           "name": "A. JONES",
           "points": "-"
@@ -570,10 +546,6 @@
       "date": "7. France 29 juin",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "8 GBR"
-        },
-        {
           "name": "A. JONES",
           "points": "9"
         },
@@ -663,10 +635,6 @@
       "gp_name": "8. Grande-Bretagne 13 juil",
       "date": "8. Grande-Bretagne 13 juil",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "9 DEU"
-        },
         {
           "name": "A. JONES",
           "points": "9"
@@ -758,10 +726,6 @@
       "date": "9. Allemagne 10 août",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "10 AUT"
-        },
-        {
           "name": "A. JONES",
           "points": "(4)"
         },
@@ -851,10 +815,6 @@
       "gp_name": "10. Autriche 17 août",
       "date": "10. Autriche 17 août",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "11 NLD"
-        },
         {
           "name": "A. JONES",
           "points": "6"
@@ -946,10 +906,6 @@
       "date": "11. Pays-Bas 31 août",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "12 ITA"
-        },
-        {
           "name": "A. JONES",
           "points": "-"
         },
@@ -1039,10 +995,6 @@
       "gp_name": "12. Italie 14 sept",
       "date": "12. Italie 14 sept",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "13 CAN"
-        },
         {
           "name": "A. JONES",
           "points": "6"
@@ -1134,10 +1086,6 @@
       "date": "13. Canada 28 sept",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "14 USA"
-        },
-        {
           "name": "A. JONES",
           "points": "9"
         },
@@ -1227,10 +1175,6 @@
       "gp_name": "14. Etats-Unis 5 oct",
       "date": "14. Etats-Unis 5 oct",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "Pts"
-        },
         {
           "name": "A. JONES",
           "points": "9"

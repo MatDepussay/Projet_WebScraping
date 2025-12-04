@@ -6,10 +6,6 @@
       "date": "1. Australie 12 mars",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "2 BRA"
-        },
-        {
           "name": "M. SCHUMACHER",
           "points": "10"
         },
@@ -107,10 +103,6 @@
       "gp_name": "2. Brésil 26 mars",
       "date": "2. Brésil 26 mars",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "3 SMR"
-        },
         {
           "name": "M. SCHUMACHER",
           "points": "10"
@@ -210,10 +202,6 @@
       "date": "3. Saint-Marin 9 avr",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "4 GBR"
-        },
-        {
           "name": "M. SCHUMACHER",
           "points": "10"
         },
@@ -311,10 +299,6 @@
       "gp_name": "4. Grande-Bretagne 23 avr",
       "date": "4. Grande-Bretagne 23 avr",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "5 ESP"
-        },
         {
           "name": "M. SCHUMACHER",
           "points": "4"
@@ -414,10 +398,6 @@
       "date": "5. Espagne 7 mai",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "6 EUR"
-        },
-        {
           "name": "M. SCHUMACHER",
           "points": "2"
         },
@@ -515,10 +495,6 @@
       "gp_name": "6. Europe 21 mai",
       "date": "6. Europe 21 mai",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "7 MCO"
-        },
         {
           "name": "M. SCHUMACHER",
           "points": "10"
@@ -618,10 +594,6 @@
       "date": "7. Monaco 4 juin",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "8 CAN"
-        },
-        {
           "name": "M. SCHUMACHER",
           "points": "-"
         },
@@ -719,10 +691,6 @@
       "gp_name": "8. Canada 18 juin",
       "date": "8. Canada 18 juin",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "9 FRA"
-        },
         {
           "name": "M. SCHUMACHER",
           "points": "10"
@@ -822,10 +790,6 @@
       "date": "9. France 2 juil",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "10 AUT"
-        },
-        {
           "name": "M. SCHUMACHER",
           "points": "-"
         },
@@ -923,10 +887,6 @@
       "gp_name": "10. Autriche 16 juil",
       "date": "10. Autriche 16 juil",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "11 DEU"
-        },
         {
           "name": "M. SCHUMACHER",
           "points": "-"
@@ -1026,10 +986,6 @@
       "date": "11. Allemagne 30 juil",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "12 HUN"
-        },
-        {
           "name": "M. SCHUMACHER",
           "points": "-"
         },
@@ -1127,10 +1083,6 @@
       "gp_name": "12. Hongrie 13 août",
       "date": "12. Hongrie 13 août",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "13 BEL"
-        },
         {
           "name": "M. SCHUMACHER",
           "points": "6"
@@ -1230,10 +1182,6 @@
       "date": "13. Belgique 27 août",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "14 ITA"
-        },
-        {
           "name": "M. SCHUMACHER",
           "points": "6"
         },
@@ -1331,10 +1279,6 @@
       "gp_name": "14. Italie 10 sept",
       "date": "14. Italie 10 sept",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "15 USA"
-        },
         {
           "name": "M. SCHUMACHER",
           "points": "10"
@@ -1434,10 +1378,6 @@
       "date": "15. Etats-Unis 24 sept",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "16 JPN"
-        },
-        {
           "name": "M. SCHUMACHER",
           "points": "10"
         },
@@ -1536,10 +1476,6 @@
       "date": "16. Japon 8 oct",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "17 MYS"
-        },
-        {
           "name": "M. SCHUMACHER",
           "points": "10"
         },
@@ -1637,10 +1573,6 @@
       "gp_name": "17. Malaisie 22 oct",
       "date": "17. Malaisie 22 oct",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": null
-        },
         {
           "name": "M. SCHUMACHER",
           "points": "10"

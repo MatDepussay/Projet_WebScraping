@@ -6,10 +6,6 @@
       "date": "1. Bahreïn 28 mars",
       "drivers": [
         {
-          "name": "1 BHR",
-          "points": "2 ERO"
-        },
-        {
           "name": "M. VERSTAPPEN",
           "points": "18"
         },
@@ -99,10 +95,6 @@
       "gp_name": "2. Émilie-Romagne 18 avr",
       "date": "2. Émilie-Romagne 18 avr",
       "drivers": [
-        {
-          "name": "1 BHR",
-          "points": "3 PRT"
-        },
         {
           "name": "M. VERSTAPPEN",
           "points": "25"
@@ -194,10 +186,6 @@
       "date": "3. Portugal 2 mai",
       "drivers": [
         {
-          "name": "1 BHR",
-          "points": "4 ESP"
-        },
-        {
           "name": "M. VERSTAPPEN",
           "points": "18"
         },
@@ -287,10 +275,6 @@
       "gp_name": "4. Espagne 9 mai",
       "date": "4. Espagne 9 mai",
       "drivers": [
-        {
-          "name": "1 BHR",
-          "points": "5 MCO"
-        },
         {
           "name": "M. VERSTAPPEN",
           "points": "19"
@@ -382,10 +366,6 @@
       "date": "5. Monaco 23 mai",
       "drivers": [
         {
-          "name": "1 BHR",
-          "points": "6 AZE"
-        },
-        {
           "name": "M. VERSTAPPEN",
           "points": "25"
         },
@@ -475,10 +455,6 @@
       "gp_name": "6. Azerbaïdjan 6 juin",
       "date": "6. Azerbaïdjan 6 juin",
       "drivers": [
-        {
-          "name": "1 BHR",
-          "points": "7 FRA"
-        },
         {
           "name": "M. VERSTAPPEN",
           "points": "-"
@@ -570,10 +546,6 @@
       "date": "7. France 20 juin",
       "drivers": [
         {
-          "name": "1 BHR",
-          "points": "8 STY"
-        },
-        {
           "name": "M. VERSTAPPEN",
           "points": "26"
         },
@@ -663,10 +635,6 @@
       "gp_name": "8. Styrie 27 juin",
       "date": "8. Styrie 27 juin",
       "drivers": [
-        {
-          "name": "1 BHR",
-          "points": "9 AUT"
-        },
         {
           "name": "M. VERSTAPPEN",
           "points": "25"
@@ -758,10 +726,6 @@
       "date": "9. Autriche 4 juil",
       "drivers": [
         {
-          "name": "1 BHR",
-          "points": "10 GBR"
-        },
-        {
           "name": "M. VERSTAPPEN",
           "points": "26"
         },
@@ -851,10 +815,6 @@
       "gp_name": "10. Grande-Bretagne • 18 juil",
       "date": "10. Grande-Bretagne • 18 juil",
       "drivers": [
-        {
-          "name": "1 BHR",
-          "points": "11 HUN"
-        },
         {
           "name": "M. VERSTAPPEN",
           "points": "3"
@@ -946,10 +906,6 @@
       "date": "11. Hongrie 1 août",
       "drivers": [
         {
-          "name": "1 BHR",
-          "points": "12 BEL"
-        },
-        {
           "name": "M. VERSTAPPEN",
           "points": "2"
         },
@@ -1039,10 +995,6 @@
       "gp_name": "12. Belgique 29 août",
       "date": "12. Belgique 29 août",
       "drivers": [
-        {
-          "name": "1 BHR",
-          "points": "13 NLD"
-        },
         {
           "name": "M. VERSTAPPEN",
           "points": "12,5"
@@ -1134,10 +1086,6 @@
       "date": "13. Pays-Bas 5 sept",
       "drivers": [
         {
-          "name": "1 BHR",
-          "points": "14 ITA"
-        },
-        {
           "name": "M. VERSTAPPEN",
           "points": "25"
         },
@@ -1227,10 +1175,6 @@
       "gp_name": "14. Italie • 12 sept",
       "date": "14. Italie • 12 sept",
       "drivers": [
-        {
-          "name": "1 BHR",
-          "points": "15 RUS"
-        },
         {
           "name": "M. VERSTAPPEN",
           "points": "2"
@@ -1322,10 +1266,6 @@
       "date": "15. Russie 26 sept",
       "drivers": [
         {
-          "name": "1 BHR",
-          "points": "16 TUR"
-        },
-        {
           "name": "M. VERSTAPPEN",
           "points": "18"
         },
@@ -1415,10 +1355,6 @@
       "gp_name": "16. Turquie 10 oct",
       "date": "16. Turquie 10 oct",
       "drivers": [
-        {
-          "name": "1 BHR",
-          "points": "17 USA"
-        },
         {
           "name": "M. VERSTAPPEN",
           "points": "18"
@@ -1510,10 +1446,6 @@
       "date": "17. Etats-Unis 24 oct",
       "drivers": [
         {
-          "name": "1 BHR",
-          "points": "18 MXC"
-        },
-        {
           "name": "M. VERSTAPPEN",
           "points": "25"
         },
@@ -1603,10 +1535,6 @@
       "gp_name": "18. Mexico City 7 nov",
       "date": "18. Mexico City 7 nov",
       "drivers": [
-        {
-          "name": "1 BHR",
-          "points": "19 SAO"
-        },
         {
           "name": "M. VERSTAPPEN",
           "points": "25"
@@ -1698,10 +1626,6 @@
       "date": "19. São Paulo • 14 nov",
       "drivers": [
         {
-          "name": "1 BHR",
-          "points": "20 QAT"
-        },
-        {
           "name": "M. VERSTAPPEN",
           "points": "20"
         },
@@ -1791,10 +1715,6 @@
       "gp_name": "20. Qatar 21 nov",
       "date": "20. Qatar 21 nov",
       "drivers": [
-        {
-          "name": "1 BHR",
-          "points": "21 SAU"
-        },
         {
           "name": "M. VERSTAPPEN",
           "points": "19"
@@ -1886,10 +1806,6 @@
       "date": "21. Arabie saoudite 5 déc",
       "drivers": [
         {
-          "name": "1 BHR",
-          "points": "22 ABD"
-        },
-        {
           "name": "M. VERSTAPPEN",
           "points": "18"
         },
@@ -1979,10 +1895,6 @@
       "gp_name": "22. Abou Dhabi 12 déc",
       "date": "22. Abou Dhabi 12 déc",
       "drivers": [
-        {
-          "name": "1 BHR",
-          "points": null
-        },
         {
           "name": "M. VERSTAPPEN",
           "points": "26"

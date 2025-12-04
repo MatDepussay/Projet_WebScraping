@@ -6,10 +6,6 @@
       "date": "1. Afrique du Sud 1 mars",
       "drivers": [
         {
-          "name": "1 ZAF",
-          "points": "2 MEX"
-        },
-        {
           "name": "N. MANSELL",
           "points": "10"
         },
@@ -91,10 +87,6 @@
       "gp_name": "2. Mexique 22 mars",
       "date": "2. Mexique 22 mars",
       "drivers": [
-        {
-          "name": "1 ZAF",
-          "points": "3 BRA"
-        },
         {
           "name": "N. MANSELL",
           "points": "10"
@@ -178,10 +170,6 @@
       "date": "3. Brésil 5 avr",
       "drivers": [
         {
-          "name": "1 ZAF",
-          "points": "4 ESP"
-        },
-        {
           "name": "N. MANSELL",
           "points": "10"
         },
@@ -263,10 +251,6 @@
       "gp_name": "4. Espagne 3 mai",
       "date": "4. Espagne 3 mai",
       "drivers": [
-        {
-          "name": "1 ZAF",
-          "points": "5 SMR"
-        },
         {
           "name": "N. MANSELL",
           "points": "10"
@@ -350,10 +334,6 @@
       "date": "5. Saint-Marin 17 mai",
       "drivers": [
         {
-          "name": "1 ZAF",
-          "points": "6 MCO"
-        },
-        {
           "name": "N. MANSELL",
           "points": "10"
         },
@@ -435,10 +415,6 @@
       "gp_name": "6. Monaco 31 mai",
       "date": "6. Monaco 31 mai",
       "drivers": [
-        {
-          "name": "1 ZAF",
-          "points": "7 CAN"
-        },
         {
           "name": "N. MANSELL",
           "points": "6"
@@ -522,10 +498,6 @@
       "date": "7. Canada 14 juin",
       "drivers": [
         {
-          "name": "1 ZAF",
-          "points": "8 FRA"
-        },
-        {
           "name": "N. MANSELL",
           "points": "-"
         },
@@ -607,10 +579,6 @@
       "gp_name": "8. France 5 juil",
       "date": "8. France 5 juil",
       "drivers": [
-        {
-          "name": "1 ZAF",
-          "points": "9 GBR"
-        },
         {
           "name": "N. MANSELL",
           "points": "10"
@@ -694,10 +662,6 @@
       "date": "9. Grande-Bretagne 12 juil",
       "drivers": [
         {
-          "name": "1 ZAF",
-          "points": "10 DEU"
-        },
-        {
           "name": "N. MANSELL",
           "points": "10"
         },
@@ -779,10 +743,6 @@
       "gp_name": "10. Allemagne 26 juil",
       "date": "10. Allemagne 26 juil",
       "drivers": [
-        {
-          "name": "1 ZAF",
-          "points": "11 HUN"
-        },
         {
           "name": "N. MANSELL",
           "points": "10"
@@ -866,10 +826,6 @@
       "date": "11. Hongrie 16 août",
       "drivers": [
         {
-          "name": "1 ZAF",
-          "points": "12 BEL"
-        },
-        {
           "name": "N. MANSELL",
           "points": "6"
         },
@@ -951,10 +907,6 @@
       "gp_name": "12. Belgique 30 août",
       "date": "12. Belgique 30 août",
       "drivers": [
-        {
-          "name": "1 ZAF",
-          "points": "13 ITA"
-        },
         {
           "name": "N. MANSELL",
           "points": "6"
@@ -1038,10 +990,6 @@
       "date": "13. Italie 13 sept",
       "drivers": [
         {
-          "name": "1 ZAF",
-          "points": "14 PRT"
-        },
-        {
           "name": "N. MANSELL",
           "points": "-"
         },
@@ -1123,10 +1071,6 @@
       "gp_name": "14. Portugal 27 sept",
       "date": "14. Portugal 27 sept",
       "drivers": [
-        {
-          "name": "1 ZAF",
-          "points": "15 JPN"
-        },
         {
           "name": "N. MANSELL",
           "points": "10"
@@ -1210,10 +1154,6 @@
       "date": "15. Japon 25 oct",
       "drivers": [
         {
-          "name": "1 ZAF",
-          "points": "16 AUS"
-        },
-        {
           "name": "N. MANSELL",
           "points": "-"
         },
@@ -1295,10 +1235,6 @@
       "gp_name": "16. Australie 8 nov",
       "date": "16. Australie 8 nov",
       "drivers": [
-        {
-          "name": "1 ZAF",
-          "points": null
-        },
         {
           "name": "N. MANSELL",
           "points": "-"

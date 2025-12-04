@@ -6,10 +6,6 @@
       "date": "1. Afrique du Sud 14 mars",
       "drivers": [
         {
-          "name": "1 ZAF",
-          "points": "2 BRA"
-        },
-        {
           "name": "A. PROST",
           "points": "10"
         },
@@ -103,10 +99,6 @@
       "gp_name": "2. Brésil 28 mars",
       "date": "2. Brésil 28 mars",
       "drivers": [
-        {
-          "name": "1 ZAF",
-          "points": "3 EUR"
-        },
         {
           "name": "A. PROST",
           "points": "-"
@@ -202,10 +194,6 @@
       "date": "3. Europe 11 avr",
       "drivers": [
         {
-          "name": "1 ZAF",
-          "points": "4 SMR"
-        },
-        {
           "name": "A. PROST",
           "points": "4"
         },
@@ -299,10 +287,6 @@
       "gp_name": "4. Saint-Marin 25 avr",
       "date": "4. Saint-Marin 25 avr",
       "drivers": [
-        {
-          "name": "1 ZAF",
-          "points": "5 ESP"
-        },
         {
           "name": "A. PROST",
           "points": "10"
@@ -398,10 +382,6 @@
       "date": "5. Espagne 9 mai",
       "drivers": [
         {
-          "name": "1 ZAF",
-          "points": "6 MCO"
-        },
-        {
           "name": "A. PROST",
           "points": "10"
         },
@@ -495,10 +475,6 @@
       "gp_name": "6. Monaco 23 mai",
       "date": "6. Monaco 23 mai",
       "drivers": [
-        {
-          "name": "1 ZAF",
-          "points": "7 CAN"
-        },
         {
           "name": "A. PROST",
           "points": "3"
@@ -594,10 +570,6 @@
       "date": "7. Canada 13 juin",
       "drivers": [
         {
-          "name": "1 ZAF",
-          "points": "8 FRA"
-        },
-        {
           "name": "A. PROST",
           "points": "10"
         },
@@ -691,10 +663,6 @@
       "gp_name": "8. France 4 juil",
       "date": "8. France 4 juil",
       "drivers": [
-        {
-          "name": "1 ZAF",
-          "points": "9 GBR"
-        },
         {
           "name": "A. PROST",
           "points": "10"
@@ -790,10 +758,6 @@
       "date": "9. Grande-Bretagne 11 juil",
       "drivers": [
         {
-          "name": "1 ZAF",
-          "points": "10 DEU"
-        },
-        {
           "name": "A. PROST",
           "points": "10"
         },
@@ -887,10 +851,6 @@
       "gp_name": "10. Allemagne 25 juil",
       "date": "10. Allemagne 25 juil",
       "drivers": [
-        {
-          "name": "1 ZAF",
-          "points": "11 HUN"
-        },
         {
           "name": "A. PROST",
           "points": "10"
@@ -986,10 +946,6 @@
       "date": "11. Hongrie 15 août",
       "drivers": [
         {
-          "name": "1 ZAF",
-          "points": "12 BEL"
-        },
-        {
           "name": "A. PROST",
           "points": "-"
         },
@@ -1083,10 +1039,6 @@
       "gp_name": "12. Belgique 29 août",
       "date": "12. Belgique 29 août",
       "drivers": [
-        {
-          "name": "1 ZAF",
-          "points": "13 ITA"
-        },
         {
           "name": "A. PROST",
           "points": "4"
@@ -1182,10 +1134,6 @@
       "date": "13. Italie 12 sept",
       "drivers": [
         {
-          "name": "1 ZAF",
-          "points": "14 PRT"
-        },
-        {
           "name": "A. PROST",
           "points": "-"
         },
@@ -1279,10 +1227,6 @@
       "gp_name": "14. Portugal 26 sept",
       "date": "14. Portugal 26 sept",
       "drivers": [
-        {
-          "name": "1 ZAF",
-          "points": "15 JPN"
-        },
         {
           "name": "A. PROST",
           "points": "6"
@@ -1378,10 +1322,6 @@
       "date": "15. Japon 24 oct",
       "drivers": [
         {
-          "name": "1 ZAF",
-          "points": "16 AUS"
-        },
-        {
           "name": "A. PROST",
           "points": "6"
         },
@@ -1475,10 +1415,6 @@
       "gp_name": "16. Australie 7 nov",
       "date": "16. Australie 7 nov",
       "drivers": [
-        {
-          "name": "1 ZAF",
-          "points": null
-        },
         {
           "name": "A. PROST",
           "points": "6"

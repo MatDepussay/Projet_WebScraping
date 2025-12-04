@@ -6,10 +6,6 @@
       "date": "1. Argentine 21 janv",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "2 BRA"
-        },
-        {
           "name": "J. SCHECKTER",
           "points": "-"
         },
@@ -99,10 +95,6 @@
       "gp_name": "2. Brésil 4 févr",
       "date": "2. Brésil 4 févr",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "3 ZAF"
-        },
         {
           "name": "J. SCHECKTER",
           "points": "(1)"
@@ -194,10 +186,6 @@
       "date": "3. Afrique du Sud 3 mars",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "4 USO"
-        },
-        {
           "name": "J. SCHECKTER",
           "points": "6"
         },
@@ -287,10 +275,6 @@
       "gp_name": "4. Etats-Unis Ouest 8 avr",
       "date": "4. Etats-Unis Ouest 8 avr",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "5 ESP"
-        },
         {
           "name": "J. SCHECKTER",
           "points": "6"
@@ -382,10 +366,6 @@
       "date": "5. Espagne 29 avr",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "6 BEL"
-        },
-        {
           "name": "J. SCHECKTER",
           "points": "(3)"
         },
@@ -475,10 +455,6 @@
       "gp_name": "6. Belgique 13 mai",
       "date": "6. Belgique 13 mai",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "7 MCO"
-        },
         {
           "name": "J. SCHECKTER",
           "points": "9"
@@ -570,10 +546,6 @@
       "date": "7. Monaco 27 mai",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "8 FRA"
-        },
-        {
           "name": "J. SCHECKTER",
           "points": "9"
         },
@@ -663,10 +635,6 @@
       "gp_name": "8. France 1 juil",
       "date": "8. France 1 juil",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "9 GBR"
-        },
         {
           "name": "J. SCHECKTER",
           "points": "-"
@@ -758,10 +726,6 @@
       "date": "9. Grande-Bretagne 14 juil",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "10 DEU"
-        },
-        {
           "name": "J. SCHECKTER",
           "points": "(2)"
         },
@@ -851,10 +815,6 @@
       "gp_name": "10. Allemagne 29 juil",
       "date": "10. Allemagne 29 juil",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "11 AUT"
-        },
         {
           "name": "J. SCHECKTER",
           "points": "3"
@@ -946,10 +906,6 @@
       "date": "11. Autriche 12 août",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "12 NLD"
-        },
-        {
           "name": "J. SCHECKTER",
           "points": "3"
         },
@@ -1039,10 +995,6 @@
       "gp_name": "12. Pays-Bas 26 août",
       "date": "12. Pays-Bas 26 août",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "13 ITA"
-        },
         {
           "name": "J. SCHECKTER",
           "points": "6"
@@ -1134,10 +1086,6 @@
       "date": "13. Italie 9 sept",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "14 CAN"
-        },
-        {
           "name": "J. SCHECKTER",
           "points": "9"
         },
@@ -1228,10 +1176,6 @@
       "date": "14. Canada 30 sept",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "15 USA"
-        },
-        {
           "name": "J. SCHECKTER",
           "points": "(3)"
         },
@@ -1321,10 +1265,6 @@
       "gp_name": "15. Etats-Unis 7 oct",
       "date": "15. Etats-Unis 7 oct",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "Pts"
-        },
         {
           "name": "J. SCHECKTER",
           "points": "-"

@@ -192,6 +192,9 @@ def parse_champ_table(soup: BS, table_id: str) -> Dict:
 
     # Parse data rows
     for tr in tbl.find_all("tr"):
+        # skip the header row we detected earlier
+        if header_row is not None and tr is header_row:
+            continue
         tds = tr.find_all("td")
         if not tds:
             continue

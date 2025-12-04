@@ -6,10 +6,6 @@
       "date": "1. Argentine 13 janv",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "2 BRA"
-        },
-        {
           "name": "E. FITTIPALDI",
           "points": "-"
         },
@@ -95,10 +91,6 @@
       "gp_name": "2. Brésil 27 janv",
       "date": "2. Brésil 27 janv",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "3 ZAF"
-        },
         {
           "name": "E. FITTIPALDI",
           "points": "9"
@@ -186,10 +178,6 @@
       "date": "3. Afrique du Sud 30 mars",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "4 ESP"
-        },
-        {
           "name": "E. FITTIPALDI",
           "points": "-"
         },
@@ -275,10 +263,6 @@
       "gp_name": "4. Espagne 28 avr",
       "date": "4. Espagne 28 avr",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "5 BEL"
-        },
         {
           "name": "E. FITTIPALDI",
           "points": "4"
@@ -366,10 +350,6 @@
       "date": "5. Belgique 12 mai",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "6 MCO"
-        },
-        {
           "name": "E. FITTIPALDI",
           "points": "9"
         },
@@ -455,10 +435,6 @@
       "gp_name": "6. Monaco 26 mai",
       "date": "6. Monaco 26 mai",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "7 SWE"
-        },
         {
           "name": "E. FITTIPALDI",
           "points": "2"
@@ -546,10 +522,6 @@
       "date": "7. Suède 9 juin",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "8 NLD"
-        },
-        {
           "name": "E. FITTIPALDI",
           "points": "3"
         },
@@ -635,10 +607,6 @@
       "gp_name": "8. Pays-Bas 23 juin",
       "date": "8. Pays-Bas 23 juin",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "9 FRA"
-        },
         {
           "name": "E. FITTIPALDI",
           "points": "4"
@@ -726,10 +694,6 @@
       "date": "9. France 7 juil",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "10 GBR"
-        },
-        {
           "name": "E. FITTIPALDI",
           "points": "-"
         },
@@ -815,10 +779,6 @@
       "gp_name": "10. Grande-Bretagne 20 juil",
       "date": "10. Grande-Bretagne 20 juil",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "11 DEU"
-        },
         {
           "name": "E. FITTIPALDI",
           "points": "6"
@@ -906,10 +866,6 @@
       "date": "11. Allemagne 4 août",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "12 AUT"
-        },
-        {
           "name": "E. FITTIPALDI",
           "points": "-"
         },
@@ -995,10 +951,6 @@
       "gp_name": "12. Autriche 18 août",
       "date": "12. Autriche 18 août",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "13 ITA"
-        },
         {
           "name": "E. FITTIPALDI",
           "points": "-"
@@ -1086,10 +1038,6 @@
       "date": "13. Italie 8 sept",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "14 CAN"
-        },
-        {
           "name": "E. FITTIPALDI",
           "points": "6"
         },
@@ -1176,10 +1124,6 @@
       "date": "14. Canada 22 sept",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "15 USA"
-        },
-        {
           "name": "E. FITTIPALDI",
           "points": "9"
         },
@@ -1265,10 +1209,6 @@
       "gp_name": "15. Etats-Unis 6 oct",
       "date": "15. Etats-Unis 6 oct",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "Pts"
-        },
         {
           "name": "E. FITTIPALDI",
           "points": "3"

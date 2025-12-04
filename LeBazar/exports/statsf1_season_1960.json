@@ -6,10 +6,6 @@
       "date": "1. Argentine 7 févr",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "2 MCO"
-        },
-        {
           "name": "J. BRABHAM",
           "points": "-"
         },
@@ -123,10 +119,6 @@
       "gp_name": "2. Monaco 29 mai",
       "date": "2. Monaco 29 mai",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "3 500"
-        },
         {
           "name": "J. BRABHAM",
           "points": "-"
@@ -242,10 +234,6 @@
       "date": "3. Indianapolis 30 mai",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "4 NLD"
-        },
-        {
           "name": "J. BRABHAM",
           "points": null
         },
@@ -359,10 +347,6 @@
       "gp_name": "4. Pays-Bas 6 juin",
       "date": "4. Pays-Bas 6 juin",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "5 BEL"
-        },
         {
           "name": "J. BRABHAM",
           "points": "8"
@@ -478,10 +462,6 @@
       "date": "5. Belgique 19 juin",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "6 FRA"
-        },
-        {
           "name": "J. BRABHAM",
           "points": "8"
         },
@@ -595,10 +575,6 @@
       "gp_name": "6. France 3 juil",
       "date": "6. France 3 juil",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "7 GBR"
-        },
         {
           "name": "J. BRABHAM",
           "points": "8"
@@ -714,10 +690,6 @@
       "date": "7. Grande-Bretagne 16 juil",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "8 PRT"
-        },
-        {
           "name": "J. BRABHAM",
           "points": "8"
         },
@@ -831,10 +803,6 @@
       "gp_name": "8. Portugal 14 août",
       "date": "8. Portugal 14 août",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "9 ITA"
-        },
         {
           "name": "J. BRABHAM",
           "points": "8"
@@ -950,10 +918,6 @@
       "date": "9. Italie 4 sept",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "10 USA"
-        },
-        {
           "name": "J. BRABHAM",
           "points": null
         },
@@ -1067,10 +1031,6 @@
       "gp_name": "10. Etats-Unis 20 nov",
       "date": "10. Etats-Unis 20 nov",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "Pts"
-        },
         {
           "name": "J. BRABHAM",
           "points": "3"

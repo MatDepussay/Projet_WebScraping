@@ -6,10 +6,6 @@
       "date": "1. Grande-Bretagne 13 mai",
       "drivers": [
         {
-          "name": "1 GBR",
-          "points": "2 MCO"
-        },
-        {
           "name": "G. FARINA",
           "points": "9"
         },
@@ -103,10 +99,6 @@
       "gp_name": "2. Monaco 21 mai",
       "date": "2. Monaco 21 mai",
       "drivers": [
-        {
-          "name": "1 GBR",
-          "points": "3 500"
-        },
         {
           "name": "G. FARINA",
           "points": "-"
@@ -202,10 +194,6 @@
       "date": "3. Indianapolis 30 mai",
       "drivers": [
         {
-          "name": "1 GBR",
-          "points": "4 CHE"
-        },
-        {
           "name": "G. FARINA",
           "points": null
         },
@@ -299,10 +287,6 @@
       "gp_name": "4. Suisse 4 juin",
       "date": "4. Suisse 4 juin",
       "drivers": [
-        {
-          "name": "1 GBR",
-          "points": "5 BEL"
-        },
         {
           "name": "G. FARINA",
           "points": "9"
@@ -398,10 +382,6 @@
       "date": "5. Belgique 18 juin",
       "drivers": [
         {
-          "name": "1 GBR",
-          "points": "6 FRA"
-        },
-        {
           "name": "G. FARINA",
           "points": "4"
         },
@@ -496,10 +476,6 @@
       "date": "6. France 2 juil",
       "drivers": [
         {
-          "name": "1 GBR",
-          "points": "7 ITA"
-        },
-        {
           "name": "G. FARINA",
           "points": "-"
         },
@@ -593,10 +569,6 @@
       "gp_name": "7. Italie 3 sept",
       "date": "7. Italie 3 sept",
       "drivers": [
-        {
-          "name": "1 GBR",
-          "points": "Pts"
-        },
         {
           "name": "G. FARINA",
           "points": "8"

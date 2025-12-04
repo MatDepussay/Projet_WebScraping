@@ -6,10 +6,6 @@
       "date": "1. Australie 9 mars",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "2 MYS"
-        },
-        {
           "name": "M. SCHUMACHER",
           "points": "5"
         },
@@ -111,10 +107,6 @@
       "gp_name": "2. Malaisie 23 mars",
       "date": "2. Malaisie 23 mars",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "3 BRA"
-        },
         {
           "name": "M. SCHUMACHER",
           "points": "3"
@@ -218,10 +210,6 @@
       "date": "3. Brésil 6 avr",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "4 SMR"
-        },
-        {
           "name": "M. SCHUMACHER",
           "points": "-"
         },
@@ -323,10 +311,6 @@
       "gp_name": "4. Saint-Marin 20 avr",
       "date": "4. Saint-Marin 20 avr",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "5 ESP"
-        },
         {
           "name": "M. SCHUMACHER",
           "points": "10"
@@ -430,10 +414,6 @@
       "date": "5. Espagne 4 mai",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "6 AUT"
-        },
-        {
           "name": "M. SCHUMACHER",
           "points": "10"
         },
@@ -535,10 +515,6 @@
       "gp_name": "6. Autriche 18 mai",
       "date": "6. Autriche 18 mai",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "7 MCO"
-        },
         {
           "name": "M. SCHUMACHER",
           "points": "10"
@@ -642,10 +618,6 @@
       "date": "7. Monaco 1 juin",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "8 CAN"
-        },
-        {
           "name": "M. SCHUMACHER",
           "points": "6"
         },
@@ -747,10 +719,6 @@
       "gp_name": "8. Canada 15 juin",
       "date": "8. Canada 15 juin",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "9 EUR"
-        },
         {
           "name": "M. SCHUMACHER",
           "points": "10"
@@ -854,10 +822,6 @@
       "date": "9. Europe 29 juin",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "10 FRA"
-        },
-        {
           "name": "M. SCHUMACHER",
           "points": "4"
         },
@@ -959,10 +923,6 @@
       "gp_name": "10. France 6 juil",
       "date": "10. France 6 juil",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "11 GBR"
-        },
         {
           "name": "M. SCHUMACHER",
           "points": "6"
@@ -1066,10 +1026,6 @@
       "date": "11. Grande-Bretagne 20 juil",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "12 DEU"
-        },
-        {
           "name": "M. SCHUMACHER",
           "points": "5"
         },
@@ -1171,10 +1127,6 @@
       "gp_name": "12. Allemagne 3 août",
       "date": "12. Allemagne 3 août",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "13 HUN"
-        },
         {
           "name": "M. SCHUMACHER",
           "points": "2"
@@ -1278,10 +1230,6 @@
       "date": "13. Hongrie 24 août",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "14 ITA"
-        },
-        {
           "name": "M. SCHUMACHER",
           "points": "1"
         },
@@ -1383,10 +1331,6 @@
       "gp_name": "14. Italie 14 sept",
       "date": "14. Italie 14 sept",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "15 USA"
-        },
         {
           "name": "M. SCHUMACHER",
           "points": "10"
@@ -1490,10 +1434,6 @@
       "date": "15. Etats-Unis 28 sept",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "16 JPN"
-        },
-        {
           "name": "M. SCHUMACHER",
           "points": "10"
         },
@@ -1595,10 +1535,6 @@
       "gp_name": "16. Japon 12 oct",
       "date": "16. Japon 12 oct",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": null
-        },
         {
           "name": "M. SCHUMACHER",
           "points": "1"

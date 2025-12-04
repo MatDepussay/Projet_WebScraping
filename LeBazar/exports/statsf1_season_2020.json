@@ -6,10 +6,6 @@
       "date": "1. Autriche 5 juil",
       "drivers": [
         {
-          "name": "1 AUT",
-          "points": "2 STY"
-        },
-        {
           "name": "L. HAMILTON",
           "points": "12"
         },
@@ -107,10 +103,6 @@
       "gp_name": "2. Styrie 12 juil",
       "date": "2. Styrie 12 juil",
       "drivers": [
-        {
-          "name": "1 AUT",
-          "points": "3 HUN"
-        },
         {
           "name": "L. HAMILTON",
           "points": "25"
@@ -210,10 +202,6 @@
       "date": "3. Hongrie 19 juil",
       "drivers": [
         {
-          "name": "1 AUT",
-          "points": "4 GBR"
-        },
-        {
           "name": "L. HAMILTON",
           "points": "26"
         },
@@ -311,10 +299,6 @@
       "gp_name": "4. Grande-Bretagne 2 août",
       "date": "4. Grande-Bretagne 2 août",
       "drivers": [
-        {
-          "name": "1 AUT",
-          "points": "5 70"
-        },
         {
           "name": "L. HAMILTON",
           "points": "25"
@@ -414,10 +398,6 @@
       "date": "5. 70e Anniversaire 9 août",
       "drivers": [
         {
-          "name": "1 AUT",
-          "points": "6 ESP"
-        },
-        {
           "name": "L. HAMILTON",
           "points": "19"
         },
@@ -515,10 +495,6 @@
       "gp_name": "6. Espagne 16 août",
       "date": "6. Espagne 16 août",
       "drivers": [
-        {
-          "name": "1 AUT",
-          "points": "7 BEL"
-        },
         {
           "name": "L. HAMILTON",
           "points": "25"
@@ -618,10 +594,6 @@
       "date": "7. Belgique 30 août",
       "drivers": [
         {
-          "name": "1 AUT",
-          "points": "8 ITA"
-        },
-        {
           "name": "L. HAMILTON",
           "points": "25"
         },
@@ -719,10 +691,6 @@
       "gp_name": "8. Italie 6 sept",
       "date": "8. Italie 6 sept",
       "drivers": [
-        {
-          "name": "1 AUT",
-          "points": "9 TOS"
-        },
         {
           "name": "L. HAMILTON",
           "points": "7"
@@ -822,10 +790,6 @@
       "date": "9. Toscane 13 sept",
       "drivers": [
         {
-          "name": "1 AUT",
-          "points": "10 RUS"
-        },
-        {
           "name": "L. HAMILTON",
           "points": "26"
         },
@@ -923,10 +887,6 @@
       "gp_name": "10. Russie 27 sept",
       "date": "10. Russie 27 sept",
       "drivers": [
-        {
-          "name": "1 AUT",
-          "points": "11 EIF"
-        },
         {
           "name": "L. HAMILTON",
           "points": "15"
@@ -1026,10 +986,6 @@
       "date": "11. Eifel 11 oct",
       "drivers": [
         {
-          "name": "1 AUT",
-          "points": "12 PRT"
-        },
-        {
           "name": "L. HAMILTON",
           "points": "25"
         },
@@ -1127,10 +1083,6 @@
       "gp_name": "12. Portugal 25 oct",
       "date": "12. Portugal 25 oct",
       "drivers": [
-        {
-          "name": "1 AUT",
-          "points": "13 ERO"
-        },
         {
           "name": "L. HAMILTON",
           "points": "26"
@@ -1230,10 +1182,6 @@
       "date": "13. Émilie-Romagne 1 nov",
       "drivers": [
         {
-          "name": "1 AUT",
-          "points": "14 TUR"
-        },
-        {
           "name": "L. HAMILTON",
           "points": "26"
         },
@@ -1331,10 +1279,6 @@
       "gp_name": "14. Turquie 15 nov",
       "date": "14. Turquie 15 nov",
       "drivers": [
-        {
-          "name": "1 AUT",
-          "points": "15 BHR"
-        },
         {
           "name": "L. HAMILTON",
           "points": "25"
@@ -1434,10 +1378,6 @@
       "date": "15. Bahreïn 29 nov",
       "drivers": [
         {
-          "name": "1 AUT",
-          "points": "16 SAK"
-        },
-        {
           "name": "L. HAMILTON",
           "points": "25"
         },
@@ -1536,10 +1476,6 @@
       "date": "16. Sakhir 6 déc",
       "drivers": [
         {
-          "name": "1 AUT",
-          "points": "17 ABD"
-        },
-        {
           "name": "L. HAMILTON",
           "points": null
         },
@@ -1637,10 +1573,6 @@
       "gp_name": "17. Abou Dhabi 13 déc",
       "date": "17. Abou Dhabi 13 déc",
       "drivers": [
-        {
-          "name": "1 AUT",
-          "points": null
-        },
         {
           "name": "L. HAMILTON",
           "points": "15"

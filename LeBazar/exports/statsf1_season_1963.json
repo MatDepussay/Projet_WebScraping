@@ -6,10 +6,6 @@
       "date": "1. Monaco 26 mai",
       "drivers": [
         {
-          "name": "1 MCO",
-          "points": "2 BEL"
-        },
-        {
           "name": "J. CLARK",
           "points": "-"
         },
@@ -83,10 +79,6 @@
       "gp_name": "2. Belgique 9 juin",
       "date": "2. Belgique 9 juin",
       "drivers": [
-        {
-          "name": "1 MCO",
-          "points": "3 NLD"
-        },
         {
           "name": "J. CLARK",
           "points": "9"
@@ -162,10 +154,6 @@
       "date": "3. Pays-Bas 23 juin",
       "drivers": [
         {
-          "name": "1 MCO",
-          "points": "4 FRA"
-        },
-        {
           "name": "J. CLARK",
           "points": "9"
         },
@@ -239,10 +227,6 @@
       "gp_name": "4. France 30 juin",
       "date": "4. France 30 juin",
       "drivers": [
-        {
-          "name": "1 MCO",
-          "points": "5 GBR"
-        },
         {
           "name": "J. CLARK",
           "points": "9"
@@ -318,10 +302,6 @@
       "date": "5. Grande-Bretagne 20 juil",
       "drivers": [
         {
-          "name": "1 MCO",
-          "points": "6 DEU"
-        },
-        {
           "name": "J. CLARK",
           "points": "9"
         },
@@ -395,10 +375,6 @@
       "gp_name": "6. Allemagne 4 août",
       "date": "6. Allemagne 4 août",
       "drivers": [
-        {
-          "name": "1 MCO",
-          "points": "7 ITA"
-        },
         {
           "name": "J. CLARK",
           "points": "(6)"
@@ -474,10 +450,6 @@
       "date": "7. Italie 8 sept",
       "drivers": [
         {
-          "name": "1 MCO",
-          "points": "8 USA"
-        },
-        {
           "name": "J. CLARK",
           "points": "9"
         },
@@ -551,10 +523,6 @@
       "gp_name": "8. Etats-Unis 6 oct",
       "date": "8. Etats-Unis 6 oct",
       "drivers": [
-        {
-          "name": "1 MCO",
-          "points": "9 MEX"
-        },
         {
           "name": "J. CLARK",
           "points": "(4)"
@@ -630,10 +598,6 @@
       "date": "9. Mexique 27 oct",
       "drivers": [
         {
-          "name": "1 MCO",
-          "points": "10 ZAF"
-        },
-        {
           "name": "J. CLARK",
           "points": "9"
         },
@@ -707,10 +671,6 @@
       "gp_name": "10. Afrique du Sud 28 déc",
       "date": "10. Afrique du Sud 28 déc",
       "drivers": [
-        {
-          "name": "1 MCO",
-          "points": "Pts"
-        },
         {
           "name": "J. CLARK",
           "points": "(9)"
