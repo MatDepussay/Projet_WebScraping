@@ -1590,6 +1590,112 @@
           "points": null
         }
       ]
+    },
+    {
+      "gp_name": "16. Japon 12 oct",
+      "date": "16. Japon 12 oct",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": null
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "1"
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "8"
+        },
+        {
+          "name": "J. MONTOYA",
+          "points": "-"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "10"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "-"
+        },
+        {
+          "name": "F. ALONSO",
+          "points": "-"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "6"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "4"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "5"
+        },
+        {
+          "name": "M. WEBBER",
+          "points": "-"
+        },
+        {
+          "name": "H. FRENTZEN",
+          "points": "-"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "-"
+        },
+        {
+          "name": "C. da MATTA",
+          "points": "2"
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "-"
+        },
+        {
+          "name": "O. PANIS",
+          "points": "-"
+        },
+        {
+          "name": "J. VILLENEUVE",
+          "points": null
+        },
+        {
+          "name": "M. GENE",
+          "points": null
+        },
+        {
+          "name": "T. SATO",
+          "points": "3"
+        },
+        {
+          "name": "R. FIRMAN",
+          "points": "-"
+        },
+        {
+          "name": "J. WILSON",
+          "points": "-"
+        },
+        {
+          "name": "A. PIZZONIA",
+          "points": null
+        },
+        {
+          "name": "J. VERSTAPPEN",
+          "points": "-"
+        },
+        {
+          "name": "N. KIESA",
+          "points": "-"
+        },
+        {
+          "name": "Z. BAUMGARTNER",
+          "points": null
+        }
+      ]
     }
   ]
 }

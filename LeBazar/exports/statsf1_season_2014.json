@@ -1836,6 +1836,108 @@
           "points": null
         }
       ]
+    },
+    {
+      "gp_name": "19. Abou Dhabi 23 nov",
+      "date": "19. Abou Dhabi 23 nov",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": null
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "50"
+        },
+        {
+          "name": "N. ROSBERG",
+          "points": "-"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": "24"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "30"
+        },
+        {
+          "name": "S. VETTEL",
+          "points": "8"
+        },
+        {
+          "name": "F. ALONSO",
+          "points": "4"
+        },
+        {
+          "name": "F. MASSA",
+          "points": "36"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "20"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": "16"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "12"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "-"
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "2"
+        },
+        {
+          "name": "J. VERGNE",
+          "points": "-"
+        },
+        {
+          "name": "R. GROSJEAN",
+          "points": "-"
+        },
+        {
+          "name": "D. KVYAT",
+          "points": "-"
+        },
+        {
+          "name": "P. MALDONADO",
+          "points": "-"
+        },
+        {
+          "name": "J. BIANCHI",
+          "points": null
+        },
+        {
+          "name": "A. SUTIL",
+          "points": "-"
+        },
+        {
+          "name": "M. ERICSSON",
+          "points": null
+        },
+        {
+          "name": "E. GUTIERREZ",
+          "points": "-"
+        },
+        {
+          "name": "M. CHILTON",
+          "points": null
+        },
+        {
+          "name": "K. KOBAYASHI",
+          "points": "-"
+        },
+        {
+          "name": "W. STEVENS",
+          "points": "-"
+        }
+      ]
     }
   ]
 }

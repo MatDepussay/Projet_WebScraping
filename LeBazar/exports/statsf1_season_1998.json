@@ -1170,6 +1170,84 @@
           "points": null
         }
       ]
+    },
+    {
+      "gp_name": "16. Japon 1 nov",
+      "date": "16. Japon 1 nov",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": null
+        },
+        {
+          "name": "M. HAKKINEN",
+          "points": "10"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "-"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "4"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "6"
+        },
+        {
+          "name": "J. VILLENEUVE",
+          "points": "1"
+        },
+        {
+          "name": "D. HILL",
+          "points": "3"
+        },
+        {
+          "name": "H. FRENTZEN",
+          "points": "2"
+        },
+        {
+          "name": "A. WURZ",
+          "points": "-"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "-"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "-"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "-"
+        },
+        {
+          "name": "M. SALO",
+          "points": "-"
+        },
+        {
+          "name": "P. DINIZ",
+          "points": "-"
+        },
+        {
+          "name": "J. HERBERT",
+          "points": "-"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "-"
+        },
+        {
+          "name": "J. MAGNUSSEN",
+          "points": null
+        }
+      ]
     }
   ]
 }

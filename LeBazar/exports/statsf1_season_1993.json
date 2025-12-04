@@ -1470,6 +1470,104 @@
           "points": "1"
         }
       ]
+    },
+    {
+      "gp_name": "16. Australie 7 nov",
+      "date": "16. Australie 7 nov",
+      "drivers": [
+        {
+          "name": "1 ZAF",
+          "points": null
+        },
+        {
+          "name": "A. PROST",
+          "points": "6"
+        },
+        {
+          "name": "A. SENNA",
+          "points": "10"
+        },
+        {
+          "name": "D. HILL",
+          "points": "4"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "-"
+        },
+        {
+          "name": "R. PATRESE",
+          "points": "-"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "3"
+        },
+        {
+          "name": "M. BRUNDLE",
+          "points": "1"
+        },
+        {
+          "name": "G. BERGER",
+          "points": "2"
+        },
+        {
+          "name": "J. HERBERT",
+          "points": "-"
+        },
+        {
+          "name": "M. BLUNDELL",
+          "points": "-"
+        },
+        {
+          "name": "M. ANDRETTI",
+          "points": null
+        },
+        {
+          "name": "K. WENDLINGER",
+          "points": "-"
+        },
+        {
+          "name": "J. LEHTO",
+          "points": "-"
+        },
+        {
+          "name": "C. FITTIPALDI",
+          "points": null
+        },
+        {
+          "name": "M. HAKKINEN",
+          "points": "-"
+        },
+        {
+          "name": "D. WARWICK",
+          "points": "-"
+        },
+        {
+          "name": "P. ALLIOT",
+          "points": null
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "-"
+        },
+        {
+          "name": "F. BARBAZZA",
+          "points": null
+        },
+        {
+          "name": "A. ZANARDI",
+          "points": null
+        },
+        {
+          "name": "E. COMAS",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "-"
+        }
+      ]
     }
   ]
 }

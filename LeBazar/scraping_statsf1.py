@@ -144,25 +144,53 @@ def parse_champ_table(soup: BS, table_id: str) -> Dict:
     tbl = soup.find(id=table_id)
     if not tbl:
         return {"manches": [], "rows": []}
-    manches = []
-    rows = []
+
+    manches: List[str] = []
+    rows: List[Dict] = []
+
+    # Find header row: prefer a row that contains cells with class 'manche' or 'titre'.
     header_row = None
     for tr in tbl.find_all("tr"):
+        if tr.find(class_="manche") or tr.find(class_="titre"):
+            header_row = tr
+            break
+        # fallback: detect a non-data row where second cell is not a digit
         cells = tr.find_all(["th", "td"])
         if not cells:
             continue
         texts = [_get_text_or_none(c) or "" for c in cells]
-        if any("manche" in t.lower() for t in texts):
-            header_row = tr
-            break
         if len(texts) >= 2 and not texts[1].strip().isdigit():
             header_row = tr
             break
+
     if header_row:
-        header_cells = header_row.find_all(["th", "td"])
-        texts = [_get_text_or_none(c) for c in header_cells]
-        if len(texts) >= 3:
-            manches = texts[2:-1]
+        # Prefer explicit 'manche' class cells (robust for this site's markup)
+        manche_cells = header_row.find_all(class_="manche")
+        if manche_cells:
+            manches = [_get_text_or_none(c) for c in manche_cells]
+        else:
+            # Fallback: try to infer manche columns from header texts.
+            header_cells = header_row.find_all(["th", "td"])
+            texts = [_get_text_or_none(c) for c in header_cells]
+            # Attempt to align with a data row to compute the correct slice
+            first_data_tds = None
+            for tr in tbl.find_all("tr"):
+                tds = tr.find_all("td")
+                if tds and len(tds) > 2:
+                    first_data_tds = tds
+                    break
+            if first_data_tds:
+                total_cols = len(first_data_tds)
+                # data rows layout: pos(1) + name(1) + manches(n) + total(1)
+                manche_count = max(0, total_cols - 3)
+                if manche_count > 0 and len(texts) >= (2 + manche_count + 1):
+                    manches = texts[2:2 + manche_count]
+                else:
+                    manches = texts[2:-1] if len(texts) >= 3 else []
+            else:
+                manches = texts[2:-1] if len(texts) >= 3 else []
+
+    # Parse data rows
     for tr in tbl.find_all("tr"):
         tds = tr.find_all("td")
         if not tds:
@@ -179,7 +207,95 @@ def parse_champ_table(soup: BS, table_id: str) -> Dict:
             results = []
             total = ""
         rows.append({"pos": pos, "name": name, "results": results, "total": total})
+
     return {"manches": manches, "rows": rows}
+
+
+def parse_grid(html_or_soup) -> List[Dict]:
+    """Parse the starting grid table with id `ctl00_CPH_Main_TBL_Grille`.
+
+    Returns a list of dicts: [{"position": int, "driver": str, "constructor": str, "engine": str}, ...]
+
+    The statsf1 grid is laid out as many <div id="GrdX"> elements containing markup like:
+      1. <a ...><span class="CurDriver">L.NORRIS</span></a><br>
+      <a ...><span class="CurChpConstructor">McLaren</span></a>&nbsp;<a ...><span class="CurEngine">Mercedes</span></a>
+
+    The function is tolerant to class name variants (CurDriver, CurChpDriver, CurConstructor, CurChpConstructor).
+    """
+    soup = html_or_soup if isinstance(html_or_soup, BS) else BS(html_or_soup, "html.parser")
+    tbl = soup.find(id="ctl00_CPH_Main_TBL_Grille")
+    if not tbl:
+        return []
+
+    entries: List[Dict] = []
+
+    # find all divs with id starting with 'Grd'
+    for div in tbl.find_all("div"):
+        did = div.get("id", "")
+        if not did.lower().startswith("grd"):
+            continue
+
+        text_html = str(div)
+        # position: try to extract leading number before a dot or strong tag
+        pos = None
+        # attempt 1: look for <strong>NUMBER</strong>
+        strong = div.find("strong")
+        if strong:
+            try:
+                pos = int(strong.get_text(strip=True))
+            except Exception:
+                pos = None
+
+        # attempt 2: leading text like '1.' or '1. '
+        if pos is None:
+            import re
+
+            m = re.search(r"^(\s*|<br>)*([0-9]{1,2})\s*\.", div.get_text())
+            if m:
+                try:
+                    pos = int(m.group(2))
+                except Exception:
+                    pos = None
+
+        # driver name
+        driver_el = div.find(class_=lambda c: c and "curdriver" in c.lower())
+        if not driver_el:
+            # some use CurChpDriver etc. fallback to first <a> text
+            a = div.find("a")
+            driver_name = _get_text_or_none(a) if a else None
+        else:
+            driver_name = driver_el.get_text(strip=True)
+
+        # constructor
+        constructor_el = div.find(class_=lambda c: c and ("constructor" in c.lower() or "chpconstructor" in c.lower()))
+        constructor = constructor_el.get_text(strip=True) if constructor_el else None
+
+        # engine
+        engine_el = div.find(class_=lambda c: c and "curengine" in c.lower())
+        engine = engine_el.get_text(strip=True) if engine_el else None
+
+        if driver_name is None and not constructor and not engine:
+            # skip empty / irrelevant divs
+            continue
+
+        entries.append({"position": pos, "driver": driver_name, "constructor": constructor, "engine": engine})
+
+    # sort by numeric position when available
+    def _pos_key(o):
+        return o.get("position") if isinstance(o.get("position"), int) else 999
+
+    entries.sort(key=_pos_key)
+    return entries
+
+
+def save_grid_json(year: int, gp_slug: str, grid: List[Dict], out_dir: Path = Path("exports")) -> Path:
+    """Save grid list to `exports/grid_{year}_{gp_slug}.json`"""
+    out_dir.mkdir(parents=True, exist_ok=True)
+    safe_slug = gp_slug.replace("/", "_").replace("\\", "_")
+    out_path = out_dir / f"grid_{year}_{safe_slug}.json"
+    with out_path.open("w", encoding="utf-8") as f:
+        json.dump({"year": year, "gp": gp_slug, "grid": grid}, f, ensure_ascii=False, indent=2)
+    return out_path
 
 
 def build_season_json(year: int, html: str) -> Dict:

@@ -1800,6 +1800,96 @@
           "points": "-"
         }
       ]
+    },
+    {
+      "gp_name": "21. Abou Dhabi 25 nov",
+      "date": "21. Abou Dhabi 25 nov",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": null
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "25"
+        },
+        {
+          "name": "S. VETTEL",
+          "points": "18"
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "-"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "15"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "10"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": "12"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": "-"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "4"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "1"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "8"
+        },
+        {
+          "name": "F. ALONSO",
+          "points": "-"
+        },
+        {
+          "name": "E. OCON",
+          "points": "-"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "6"
+        },
+        {
+          "name": "R. GROSJEAN",
+          "points": "2"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "-"
+        },
+        {
+          "name": "S. VANDOORNE",
+          "points": "-"
+        },
+        {
+          "name": "M. ERICSSON",
+          "points": "-"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "-"
+        },
+        {
+          "name": "B. HARTLEY",
+          "points": "-"
+        },
+        {
+          "name": "S. SIROTKIN",
+          "points": "-"
+        }
+      ]
     }
   ]
 }

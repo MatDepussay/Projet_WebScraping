@@ -1938,6 +1938,108 @@
           "points": "-"
         }
       ]
+    },
+    {
+      "gp_name": "20. Abou Dhabi 26 nov",
+      "date": "20. Abou Dhabi 26 nov",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": null
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "18"
+        },
+        {
+          "name": "S. VETTEL",
+          "points": "15"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "25"
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "12"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": "-"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "10"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "6"
+        },
+        {
+          "name": "E. OCON",
+          "points": "4"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "-"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": "8"
+        },
+        {
+          "name": "F. MASSA",
+          "points": "1"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "-"
+        },
+        {
+          "name": "R. GROSJEAN",
+          "points": "-"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "-"
+        },
+        {
+          "name": "F. ALONSO",
+          "points": "2"
+        },
+        {
+          "name": "S. VANDOORNE",
+          "points": "-"
+        },
+        {
+          "name": "J. PALMER",
+          "points": null
+        },
+        {
+          "name": "P. WEHRLEIN",
+          "points": "-"
+        },
+        {
+          "name": "D. KVYAT",
+          "points": null
+        },
+        {
+          "name": "M. ERICSSON",
+          "points": "-"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "-"
+        },
+        {
+          "name": "A. GIOVINAZZI",
+          "points": null
+        },
+        {
+          "name": "B. HARTLEY",
+          "points": "-"
+        }
+      ]
     }
   ]
 }

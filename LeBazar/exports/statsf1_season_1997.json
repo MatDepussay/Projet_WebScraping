@@ -1440,6 +1440,96 @@
           "points": "10"
         }
       ]
+    },
+    {
+      "gp_name": "17. Europe 26 oct",
+      "date": "17. Europe 26 oct",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": null
+        },
+        {
+          "name": "J. VILLENEUVE",
+          "points": "4"
+        },
+        {
+          "name": "H. FRENTZEN",
+          "points": "1"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "6"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "G. BERGER",
+          "points": "3"
+        },
+        {
+          "name": "M. HAKKINEN",
+          "points": "10"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "2"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "-"
+        },
+        {
+          "name": "O. PANIS",
+          "points": "-"
+        },
+        {
+          "name": "J. HERBERT",
+          "points": "-"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "-"
+        },
+        {
+          "name": "D. HILL",
+          "points": "-"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "-"
+        },
+        {
+          "name": "A. WURZ",
+          "points": null
+        },
+        {
+          "name": "J. TRULLI",
+          "points": null
+        },
+        {
+          "name": "P. DINIZ",
+          "points": "-"
+        },
+        {
+          "name": "M. SALO",
+          "points": "-"
+        },
+        {
+          "name": "S. NAKANO",
+          "points": "-"
+        },
+        {
+          "name": "N. LARINI",
+          "points": null
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "-"
+        }
+      ]
     }
   ]
 }

@@ -1632,6 +1632,108 @@
           "points": null
         }
       ]
+    },
+    {
+      "gp_name": "17. Malaisie 22 oct",
+      "date": "17. Malaisie 22 oct",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": null
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "10"
+        },
+        {
+          "name": "M. HAKKINEN",
+          "points": "3"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "6"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "4"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "-"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "-"
+        },
+        {
+          "name": "J. VILLENEUVE",
+          "points": "2"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "-"
+        },
+        {
+          "name": "H. FRENTZEN",
+          "points": "-"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "-"
+        },
+        {
+          "name": "M. SALO",
+          "points": "-"
+        },
+        {
+          "name": "J. VERSTAPPEN",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "1"
+        },
+        {
+          "name": "R. ZONTA",
+          "points": "-"
+        },
+        {
+          "name": "A. WURZ",
+          "points": "-"
+        },
+        {
+          "name": "P. de la ROSA",
+          "points": "-"
+        },
+        {
+          "name": "J. HERBERT",
+          "points": "-"
+        },
+        {
+          "name": "P. DINIZ",
+          "points": "-"
+        },
+        {
+          "name": "M. GENE",
+          "points": "-"
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "-"
+        },
+        {
+          "name": "G. MAZZACANE",
+          "points": "-"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "L. BURTI",
+          "points": null
+        }
+      ]
     }
   ]
 }

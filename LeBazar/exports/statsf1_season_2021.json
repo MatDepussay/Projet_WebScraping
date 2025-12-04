@@ -1974,6 +1974,100 @@
           "points": "-"
         }
       ]
+    },
+    {
+      "gp_name": "22. Abou Dhabi 12 déc",
+      "date": "22. Abou Dhabi 12 déc",
+      "drivers": [
+        {
+          "name": "1 BHR",
+          "points": null
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "26"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "18"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "8"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "-"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "15"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "6"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "1"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": "-"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "10"
+        },
+        {
+          "name": "F. ALONSO",
+          "points": "4"
+        },
+        {
+          "name": "E. OCON",
+          "points": "2"
+        },
+        {
+          "name": "S. VETTEL",
+          "points": "-"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "-"
+        },
+        {
+          "name": "Y. TSUNODA",
+          "points": "12"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "-"
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "-"
+        },
+        {
+          "name": "N. LATIFI",
+          "points": "-"
+        },
+        {
+          "name": "A. GIOVINAZZI",
+          "points": "-"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "-"
+        },
+        {
+          "name": "R. KUBICA",
+          "points": null
+        },
+        {
+          "name": "N. MAZEPIN",
+          "points": "-"
+        }
+      ]
     }
   ]
 }

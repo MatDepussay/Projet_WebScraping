@@ -1650,6 +1650,116 @@
           "points": "-"
         }
       ]
+    },
+    {
+      "gp_name": "16. Australie 13 nov",
+      "date": "16. Australie 13 nov",
+      "drivers": [
+        {
+          "name": "1 BRA",
+          "points": null
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "-"
+        },
+        {
+          "name": "D. HILL",
+          "points": "-"
+        },
+        {
+          "name": "G. BERGER",
+          "points": "6"
+        },
+        {
+          "name": "M. HAKKINEN",
+          "points": "-"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "1"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "3"
+        },
+        {
+          "name": "M. BRUNDLE",
+          "points": "4"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": null
+        },
+        {
+          "name": "N. MANSELL",
+          "points": "10"
+        },
+        {
+          "name": "J. VERSTAPPEN",
+          "points": null
+        },
+        {
+          "name": "O. PANIS",
+          "points": "2"
+        },
+        {
+          "name": "M. BLUNDELL",
+          "points": "-"
+        },
+        {
+          "name": "H. FRENTZEN",
+          "points": "-"
+        },
+        {
+          "name": "N. LARINI",
+          "points": null
+        },
+        {
+          "name": "C. FITTIPALDI",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "-"
+        },
+        {
+          "name": "U. KATAYAMA",
+          "points": "-"
+        },
+        {
+          "name": "E. BERNARD",
+          "points": null
+        },
+        {
+          "name": "K. WENDLINGER",
+          "points": null
+        },
+        {
+          "name": "A. De CESARIS",
+          "points": null
+        },
+        {
+          "name": "P. MARTINI",
+          "points": "-"
+        },
+        {
+          "name": "G. MORBIDELLI",
+          "points": "-"
+        },
+        {
+          "name": "E. COMAS",
+          "points": null
+        },
+        {
+          "name": "J. LEHTO",
+          "points": "-"
+        },
+        {
+          "name": "M. ALBORETO",
+          "points": "-"
+        }
+      ]
     }
   ]
 }

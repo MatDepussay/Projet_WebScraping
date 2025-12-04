@@ -1290,6 +1290,92 @@
           "points": "-"
         }
       ]
+    },
+    {
+      "gp_name": "16. Australie 8 nov",
+      "date": "16. Australie 8 nov",
+      "drivers": [
+        {
+          "name": "1 ZAF",
+          "points": null
+        },
+        {
+          "name": "N. MANSELL",
+          "points": "-"
+        },
+        {
+          "name": "R. PATRESE",
+          "points": "-"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "6"
+        },
+        {
+          "name": "A. SENNA",
+          "points": "-"
+        },
+        {
+          "name": "G. BERGER",
+          "points": "10"
+        },
+        {
+          "name": "M. BRUNDLE",
+          "points": "4"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "3"
+        },
+        {
+          "name": "M. HAKKINEN",
+          "points": "-"
+        },
+        {
+          "name": "A. De CESARIS",
+          "points": "-"
+        },
+        {
+          "name": "M. ALBORETO",
+          "points": "-"
+        },
+        {
+          "name": "E. COMAS",
+          "points": "-"
+        },
+        {
+          "name": "K. WENDLINGER",
+          "points": null
+        },
+        {
+          "name": "I. CAPELLI",
+          "points": null
+        },
+        {
+          "name": "T. BOUTSEN",
+          "points": "2"
+        },
+        {
+          "name": "J. HERBERT",
+          "points": "-"
+        },
+        {
+          "name": "P. MARTINI",
+          "points": "-"
+        },
+        {
+          "name": "S. MODENA",
+          "points": "1"
+        },
+        {
+          "name": "C. FITTIPALDI",
+          "points": "-"
+        },
+        {
+          "name": "B. GACHOT",
+          "points": "-"
+        }
+      ]
     }
   ]
 }

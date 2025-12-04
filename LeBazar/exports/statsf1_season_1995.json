@@ -1312,6 +1312,88 @@
           "points": "-"
         }
       ]
+    },
+    {
+      "gp_name": "17. Australie 12 nov",
+      "date": "17. Australie 12 nov",
+      "drivers": [
+        {
+          "name": "1 BRA",
+          "points": null
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "-"
+        },
+        {
+          "name": "D. HILL",
+          "points": "10"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "-"
+        },
+        {
+          "name": "J. HERBERT",
+          "points": "-"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "G. BERGER",
+          "points": "-"
+        },
+        {
+          "name": "M. HAKKINEN",
+          "points": "-"
+        },
+        {
+          "name": "O. PANIS",
+          "points": "6"
+        },
+        {
+          "name": "H. FRENTZEN",
+          "points": "-"
+        },
+        {
+          "name": "M. BLUNDELL",
+          "points": "3"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "-"
+        },
+        {
+          "name": "M. BRUNDLE",
+          "points": "-"
+        },
+        {
+          "name": "G. MORBIDELLI",
+          "points": "4"
+        },
+        {
+          "name": "M. SALO",
+          "points": "2"
+        },
+        {
+          "name": "J. BOULLION",
+          "points": null
+        },
+        {
+          "name": "A. SUZUKI",
+          "points": null
+        },
+        {
+          "name": "P. LAMY",
+          "points": "1"
+        }
+      ]
     }
   ]
 }

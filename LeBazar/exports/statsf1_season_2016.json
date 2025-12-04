@@ -2120,6 +2120,112 @@
           "points": null
         }
       ]
+    },
+    {
+      "gp_name": "21. Abou Dhabi 27 nov",
+      "date": "21. Abou Dhabi 27 nov",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": null
+        },
+        {
+          "name": "N. ROSBERG",
+          "points": "18"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "25"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": "10"
+        },
+        {
+          "name": "S. VETTEL",
+          "points": "15"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "12"
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "8"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "4"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "-"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": "6"
+        },
+        {
+          "name": "F. ALONSO",
+          "points": "1"
+        },
+        {
+          "name": "F. MASSA",
+          "points": "2"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "-"
+        },
+        {
+          "name": "R. GROSJEAN",
+          "points": "-"
+        },
+        {
+          "name": "D. KVYAT",
+          "points": "-"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "-"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "-"
+        },
+        {
+          "name": "F. NASR",
+          "points": "-"
+        },
+        {
+          "name": "J. PALMER",
+          "points": "-"
+        },
+        {
+          "name": "P. WEHRLEIN",
+          "points": "-"
+        },
+        {
+          "name": "S. VANDOORNE",
+          "points": null
+        },
+        {
+          "name": "E. GUTIERREZ",
+          "points": "-"
+        },
+        {
+          "name": "M. ERICSSON",
+          "points": "-"
+        },
+        {
+          "name": "E. OCON",
+          "points": "-"
+        },
+        {
+          "name": "R. HARYANTO",
+          "points": null
+        }
+      ]
     }
   ]
 }

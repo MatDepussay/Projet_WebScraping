@@ -1632,6 +1632,108 @@
           "points": "-"
         }
       ]
+    },
+    {
+      "gp_name": "17. Abou Dhabi 13 déc",
+      "date": "17. Abou Dhabi 13 déc",
+      "drivers": [
+        {
+          "name": "1 AUT",
+          "points": null
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "15"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "18"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "25"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "-"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": "7"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "8"
+        },
+        {
+          "name": "A. ALBON",
+          "points": "12"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "-"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "10"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "4"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "1"
+        },
+        {
+          "name": "E. OCON",
+          "points": "2"
+        },
+        {
+          "name": "S. VETTEL",
+          "points": "-"
+        },
+        {
+          "name": "D. KVYAT",
+          "points": "-"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": null
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "-"
+        },
+        {
+          "name": "A. GIOVINAZZI",
+          "points": "-"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "-"
+        },
+        {
+          "name": "R. GROSJEAN",
+          "points": null
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "-"
+        },
+        {
+          "name": "N. LATIFI",
+          "points": "-"
+        },
+        {
+          "name": "J. AITKEN",
+          "points": null
+        },
+        {
+          "name": "P. FITTIPALDI",
+          "points": "-"
+        }
+      ]
     }
   ]
 }

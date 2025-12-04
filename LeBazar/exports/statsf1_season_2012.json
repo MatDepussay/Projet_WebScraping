@@ -2090,6 +2090,116 @@
           "points": "-"
         }
       ]
+    },
+    {
+      "gp_name": "20. Brésil 25 nov",
+      "date": "20. Brésil 25 nov",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": null
+        },
+        {
+          "name": "S. VETTEL",
+          "points": "8"
+        },
+        {
+          "name": "F. ALONSO",
+          "points": "18"
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "1"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "-"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "25"
+        },
+        {
+          "name": "M. WEBBER",
+          "points": "12"
+        },
+        {
+          "name": "F. MASSA",
+          "points": "15"
+        },
+        {
+          "name": "R. GROSJEAN",
+          "points": "-"
+        },
+        {
+          "name": "N. ROSBERG",
+          "points": "-"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "-"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": "10"
+        },
+        {
+          "name": "K. KOBAYASHI",
+          "points": "2"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "6"
+        },
+        {
+          "name": "P. di RESTA",
+          "points": "-"
+        },
+        {
+          "name": "P. MALDONADO",
+          "points": "-"
+        },
+        {
+          "name": "B. SENNA",
+          "points": "-"
+        },
+        {
+          "name": "J. VERGNE",
+          "points": "4"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": "-"
+        },
+        {
+          "name": "V. PETROV",
+          "points": "-"
+        },
+        {
+          "name": "T. GLOCK",
+          "points": "-"
+        },
+        {
+          "name": "C. PIC",
+          "points": "-"
+        },
+        {
+          "name": "H. KOVALAINEN",
+          "points": "-"
+        },
+        {
+          "name": "J. d'AMBROSIO",
+          "points": null
+        },
+        {
+          "name": "N. KARTHIKEYAN",
+          "points": "-"
+        },
+        {
+          "name": "P. de la ROSA",
+          "points": "-"
+        }
+      ]
     }
   ]
 }

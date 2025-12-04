@@ -1800,6 +1800,96 @@
           "points": "-"
         }
       ]
+    },
+    {
+      "gp_name": "21. Abou Dhabi 1 déc",
+      "date": "21. Abou Dhabi 1 déc",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": null
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "26"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "12"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "18"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "15"
+        },
+        {
+          "name": "S. VETTEL",
+          "points": "10"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "1"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "-"
+        },
+        {
+          "name": "A. ALBON",
+          "points": "8"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": "-"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "6"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "4"
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "-"
+        },
+        {
+          "name": "D. KVYAT",
+          "points": "2"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": "-"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "-"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "-"
+        },
+        {
+          "name": "A. GIOVINAZZI",
+          "points": "-"
+        },
+        {
+          "name": "R. GROSJEAN",
+          "points": "-"
+        },
+        {
+          "name": "R. KUBICA",
+          "points": "-"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "-"
+        }
+      ]
     }
   ]
 }

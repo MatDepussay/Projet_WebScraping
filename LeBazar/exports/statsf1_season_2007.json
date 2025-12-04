@@ -1760,6 +1760,116 @@
           "points": null
         }
       ]
+    },
+    {
+      "gp_name": "17. Brésil 21 oct",
+      "date": "17. Brésil 21 oct",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": null
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "10"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "2"
+        },
+        {
+          "name": "F. ALONSO",
+          "points": "6"
+        },
+        {
+          "name": "F. MASSA",
+          "points": "8"
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "3"
+        },
+        {
+          "name": "R. KUBICA",
+          "points": "4"
+        },
+        {
+          "name": "H. KOVALAINEN",
+          "points": "-"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "-"
+        },
+        {
+          "name": "N. ROSBERG",
+          "points": "5"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "-"
+        },
+        {
+          "name": "A. WURZ",
+          "points": null
+        },
+        {
+          "name": "M. WEBBER",
+          "points": "-"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "1"
+        },
+        {
+          "name": "S. VETTEL",
+          "points": "-"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "-"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "-"
+        },
+        {
+          "name": "T. SATO",
+          "points": "-"
+        },
+        {
+          "name": "V. LIUZZI",
+          "points": "-"
+        },
+        {
+          "name": "A. SUTIL",
+          "points": "-"
+        },
+        {
+          "name": "S. SPEED",
+          "points": null
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "-"
+        },
+        {
+          "name": "K. NAKAJIMA",
+          "points": "-"
+        },
+        {
+          "name": "A. DAVIDSON",
+          "points": "-"
+        },
+        {
+          "name": "S. YAMAMOTO",
+          "points": "-"
+        },
+        {
+          "name": "C. ALBERS",
+          "points": null
+        }
+      ]
     }
   ]
 }

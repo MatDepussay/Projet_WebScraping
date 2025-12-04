@@ -1666,6 +1666,104 @@
           "points": null
         }
       ]
+    },
+    {
+      "gp_name": "18. Brésil 2 nov",
+      "date": "18. Brésil 2 nov",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": null
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "4"
+        },
+        {
+          "name": "F. MASSA",
+          "points": "10"
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "6"
+        },
+        {
+          "name": "R. KUBICA",
+          "points": "-"
+        },
+        {
+          "name": "F. ALONSO",
+          "points": "8"
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "-"
+        },
+        {
+          "name": "H. KOVALAINEN",
+          "points": "2"
+        },
+        {
+          "name": "S. VETTEL",
+          "points": "5"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "1"
+        },
+        {
+          "name": "T. GLOCK",
+          "points": "3"
+        },
+        {
+          "name": "M. WEBBER",
+          "points": "-"
+        },
+        {
+          "name": "N. PIQUET",
+          "points": "-"
+        },
+        {
+          "name": "N. ROSBERG",
+          "points": "-"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "-"
+        },
+        {
+          "name": "K. NAKAJIMA",
+          "points": "-"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "-"
+        },
+        {
+          "name": "S. BOURDAIS",
+          "points": "-"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "-"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "-"
+        },
+        {
+          "name": "A. SUTIL",
+          "points": "-"
+        },
+        {
+          "name": "T. SATO",
+          "points": null
+        },
+        {
+          "name": "A. DAVIDSON",
+          "points": null
+        }
+      ]
     }
   ]
 }
