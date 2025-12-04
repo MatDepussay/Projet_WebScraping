@@ -1590,6 +1590,112 @@
           "points": "-"
         }
       ]
+    },
+    {
+      "gp_name": "16. Australie 3 nov",
+      "date": "16. Australie 3 nov",
+      "drivers": [
+        {
+          "name": "1 USA",
+          "points": null
+        },
+        {
+          "name": "A. SENNA",
+          "points": "5"
+        },
+        {
+          "name": "N. MANSELL",
+          "points": "3"
+        },
+        {
+          "name": "R. PATRESE",
+          "points": "1"
+        },
+        {
+          "name": "G. BERGER",
+          "points": "2"
+        },
+        {
+          "name": "A. PROST",
+          "points": null
+        },
+        {
+          "name": "N. PIQUET",
+          "points": "1,5"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "S. MODENA",
+          "points": "-"
+        },
+        {
+          "name": "A. De CESARIS",
+          "points": "-"
+        },
+        {
+          "name": "R. MORENO",
+          "points": "-"
+        },
+        {
+          "name": "P. MARTINI",
+          "points": "-"
+        },
+        {
+          "name": "J. LEHTO",
+          "points": "-"
+        },
+        {
+          "name": "B. GACHOT",
+          "points": "-"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "-"
+        },
+        {
+          "name": "S. NAKAJIMA",
+          "points": "-"
+        },
+        {
+          "name": "M. HAKKINEN",
+          "points": "-"
+        },
+        {
+          "name": "M. BRUNDLE",
+          "points": "-"
+        },
+        {
+          "name": "E. PIRRO",
+          "points": "-"
+        },
+        {
+          "name": "M. BLUNDELL",
+          "points": "-"
+        },
+        {
+          "name": "I. CAPELLI",
+          "points": null
+        },
+        {
+          "name": "E. BERNARD",
+          "points": "-"
+        },
+        {
+          "name": "A. SUZUKI",
+          "points": "-"
+        },
+        {
+          "name": "J. BAILEY",
+          "points": null
+        },
+        {
+          "name": "G. MORBIDELLI",
+          "points": "0,5"
+        }
+      ]
     }
   ]
 }

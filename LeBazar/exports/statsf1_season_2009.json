@@ -1760,6 +1760,116 @@
           "points": null
         }
       ]
+    },
+    {
+      "gp_name": "17. Abou Dhabi 1 nov",
+      "date": "17. Abou Dhabi 1 nov",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": null
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "6"
+        },
+        {
+          "name": "S. VETTEL",
+          "points": "10"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "5"
+        },
+        {
+          "name": "M. WEBBER",
+          "points": "8"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "-"
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "-"
+        },
+        {
+          "name": "N. ROSBERG",
+          "points": "-"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "2"
+        },
+        {
+          "name": "F. ALONSO",
+          "points": "-"
+        },
+        {
+          "name": "T. GLOCK",
+          "points": null
+        },
+        {
+          "name": "F. MASSA",
+          "points": null
+        },
+        {
+          "name": "H. KOVALAINEN",
+          "points": "-"
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "4"
+        },
+        {
+          "name": "R. KUBICA",
+          "points": "-"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "-"
+        },
+        {
+          "name": "S. BUEMI",
+          "points": "1"
+        },
+        {
+          "name": "A. SUTIL",
+          "points": "-"
+        },
+        {
+          "name": "K. KOBAYASHI",
+          "points": "3"
+        },
+        {
+          "name": "S. BOURDAIS",
+          "points": null
+        },
+        {
+          "name": "K. NAKAJIMA",
+          "points": "-"
+        },
+        {
+          "name": "N. PIQUET",
+          "points": null
+        },
+        {
+          "name": "V. LIUZZI",
+          "points": "-"
+        },
+        {
+          "name": "R. GROSJEAN",
+          "points": "-"
+        },
+        {
+          "name": "J. ALGUERSUARI",
+          "points": "-"
+        },
+        {
+          "name": "L. BADOER",
+          "points": null
+        }
+      ]
     }
   ]
 }

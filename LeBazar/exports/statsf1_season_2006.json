@@ -2006,6 +2006,124 @@
           "points": null
         }
       ]
+    },
+    {
+      "gp_name": "18. Brésil 22 oct",
+      "date": "18. Brésil 22 oct",
+      "drivers": [
+        {
+          "name": "1 BHR",
+          "points": null
+        },
+        {
+          "name": "F. ALONSO",
+          "points": "8"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "5"
+        },
+        {
+          "name": "F. MASSA",
+          "points": "10"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "3"
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "4"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "6"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "2"
+        },
+        {
+          "name": "J. MONTOYA",
+          "points": null
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "-"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "-"
+        },
+        {
+          "name": "P. de la ROSA",
+          "points": "1"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "-"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "-"
+        },
+        {
+          "name": "M. WEBBER",
+          "points": "-"
+        },
+        {
+          "name": "J. VILLENEUVE",
+          "points": null
+        },
+        {
+          "name": "R. KUBICA",
+          "points": "-"
+        },
+        {
+          "name": "N. ROSBERG",
+          "points": "-"
+        },
+        {
+          "name": "C. KLIEN",
+          "points": null
+        },
+        {
+          "name": "V. LIUZZI",
+          "points": "-"
+        },
+        {
+          "name": "S. SPEED",
+          "points": "-"
+        },
+        {
+          "name": "T. MONTEIRO",
+          "points": "-"
+        },
+        {
+          "name": "C. ALBERS",
+          "points": "-"
+        },
+        {
+          "name": "T. SATO",
+          "points": "-"
+        },
+        {
+          "name": "R. DOORNBOS",
+          "points": "-"
+        },
+        {
+          "name": "Y. IDE",
+          "points": null
+        },
+        {
+          "name": "S. YAMAMOTO",
+          "points": "-"
+        },
+        {
+          "name": "F. MONTAGNY",
+          "points": null
+        }
+      ]
     }
   ]
 }

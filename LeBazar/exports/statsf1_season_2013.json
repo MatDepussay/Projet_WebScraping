@@ -1836,6 +1836,108 @@
           "points": "-"
         }
       ]
+    },
+    {
+      "gp_name": "19. Brésil 24 nov",
+      "date": "19. Brésil 24 nov",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": null
+        },
+        {
+          "name": "S. VETTEL",
+          "points": "25"
+        },
+        {
+          "name": "F. ALONSO",
+          "points": "15"
+        },
+        {
+          "name": "M. WEBBER",
+          "points": "18"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "2"
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": null
+        },
+        {
+          "name": "N. ROSBERG",
+          "points": "10"
+        },
+        {
+          "name": "R. GROSJEAN",
+          "points": "-"
+        },
+        {
+          "name": "F. MASSA",
+          "points": "6"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "12"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": "4"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "8"
+        },
+        {
+          "name": "P. di RESTA",
+          "points": "-"
+        },
+        {
+          "name": "A. SUTIL",
+          "points": "-"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": "1"
+        },
+        {
+          "name": "J. VERGNE",
+          "points": "-"
+        },
+        {
+          "name": "E. GUTIERREZ",
+          "points": "-"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "-"
+        },
+        {
+          "name": "P. MALDONADO",
+          "points": "-"
+        },
+        {
+          "name": "J. BIANCHI",
+          "points": "-"
+        },
+        {
+          "name": "C. PIC",
+          "points": "-"
+        },
+        {
+          "name": "H. KOVALAINEN",
+          "points": "-"
+        },
+        {
+          "name": "G. van der GARDE",
+          "points": "-"
+        },
+        {
+          "name": "M. CHILTON",
+          "points": "-"
+        }
+      ]
     }
   ]
 }

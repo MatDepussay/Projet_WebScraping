@@ -1568,6 +1568,104 @@
           "points": null
         }
       ]
+    },
+    {
+      "gp_name": "17. Japon 13 oct",
+      "date": "17. Japon 13 oct",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": null
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "10"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "6"
+        },
+        {
+          "name": "J. MONTOYA",
+          "points": "3"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "-"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "-"
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "4"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "1"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "-"
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "-"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "-"
+        },
+        {
+          "name": "J. VILLENEUVE",
+          "points": "-"
+        },
+        {
+          "name": "F. MASSA",
+          "points": "-"
+        },
+        {
+          "name": "O. PANIS",
+          "points": "-"
+        },
+        {
+          "name": "T. SATO",
+          "points": "2"
+        },
+        {
+          "name": "M. WEBBER",
+          "points": "-"
+        },
+        {
+          "name": "M. SALO",
+          "points": "-"
+        },
+        {
+          "name": "H. FRENTZEN",
+          "points": null
+        },
+        {
+          "name": "A. McNISH",
+          "points": "-"
+        },
+        {
+          "name": "A. YOONG",
+          "points": "-"
+        },
+        {
+          "name": "P. de la ROSA",
+          "points": "-"
+        },
+        {
+          "name": "E. BERNOLDI",
+          "points": null
+        }
+      ]
     }
   ]
 }

@@ -1692,6 +1692,100 @@
           "points": "-"
         }
       ]
+    },
+    {
+      "gp_name": "19. Abou Dhabi 29 nov",
+      "date": "19. Abou Dhabi 29 nov",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": null
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "18"
+        },
+        {
+          "name": "N. ROSBERG",
+          "points": "25"
+        },
+        {
+          "name": "S. VETTEL",
+          "points": "12"
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "15"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "-"
+        },
+        {
+          "name": "F. MASSA",
+          "points": "4"
+        },
+        {
+          "name": "D. KVYAT",
+          "points": "1"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": "8"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "10"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": "6"
+        },
+        {
+          "name": "R. GROSJEAN",
+          "points": "2"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "-"
+        },
+        {
+          "name": "F. NASR",
+          "points": "-"
+        },
+        {
+          "name": "P. MALDONADO",
+          "points": "-"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "-"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "-"
+        },
+        {
+          "name": "F. ALONSO",
+          "points": "-"
+        },
+        {
+          "name": "M. ERICSSON",
+          "points": "-"
+        },
+        {
+          "name": "R. MERHI",
+          "points": "-"
+        },
+        {
+          "name": "A. ROSSI",
+          "points": null
+        },
+        {
+          "name": "W. STEVENS",
+          "points": "-"
+        }
+      ]
     }
   ]
 }

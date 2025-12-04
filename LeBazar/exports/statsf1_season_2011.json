@@ -2196,6 +2196,128 @@
           "points": null
         }
       ]
+    },
+    {
+      "gp_name": "19. Brésil 27 nov",
+      "date": "19. Brésil 27 nov",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": null
+        },
+        {
+          "name": "S. VETTEL",
+          "points": "18"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "15"
+        },
+        {
+          "name": "M. WEBBER",
+          "points": "25"
+        },
+        {
+          "name": "F. ALONSO",
+          "points": "12"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "-"
+        },
+        {
+          "name": "F. MASSA",
+          "points": "10"
+        },
+        {
+          "name": "N. ROSBERG",
+          "points": "6"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "-"
+        },
+        {
+          "name": "A. SUTIL",
+          "points": "8"
+        },
+        {
+          "name": "V. PETROV",
+          "points": "1"
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": null
+        },
+        {
+          "name": "K. KOBAYASHI",
+          "points": "2"
+        },
+        {
+          "name": "P. di RESTA",
+          "points": "4"
+        },
+        {
+          "name": "J. ALGUERSUARI",
+          "points": "-"
+        },
+        {
+          "name": "S. BUEMI",
+          "points": "-"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "-"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "-"
+        },
+        {
+          "name": "B. SENNA",
+          "points": "-"
+        },
+        {
+          "name": "P. MALDONADO",
+          "points": "-"
+        },
+        {
+          "name": "P. de la ROSA",
+          "points": null
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "-"
+        },
+        {
+          "name": "H. KOVALAINEN",
+          "points": "-"
+        },
+        {
+          "name": "V. LIUZZI",
+          "points": "-"
+        },
+        {
+          "name": "J. d'AMBROSIO",
+          "points": "-"
+        },
+        {
+          "name": "T. GLOCK",
+          "points": "-"
+        },
+        {
+          "name": "N. KARTHIKEYAN",
+          "points": null
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": "-"
+        },
+        {
+          "name": "K. CHANDHOK",
+          "points": null
+        }
+      ]
     }
   ]
 }

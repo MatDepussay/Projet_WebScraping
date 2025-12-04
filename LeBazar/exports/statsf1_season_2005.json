@@ -1980,6 +1980,116 @@
           "points": "-"
         }
       ]
+    },
+    {
+      "gp_name": "19. Chine 16 oct",
+      "date": "19. Chine 16 oct",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": null
+        },
+        {
+          "name": "F. ALONSO",
+          "points": "10"
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "8"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "-"
+        },
+        {
+          "name": "J. MONTOYA",
+          "points": "-"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "5"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "6"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "-"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "-"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "1"
+        },
+        {
+          "name": "M. WEBBER",
+          "points": "2"
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": null
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "-"
+        },
+        {
+          "name": "F. MASSA",
+          "points": "3"
+        },
+        {
+          "name": "J. VILLENEUVE",
+          "points": "-"
+        },
+        {
+          "name": "C. KLIEN",
+          "points": "4"
+        },
+        {
+          "name": "T. MONTEIRO",
+          "points": "-"
+        },
+        {
+          "name": "A. WURZ",
+          "points": null
+        },
+        {
+          "name": "N. KARTHIKEYAN",
+          "points": "-"
+        },
+        {
+          "name": "C. ALBERS",
+          "points": "-"
+        },
+        {
+          "name": "P. de la ROSA",
+          "points": null
+        },
+        {
+          "name": "P. FRIESACHER",
+          "points": null
+        },
+        {
+          "name": "A. PIZZONIA",
+          "points": "-"
+        },
+        {
+          "name": "T. SATO",
+          "points": "-"
+        },
+        {
+          "name": "V. LIUZZI",
+          "points": null
+        },
+        {
+          "name": "R. DOORNBOS",
+          "points": "-"
+        }
+      ]
     }
   ]
 }

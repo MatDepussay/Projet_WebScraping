@@ -2438,6 +2438,112 @@
           "points": null
         }
       ]
+    },
+    {
+      "gp_name": "24. Abou Dhabi 8 déc",
+      "date": "24. Abou Dhabi 8 déc",
+      "drivers": [
+        {
+          "name": "1 BHR",
+          "points": null
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "8"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "25"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "15"
+        },
+        {
+          "name": "O. PIASTRI",
+          "points": "1"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "18"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "10"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "12"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "-"
+        },
+        {
+          "name": "F. ALONSO",
+          "points": "2"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "6"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": "4"
+        },
+        {
+          "name": "Y. TSUNODA",
+          "points": "-"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "-"
+        },
+        {
+          "name": "E. OCON",
+          "points": null
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "-"
+        },
+        {
+          "name": "A. ALBON",
+          "points": "-"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": null
+        },
+        {
+          "name": "O. BEARMAN",
+          "points": null
+        },
+        {
+          "name": "F. COLAPINTO",
+          "points": "-"
+        },
+        {
+          "name": "G. ZHOU",
+          "points": "-"
+        },
+        {
+          "name": "L. LAWSON",
+          "points": "-"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "-"
+        },
+        {
+          "name": "L. SARGEANT",
+          "points": null
+        },
+        {
+          "name": "J. DOOHAN",
+          "points": "-"
+        }
+      ]
     }
   ]
 }

@@ -2124,6 +2124,124 @@
           "points": "-"
         }
       ]
+    },
+    {
+      "gp_name": "19. Abou Dhabi 14 nov",
+      "date": "19. Abou Dhabi 14 nov",
+      "drivers": [
+        {
+          "name": "1 BHR",
+          "points": null
+        },
+        {
+          "name": "S. VETTEL",
+          "points": "25"
+        },
+        {
+          "name": "F. ALONSO",
+          "points": "6"
+        },
+        {
+          "name": "M. WEBBER",
+          "points": "4"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "18"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "15"
+        },
+        {
+          "name": "F. MASSA",
+          "points": "1"
+        },
+        {
+          "name": "N. ROSBERG",
+          "points": "12"
+        },
+        {
+          "name": "R. KUBICA",
+          "points": "10"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "-"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "-"
+        },
+        {
+          "name": "A. SUTIL",
+          "points": "-"
+        },
+        {
+          "name": "K. KOBAYASHI",
+          "points": "-"
+        },
+        {
+          "name": "V. PETROV",
+          "points": "8"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": "-"
+        },
+        {
+          "name": "V. LIUZZI",
+          "points": "-"
+        },
+        {
+          "name": "S. BUEMI",
+          "points": "-"
+        },
+        {
+          "name": "P. de la ROSA",
+          "points": null
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "-"
+        },
+        {
+          "name": "J. ALGUERSUARI",
+          "points": "2"
+        },
+        {
+          "name": "H. KOVALAINEN",
+          "points": "-"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "-"
+        },
+        {
+          "name": "K. CHANDHOK",
+          "points": null
+        },
+        {
+          "name": "B. SENNA",
+          "points": "-"
+        },
+        {
+          "name": "L. di GRASSI",
+          "points": "-"
+        },
+        {
+          "name": "T. GLOCK",
+          "points": "-"
+        },
+        {
+          "name": "S. YAMAMOTO",
+          "points": null
+        },
+        {
+          "name": "C. KLIEN",
+          "points": "-"
+        }
+      ]
     }
   ]
 }

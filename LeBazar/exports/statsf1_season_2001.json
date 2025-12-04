@@ -1824,6 +1824,120 @@
           "points": "-"
         }
       ]
+    },
+    {
+      "gp_name": "17. Japon 14 oct",
+      "date": "17. Japon 14 oct",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": null
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "10"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "4"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "2"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "1"
+        },
+        {
+          "name": "M. HAKKINEN",
+          "points": "3"
+        },
+        {
+          "name": "J. MONTOYA",
+          "points": "6"
+        },
+        {
+          "name": "J. VILLENEUVE",
+          "points": "-"
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "-"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "-"
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "-"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "-"
+        },
+        {
+          "name": "H. FRENTZEN",
+          "points": "-"
+        },
+        {
+          "name": "O. PANIS",
+          "points": "-"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "P. de la ROSA",
+          "points": "-"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "-"
+        },
+        {
+          "name": "J. VERSTAPPEN",
+          "points": "-"
+        },
+        {
+          "name": "R. ZONTA",
+          "points": null
+        },
+        {
+          "name": "L. BURTI",
+          "points": null
+        },
+        {
+          "name": "E. BERNOLDI",
+          "points": "-"
+        },
+        {
+          "name": "T. MARQUES",
+          "points": null
+        },
+        {
+          "name": "F. ALONSO",
+          "points": "-"
+        },
+        {
+          "name": "T. ENGE",
+          "points": "-"
+        },
+        {
+          "name": "G. MAZZACANE",
+          "points": null
+        },
+        {
+          "name": "A. YOONG",
+          "points": "-"
+        }
+      ]
     }
   ]
 }

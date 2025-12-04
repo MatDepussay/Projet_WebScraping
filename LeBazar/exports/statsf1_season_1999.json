@@ -1230,6 +1230,88 @@
           "points": "-"
         }
       ]
+    },
+    {
+      "gp_name": "16. Japon 31 oct",
+      "date": "16. Japon 31 oct",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": null
+        },
+        {
+          "name": "M. HAKKINEN",
+          "points": "10"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "4"
+        },
+        {
+          "name": "H. FRENTZEN",
+          "points": "3"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "-"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "6"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "2"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "-"
+        },
+        {
+          "name": "J. HERBERT",
+          "points": "-"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "-"
+        },
+        {
+          "name": "M. SALO",
+          "points": null
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "-"
+        },
+        {
+          "name": "D. HILL",
+          "points": "-"
+        },
+        {
+          "name": "A. WURZ",
+          "points": "-"
+        },
+        {
+          "name": "P. DINIZ",
+          "points": "-"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "1"
+        },
+        {
+          "name": "O. PANIS",
+          "points": "-"
+        },
+        {
+          "name": "M. GENE",
+          "points": "-"
+        },
+        {
+          "name": "P. de la ROSA",
+          "points": "-"
+        }
+      ]
     }
   ]
 }

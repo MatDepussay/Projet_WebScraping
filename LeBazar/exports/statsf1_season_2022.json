@@ -2058,6 +2058,104 @@
           "points": null
         }
       ]
+    },
+    {
+      "gp_name": "22. Abou Dhabi 20 nov",
+      "date": "22. Abou Dhabi 20 nov",
+      "drivers": [
+        {
+          "name": "1 BHR",
+          "points": null
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "25"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "18"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "15"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "10"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "12"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "-"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "9"
+        },
+        {
+          "name": "E. OCON",
+          "points": "6"
+        },
+        {
+          "name": "F. ALONSO",
+          "points": "-"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "-"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": "2"
+        },
+        {
+          "name": "S. VETTEL",
+          "points": "1"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "-"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "-"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "4"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "-"
+        },
+        {
+          "name": "Y. TSUNODA",
+          "points": "-"
+        },
+        {
+          "name": "G. ZHOU",
+          "points": "-"
+        },
+        {
+          "name": "A. ALBON",
+          "points": "-"
+        },
+        {
+          "name": "N. LATIFI",
+          "points": "-"
+        },
+        {
+          "name": "N. de VRIES",
+          "points": null
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": null
+        }
+      ]
     }
   ]
 }

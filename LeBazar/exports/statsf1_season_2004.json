@@ -1870,6 +1870,116 @@
           "points": "-"
         }
       ]
+    },
+    {
+      "gp_name": "18. Brésil 24 oct",
+      "date": "18. Brésil 24 oct",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": null
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "2"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "6"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "-"
+        },
+        {
+          "name": "F. ALONSO",
+          "points": "5"
+        },
+        {
+          "name": "J. MONTOYA",
+          "points": "10"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "-"
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "8"
+        },
+        {
+          "name": "T. SATO",
+          "points": "3"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "4"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "-"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "-"
+        },
+        {
+          "name": "F. MASSA",
+          "points": "1"
+        },
+        {
+          "name": "M. WEBBER",
+          "points": "-"
+        },
+        {
+          "name": "O. PANIS",
+          "points": null
+        },
+        {
+          "name": "A. PIZZONIA",
+          "points": null
+        },
+        {
+          "name": "C. KLIEN",
+          "points": "-"
+        },
+        {
+          "name": "C. da MATTA",
+          "points": null
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "-"
+        },
+        {
+          "name": "T. GLOCK",
+          "points": "-"
+        },
+        {
+          "name": "Z. BAUMGARTNER",
+          "points": "-"
+        },
+        {
+          "name": "J. VILLENEUVE",
+          "points": "-"
+        },
+        {
+          "name": "R. ZONTA",
+          "points": "-"
+        },
+        {
+          "name": "M. GENE",
+          "points": null
+        },
+        {
+          "name": "G. PANTANO",
+          "points": null
+        },
+        {
+          "name": "G. BRUNI",
+          "points": "-"
+        }
+      ]
     }
   ]
 }
