@@ -1,0 +1,144 @@
+{
+  "year": 1960,
+  "gp": "etats-unis",
+  "grid": [
+    {
+      "position": 1,
+      "driver": "S.MOSS",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 2,
+      "driver": "J.BRABHAM",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 3,
+      "driver": "D.GURNEY",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 4,
+      "driver": "J.BONNIER",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 5,
+      "driver": "J.CLARK",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 6,
+      "driver": "J.SURTEES",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 7,
+      "driver": "I.IRELAND",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 8,
+      "driver": "O.GENDEBIEN",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 9,
+      "driver": "T.BROOKS",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 10,
+      "driver": "B.McLAREN",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 11,
+      "driver": "G.HILL",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 12,
+      "driver": "J.HALL",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 13,
+      "driver": "P.HILL",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 14,
+      "driver": "H.TAYLOR",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 15,
+      "driver": "R.SALVADORI",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 16,
+      "driver": "W.von TRIPS",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 17,
+      "driver": "B.NAYLOR",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 18,
+      "driver": "C.DAIGH",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 19,
+      "driver": "M.TRINTIGNANT",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 20,
+      "driver": "P.LOVELY",
+      "constructor": null,
+      "engine": "Ferrari"
+    },
+    {
+      "position": 21,
+      "driver": "R.FLOCKHART",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 22,
+      "driver": "B.DRAKE",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 23,
+      "driver": "I.BURGESS",
+      "constructor": null,
+      "engine": null
+    }
+  ]
+}

@@ -1,0 +1,144 @@
+{
+  "year": 1963,
+  "gp": "grande-bretagne",
+  "grid": [
+    {
+      "position": 1,
+      "driver": "J.CLARK",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 2,
+      "driver": "D.GURNEY",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 3,
+      "driver": "G.HILL",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 4,
+      "driver": "J.BRABHAM",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 5,
+      "driver": "J.SURTEES",
+      "constructor": "Ferrari",
+      "engine": null
+    },
+    {
+      "position": 6,
+      "driver": "B.McLAREN",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 7,
+      "driver": "T.MAGGS",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 8,
+      "driver": "L.BANDINI",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 9,
+      "driver": "R.GINTHER",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 10,
+      "driver": "T.TAYLOR",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 11,
+      "driver": "I.IRELAND",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 12,
+      "driver": "J.BONNIER",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 13,
+      "driver": "J.HALL",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 14,
+      "driver": "C.AMON",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 15,
+      "driver": "J.SIFFERT",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 16,
+      "driver": "B.ANDERSON",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 17,
+      "driver": "M.HAILWOOD",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 18,
+      "driver": "T.SETTEMBER",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 19,
+      "driver": "I.RABY",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 20,
+      "driver": "I.BURGESS",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 21,
+      "driver": "C.GODIN de BEAUFORT",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 22,
+      "driver": "M.GREGORY",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 23,
+      "driver": "J.CAMPBELL-JONES",
+      "constructor": null,
+      "engine": null
+    }
+  ]
+}

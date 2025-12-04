@@ -1,0 +1,108 @@
+{
+  "year": 1954,
+  "gp": "argentine",
+  "grid": [
+    {
+      "position": 1,
+      "driver": "G.FARINA",
+      "constructor": "Ferrari",
+      "engine": null
+    },
+    {
+      "position": 2,
+      "driver": "J.GONZALEZ",
+      "constructor": "Ferrari",
+      "engine": null
+    },
+    {
+      "position": 3,
+      "driver": "J.FANGIO",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 4,
+      "driver": "M.HAWTHORN",
+      "constructor": "Ferrari",
+      "engine": null
+    },
+    {
+      "position": 5,
+      "driver": "M.TRINTIGNANT",
+      "constructor": "Ferrari",
+      "engine": null
+    },
+    {
+      "position": 6,
+      "driver": "O.MARIMON",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 7,
+      "driver": "L.MUSSO",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 8,
+      "driver": "R.MIERES",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 9,
+      "driver": "P.BIRA",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 10,
+      "driver": "H.SCHELL",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 11,
+      "driver": "U.MAGLIOLI",
+      "constructor": "Ferrari",
+      "engine": null
+    },
+    {
+      "position": 12,
+      "driver": "E.de GRAFFENRIED",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 13,
+      "driver": "L.ROSIER",
+      "constructor": "Ferrari",
+      "engine": null
+    },
+    {
+      "position": 14,
+      "driver": "E.BAYOL",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 15,
+      "driver": "R.LOYER",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 16,
+      "driver": "J.BEHRA",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 17,
+      "driver": "J.DAPONTE",
+      "constructor": null,
+      "engine": null
+    }
+  ]
+}

@@ -1,0 +1,198 @@
+{
+  "year": 1952,
+  "gp": "grande-bretagne",
+  "grid": [
+    {
+      "position": 1,
+      "driver": "G.FARINA",
+      "constructor": "Ferrari",
+      "engine": null
+    },
+    {
+      "position": 2,
+      "driver": "A.ASCARI",
+      "constructor": "Ferrari",
+      "engine": null
+    },
+    {
+      "position": 3,
+      "driver": "P.TARUFFI",
+      "constructor": "Ferrari",
+      "engine": null
+    },
+    {
+      "position": 4,
+      "driver": "R.MANZON",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 5,
+      "driver": "K.DOWNING",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 6,
+      "driver": "R.PARNELL",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 7,
+      "driver": "M.HAWTHORN",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 8,
+      "driver": "D.POORE",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 9,
+      "driver": "E.THOMPSON",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 10,
+      "driver": "P.BIRA",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 11,
+      "driver": "D.HAMILTON",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 12,
+      "driver": "G.WHITEHEAD",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 13,
+      "driver": "A.BROWN",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 14,
+      "driver": "P.COLLINS",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 15,
+      "driver": "R.FISCHER",
+      "constructor": "Ferrari",
+      "engine": null
+    },
+    {
+      "position": 16,
+      "driver": "S.MOSS",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 17,
+      "driver": "K.McALPINE",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 18,
+      "driver": "E.BRANDON",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 19,
+      "driver": "R.SALVADORI",
+      "constructor": "Ferrari",
+      "engine": null
+    },
+    {
+      "position": 20,
+      "driver": "P.WHITEHEAD",
+      "constructor": "Ferrari",
+      "engine": null
+    },
+    {
+      "position": 21,
+      "driver": "M.TRINTIGNANT",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 22,
+      "driver": "D.MURRAY",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 23,
+      "driver": "J.CLAES",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 24,
+      "driver": "P.HIRT",
+      "constructor": "Ferrari",
+      "engine": null
+    },
+    {
+      "position": 25,
+      "driver": "T.CROOK",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 26,
+      "driver": "T.GAZE",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 27,
+      "driver": "E.CANTONI",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 28,
+      "driver": "G.BIANCO",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 29,
+      "driver": "L.MACKLIN",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 30,
+      "driver": "B.ASTON",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 31,
+      "driver": "E.de GRAFFENRIED",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 32,
+      "driver": "H.SCHELL",
+      "constructor": null,
+      "engine": null
+    }
+  ]
+}

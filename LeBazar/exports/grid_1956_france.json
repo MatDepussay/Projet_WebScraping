@@ -1,0 +1,126 @@
+{
+  "year": 1956,
+  "gp": "france",
+  "grid": [
+    {
+      "position": 1,
+      "driver": "J.FANGIO",
+      "constructor": "Ferrari",
+      "engine": null
+    },
+    {
+      "position": 2,
+      "driver": "E.CASTELLOTTI",
+      "constructor": "Ferrari",
+      "engine": null
+    },
+    {
+      "position": 3,
+      "driver": "P.COLLINS",
+      "constructor": "Ferrari",
+      "engine": null
+    },
+    {
+      "position": 4,
+      "driver": "H.SCHELL",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 5,
+      "driver": "C.CHAPMAN",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 6,
+      "driver": "M.HAWTHORN",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 7,
+      "driver": "J.BEHRA",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 8,
+      "driver": "S.MOSS",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 9,
+      "driver": "A.de PORTAGO",
+      "constructor": "Ferrari",
+      "engine": null
+    },
+    {
+      "position": 10,
+      "driver": "L.VILLORESI",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 11,
+      "driver": "O.GENDEBIEN",
+      "constructor": "Ferrari",
+      "engine": null
+    },
+    {
+      "position": 12,
+      "driver": "L.ROSIER",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 13,
+      "driver": "P.TARUFFI",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 14,
+      "driver": "H.da SILVA RAMOS",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 15,
+      "driver": "R.MANZON",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 16,
+      "driver": "C.PERDISA",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 17,
+      "driver": "F.GODIA-SALES",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 18,
+      "driver": "M.TRINTIGNANT",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 19,
+      "driver": "A.PILETTE",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 20,
+      "driver": "A.SIMON",
+      "constructor": null,
+      "engine": null
+    }
+  ]
+}

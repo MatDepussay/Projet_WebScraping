@@ -1,0 +1,126 @@
+{
+  "year": 1954,
+  "gp": "italie",
+  "grid": [
+    {
+      "position": 1,
+      "driver": "J.FANGIO",
+      "constructor": "Mercedes",
+      "engine": null
+    },
+    {
+      "position": 2,
+      "driver": "A.ASCARI",
+      "constructor": "Ferrari",
+      "engine": null
+    },
+    {
+      "position": 3,
+      "driver": "S.MOSS",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 4,
+      "driver": "K.KLING",
+      "constructor": "Mercedes",
+      "engine": null
+    },
+    {
+      "position": 5,
+      "driver": "J.GONZALEZ",
+      "constructor": "Ferrari",
+      "engine": null
+    },
+    {
+      "position": 6,
+      "driver": "L.VILLORESI",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 7,
+      "driver": "M.HAWTHORN",
+      "constructor": "Ferrari",
+      "engine": null
+    },
+    {
+      "position": 8,
+      "driver": "H.HERRMANN",
+      "constructor": "Mercedes",
+      "engine": null
+    },
+    {
+      "position": 9,
+      "driver": "S.MANTOVANI",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 10,
+      "driver": "R.MIERES",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 11,
+      "driver": "M.TRINTIGNANT",
+      "constructor": "Ferrari",
+      "engine": null
+    },
+    {
+      "position": 12,
+      "driver": "J.BEHRA",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 13,
+      "driver": "U.MAGLIOLI",
+      "constructor": "Ferrari",
+      "engine": null
+    },
+    {
+      "position": 14,
+      "driver": "L.MUSSO",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 15,
+      "driver": "R.MANZON",
+      "constructor": "Ferrari",
+      "engine": null
+    },
+    {
+      "position": 16,
+      "driver": "P.COLLINS",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 17,
+      "driver": "C.BUCCI",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 18,
+      "driver": "F.WACKER",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 19,
+      "driver": "J.DAPONTE",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 20,
+      "driver": "L.ROSIER",
+      "constructor": null,
+      "engine": null
+    }
+  ]
+}

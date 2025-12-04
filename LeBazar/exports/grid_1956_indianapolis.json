@@ -1,0 +1,204 @@
+{
+  "year": 1956,
+  "gp": "indianapolis",
+  "grid": [
+    {
+      "position": 1,
+      "driver": "P.FLAHERTY",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 2,
+      "driver": "J.RATHMANN",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 3,
+      "driver": "P.O'CONNOR",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 4,
+      "driver": "D.RATHMANN",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 5,
+      "driver": "T.BETTENHAUSEN",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 6,
+      "driver": "J.PARSONS",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 7,
+      "driver": "F.AGABASHIAN",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 8,
+      "driver": "P.RUSSO",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 9,
+      "driver": "A.LINDEN",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 10,
+      "driver": "B.SWEIKERT",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 11,
+      "driver": "T.RUTTMAN",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 12,
+      "driver": "J.BOYD",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 13,
+      "driver": "S.HANKS",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 14,
+      "driver": "E.ELISIAN",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 15,
+      "driver": "R.WARD",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 16,
+      "driver": "J.DAYWALT",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 17,
+      "driver": "R.CRAWFORD",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 18,
+      "driver": "J.THOMSON",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 19,
+      "driver": "J.BRYAN",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 20,
+      "driver": "K.ANDREWS",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 21,
+      "driver": "J.REECE",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 22,
+      "driver": "G.HARTLEY",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 23,
+      "driver": "B.VEITH",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 24,
+      "driver": "J.TURNER",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 25,
+      "driver": "B.CHRISTIE",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 26,
+      "driver": "D.FREELAND",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 27,
+      "driver": "A.HERMAN",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 28,
+      "driver": "A.KELLER",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 29,
+      "driver": "B.GARRETT",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 30,
+      "driver": "C.GRIFFITH",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 31,
+      "driver": "J.TOLAN",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 32,
+      "driver": "E.JOHNSON",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 33,
+      "driver": "D.DINSMORE",
+      "constructor": null,
+      "engine": null
+    }
+  ]
+}

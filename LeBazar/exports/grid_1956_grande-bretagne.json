@@ -1,0 +1,174 @@
+{
+  "year": 1956,
+  "gp": "grande-bretagne",
+  "grid": [
+    {
+      "position": 1,
+      "driver": "S.MOSS",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 2,
+      "driver": "J.FANGIO",
+      "constructor": "Ferrari",
+      "engine": null
+    },
+    {
+      "position": 3,
+      "driver": "M.HAWTHORN",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 4,
+      "driver": "P.COLLINS",
+      "constructor": "Ferrari",
+      "engine": null
+    },
+    {
+      "position": 5,
+      "driver": "H.SCHELL",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 6,
+      "driver": "J.GONZALEZ",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 7,
+      "driver": "R.SALVADORI",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 8,
+      "driver": "E.CASTELLOTTI",
+      "constructor": "Ferrari",
+      "engine": null
+    },
+    {
+      "position": 9,
+      "driver": "T.BROOKS",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 10,
+      "driver": "A.SCOTT BROWN",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 11,
+      "driver": "D.TITTERINGTON",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 12,
+      "driver": "A.de PORTAGO",
+      "constructor": "Ferrari",
+      "engine": null
+    },
+    {
+      "position": 13,
+      "driver": "J.BEHRA",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 14,
+      "driver": "H.GOULD",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 15,
+      "driver": "C.PERDISA",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 16,
+      "driver": "M.TRINTIGNANT",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 17,
+      "driver": "R.FLOCKHART",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 18,
+      "driver": "R.MANZON",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 19,
+      "driver": "L.VILLORESI",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 20,
+      "driver": "B.HALFORD",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 21,
+      "driver": "J.FAIRMAN",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 22,
+      "driver": "B.GERARD",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 23,
+      "driver": "P.EMERY",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 24,
+      "driver": "U.MAGLIOLI",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 25,
+      "driver": "F.GODIA-SALES",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 26,
+      "driver": "H.da SILVA RAMOS",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 27,
+      "driver": "L.ROSIER",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 28,
+      "driver": "J.BRABHAM",
+      "constructor": null,
+      "engine": null
+    }
+  ]
+}
