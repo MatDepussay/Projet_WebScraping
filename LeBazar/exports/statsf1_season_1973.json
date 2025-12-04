@@ -1,0 +1,1415 @@
+{
+  "season": 1973,
+  "gps": [
+    {
+      "gp_name": "1. Argentine 28 janv",
+      "date": "1. Argentine 28 janv",
+      "drivers": [
+        {
+          "name": "1 ARG",
+          "points": "2 BRA"
+        },
+        {
+          "name": "J. STEWART",
+          "points": "4"
+        },
+        {
+          "name": "E. FITTIPALDI",
+          "points": "9"
+        },
+        {
+          "name": "R. PETERSON",
+          "points": "-"
+        },
+        {
+          "name": "F. CEVERT",
+          "points": "6"
+        },
+        {
+          "name": "P. REVSON",
+          "points": "-"
+        },
+        {
+          "name": "D. HULME",
+          "points": "2"
+        },
+        {
+          "name": "C. REUTEMANN",
+          "points": "-"
+        },
+        {
+          "name": "J. HUNT",
+          "points": null
+        },
+        {
+          "name": "J. ICKX",
+          "points": "3"
+        },
+        {
+          "name": "J. BELTOISE",
+          "points": "-"
+        },
+        {
+          "name": "C. PACE",
+          "points": "-"
+        },
+        {
+          "name": "A. MERZARIO",
+          "points": "-"
+        },
+        {
+          "name": "G. FOLLMER",
+          "points": null
+        },
+        {
+          "name": "J. OLIVER",
+          "points": null
+        },
+        {
+          "name": "A. De ADAMICH",
+          "points": null
+        },
+        {
+          "name": "W. FITTIPALDI",
+          "points": "1"
+        },
+        {
+          "name": "N. LAUDA",
+          "points": "-"
+        },
+        {
+          "name": "C. REGAZZONI",
+          "points": "-"
+        },
+        {
+          "name": "H. GANLEY",
+          "points": "-"
+        },
+        {
+          "name": "G. van LENNEP",
+          "points": null
+        },
+        {
+          "name": "C. AMON",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "2. Brésil 11 févr",
+      "date": "2. Brésil 11 févr",
+      "drivers": [
+        {
+          "name": "1 ARG",
+          "points": "3 ZAF"
+        },
+        {
+          "name": "J. STEWART",
+          "points": "6"
+        },
+        {
+          "name": "E. FITTIPALDI",
+          "points": "9"
+        },
+        {
+          "name": "R. PETERSON",
+          "points": "-"
+        },
+        {
+          "name": "F. CEVERT",
+          "points": "-"
+        },
+        {
+          "name": "P. REVSON",
+          "points": "-"
+        },
+        {
+          "name": "D. HULME",
+          "points": "4"
+        },
+        {
+          "name": "C. REUTEMANN",
+          "points": "-"
+        },
+        {
+          "name": "J. HUNT",
+          "points": null
+        },
+        {
+          "name": "J. ICKX",
+          "points": "2"
+        },
+        {
+          "name": "J. BELTOISE",
+          "points": "-"
+        },
+        {
+          "name": "C. PACE",
+          "points": "-"
+        },
+        {
+          "name": "A. MERZARIO",
+          "points": "3"
+        },
+        {
+          "name": "G. FOLLMER",
+          "points": "-"
+        },
+        {
+          "name": "J. OLIVER",
+          "points": "-"
+        },
+        {
+          "name": "A. De ADAMICH",
+          "points": null
+        },
+        {
+          "name": "W. FITTIPALDI",
+          "points": "-"
+        },
+        {
+          "name": "N. LAUDA",
+          "points": "-"
+        },
+        {
+          "name": "C. REGAZZONI",
+          "points": "1"
+        },
+        {
+          "name": "H. GANLEY",
+          "points": "-"
+        },
+        {
+          "name": "G. van LENNEP",
+          "points": null
+        },
+        {
+          "name": "C. AMON",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "3. Afrique du Sud 3 mars",
+      "date": "3. Afrique du Sud 3 mars",
+      "drivers": [
+        {
+          "name": "1 ARG",
+          "points": "4 ESP"
+        },
+        {
+          "name": "J. STEWART",
+          "points": "9"
+        },
+        {
+          "name": "E. FITTIPALDI",
+          "points": "4"
+        },
+        {
+          "name": "R. PETERSON",
+          "points": "-"
+        },
+        {
+          "name": "F. CEVERT",
+          "points": "-"
+        },
+        {
+          "name": "P. REVSON",
+          "points": "6"
+        },
+        {
+          "name": "D. HULME",
+          "points": "2"
+        },
+        {
+          "name": "C. REUTEMANN",
+          "points": "-"
+        },
+        {
+          "name": "J. HUNT",
+          "points": null
+        },
+        {
+          "name": "J. ICKX",
+          "points": "-"
+        },
+        {
+          "name": "J. BELTOISE",
+          "points": "-"
+        },
+        {
+          "name": "C. PACE",
+          "points": "-"
+        },
+        {
+          "name": "A. MERZARIO",
+          "points": "3"
+        },
+        {
+          "name": "G. FOLLMER",
+          "points": "1"
+        },
+        {
+          "name": "J. OLIVER",
+          "points": "-"
+        },
+        {
+          "name": "A. De ADAMICH",
+          "points": "-"
+        },
+        {
+          "name": "W. FITTIPALDI",
+          "points": "-"
+        },
+        {
+          "name": "N. LAUDA",
+          "points": "-"
+        },
+        {
+          "name": "C. REGAZZONI",
+          "points": "-"
+        },
+        {
+          "name": "H. GANLEY",
+          "points": "-"
+        },
+        {
+          "name": "G. van LENNEP",
+          "points": null
+        },
+        {
+          "name": "C. AMON",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "4. Espagne 29 avr",
+      "date": "4. Espagne 29 avr",
+      "drivers": [
+        {
+          "name": "1 ARG",
+          "points": "5 BEL"
+        },
+        {
+          "name": "J. STEWART",
+          "points": "-"
+        },
+        {
+          "name": "E. FITTIPALDI",
+          "points": "9"
+        },
+        {
+          "name": "R. PETERSON",
+          "points": "-"
+        },
+        {
+          "name": "F. CEVERT",
+          "points": "6"
+        },
+        {
+          "name": "P. REVSON",
+          "points": "3"
+        },
+        {
+          "name": "D. HULME",
+          "points": "1"
+        },
+        {
+          "name": "C. REUTEMANN",
+          "points": "-"
+        },
+        {
+          "name": "J. HUNT",
+          "points": null
+        },
+        {
+          "name": "J. ICKX",
+          "points": "-"
+        },
+        {
+          "name": "J. BELTOISE",
+          "points": "2"
+        },
+        {
+          "name": "C. PACE",
+          "points": "-"
+        },
+        {
+          "name": "A. MERZARIO",
+          "points": "-"
+        },
+        {
+          "name": "G. FOLLMER",
+          "points": "4"
+        },
+        {
+          "name": "J. OLIVER",
+          "points": "-"
+        },
+        {
+          "name": "A. De ADAMICH",
+          "points": "-"
+        },
+        {
+          "name": "W. FITTIPALDI",
+          "points": "-"
+        },
+        {
+          "name": "N. LAUDA",
+          "points": "-"
+        },
+        {
+          "name": "C. REGAZZONI",
+          "points": "-"
+        },
+        {
+          "name": "H. GANLEY",
+          "points": "-"
+        },
+        {
+          "name": "G. van LENNEP",
+          "points": null
+        },
+        {
+          "name": "C. AMON",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "5. Belgique 20 mai",
+      "date": "5. Belgique 20 mai",
+      "drivers": [
+        {
+          "name": "1 ARG",
+          "points": "6 MCO"
+        },
+        {
+          "name": "J. STEWART",
+          "points": "9"
+        },
+        {
+          "name": "E. FITTIPALDI",
+          "points": "4"
+        },
+        {
+          "name": "R. PETERSON",
+          "points": "-"
+        },
+        {
+          "name": "F. CEVERT",
+          "points": "6"
+        },
+        {
+          "name": "P. REVSON",
+          "points": "-"
+        },
+        {
+          "name": "D. HULME",
+          "points": "-"
+        },
+        {
+          "name": "C. REUTEMANN",
+          "points": "-"
+        },
+        {
+          "name": "J. HUNT",
+          "points": null
+        },
+        {
+          "name": "J. ICKX",
+          "points": "-"
+        },
+        {
+          "name": "J. BELTOISE",
+          "points": "-"
+        },
+        {
+          "name": "C. PACE",
+          "points": "-"
+        },
+        {
+          "name": "A. MERZARIO",
+          "points": "-"
+        },
+        {
+          "name": "G. FOLLMER",
+          "points": "-"
+        },
+        {
+          "name": "J. OLIVER",
+          "points": "-"
+        },
+        {
+          "name": "A. De ADAMICH",
+          "points": "3"
+        },
+        {
+          "name": "W. FITTIPALDI",
+          "points": "-"
+        },
+        {
+          "name": "N. LAUDA",
+          "points": "2"
+        },
+        {
+          "name": "C. REGAZZONI",
+          "points": "-"
+        },
+        {
+          "name": "H. GANLEY",
+          "points": "-"
+        },
+        {
+          "name": "G. van LENNEP",
+          "points": null
+        },
+        {
+          "name": "C. AMON",
+          "points": "1"
+        }
+      ]
+    },
+    {
+      "gp_name": "6. Monaco 3 juin",
+      "date": "6. Monaco 3 juin",
+      "drivers": [
+        {
+          "name": "1 ARG",
+          "points": "7 SWE"
+        },
+        {
+          "name": "J. STEWART",
+          "points": "9"
+        },
+        {
+          "name": "E. FITTIPALDI",
+          "points": "6"
+        },
+        {
+          "name": "R. PETERSON",
+          "points": "4"
+        },
+        {
+          "name": "F. CEVERT",
+          "points": "3"
+        },
+        {
+          "name": "P. REVSON",
+          "points": "2"
+        },
+        {
+          "name": "D. HULME",
+          "points": "1"
+        },
+        {
+          "name": "C. REUTEMANN",
+          "points": "-"
+        },
+        {
+          "name": "J. HUNT",
+          "points": "-"
+        },
+        {
+          "name": "J. ICKX",
+          "points": "-"
+        },
+        {
+          "name": "J. BELTOISE",
+          "points": "-"
+        },
+        {
+          "name": "C. PACE",
+          "points": "-"
+        },
+        {
+          "name": "A. MERZARIO",
+          "points": "-"
+        },
+        {
+          "name": "G. FOLLMER",
+          "points": "-"
+        },
+        {
+          "name": "J. OLIVER",
+          "points": "-"
+        },
+        {
+          "name": "A. De ADAMICH",
+          "points": "-"
+        },
+        {
+          "name": "W. FITTIPALDI",
+          "points": "-"
+        },
+        {
+          "name": "N. LAUDA",
+          "points": "-"
+        },
+        {
+          "name": "C. REGAZZONI",
+          "points": "-"
+        },
+        {
+          "name": "H. GANLEY",
+          "points": "-"
+        },
+        {
+          "name": "G. van LENNEP",
+          "points": null
+        },
+        {
+          "name": "C. AMON",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "7. Suède 17 juin",
+      "date": "7. Suède 17 juin",
+      "drivers": [
+        {
+          "name": "1 ARG",
+          "points": "8 FRA"
+        },
+        {
+          "name": "J. STEWART",
+          "points": "2"
+        },
+        {
+          "name": "E. FITTIPALDI",
+          "points": "-"
+        },
+        {
+          "name": "R. PETERSON",
+          "points": "6"
+        },
+        {
+          "name": "F. CEVERT",
+          "points": "4"
+        },
+        {
+          "name": "P. REVSON",
+          "points": "-"
+        },
+        {
+          "name": "D. HULME",
+          "points": "9"
+        },
+        {
+          "name": "C. REUTEMANN",
+          "points": "3"
+        },
+        {
+          "name": "J. HUNT",
+          "points": null
+        },
+        {
+          "name": "J. ICKX",
+          "points": "1"
+        },
+        {
+          "name": "J. BELTOISE",
+          "points": "-"
+        },
+        {
+          "name": "C. PACE",
+          "points": "-"
+        },
+        {
+          "name": "A. MERZARIO",
+          "points": "-"
+        },
+        {
+          "name": "G. FOLLMER",
+          "points": "-"
+        },
+        {
+          "name": "J. OLIVER",
+          "points": "-"
+        },
+        {
+          "name": "A. De ADAMICH",
+          "points": null
+        },
+        {
+          "name": "W. FITTIPALDI",
+          "points": "-"
+        },
+        {
+          "name": "N. LAUDA",
+          "points": "-"
+        },
+        {
+          "name": "C. REGAZZONI",
+          "points": "-"
+        },
+        {
+          "name": "H. GANLEY",
+          "points": "-"
+        },
+        {
+          "name": "G. van LENNEP",
+          "points": null
+        },
+        {
+          "name": "C. AMON",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "8. France 1 juil",
+      "date": "8. France 1 juil",
+      "drivers": [
+        {
+          "name": "1 ARG",
+          "points": "9 GBR"
+        },
+        {
+          "name": "J. STEWART",
+          "points": "3"
+        },
+        {
+          "name": "E. FITTIPALDI",
+          "points": "-"
+        },
+        {
+          "name": "R. PETERSON",
+          "points": "9"
+        },
+        {
+          "name": "F. CEVERT",
+          "points": "6"
+        },
+        {
+          "name": "P. REVSON",
+          "points": null
+        },
+        {
+          "name": "D. HULME",
+          "points": "-"
+        },
+        {
+          "name": "C. REUTEMANN",
+          "points": "4"
+        },
+        {
+          "name": "J. HUNT",
+          "points": "1"
+        },
+        {
+          "name": "J. ICKX",
+          "points": "2"
+        },
+        {
+          "name": "J. BELTOISE",
+          "points": "-"
+        },
+        {
+          "name": "C. PACE",
+          "points": "-"
+        },
+        {
+          "name": "A. MERZARIO",
+          "points": "-"
+        },
+        {
+          "name": "G. FOLLMER",
+          "points": "-"
+        },
+        {
+          "name": "J. OLIVER",
+          "points": "-"
+        },
+        {
+          "name": "A. De ADAMICH",
+          "points": "-"
+        },
+        {
+          "name": "W. FITTIPALDI",
+          "points": "-"
+        },
+        {
+          "name": "N. LAUDA",
+          "points": "-"
+        },
+        {
+          "name": "C. REGAZZONI",
+          "points": "-"
+        },
+        {
+          "name": "H. GANLEY",
+          "points": "-"
+        },
+        {
+          "name": "G. van LENNEP",
+          "points": null
+        },
+        {
+          "name": "C. AMON",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "9. Grande-Bretagne 14 juil",
+      "date": "9. Grande-Bretagne 14 juil",
+      "drivers": [
+        {
+          "name": "1 ARG",
+          "points": "10 NLD"
+        },
+        {
+          "name": "J. STEWART",
+          "points": "-"
+        },
+        {
+          "name": "E. FITTIPALDI",
+          "points": "-"
+        },
+        {
+          "name": "R. PETERSON",
+          "points": "6"
+        },
+        {
+          "name": "F. CEVERT",
+          "points": "2"
+        },
+        {
+          "name": "P. REVSON",
+          "points": "9"
+        },
+        {
+          "name": "D. HULME",
+          "points": "4"
+        },
+        {
+          "name": "C. REUTEMANN",
+          "points": "1"
+        },
+        {
+          "name": "J. HUNT",
+          "points": "3"
+        },
+        {
+          "name": "J. ICKX",
+          "points": "-"
+        },
+        {
+          "name": "J. BELTOISE",
+          "points": "-"
+        },
+        {
+          "name": "C. PACE",
+          "points": "-"
+        },
+        {
+          "name": "A. MERZARIO",
+          "points": "-"
+        },
+        {
+          "name": "G. FOLLMER",
+          "points": "-"
+        },
+        {
+          "name": "J. OLIVER",
+          "points": "-"
+        },
+        {
+          "name": "A. De ADAMICH",
+          "points": "-"
+        },
+        {
+          "name": "W. FITTIPALDI",
+          "points": "-"
+        },
+        {
+          "name": "N. LAUDA",
+          "points": "-"
+        },
+        {
+          "name": "C. REGAZZONI",
+          "points": "-"
+        },
+        {
+          "name": "H. GANLEY",
+          "points": "-"
+        },
+        {
+          "name": "G. van LENNEP",
+          "points": null
+        },
+        {
+          "name": "C. AMON",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "10. Pays-Bas 29 juil",
+      "date": "10. Pays-Bas 29 juil",
+      "drivers": [
+        {
+          "name": "1 ARG",
+          "points": "11 DEU"
+        },
+        {
+          "name": "J. STEWART",
+          "points": "9"
+        },
+        {
+          "name": "E. FITTIPALDI",
+          "points": "-"
+        },
+        {
+          "name": "R. PETERSON",
+          "points": "-"
+        },
+        {
+          "name": "F. CEVERT",
+          "points": "6"
+        },
+        {
+          "name": "P. REVSON",
+          "points": "3"
+        },
+        {
+          "name": "D. HULME",
+          "points": "-"
+        },
+        {
+          "name": "C. REUTEMANN",
+          "points": "-"
+        },
+        {
+          "name": "J. HUNT",
+          "points": "4"
+        },
+        {
+          "name": "J. ICKX",
+          "points": "-"
+        },
+        {
+          "name": "J. BELTOISE",
+          "points": "2"
+        },
+        {
+          "name": "C. PACE",
+          "points": "-"
+        },
+        {
+          "name": "A. MERZARIO",
+          "points": "-"
+        },
+        {
+          "name": "G. FOLLMER",
+          "points": "-"
+        },
+        {
+          "name": "J. OLIVER",
+          "points": "-"
+        },
+        {
+          "name": "A. De ADAMICH",
+          "points": null
+        },
+        {
+          "name": "W. FITTIPALDI",
+          "points": "-"
+        },
+        {
+          "name": "N. LAUDA",
+          "points": "-"
+        },
+        {
+          "name": "C. REGAZZONI",
+          "points": "-"
+        },
+        {
+          "name": "H. GANLEY",
+          "points": "-"
+        },
+        {
+          "name": "G. van LENNEP",
+          "points": "1"
+        },
+        {
+          "name": "C. AMON",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "11. Allemagne 5 août",
+      "date": "11. Allemagne 5 août",
+      "drivers": [
+        {
+          "name": "1 ARG",
+          "points": "12 AUT"
+        },
+        {
+          "name": "J. STEWART",
+          "points": "9"
+        },
+        {
+          "name": "E. FITTIPALDI",
+          "points": "1"
+        },
+        {
+          "name": "R. PETERSON",
+          "points": "-"
+        },
+        {
+          "name": "F. CEVERT",
+          "points": "6"
+        },
+        {
+          "name": "P. REVSON",
+          "points": "-"
+        },
+        {
+          "name": "D. HULME",
+          "points": "-"
+        },
+        {
+          "name": "C. REUTEMANN",
+          "points": "-"
+        },
+        {
+          "name": "J. HUNT",
+          "points": "-"
+        },
+        {
+          "name": "J. ICKX",
+          "points": "4"
+        },
+        {
+          "name": "J. BELTOISE",
+          "points": "-"
+        },
+        {
+          "name": "C. PACE",
+          "points": "3"
+        },
+        {
+          "name": "A. MERZARIO",
+          "points": "-"
+        },
+        {
+          "name": "G. FOLLMER",
+          "points": "-"
+        },
+        {
+          "name": "J. OLIVER",
+          "points": "-"
+        },
+        {
+          "name": "A. De ADAMICH",
+          "points": null
+        },
+        {
+          "name": "W. FITTIPALDI",
+          "points": "2"
+        },
+        {
+          "name": "N. LAUDA",
+          "points": "-"
+        },
+        {
+          "name": "C. REGAZZONI",
+          "points": "-"
+        },
+        {
+          "name": "H. GANLEY",
+          "points": "-"
+        },
+        {
+          "name": "G. van LENNEP",
+          "points": null
+        },
+        {
+          "name": "C. AMON",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "12. Autriche 19 août",
+      "date": "12. Autriche 19 août",
+      "drivers": [
+        {
+          "name": "1 ARG",
+          "points": "13 ITA"
+        },
+        {
+          "name": "J. STEWART",
+          "points": "6"
+        },
+        {
+          "name": "E. FITTIPALDI",
+          "points": "-"
+        },
+        {
+          "name": "R. PETERSON",
+          "points": "9"
+        },
+        {
+          "name": "F. CEVERT",
+          "points": "-"
+        },
+        {
+          "name": "P. REVSON",
+          "points": "-"
+        },
+        {
+          "name": "D. HULME",
+          "points": "-"
+        },
+        {
+          "name": "C. REUTEMANN",
+          "points": "3"
+        },
+        {
+          "name": "J. HUNT",
+          "points": "-"
+        },
+        {
+          "name": "J. ICKX",
+          "points": null
+        },
+        {
+          "name": "J. BELTOISE",
+          "points": "2"
+        },
+        {
+          "name": "C. PACE",
+          "points": "4"
+        },
+        {
+          "name": "A. MERZARIO",
+          "points": "-"
+        },
+        {
+          "name": "G. FOLLMER",
+          "points": "-"
+        },
+        {
+          "name": "J. OLIVER",
+          "points": "-"
+        },
+        {
+          "name": "A. De ADAMICH",
+          "points": null
+        },
+        {
+          "name": "W. FITTIPALDI",
+          "points": "-"
+        },
+        {
+          "name": "N. LAUDA",
+          "points": "-"
+        },
+        {
+          "name": "C. REGAZZONI",
+          "points": "1"
+        },
+        {
+          "name": "H. GANLEY",
+          "points": "-"
+        },
+        {
+          "name": "G. van LENNEP",
+          "points": "-"
+        },
+        {
+          "name": "C. AMON",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "13. Italie 9 sept",
+      "date": "13. Italie 9 sept",
+      "drivers": [
+        {
+          "name": "1 ARG",
+          "points": "14 CAN"
+        },
+        {
+          "name": "J. STEWART",
+          "points": "3"
+        },
+        {
+          "name": "E. FITTIPALDI",
+          "points": "6"
+        },
+        {
+          "name": "R. PETERSON",
+          "points": "9"
+        },
+        {
+          "name": "F. CEVERT",
+          "points": "2"
+        },
+        {
+          "name": "P. REVSON",
+          "points": "4"
+        },
+        {
+          "name": "D. HULME",
+          "points": "-"
+        },
+        {
+          "name": "C. REUTEMANN",
+          "points": "1"
+        },
+        {
+          "name": "J. HUNT",
+          "points": "-"
+        },
+        {
+          "name": "J. ICKX",
+          "points": "-"
+        },
+        {
+          "name": "J. BELTOISE",
+          "points": "-"
+        },
+        {
+          "name": "C. PACE",
+          "points": "-"
+        },
+        {
+          "name": "A. MERZARIO",
+          "points": "-"
+        },
+        {
+          "name": "G. FOLLMER",
+          "points": "-"
+        },
+        {
+          "name": "J. OLIVER",
+          "points": "-"
+        },
+        {
+          "name": "A. De ADAMICH",
+          "points": null
+        },
+        {
+          "name": "W. FITTIPALDI",
+          "points": "-"
+        },
+        {
+          "name": "N. LAUDA",
+          "points": "-"
+        },
+        {
+          "name": "C. REGAZZONI",
+          "points": "-"
+        },
+        {
+          "name": "H. GANLEY",
+          "points": "-"
+        },
+        {
+          "name": "G. van LENNEP",
+          "points": "-"
+        },
+        {
+          "name": "C. AMON",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "14. Canada 23 sept",
+      "date": "14. Canada 23 sept",
+      "drivers": [
+        {
+          "name": "1 ARG",
+          "points": "15 USA"
+        },
+        {
+          "name": "J. STEWART",
+          "points": "2"
+        },
+        {
+          "name": "E. FITTIPALDI",
+          "points": "6"
+        },
+        {
+          "name": "R. PETERSON",
+          "points": "-"
+        },
+        {
+          "name": "F. CEVERT",
+          "points": "-"
+        },
+        {
+          "name": "P. REVSON",
+          "points": "9"
+        },
+        {
+          "name": "D. HULME",
+          "points": "-"
+        },
+        {
+          "name": "C. REUTEMANN",
+          "points": "-"
+        },
+        {
+          "name": "J. HUNT",
+          "points": "-"
+        },
+        {
+          "name": "J. ICKX",
+          "points": null
+        },
+        {
+          "name": "J. BELTOISE",
+          "points": "3"
+        },
+        {
+          "name": "C. PACE",
+          "points": "-"
+        },
+        {
+          "name": "A. MERZARIO",
+          "points": "-"
+        },
+        {
+          "name": "G. FOLLMER",
+          "points": "-"
+        },
+        {
+          "name": "J. OLIVER",
+          "points": "4"
+        },
+        {
+          "name": "A. De ADAMICH",
+          "points": null
+        },
+        {
+          "name": "W. FITTIPALDI",
+          "points": "-"
+        },
+        {
+          "name": "N. LAUDA",
+          "points": "-"
+        },
+        {
+          "name": "C. REGAZZONI",
+          "points": null
+        },
+        {
+          "name": "H. GANLEY",
+          "points": "1"
+        },
+        {
+          "name": "G. van LENNEP",
+          "points": null
+        },
+        {
+          "name": "C. AMON",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "15. Etats-Unis 7 oct",
+      "date": "15. Etats-Unis 7 oct",
+      "drivers": [
+        {
+          "name": "1 ARG",
+          "points": "Pts"
+        },
+        {
+          "name": "J. STEWART",
+          "points": "-"
+        },
+        {
+          "name": "E. FITTIPALDI",
+          "points": "1"
+        },
+        {
+          "name": "R. PETERSON",
+          "points": "9"
+        },
+        {
+          "name": "F. CEVERT",
+          "points": "-"
+        },
+        {
+          "name": "P. REVSON",
+          "points": "2"
+        },
+        {
+          "name": "D. HULME",
+          "points": "3"
+        },
+        {
+          "name": "C. REUTEMANN",
+          "points": "4"
+        },
+        {
+          "name": "J. HUNT",
+          "points": "6"
+        },
+        {
+          "name": "J. ICKX",
+          "points": "-"
+        },
+        {
+          "name": "J. BELTOISE",
+          "points": "-"
+        },
+        {
+          "name": "C. PACE",
+          "points": "-"
+        },
+        {
+          "name": "A. MERZARIO",
+          "points": "-"
+        },
+        {
+          "name": "G. FOLLMER",
+          "points": "-"
+        },
+        {
+          "name": "J. OLIVER",
+          "points": "-"
+        },
+        {
+          "name": "A. De ADAMICH",
+          "points": null
+        },
+        {
+          "name": "W. FITTIPALDI",
+          "points": "-"
+        },
+        {
+          "name": "N. LAUDA",
+          "points": "-"
+        },
+        {
+          "name": "C. REGAZZONI",
+          "points": "-"
+        },
+        {
+          "name": "H. GANLEY",
+          "points": "-"
+        },
+        {
+          "name": "G. van LENNEP",
+          "points": null
+        },
+        {
+          "name": "C. AMON",
+          "points": "-"
+        }
+      ]
+    }
+  ]
+}

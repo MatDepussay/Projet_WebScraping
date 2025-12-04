@@ -1,0 +1,2063 @@
+{
+  "season": 2023,
+  "gps": [
+    {
+      "gp_name": "1. Bahreïn 5 mars",
+      "date": "1. Bahreïn 5 mars",
+      "drivers": [
+        {
+          "name": "1 BHR",
+          "points": "2 SAU"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "25"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "18"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "10"
+        },
+        {
+          "name": "F. ALONSO",
+          "points": "15"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "-"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "-"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "12"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "6"
+        },
+        {
+          "name": "O. PIASTRI",
+          "points": "-"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "8"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "2"
+        },
+        {
+          "name": "E. OCON",
+          "points": "-"
+        },
+        {
+          "name": "A. ALBON",
+          "points": "1"
+        },
+        {
+          "name": "Y. TSUNODA",
+          "points": "-"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "4"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": "-"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": null
+        },
+        {
+          "name": "G. ZHOU",
+          "points": "-"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "-"
+        },
+        {
+          "name": "L. LAWSON",
+          "points": null
+        },
+        {
+          "name": "L. SARGEANT",
+          "points": "-"
+        },
+        {
+          "name": "N. de VRIES",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "2. Arabie saoudite 19 mars",
+      "date": "2. Arabie saoudite 19 mars",
+      "drivers": [
+        {
+          "name": "1 BHR",
+          "points": "3 AUS"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "19"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "25"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "10"
+        },
+        {
+          "name": "F. ALONSO",
+          "points": "15"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "6"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "-"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "8"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "12"
+        },
+        {
+          "name": "O. PIASTRI",
+          "points": "-"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "-"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "2"
+        },
+        {
+          "name": "E. OCON",
+          "points": "4"
+        },
+        {
+          "name": "A. ALBON",
+          "points": "-"
+        },
+        {
+          "name": "Y. TSUNODA",
+          "points": "-"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "-"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": "-"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": null
+        },
+        {
+          "name": "G. ZHOU",
+          "points": "-"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "1"
+        },
+        {
+          "name": "L. LAWSON",
+          "points": null
+        },
+        {
+          "name": "L. SARGEANT",
+          "points": "-"
+        },
+        {
+          "name": "N. de VRIES",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "3. Australie 2 avr",
+      "date": "3. Australie 2 avr",
+      "drivers": [
+        {
+          "name": "1 BHR",
+          "points": "4 AZE"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "25"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "11"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "18"
+        },
+        {
+          "name": "F. ALONSO",
+          "points": "15"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "-"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "8"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "-"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "-"
+        },
+        {
+          "name": "O. PIASTRI",
+          "points": "4"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "12"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "-"
+        },
+        {
+          "name": "E. OCON",
+          "points": "-"
+        },
+        {
+          "name": "A. ALBON",
+          "points": "-"
+        },
+        {
+          "name": "Y. TSUNODA",
+          "points": "1"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "-"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": "6"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": null
+        },
+        {
+          "name": "G. ZHOU",
+          "points": "2"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "-"
+        },
+        {
+          "name": "L. LAWSON",
+          "points": null
+        },
+        {
+          "name": "L. SARGEANT",
+          "points": "-"
+        },
+        {
+          "name": "N. de VRIES",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "4. Azerbaïdjan • 30 avr",
+      "date": "4. Azerbaïdjan • 30 avr",
+      "drivers": [
+        {
+          "name": "1 BHR",
+          "points": "5 MIA"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "24"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "33"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "10"
+        },
+        {
+          "name": "F. ALONSO",
+          "points": "15"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "22"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "2"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "14"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "10"
+        },
+        {
+          "name": "O. PIASTRI",
+          "points": "-"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "7"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "-"
+        },
+        {
+          "name": "E. OCON",
+          "points": "-"
+        },
+        {
+          "name": "A. ALBON",
+          "points": "-"
+        },
+        {
+          "name": "Y. TSUNODA",
+          "points": "1"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "-"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": "-"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": null
+        },
+        {
+          "name": "G. ZHOU",
+          "points": "-"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "-"
+        },
+        {
+          "name": "L. LAWSON",
+          "points": null
+        },
+        {
+          "name": "L. SARGEANT",
+          "points": "-"
+        },
+        {
+          "name": "N. de VRIES",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "5. Miami 7 mai",
+      "date": "5. Miami 7 mai",
+      "drivers": [
+        {
+          "name": "1 BHR",
+          "points": "6 MCO"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "26"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "18"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "8"
+        },
+        {
+          "name": "F. ALONSO",
+          "points": "15"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "6"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "-"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "10"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "12"
+        },
+        {
+          "name": "O. PIASTRI",
+          "points": "-"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "-"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "4"
+        },
+        {
+          "name": "E. OCON",
+          "points": "2"
+        },
+        {
+          "name": "A. ALBON",
+          "points": "-"
+        },
+        {
+          "name": "Y. TSUNODA",
+          "points": "-"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "-"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": "-"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": null
+        },
+        {
+          "name": "G. ZHOU",
+          "points": "-"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "1"
+        },
+        {
+          "name": "L. LAWSON",
+          "points": null
+        },
+        {
+          "name": "L. SARGEANT",
+          "points": "-"
+        },
+        {
+          "name": "N. de VRIES",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "6. Monaco 28 mai",
+      "date": "6. Monaco 28 mai",
+      "drivers": [
+        {
+          "name": "1 BHR",
+          "points": "7 ESP"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "25"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "-"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "13"
+        },
+        {
+          "name": "F. ALONSO",
+          "points": "18"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "8"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "2"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "4"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "10"
+        },
+        {
+          "name": "O. PIASTRI",
+          "points": "1"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "-"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "6"
+        },
+        {
+          "name": "E. OCON",
+          "points": "15"
+        },
+        {
+          "name": "A. ALBON",
+          "points": "-"
+        },
+        {
+          "name": "Y. TSUNODA",
+          "points": "-"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "-"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": "-"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": null
+        },
+        {
+          "name": "G. ZHOU",
+          "points": "-"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "-"
+        },
+        {
+          "name": "L. LAWSON",
+          "points": null
+        },
+        {
+          "name": "L. SARGEANT",
+          "points": "-"
+        },
+        {
+          "name": "N. de VRIES",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "7. Espagne 4 juin",
+      "date": "7. Espagne 4 juin",
+      "drivers": [
+        {
+          "name": "1 BHR",
+          "points": "8 CAN"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "26"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "12"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "18"
+        },
+        {
+          "name": "F. ALONSO",
+          "points": "6"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "-"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "-"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "10"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "15"
+        },
+        {
+          "name": "O. PIASTRI",
+          "points": "-"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "8"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "1"
+        },
+        {
+          "name": "E. OCON",
+          "points": "4"
+        },
+        {
+          "name": "A. ALBON",
+          "points": "-"
+        },
+        {
+          "name": "Y. TSUNODA",
+          "points": "-"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "-"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": "-"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": null
+        },
+        {
+          "name": "G. ZHOU",
+          "points": "2"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "-"
+        },
+        {
+          "name": "L. LAWSON",
+          "points": null
+        },
+        {
+          "name": "L. SARGEANT",
+          "points": "-"
+        },
+        {
+          "name": "N. de VRIES",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "8. Canada 18 juin",
+      "date": "8. Canada 18 juin",
+      "drivers": [
+        {
+          "name": "1 BHR",
+          "points": "9 AUT"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "25"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "9"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "15"
+        },
+        {
+          "name": "F. ALONSO",
+          "points": "18"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "12"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "-"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "10"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "-"
+        },
+        {
+          "name": "O. PIASTRI",
+          "points": "-"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "2"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "-"
+        },
+        {
+          "name": "E. OCON",
+          "points": "4"
+        },
+        {
+          "name": "A. ALBON",
+          "points": "6"
+        },
+        {
+          "name": "Y. TSUNODA",
+          "points": "-"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "1"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": "-"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": null
+        },
+        {
+          "name": "G. ZHOU",
+          "points": "-"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "-"
+        },
+        {
+          "name": "L. LAWSON",
+          "points": null
+        },
+        {
+          "name": "L. SARGEANT",
+          "points": "-"
+        },
+        {
+          "name": "N. de VRIES",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "9. Autriche • 2 juil",
+      "date": "9. Autriche • 2 juil",
+      "drivers": [
+        {
+          "name": "1 BHR",
+          "points": "10 GBR"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "34"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "22"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "4"
+        },
+        {
+          "name": "F. ALONSO",
+          "points": "14"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "18"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "12"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "14"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "7"
+        },
+        {
+          "name": "O. PIASTRI",
+          "points": "-"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "7"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "1"
+        },
+        {
+          "name": "E. OCON",
+          "points": "2"
+        },
+        {
+          "name": "A. ALBON",
+          "points": "-"
+        },
+        {
+          "name": "Y. TSUNODA",
+          "points": "-"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "-"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": "3"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": null
+        },
+        {
+          "name": "G. ZHOU",
+          "points": "-"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "-"
+        },
+        {
+          "name": "L. LAWSON",
+          "points": null
+        },
+        {
+          "name": "L. SARGEANT",
+          "points": "-"
+        },
+        {
+          "name": "N. de VRIES",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "10. Grande-Bretagne 9 juil",
+      "date": "10. Grande-Bretagne 9 juil",
+      "drivers": [
+        {
+          "name": "1 BHR",
+          "points": "11 HUN"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "26"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "8"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "15"
+        },
+        {
+          "name": "F. ALONSO",
+          "points": "6"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "2"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "18"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "1"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "10"
+        },
+        {
+          "name": "O. PIASTRI",
+          "points": "12"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "-"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "-"
+        },
+        {
+          "name": "E. OCON",
+          "points": "-"
+        },
+        {
+          "name": "A. ALBON",
+          "points": "4"
+        },
+        {
+          "name": "Y. TSUNODA",
+          "points": "-"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "-"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": "-"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": null
+        },
+        {
+          "name": "G. ZHOU",
+          "points": "-"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "-"
+        },
+        {
+          "name": "L. LAWSON",
+          "points": null
+        },
+        {
+          "name": "L. SARGEANT",
+          "points": "-"
+        },
+        {
+          "name": "N. de VRIES",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "11. Hongrie 23 juil",
+      "date": "11. Hongrie 23 juil",
+      "drivers": [
+        {
+          "name": "1 BHR",
+          "points": "12 BEL"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "26"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "15"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "12"
+        },
+        {
+          "name": "F. ALONSO",
+          "points": "2"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "6"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "18"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "4"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "8"
+        },
+        {
+          "name": "O. PIASTRI",
+          "points": "10"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "1"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "-"
+        },
+        {
+          "name": "E. OCON",
+          "points": "-"
+        },
+        {
+          "name": "A. ALBON",
+          "points": "-"
+        },
+        {
+          "name": "Y. TSUNODA",
+          "points": "-"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "-"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": "-"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": "-"
+        },
+        {
+          "name": "G. ZHOU",
+          "points": "-"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "-"
+        },
+        {
+          "name": "L. LAWSON",
+          "points": null
+        },
+        {
+          "name": "L. SARGEANT",
+          "points": "-"
+        },
+        {
+          "name": "N. de VRIES",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "12. Belgique • 30 juil",
+      "date": "12. Belgique • 30 juil",
+      "drivers": [
+        {
+          "name": "1 BHR",
+          "points": "13 NLD"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "33"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "18"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "15"
+        },
+        {
+          "name": "F. ALONSO",
+          "points": "10"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "19"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "9"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "5"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "9"
+        },
+        {
+          "name": "O. PIASTRI",
+          "points": "7"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "2"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "6"
+        },
+        {
+          "name": "E. OCON",
+          "points": "4"
+        },
+        {
+          "name": "A. ALBON",
+          "points": "-"
+        },
+        {
+          "name": "Y. TSUNODA",
+          "points": "1"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "-"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": "-"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": "-"
+        },
+        {
+          "name": "G. ZHOU",
+          "points": "-"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "-"
+        },
+        {
+          "name": "L. LAWSON",
+          "points": null
+        },
+        {
+          "name": "L. SARGEANT",
+          "points": "-"
+        },
+        {
+          "name": "N. de VRIES",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "13. Pays-Bas 27 août",
+      "date": "13. Pays-Bas 27 août",
+      "drivers": [
+        {
+          "name": "1 BHR",
+          "points": "14 ITA"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "25"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "12"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "8"
+        },
+        {
+          "name": "F. ALONSO",
+          "points": "19"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "-"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "6"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "10"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "-"
+        },
+        {
+          "name": "O. PIASTRI",
+          "points": "2"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "-"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "15"
+        },
+        {
+          "name": "E. OCON",
+          "points": "1"
+        },
+        {
+          "name": "A. ALBON",
+          "points": "4"
+        },
+        {
+          "name": "Y. TSUNODA",
+          "points": "-"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "-"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": "-"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": "-"
+        },
+        {
+          "name": "G. ZHOU",
+          "points": "-"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "-"
+        },
+        {
+          "name": "L. LAWSON",
+          "points": "-"
+        },
+        {
+          "name": "L. SARGEANT",
+          "points": "-"
+        },
+        {
+          "name": "N. de VRIES",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "14. Italie 3 sept",
+      "date": "14. Italie 3 sept",
+      "drivers": [
+        {
+          "name": "1 BHR",
+          "points": "15 SGP"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "25"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "18"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "8"
+        },
+        {
+          "name": "F. ALONSO",
+          "points": "2"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "12"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "4"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "15"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "10"
+        },
+        {
+          "name": "O. PIASTRI",
+          "points": "-"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "-"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "-"
+        },
+        {
+          "name": "E. OCON",
+          "points": "-"
+        },
+        {
+          "name": "A. ALBON",
+          "points": "6"
+        },
+        {
+          "name": "Y. TSUNODA",
+          "points": "-"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "1"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": "-"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": null
+        },
+        {
+          "name": "G. ZHOU",
+          "points": "-"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "-"
+        },
+        {
+          "name": "L. LAWSON",
+          "points": "-"
+        },
+        {
+          "name": "L. SARGEANT",
+          "points": "-"
+        },
+        {
+          "name": "N. de VRIES",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "15. Singapour 17 sept",
+      "date": "15. Singapour 17 sept",
+      "drivers": [
+        {
+          "name": "1 BHR",
+          "points": "16 JPN"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "10"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "4"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "16"
+        },
+        {
+          "name": "F. ALONSO",
+          "points": "-"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "12"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "18"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "25"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "-"
+        },
+        {
+          "name": "O. PIASTRI",
+          "points": "6"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "-"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "8"
+        },
+        {
+          "name": "E. OCON",
+          "points": "-"
+        },
+        {
+          "name": "A. ALBON",
+          "points": "-"
+        },
+        {
+          "name": "Y. TSUNODA",
+          "points": "-"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "-"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": "-"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": null
+        },
+        {
+          "name": "G. ZHOU",
+          "points": "-"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "1"
+        },
+        {
+          "name": "L. LAWSON",
+          "points": "2"
+        },
+        {
+          "name": "L. SARGEANT",
+          "points": "-"
+        },
+        {
+          "name": "N. de VRIES",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "16. Japon 24 sept",
+      "date": "16. Japon 24 sept",
+      "drivers": [
+        {
+          "name": "1 BHR",
+          "points": "17 QAT"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "26"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "-"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "10"
+        },
+        {
+          "name": "F. ALONSO",
+          "points": "4"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "12"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "18"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "8"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "6"
+        },
+        {
+          "name": "O. PIASTRI",
+          "points": "15"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "-"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "1"
+        },
+        {
+          "name": "E. OCON",
+          "points": "2"
+        },
+        {
+          "name": "A. ALBON",
+          "points": "-"
+        },
+        {
+          "name": "Y. TSUNODA",
+          "points": "-"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "-"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": "-"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": null
+        },
+        {
+          "name": "G. ZHOU",
+          "points": "-"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "-"
+        },
+        {
+          "name": "L. LAWSON",
+          "points": "-"
+        },
+        {
+          "name": "L. SARGEANT",
+          "points": "-"
+        },
+        {
+          "name": "N. de VRIES",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "17. Qatar • 8 oct",
+      "date": "17. Qatar • 8 oct",
+      "drivers": [
+        {
+          "name": "1 BHR",
+          "points": "18 USA"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "33"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "1"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "4"
+        },
+        {
+          "name": "F. ALONSO",
+          "points": "9"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "10"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "21"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "3"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "17"
+        },
+        {
+          "name": "O. PIASTRI",
+          "points": "26"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "-"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "-"
+        },
+        {
+          "name": "E. OCON",
+          "points": "6"
+        },
+        {
+          "name": "A. ALBON",
+          "points": "2"
+        },
+        {
+          "name": "Y. TSUNODA",
+          "points": "-"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "4"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": "-"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": null
+        },
+        {
+          "name": "G. ZHOU",
+          "points": "2"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "-"
+        },
+        {
+          "name": "L. LAWSON",
+          "points": "-"
+        },
+        {
+          "name": "L. SARGEANT",
+          "points": "-"
+        },
+        {
+          "name": "N. de VRIES",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "18. Etats-Unis • 22 oct",
+      "date": "18. Etats-Unis • 22 oct",
+      "drivers": [
+        {
+          "name": "1 BHR",
+          "points": "19 MXC"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "33"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "16"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "7"
+        },
+        {
+          "name": "F. ALONSO",
+          "points": "-"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "6"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "23"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "18"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "11"
+        },
+        {
+          "name": "O. PIASTRI",
+          "points": "-"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "6"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "10"
+        },
+        {
+          "name": "E. OCON",
+          "points": "-"
+        },
+        {
+          "name": "A. ALBON",
+          "points": "2"
+        },
+        {
+          "name": "Y. TSUNODA",
+          "points": "5"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "-"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": "-"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": "-"
+        },
+        {
+          "name": "G. ZHOU",
+          "points": "-"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "-"
+        },
+        {
+          "name": "L. LAWSON",
+          "points": null
+        },
+        {
+          "name": "L. SARGEANT",
+          "points": "1"
+        },
+        {
+          "name": "N. de VRIES",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "19. Mexico City 29 oct",
+      "date": "19. Mexico City 29 oct",
+      "drivers": [
+        {
+          "name": "1 BHR",
+          "points": "20 SAO"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "25"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "-"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "19"
+        },
+        {
+          "name": "F. ALONSO",
+          "points": "-"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "15"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "10"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "12"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "8"
+        },
+        {
+          "name": "O. PIASTRI",
+          "points": "4"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "-"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "-"
+        },
+        {
+          "name": "E. OCON",
+          "points": "1"
+        },
+        {
+          "name": "A. ALBON",
+          "points": "2"
+        },
+        {
+          "name": "Y. TSUNODA",
+          "points": "-"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "-"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": "-"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": "6"
+        },
+        {
+          "name": "G. ZHOU",
+          "points": "-"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "-"
+        },
+        {
+          "name": "L. LAWSON",
+          "points": null
+        },
+        {
+          "name": "L. SARGEANT",
+          "points": "-"
+        },
+        {
+          "name": "N. de VRIES",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "20. São Paulo • 5 nov",
+      "date": "20. São Paulo • 5 nov",
+      "drivers": [
+        {
+          "name": "1 BHR",
+          "points": "21 VEG"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "33"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "18"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "6"
+        },
+        {
+          "name": "F. ALONSO",
+          "points": "15"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "4"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "26"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "9"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "5"
+        },
+        {
+          "name": "O. PIASTRI",
+          "points": "-"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "10"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "6"
+        },
+        {
+          "name": "E. OCON",
+          "points": "1"
+        },
+        {
+          "name": "A. ALBON",
+          "points": "-"
+        },
+        {
+          "name": "Y. TSUNODA",
+          "points": "5"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "-"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": "-"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": "-"
+        },
+        {
+          "name": "G. ZHOU",
+          "points": "-"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "-"
+        },
+        {
+          "name": "L. LAWSON",
+          "points": null
+        },
+        {
+          "name": "L. SARGEANT",
+          "points": "-"
+        },
+        {
+          "name": "N. de VRIES",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "21. Las Vegas 18 nov",
+      "date": "21. Las Vegas 18 nov",
+      "drivers": [
+        {
+          "name": "1 BHR",
+          "points": "22 ABD"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "25"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "15"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "6"
+        },
+        {
+          "name": "F. ALONSO",
+          "points": "2"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "18"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "-"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "8"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "4"
+        },
+        {
+          "name": "O. PIASTRI",
+          "points": "2"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "10"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "-"
+        },
+        {
+          "name": "E. OCON",
+          "points": "12"
+        },
+        {
+          "name": "A. ALBON",
+          "points": "-"
+        },
+        {
+          "name": "Y. TSUNODA",
+          "points": "-"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "-"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": "-"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": "-"
+        },
+        {
+          "name": "G. ZHOU",
+          "points": "-"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "-"
+        },
+        {
+          "name": "L. LAWSON",
+          "points": null
+        },
+        {
+          "name": "L. SARGEANT",
+          "points": "-"
+        },
+        {
+          "name": "N. de VRIES",
+          "points": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,789 @@
+{
+  "season": 1952,
+  "gps": [
+    {
+      "gp_name": "1. Suisse 18 mai",
+      "date": "1. Suisse 18 mai",
+      "drivers": [
+        {
+          "name": "1 CHE",
+          "points": "2 500"
+        },
+        {
+          "name": "A. ASCARI",
+          "points": null
+        },
+        {
+          "name": "G. FARINA",
+          "points": "-"
+        },
+        {
+          "name": "P. TARUFFI",
+          "points": "9"
+        },
+        {
+          "name": "R. FISCHER",
+          "points": "6"
+        },
+        {
+          "name": "M. HAWTHORN",
+          "points": null
+        },
+        {
+          "name": "R. MANZON",
+          "points": "-"
+        },
+        {
+          "name": "T. RUTTMAN",
+          "points": null
+        },
+        {
+          "name": "L. VILLORESI",
+          "points": null
+        },
+        {
+          "name": "J. GONZALEZ",
+          "points": "-"
+        },
+        {
+          "name": "J. RATHMANN",
+          "points": null
+        },
+        {
+          "name": "J. BEHRA",
+          "points": "4"
+        },
+        {
+          "name": "S. HANKS",
+          "points": null
+        },
+        {
+          "name": "K. WHARTON",
+          "points": "3"
+        },
+        {
+          "name": "D. POORE",
+          "points": null
+        },
+        {
+          "name": "D. CARTER",
+          "points": null
+        },
+        {
+          "name": "A. BROWN",
+          "points": "2"
+        },
+        {
+          "name": "M. TRINTIGNANT",
+          "points": "-"
+        },
+        {
+          "name": "A. CROSS",
+          "points": null
+        },
+        {
+          "name": "P. FRERE",
+          "points": null
+        },
+        {
+          "name": "E. THOMPSON",
+          "points": null
+        },
+        {
+          "name": "F. BONETTO",
+          "points": null
+        },
+        {
+          "name": "B. VUKOVICH",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "2. Indianapolis 30 mai",
+      "date": "2. Indianapolis 30 mai",
+      "drivers": [
+        {
+          "name": "1 CHE",
+          "points": "3 BEL"
+        },
+        {
+          "name": "A. ASCARI",
+          "points": "-"
+        },
+        {
+          "name": "G. FARINA",
+          "points": null
+        },
+        {
+          "name": "P. TARUFFI",
+          "points": null
+        },
+        {
+          "name": "R. FISCHER",
+          "points": null
+        },
+        {
+          "name": "M. HAWTHORN",
+          "points": null
+        },
+        {
+          "name": "R. MANZON",
+          "points": null
+        },
+        {
+          "name": "T. RUTTMAN",
+          "points": "8"
+        },
+        {
+          "name": "L. VILLORESI",
+          "points": null
+        },
+        {
+          "name": "J. GONZALEZ",
+          "points": null
+        },
+        {
+          "name": "J. RATHMANN",
+          "points": "6"
+        },
+        {
+          "name": "J. BEHRA",
+          "points": null
+        },
+        {
+          "name": "S. HANKS",
+          "points": "4"
+        },
+        {
+          "name": "K. WHARTON",
+          "points": null
+        },
+        {
+          "name": "D. POORE",
+          "points": null
+        },
+        {
+          "name": "D. CARTER",
+          "points": "3"
+        },
+        {
+          "name": "A. BROWN",
+          "points": null
+        },
+        {
+          "name": "M. TRINTIGNANT",
+          "points": null
+        },
+        {
+          "name": "A. CROSS",
+          "points": "2"
+        },
+        {
+          "name": "P. FRERE",
+          "points": null
+        },
+        {
+          "name": "E. THOMPSON",
+          "points": null
+        },
+        {
+          "name": "F. BONETTO",
+          "points": null
+        },
+        {
+          "name": "B. VUKOVICH",
+          "points": "1"
+        }
+      ]
+    },
+    {
+      "gp_name": "3. Belgique 22 juin",
+      "date": "3. Belgique 22 juin",
+      "drivers": [
+        {
+          "name": "1 CHE",
+          "points": "4 FRA"
+        },
+        {
+          "name": "A. ASCARI",
+          "points": "9"
+        },
+        {
+          "name": "G. FARINA",
+          "points": "6"
+        },
+        {
+          "name": "P. TARUFFI",
+          "points": "-"
+        },
+        {
+          "name": "R. FISCHER",
+          "points": null
+        },
+        {
+          "name": "M. HAWTHORN",
+          "points": "3"
+        },
+        {
+          "name": "R. MANZON",
+          "points": "4"
+        },
+        {
+          "name": "T. RUTTMAN",
+          "points": null
+        },
+        {
+          "name": "L. VILLORESI",
+          "points": null
+        },
+        {
+          "name": "J. GONZALEZ",
+          "points": null
+        },
+        {
+          "name": "J. RATHMANN",
+          "points": null
+        },
+        {
+          "name": "J. BEHRA",
+          "points": "-"
+        },
+        {
+          "name": "S. HANKS",
+          "points": null
+        },
+        {
+          "name": "K. WHARTON",
+          "points": "-"
+        },
+        {
+          "name": "D. POORE",
+          "points": null
+        },
+        {
+          "name": "D. CARTER",
+          "points": null
+        },
+        {
+          "name": "A. BROWN",
+          "points": "-"
+        },
+        {
+          "name": "M. TRINTIGNANT",
+          "points": null
+        },
+        {
+          "name": "A. CROSS",
+          "points": null
+        },
+        {
+          "name": "P. FRERE",
+          "points": "2"
+        },
+        {
+          "name": "E. THOMPSON",
+          "points": null
+        },
+        {
+          "name": "F. BONETTO",
+          "points": null
+        },
+        {
+          "name": "B. VUKOVICH",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "4. France 6 juil",
+      "date": "4. France 6 juil",
+      "drivers": [
+        {
+          "name": "1 CHE",
+          "points": "5 GBR"
+        },
+        {
+          "name": "A. ASCARI",
+          "points": "9"
+        },
+        {
+          "name": "G. FARINA",
+          "points": "6"
+        },
+        {
+          "name": "P. TARUFFI",
+          "points": "4"
+        },
+        {
+          "name": "R. FISCHER",
+          "points": "-"
+        },
+        {
+          "name": "M. HAWTHORN",
+          "points": "-"
+        },
+        {
+          "name": "R. MANZON",
+          "points": "3"
+        },
+        {
+          "name": "T. RUTTMAN",
+          "points": null
+        },
+        {
+          "name": "L. VILLORESI",
+          "points": "-"
+        },
+        {
+          "name": "J. GONZALEZ",
+          "points": null
+        },
+        {
+          "name": "J. RATHMANN",
+          "points": null
+        },
+        {
+          "name": "J. BEHRA",
+          "points": "-"
+        },
+        {
+          "name": "S. HANKS",
+          "points": null
+        },
+        {
+          "name": "K. WHARTON",
+          "points": null
+        },
+        {
+          "name": "D. POORE",
+          "points": null
+        },
+        {
+          "name": "D. CARTER",
+          "points": null
+        },
+        {
+          "name": "A. BROWN",
+          "points": null
+        },
+        {
+          "name": "M. TRINTIGNANT",
+          "points": "2"
+        },
+        {
+          "name": "A. CROSS",
+          "points": null
+        },
+        {
+          "name": "P. FRERE",
+          "points": null
+        },
+        {
+          "name": "E. THOMPSON",
+          "points": null
+        },
+        {
+          "name": "F. BONETTO",
+          "points": null
+        },
+        {
+          "name": "B. VUKOVICH",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "5. Grande-Bretagne 19 juil",
+      "date": "5. Grande-Bretagne 19 juil",
+      "drivers": [
+        {
+          "name": "1 CHE",
+          "points": "6 DEU"
+        },
+        {
+          "name": "A. ASCARI",
+          "points": "9"
+        },
+        {
+          "name": "G. FARINA",
+          "points": "-"
+        },
+        {
+          "name": "P. TARUFFI",
+          "points": "6"
+        },
+        {
+          "name": "R. FISCHER",
+          "points": "-"
+        },
+        {
+          "name": "M. HAWTHORN",
+          "points": "4"
+        },
+        {
+          "name": "R. MANZON",
+          "points": "-"
+        },
+        {
+          "name": "T. RUTTMAN",
+          "points": null
+        },
+        {
+          "name": "L. VILLORESI",
+          "points": null
+        },
+        {
+          "name": "J. GONZALEZ",
+          "points": null
+        },
+        {
+          "name": "J. RATHMANN",
+          "points": null
+        },
+        {
+          "name": "J. BEHRA",
+          "points": null
+        },
+        {
+          "name": "S. HANKS",
+          "points": null
+        },
+        {
+          "name": "K. WHARTON",
+          "points": "-"
+        },
+        {
+          "name": "D. POORE",
+          "points": "3"
+        },
+        {
+          "name": "D. CARTER",
+          "points": null
+        },
+        {
+          "name": "A. BROWN",
+          "points": "-"
+        },
+        {
+          "name": "M. TRINTIGNANT",
+          "points": "-"
+        },
+        {
+          "name": "A. CROSS",
+          "points": null
+        },
+        {
+          "name": "P. FRERE",
+          "points": null
+        },
+        {
+          "name": "E. THOMPSON",
+          "points": "2"
+        },
+        {
+          "name": "F. BONETTO",
+          "points": null
+        },
+        {
+          "name": "B. VUKOVICH",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "6. Allemagne 3 août",
+      "date": "6. Allemagne 3 août",
+      "drivers": [
+        {
+          "name": "1 CHE",
+          "points": "7 NLD"
+        },
+        {
+          "name": "A. ASCARI",
+          "points": "9"
+        },
+        {
+          "name": "G. FARINA",
+          "points": "6"
+        },
+        {
+          "name": "P. TARUFFI",
+          "points": "3"
+        },
+        {
+          "name": "R. FISCHER",
+          "points": "4"
+        },
+        {
+          "name": "M. HAWTHORN",
+          "points": null
+        },
+        {
+          "name": "R. MANZON",
+          "points": "-"
+        },
+        {
+          "name": "T. RUTTMAN",
+          "points": null
+        },
+        {
+          "name": "L. VILLORESI",
+          "points": null
+        },
+        {
+          "name": "J. GONZALEZ",
+          "points": null
+        },
+        {
+          "name": "J. RATHMANN",
+          "points": null
+        },
+        {
+          "name": "J. BEHRA",
+          "points": "2"
+        },
+        {
+          "name": "S. HANKS",
+          "points": null
+        },
+        {
+          "name": "K. WHARTON",
+          "points": null
+        },
+        {
+          "name": "D. POORE",
+          "points": null
+        },
+        {
+          "name": "D. CARTER",
+          "points": null
+        },
+        {
+          "name": "A. BROWN",
+          "points": null
+        },
+        {
+          "name": "M. TRINTIGNANT",
+          "points": "-"
+        },
+        {
+          "name": "A. CROSS",
+          "points": null
+        },
+        {
+          "name": "P. FRERE",
+          "points": "-"
+        },
+        {
+          "name": "E. THOMPSON",
+          "points": null
+        },
+        {
+          "name": "F. BONETTO",
+          "points": "-"
+        },
+        {
+          "name": "B. VUKOVICH",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "7. Pays-Bas 17 août",
+      "date": "7. Pays-Bas 17 août",
+      "drivers": [
+        {
+          "name": "1 CHE",
+          "points": "8 ITA"
+        },
+        {
+          "name": "A. ASCARI",
+          "points": "(9)"
+        },
+        {
+          "name": "G. FARINA",
+          "points": "6"
+        },
+        {
+          "name": "P. TARUFFI",
+          "points": null
+        },
+        {
+          "name": "R. FISCHER",
+          "points": null
+        },
+        {
+          "name": "M. HAWTHORN",
+          "points": "3"
+        },
+        {
+          "name": "R. MANZON",
+          "points": "2"
+        },
+        {
+          "name": "T. RUTTMAN",
+          "points": null
+        },
+        {
+          "name": "L. VILLORESI",
+          "points": "4"
+        },
+        {
+          "name": "J. GONZALEZ",
+          "points": null
+        },
+        {
+          "name": "J. RATHMANN",
+          "points": null
+        },
+        {
+          "name": "J. BEHRA",
+          "points": "-"
+        },
+        {
+          "name": "S. HANKS",
+          "points": null
+        },
+        {
+          "name": "K. WHARTON",
+          "points": "-"
+        },
+        {
+          "name": "D. POORE",
+          "points": null
+        },
+        {
+          "name": "D. CARTER",
+          "points": null
+        },
+        {
+          "name": "A. BROWN",
+          "points": null
+        },
+        {
+          "name": "M. TRINTIGNANT",
+          "points": "-"
+        },
+        {
+          "name": "A. CROSS",
+          "points": null
+        },
+        {
+          "name": "P. FRERE",
+          "points": "-"
+        },
+        {
+          "name": "E. THOMPSON",
+          "points": null
+        },
+        {
+          "name": "F. BONETTO",
+          "points": null
+        },
+        {
+          "name": "B. VUKOVICH",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "8. Italie 7 sept",
+      "date": "8. Italie 7 sept",
+      "drivers": [
+        {
+          "name": "1 CHE",
+          "points": "Pts"
+        },
+        {
+          "name": "A. ASCARI",
+          "points": "(8,5)"
+        },
+        {
+          "name": "G. FARINA",
+          "points": "(3)"
+        },
+        {
+          "name": "P. TARUFFI",
+          "points": "-"
+        },
+        {
+          "name": "R. FISCHER",
+          "points": "-"
+        },
+        {
+          "name": "M. HAWTHORN",
+          "points": "-"
+        },
+        {
+          "name": "R. MANZON",
+          "points": "-"
+        },
+        {
+          "name": "T. RUTTMAN",
+          "points": null
+        },
+        {
+          "name": "L. VILLORESI",
+          "points": "4"
+        },
+        {
+          "name": "J. GONZALEZ",
+          "points": "6,5"
+        },
+        {
+          "name": "J. RATHMANN",
+          "points": null
+        },
+        {
+          "name": "J. BEHRA",
+          "points": "-"
+        },
+        {
+          "name": "S. HANKS",
+          "points": null
+        },
+        {
+          "name": "K. WHARTON",
+          "points": "-"
+        },
+        {
+          "name": "D. POORE",
+          "points": "-"
+        },
+        {
+          "name": "D. CARTER",
+          "points": null
+        },
+        {
+          "name": "A. BROWN",
+          "points": "-"
+        },
+        {
+          "name": "M. TRINTIGNANT",
+          "points": "-"
+        },
+        {
+          "name": "A. CROSS",
+          "points": null
+        },
+        {
+          "name": "P. FRERE",
+          "points": null
+        },
+        {
+          "name": "E. THOMPSON",
+          "points": null
+        },
+        {
+          "name": "F. BONETTO",
+          "points": "2"
+        },
+        {
+          "name": "B. VUKOVICH",
+          "points": null
+        }
+      ]
+    }
+  ]
+}

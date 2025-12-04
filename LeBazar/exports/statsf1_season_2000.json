@@ -1,0 +1,1637 @@
+{
+  "season": 2000,
+  "gps": [
+    {
+      "gp_name": "1. Australie 12 mars",
+      "date": "1. Australie 12 mars",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": "2 BRA"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "10"
+        },
+        {
+          "name": "M. HAKKINEN",
+          "points": "-"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "-"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "6"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "4"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "2"
+        },
+        {
+          "name": "J. VILLENEUVE",
+          "points": "3"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "-"
+        },
+        {
+          "name": "H. FRENTZEN",
+          "points": "-"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "-"
+        },
+        {
+          "name": "M. SALO",
+          "points": "-"
+        },
+        {
+          "name": "J. VERSTAPPEN",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "-"
+        },
+        {
+          "name": "R. ZONTA",
+          "points": "1"
+        },
+        {
+          "name": "A. WURZ",
+          "points": "-"
+        },
+        {
+          "name": "P. de la ROSA",
+          "points": "-"
+        },
+        {
+          "name": "J. HERBERT",
+          "points": "-"
+        },
+        {
+          "name": "P. DINIZ",
+          "points": "-"
+        },
+        {
+          "name": "M. GENE",
+          "points": "-"
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "-"
+        },
+        {
+          "name": "G. MAZZACANE",
+          "points": "-"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "L. BURTI",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "2. Brésil 26 mars",
+      "date": "2. Brésil 26 mars",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": "3 SMR"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "10"
+        },
+        {
+          "name": "M. HAKKINEN",
+          "points": "-"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "-"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "-"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "2"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "6"
+        },
+        {
+          "name": "J. VILLENEUVE",
+          "points": "-"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "1"
+        },
+        {
+          "name": "H. FRENTZEN",
+          "points": "4"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "3"
+        },
+        {
+          "name": "M. SALO",
+          "points": "-"
+        },
+        {
+          "name": "J. VERSTAPPEN",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "-"
+        },
+        {
+          "name": "R. ZONTA",
+          "points": "-"
+        },
+        {
+          "name": "A. WURZ",
+          "points": "-"
+        },
+        {
+          "name": "P. de la ROSA",
+          "points": "-"
+        },
+        {
+          "name": "J. HERBERT",
+          "points": "-"
+        },
+        {
+          "name": "P. DINIZ",
+          "points": "-"
+        },
+        {
+          "name": "M. GENE",
+          "points": "-"
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "-"
+        },
+        {
+          "name": "G. MAZZACANE",
+          "points": "-"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "L. BURTI",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "3. Saint-Marin 9 avr",
+      "date": "3. Saint-Marin 9 avr",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": "4 GBR"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "10"
+        },
+        {
+          "name": "M. HAKKINEN",
+          "points": "6"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "4"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "3"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "-"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "-"
+        },
+        {
+          "name": "J. VILLENEUVE",
+          "points": "2"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "-"
+        },
+        {
+          "name": "H. FRENTZEN",
+          "points": "-"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "-"
+        },
+        {
+          "name": "M. SALO",
+          "points": "1"
+        },
+        {
+          "name": "J. VERSTAPPEN",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "-"
+        },
+        {
+          "name": "R. ZONTA",
+          "points": "-"
+        },
+        {
+          "name": "A. WURZ",
+          "points": "-"
+        },
+        {
+          "name": "P. de la ROSA",
+          "points": "-"
+        },
+        {
+          "name": "J. HERBERT",
+          "points": "-"
+        },
+        {
+          "name": "P. DINIZ",
+          "points": "-"
+        },
+        {
+          "name": "M. GENE",
+          "points": "-"
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "-"
+        },
+        {
+          "name": "G. MAZZACANE",
+          "points": "-"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "L. BURTI",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "4. Grande-Bretagne 23 avr",
+      "date": "4. Grande-Bretagne 23 avr",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": "5 ESP"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "4"
+        },
+        {
+          "name": "M. HAKKINEN",
+          "points": "6"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "10"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "-"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "3"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "-"
+        },
+        {
+          "name": "J. VILLENEUVE",
+          "points": "-"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "2"
+        },
+        {
+          "name": "H. FRENTZEN",
+          "points": "-"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "1"
+        },
+        {
+          "name": "M. SALO",
+          "points": "-"
+        },
+        {
+          "name": "J. VERSTAPPEN",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "-"
+        },
+        {
+          "name": "R. ZONTA",
+          "points": "-"
+        },
+        {
+          "name": "A. WURZ",
+          "points": "-"
+        },
+        {
+          "name": "P. de la ROSA",
+          "points": "-"
+        },
+        {
+          "name": "J. HERBERT",
+          "points": "-"
+        },
+        {
+          "name": "P. DINIZ",
+          "points": "-"
+        },
+        {
+          "name": "M. GENE",
+          "points": "-"
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "-"
+        },
+        {
+          "name": "G. MAZZACANE",
+          "points": "-"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "L. BURTI",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "5. Espagne 7 mai",
+      "date": "5. Espagne 7 mai",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": "6 EUR"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "2"
+        },
+        {
+          "name": "M. HAKKINEN",
+          "points": "10"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "6"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "4"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "3"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "-"
+        },
+        {
+          "name": "J. VILLENEUVE",
+          "points": "-"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "-"
+        },
+        {
+          "name": "H. FRENTZEN",
+          "points": "1"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "-"
+        },
+        {
+          "name": "M. SALO",
+          "points": "-"
+        },
+        {
+          "name": "J. VERSTAPPEN",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "-"
+        },
+        {
+          "name": "R. ZONTA",
+          "points": "-"
+        },
+        {
+          "name": "A. WURZ",
+          "points": "-"
+        },
+        {
+          "name": "P. de la ROSA",
+          "points": "-"
+        },
+        {
+          "name": "J. HERBERT",
+          "points": "-"
+        },
+        {
+          "name": "P. DINIZ",
+          "points": "-"
+        },
+        {
+          "name": "M. GENE",
+          "points": "-"
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "-"
+        },
+        {
+          "name": "G. MAZZACANE",
+          "points": "-"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "L. BURTI",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "6. Europe 21 mai",
+      "date": "6. Europe 21 mai",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": "7 MCO"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "10"
+        },
+        {
+          "name": "M. HAKKINEN",
+          "points": "6"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "4"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "3"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "-"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "2"
+        },
+        {
+          "name": "J. VILLENEUVE",
+          "points": "-"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "-"
+        },
+        {
+          "name": "H. FRENTZEN",
+          "points": "-"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "-"
+        },
+        {
+          "name": "M. SALO",
+          "points": "-"
+        },
+        {
+          "name": "J. VERSTAPPEN",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "-"
+        },
+        {
+          "name": "R. ZONTA",
+          "points": "-"
+        },
+        {
+          "name": "A. WURZ",
+          "points": "-"
+        },
+        {
+          "name": "P. de la ROSA",
+          "points": "1"
+        },
+        {
+          "name": "J. HERBERT",
+          "points": "-"
+        },
+        {
+          "name": "P. DINIZ",
+          "points": "-"
+        },
+        {
+          "name": "M. GENE",
+          "points": "-"
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "-"
+        },
+        {
+          "name": "G. MAZZACANE",
+          "points": "-"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "L. BURTI",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "7. Monaco 4 juin",
+      "date": "7. Monaco 4 juin",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": "8 CAN"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "-"
+        },
+        {
+          "name": "M. HAKKINEN",
+          "points": "1"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "10"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "6"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "-"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "4"
+        },
+        {
+          "name": "J. VILLENEUVE",
+          "points": "-"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "-"
+        },
+        {
+          "name": "H. FRENTZEN",
+          "points": "-"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "-"
+        },
+        {
+          "name": "M. SALO",
+          "points": "2"
+        },
+        {
+          "name": "J. VERSTAPPEN",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "3"
+        },
+        {
+          "name": "R. ZONTA",
+          "points": "-"
+        },
+        {
+          "name": "A. WURZ",
+          "points": "-"
+        },
+        {
+          "name": "P. de la ROSA",
+          "points": "-"
+        },
+        {
+          "name": "J. HERBERT",
+          "points": "-"
+        },
+        {
+          "name": "P. DINIZ",
+          "points": "-"
+        },
+        {
+          "name": "M. GENE",
+          "points": "-"
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "-"
+        },
+        {
+          "name": "G. MAZZACANE",
+          "points": "-"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "L. BURTI",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "8. Canada 18 juin",
+      "date": "8. Canada 18 juin",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": "9 FRA"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "10"
+        },
+        {
+          "name": "M. HAKKINEN",
+          "points": "3"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "-"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "6"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "-"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "4"
+        },
+        {
+          "name": "J. VILLENEUVE",
+          "points": "-"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "-"
+        },
+        {
+          "name": "H. FRENTZEN",
+          "points": "-"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "1"
+        },
+        {
+          "name": "M. SALO",
+          "points": "-"
+        },
+        {
+          "name": "J. VERSTAPPEN",
+          "points": "2"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "-"
+        },
+        {
+          "name": "R. ZONTA",
+          "points": "-"
+        },
+        {
+          "name": "A. WURZ",
+          "points": "-"
+        },
+        {
+          "name": "P. de la ROSA",
+          "points": "-"
+        },
+        {
+          "name": "J. HERBERT",
+          "points": "-"
+        },
+        {
+          "name": "P. DINIZ",
+          "points": "-"
+        },
+        {
+          "name": "M. GENE",
+          "points": "-"
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "-"
+        },
+        {
+          "name": "G. MAZZACANE",
+          "points": "-"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "L. BURTI",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "9. France 2 juil",
+      "date": "9. France 2 juil",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": "10 AUT"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "-"
+        },
+        {
+          "name": "M. HAKKINEN",
+          "points": "6"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "10"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "4"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "2"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "-"
+        },
+        {
+          "name": "J. VILLENEUVE",
+          "points": "3"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "-"
+        },
+        {
+          "name": "H. FRENTZEN",
+          "points": "-"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "1"
+        },
+        {
+          "name": "M. SALO",
+          "points": "-"
+        },
+        {
+          "name": "J. VERSTAPPEN",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "-"
+        },
+        {
+          "name": "R. ZONTA",
+          "points": "-"
+        },
+        {
+          "name": "A. WURZ",
+          "points": "-"
+        },
+        {
+          "name": "P. de la ROSA",
+          "points": "-"
+        },
+        {
+          "name": "J. HERBERT",
+          "points": "-"
+        },
+        {
+          "name": "P. DINIZ",
+          "points": "-"
+        },
+        {
+          "name": "M. GENE",
+          "points": "-"
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "-"
+        },
+        {
+          "name": "G. MAZZACANE",
+          "points": "-"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "L. BURTI",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "10. Autriche 16 juil",
+      "date": "10. Autriche 16 juil",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": "11 DEU"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "-"
+        },
+        {
+          "name": "M. HAKKINEN",
+          "points": "10"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "6"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "4"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "-"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "-"
+        },
+        {
+          "name": "J. VILLENEUVE",
+          "points": "3"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "2"
+        },
+        {
+          "name": "H. FRENTZEN",
+          "points": "-"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "-"
+        },
+        {
+          "name": "M. SALO",
+          "points": "1"
+        },
+        {
+          "name": "J. VERSTAPPEN",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "-"
+        },
+        {
+          "name": "R. ZONTA",
+          "points": "-"
+        },
+        {
+          "name": "A. WURZ",
+          "points": "-"
+        },
+        {
+          "name": "P. de la ROSA",
+          "points": "-"
+        },
+        {
+          "name": "J. HERBERT",
+          "points": "-"
+        },
+        {
+          "name": "P. DINIZ",
+          "points": "-"
+        },
+        {
+          "name": "M. GENE",
+          "points": "-"
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "-"
+        },
+        {
+          "name": "G. MAZZACANE",
+          "points": "-"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "L. BURTI",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "11. Allemagne 30 juil",
+      "date": "11. Allemagne 30 juil",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": "12 HUN"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "-"
+        },
+        {
+          "name": "M. HAKKINEN",
+          "points": "6"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "4"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "10"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "-"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "-"
+        },
+        {
+          "name": "J. VILLENEUVE",
+          "points": "-"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "3"
+        },
+        {
+          "name": "H. FRENTZEN",
+          "points": "-"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "-"
+        },
+        {
+          "name": "M. SALO",
+          "points": "2"
+        },
+        {
+          "name": "J. VERSTAPPEN",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "-"
+        },
+        {
+          "name": "R. ZONTA",
+          "points": "-"
+        },
+        {
+          "name": "A. WURZ",
+          "points": "-"
+        },
+        {
+          "name": "P. de la ROSA",
+          "points": "1"
+        },
+        {
+          "name": "J. HERBERT",
+          "points": "-"
+        },
+        {
+          "name": "P. DINIZ",
+          "points": "-"
+        },
+        {
+          "name": "M. GENE",
+          "points": "-"
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "-"
+        },
+        {
+          "name": "G. MAZZACANE",
+          "points": "-"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "L. BURTI",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "12. Hongrie 13 août",
+      "date": "12. Hongrie 13 août",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": "13 BEL"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "6"
+        },
+        {
+          "name": "M. HAKKINEN",
+          "points": "10"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "4"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "3"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "2"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "-"
+        },
+        {
+          "name": "J. VILLENEUVE",
+          "points": "-"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "-"
+        },
+        {
+          "name": "H. FRENTZEN",
+          "points": "1"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "-"
+        },
+        {
+          "name": "M. SALO",
+          "points": "-"
+        },
+        {
+          "name": "J. VERSTAPPEN",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "-"
+        },
+        {
+          "name": "R. ZONTA",
+          "points": "-"
+        },
+        {
+          "name": "A. WURZ",
+          "points": "-"
+        },
+        {
+          "name": "P. de la ROSA",
+          "points": "-"
+        },
+        {
+          "name": "J. HERBERT",
+          "points": "-"
+        },
+        {
+          "name": "P. DINIZ",
+          "points": "-"
+        },
+        {
+          "name": "M. GENE",
+          "points": "-"
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "-"
+        },
+        {
+          "name": "G. MAZZACANE",
+          "points": "-"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "L. BURTI",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "13. Belgique 27 août",
+      "date": "13. Belgique 27 août",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": "14 ITA"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "6"
+        },
+        {
+          "name": "M. HAKKINEN",
+          "points": "10"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "3"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "-"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "4"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "-"
+        },
+        {
+          "name": "J. VILLENEUVE",
+          "points": "-"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "2"
+        },
+        {
+          "name": "H. FRENTZEN",
+          "points": "1"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "-"
+        },
+        {
+          "name": "M. SALO",
+          "points": "-"
+        },
+        {
+          "name": "J. VERSTAPPEN",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "-"
+        },
+        {
+          "name": "R. ZONTA",
+          "points": "-"
+        },
+        {
+          "name": "A. WURZ",
+          "points": "-"
+        },
+        {
+          "name": "P. de la ROSA",
+          "points": "-"
+        },
+        {
+          "name": "J. HERBERT",
+          "points": "-"
+        },
+        {
+          "name": "P. DINIZ",
+          "points": "-"
+        },
+        {
+          "name": "M. GENE",
+          "points": "-"
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "-"
+        },
+        {
+          "name": "G. MAZZACANE",
+          "points": "-"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "L. BURTI",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "14. Italie 10 sept",
+      "date": "14. Italie 10 sept",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": "15 USA"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "10"
+        },
+        {
+          "name": "M. HAKKINEN",
+          "points": "6"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "-"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "-"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "4"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "-"
+        },
+        {
+          "name": "J. VILLENEUVE",
+          "points": "-"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "-"
+        },
+        {
+          "name": "H. FRENTZEN",
+          "points": "-"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "-"
+        },
+        {
+          "name": "M. SALO",
+          "points": "-"
+        },
+        {
+          "name": "J. VERSTAPPEN",
+          "points": "3"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "-"
+        },
+        {
+          "name": "R. ZONTA",
+          "points": "1"
+        },
+        {
+          "name": "A. WURZ",
+          "points": "2"
+        },
+        {
+          "name": "P. de la ROSA",
+          "points": "-"
+        },
+        {
+          "name": "J. HERBERT",
+          "points": "-"
+        },
+        {
+          "name": "P. DINIZ",
+          "points": "-"
+        },
+        {
+          "name": "M. GENE",
+          "points": "-"
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "-"
+        },
+        {
+          "name": "G. MAZZACANE",
+          "points": "-"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "L. BURTI",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "15. Etats-Unis 24 sept",
+      "date": "15. Etats-Unis 24 sept",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": "16 JPN"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "10"
+        },
+        {
+          "name": "M. HAKKINEN",
+          "points": "-"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "2"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "6"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "-"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "-"
+        },
+        {
+          "name": "J. VILLENEUVE",
+          "points": "3"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "-"
+        },
+        {
+          "name": "H. FRENTZEN",
+          "points": "4"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "-"
+        },
+        {
+          "name": "M. SALO",
+          "points": "-"
+        },
+        {
+          "name": "J. VERSTAPPEN",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "-"
+        },
+        {
+          "name": "R. ZONTA",
+          "points": "1"
+        },
+        {
+          "name": "A. WURZ",
+          "points": "-"
+        },
+        {
+          "name": "P. de la ROSA",
+          "points": "-"
+        },
+        {
+          "name": "J. HERBERT",
+          "points": "-"
+        },
+        {
+          "name": "P. DINIZ",
+          "points": "-"
+        },
+        {
+          "name": "M. GENE",
+          "points": "-"
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "-"
+        },
+        {
+          "name": "G. MAZZACANE",
+          "points": "-"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "L. BURTI",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "16. Japon 8 oct",
+      "date": "16. Japon 8 oct",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": "17 MYS"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "10"
+        },
+        {
+          "name": "M. HAKKINEN",
+          "points": "6"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "4"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "3"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "-"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "-"
+        },
+        {
+          "name": "J. VILLENEUVE",
+          "points": "1"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "2"
+        },
+        {
+          "name": "H. FRENTZEN",
+          "points": "-"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "-"
+        },
+        {
+          "name": "M. SALO",
+          "points": "-"
+        },
+        {
+          "name": "J. VERSTAPPEN",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "-"
+        },
+        {
+          "name": "R. ZONTA",
+          "points": "-"
+        },
+        {
+          "name": "A. WURZ",
+          "points": "-"
+        },
+        {
+          "name": "P. de la ROSA",
+          "points": "-"
+        },
+        {
+          "name": "J. HERBERT",
+          "points": "-"
+        },
+        {
+          "name": "P. DINIZ",
+          "points": "-"
+        },
+        {
+          "name": "M. GENE",
+          "points": "-"
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "-"
+        },
+        {
+          "name": "G. MAZZACANE",
+          "points": "-"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "L. BURTI",
+          "points": null
+        }
+      ]
+    }
+  ]
+}

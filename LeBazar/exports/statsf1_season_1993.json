@@ -1,0 +1,1475 @@
+{
+  "season": 1993,
+  "gps": [
+    {
+      "gp_name": "1. Afrique du Sud 14 mars",
+      "date": "1. Afrique du Sud 14 mars",
+      "drivers": [
+        {
+          "name": "1 ZAF",
+          "points": "2 BRA"
+        },
+        {
+          "name": "A. PROST",
+          "points": "10"
+        },
+        {
+          "name": "A. SENNA",
+          "points": "6"
+        },
+        {
+          "name": "D. HILL",
+          "points": "-"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "-"
+        },
+        {
+          "name": "R. PATRESE",
+          "points": "-"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "M. BRUNDLE",
+          "points": "-"
+        },
+        {
+          "name": "G. BERGER",
+          "points": "1"
+        },
+        {
+          "name": "J. HERBERT",
+          "points": "-"
+        },
+        {
+          "name": "M. BLUNDELL",
+          "points": "4"
+        },
+        {
+          "name": "M. ANDRETTI",
+          "points": "-"
+        },
+        {
+          "name": "K. WENDLINGER",
+          "points": "-"
+        },
+        {
+          "name": "J. LEHTO",
+          "points": "2"
+        },
+        {
+          "name": "C. FITTIPALDI",
+          "points": "3"
+        },
+        {
+          "name": "M. HAKKINEN",
+          "points": null
+        },
+        {
+          "name": "D. WARWICK",
+          "points": "-"
+        },
+        {
+          "name": "P. ALLIOT",
+          "points": "-"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "-"
+        },
+        {
+          "name": "F. BARBAZZA",
+          "points": "-"
+        },
+        {
+          "name": "A. ZANARDI",
+          "points": "-"
+        },
+        {
+          "name": "E. COMAS",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "2. Brésil 28 mars",
+      "date": "2. Brésil 28 mars",
+      "drivers": [
+        {
+          "name": "1 ZAF",
+          "points": "3 EUR"
+        },
+        {
+          "name": "A. PROST",
+          "points": "-"
+        },
+        {
+          "name": "A. SENNA",
+          "points": "10"
+        },
+        {
+          "name": "D. HILL",
+          "points": "6"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "4"
+        },
+        {
+          "name": "R. PATRESE",
+          "points": "-"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "M. BRUNDLE",
+          "points": "-"
+        },
+        {
+          "name": "G. BERGER",
+          "points": "-"
+        },
+        {
+          "name": "J. HERBERT",
+          "points": "3"
+        },
+        {
+          "name": "M. BLUNDELL",
+          "points": "2"
+        },
+        {
+          "name": "M. ANDRETTI",
+          "points": "-"
+        },
+        {
+          "name": "K. WENDLINGER",
+          "points": "-"
+        },
+        {
+          "name": "J. LEHTO",
+          "points": "-"
+        },
+        {
+          "name": "C. FITTIPALDI",
+          "points": "-"
+        },
+        {
+          "name": "M. HAKKINEN",
+          "points": null
+        },
+        {
+          "name": "D. WARWICK",
+          "points": "-"
+        },
+        {
+          "name": "P. ALLIOT",
+          "points": "-"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "-"
+        },
+        {
+          "name": "F. BARBAZZA",
+          "points": "-"
+        },
+        {
+          "name": "A. ZANARDI",
+          "points": "1"
+        },
+        {
+          "name": "E. COMAS",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "3. Europe 11 avr",
+      "date": "3. Europe 11 avr",
+      "drivers": [
+        {
+          "name": "1 ZAF",
+          "points": "4 SMR"
+        },
+        {
+          "name": "A. PROST",
+          "points": "4"
+        },
+        {
+          "name": "A. SENNA",
+          "points": "10"
+        },
+        {
+          "name": "D. HILL",
+          "points": "6"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "-"
+        },
+        {
+          "name": "R. PATRESE",
+          "points": "2"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "M. BRUNDLE",
+          "points": "-"
+        },
+        {
+          "name": "G. BERGER",
+          "points": "-"
+        },
+        {
+          "name": "J. HERBERT",
+          "points": "3"
+        },
+        {
+          "name": "M. BLUNDELL",
+          "points": "-"
+        },
+        {
+          "name": "M. ANDRETTI",
+          "points": "-"
+        },
+        {
+          "name": "K. WENDLINGER",
+          "points": "-"
+        },
+        {
+          "name": "J. LEHTO",
+          "points": "-"
+        },
+        {
+          "name": "C. FITTIPALDI",
+          "points": "-"
+        },
+        {
+          "name": "M. HAKKINEN",
+          "points": null
+        },
+        {
+          "name": "D. WARWICK",
+          "points": "-"
+        },
+        {
+          "name": "P. ALLIOT",
+          "points": "-"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "-"
+        },
+        {
+          "name": "F. BARBAZZA",
+          "points": "1"
+        },
+        {
+          "name": "A. ZANARDI",
+          "points": "-"
+        },
+        {
+          "name": "E. COMAS",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "4. Saint-Marin 25 avr",
+      "date": "4. Saint-Marin 25 avr",
+      "drivers": [
+        {
+          "name": "1 ZAF",
+          "points": "5 ESP"
+        },
+        {
+          "name": "A. PROST",
+          "points": "10"
+        },
+        {
+          "name": "A. SENNA",
+          "points": "-"
+        },
+        {
+          "name": "D. HILL",
+          "points": "-"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "6"
+        },
+        {
+          "name": "R. PATRESE",
+          "points": "-"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "M. BRUNDLE",
+          "points": "4"
+        },
+        {
+          "name": "G. BERGER",
+          "points": "-"
+        },
+        {
+          "name": "J. HERBERT",
+          "points": "-"
+        },
+        {
+          "name": "M. BLUNDELL",
+          "points": "-"
+        },
+        {
+          "name": "M. ANDRETTI",
+          "points": "-"
+        },
+        {
+          "name": "K. WENDLINGER",
+          "points": "-"
+        },
+        {
+          "name": "J. LEHTO",
+          "points": "3"
+        },
+        {
+          "name": "C. FITTIPALDI",
+          "points": "-"
+        },
+        {
+          "name": "M. HAKKINEN",
+          "points": null
+        },
+        {
+          "name": "D. WARWICK",
+          "points": "-"
+        },
+        {
+          "name": "P. ALLIOT",
+          "points": "2"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "-"
+        },
+        {
+          "name": "F. BARBAZZA",
+          "points": "1"
+        },
+        {
+          "name": "A. ZANARDI",
+          "points": "-"
+        },
+        {
+          "name": "E. COMAS",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "5. Espagne 9 mai",
+      "date": "5. Espagne 9 mai",
+      "drivers": [
+        {
+          "name": "1 ZAF",
+          "points": "6 MCO"
+        },
+        {
+          "name": "A. PROST",
+          "points": "10"
+        },
+        {
+          "name": "A. SENNA",
+          "points": "6"
+        },
+        {
+          "name": "D. HILL",
+          "points": "-"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "4"
+        },
+        {
+          "name": "R. PATRESE",
+          "points": "3"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "M. BRUNDLE",
+          "points": "-"
+        },
+        {
+          "name": "G. BERGER",
+          "points": "1"
+        },
+        {
+          "name": "J. HERBERT",
+          "points": "-"
+        },
+        {
+          "name": "M. BLUNDELL",
+          "points": "-"
+        },
+        {
+          "name": "M. ANDRETTI",
+          "points": "2"
+        },
+        {
+          "name": "K. WENDLINGER",
+          "points": "-"
+        },
+        {
+          "name": "J. LEHTO",
+          "points": "-"
+        },
+        {
+          "name": "C. FITTIPALDI",
+          "points": "-"
+        },
+        {
+          "name": "M. HAKKINEN",
+          "points": null
+        },
+        {
+          "name": "D. WARWICK",
+          "points": "-"
+        },
+        {
+          "name": "P. ALLIOT",
+          "points": "-"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "-"
+        },
+        {
+          "name": "F. BARBAZZA",
+          "points": "-"
+        },
+        {
+          "name": "A. ZANARDI",
+          "points": "-"
+        },
+        {
+          "name": "E. COMAS",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "6. Monaco 23 mai",
+      "date": "6. Monaco 23 mai",
+      "drivers": [
+        {
+          "name": "1 ZAF",
+          "points": "7 CAN"
+        },
+        {
+          "name": "A. PROST",
+          "points": "3"
+        },
+        {
+          "name": "A. SENNA",
+          "points": "10"
+        },
+        {
+          "name": "D. HILL",
+          "points": "6"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "-"
+        },
+        {
+          "name": "R. PATRESE",
+          "points": "-"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "4"
+        },
+        {
+          "name": "M. BRUNDLE",
+          "points": "1"
+        },
+        {
+          "name": "G. BERGER",
+          "points": "-"
+        },
+        {
+          "name": "J. HERBERT",
+          "points": "-"
+        },
+        {
+          "name": "M. BLUNDELL",
+          "points": "-"
+        },
+        {
+          "name": "M. ANDRETTI",
+          "points": "-"
+        },
+        {
+          "name": "K. WENDLINGER",
+          "points": "-"
+        },
+        {
+          "name": "J. LEHTO",
+          "points": "-"
+        },
+        {
+          "name": "C. FITTIPALDI",
+          "points": "2"
+        },
+        {
+          "name": "M. HAKKINEN",
+          "points": null
+        },
+        {
+          "name": "D. WARWICK",
+          "points": "-"
+        },
+        {
+          "name": "P. ALLIOT",
+          "points": "-"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "-"
+        },
+        {
+          "name": "F. BARBAZZA",
+          "points": "-"
+        },
+        {
+          "name": "A. ZANARDI",
+          "points": "-"
+        },
+        {
+          "name": "E. COMAS",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "7. Canada 13 juin",
+      "date": "7. Canada 13 juin",
+      "drivers": [
+        {
+          "name": "1 ZAF",
+          "points": "8 FRA"
+        },
+        {
+          "name": "A. PROST",
+          "points": "10"
+        },
+        {
+          "name": "A. SENNA",
+          "points": "-"
+        },
+        {
+          "name": "D. HILL",
+          "points": "4"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "6"
+        },
+        {
+          "name": "R. PATRESE",
+          "points": "-"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "M. BRUNDLE",
+          "points": "2"
+        },
+        {
+          "name": "G. BERGER",
+          "points": "3"
+        },
+        {
+          "name": "J. HERBERT",
+          "points": "-"
+        },
+        {
+          "name": "M. BLUNDELL",
+          "points": "-"
+        },
+        {
+          "name": "M. ANDRETTI",
+          "points": "-"
+        },
+        {
+          "name": "K. WENDLINGER",
+          "points": "1"
+        },
+        {
+          "name": "J. LEHTO",
+          "points": "-"
+        },
+        {
+          "name": "C. FITTIPALDI",
+          "points": "-"
+        },
+        {
+          "name": "M. HAKKINEN",
+          "points": null
+        },
+        {
+          "name": "D. WARWICK",
+          "points": "-"
+        },
+        {
+          "name": "P. ALLIOT",
+          "points": "-"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "-"
+        },
+        {
+          "name": "F. BARBAZZA",
+          "points": "-"
+        },
+        {
+          "name": "A. ZANARDI",
+          "points": "-"
+        },
+        {
+          "name": "E. COMAS",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "8. France 4 juil",
+      "date": "8. France 4 juil",
+      "drivers": [
+        {
+          "name": "1 ZAF",
+          "points": "9 GBR"
+        },
+        {
+          "name": "A. PROST",
+          "points": "10"
+        },
+        {
+          "name": "A. SENNA",
+          "points": "3"
+        },
+        {
+          "name": "D. HILL",
+          "points": "6"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "4"
+        },
+        {
+          "name": "R. PATRESE",
+          "points": "-"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "M. BRUNDLE",
+          "points": "2"
+        },
+        {
+          "name": "G. BERGER",
+          "points": "-"
+        },
+        {
+          "name": "J. HERBERT",
+          "points": "-"
+        },
+        {
+          "name": "M. BLUNDELL",
+          "points": "-"
+        },
+        {
+          "name": "M. ANDRETTI",
+          "points": "1"
+        },
+        {
+          "name": "K. WENDLINGER",
+          "points": "-"
+        },
+        {
+          "name": "J. LEHTO",
+          "points": "-"
+        },
+        {
+          "name": "C. FITTIPALDI",
+          "points": "-"
+        },
+        {
+          "name": "M. HAKKINEN",
+          "points": null
+        },
+        {
+          "name": "D. WARWICK",
+          "points": "-"
+        },
+        {
+          "name": "P. ALLIOT",
+          "points": "-"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "-"
+        },
+        {
+          "name": "F. BARBAZZA",
+          "points": "-"
+        },
+        {
+          "name": "A. ZANARDI",
+          "points": "-"
+        },
+        {
+          "name": "E. COMAS",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "9. Grande-Bretagne 11 juil",
+      "date": "9. Grande-Bretagne 11 juil",
+      "drivers": [
+        {
+          "name": "1 ZAF",
+          "points": "10 DEU"
+        },
+        {
+          "name": "A. PROST",
+          "points": "10"
+        },
+        {
+          "name": "A. SENNA",
+          "points": "2"
+        },
+        {
+          "name": "D. HILL",
+          "points": "-"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "6"
+        },
+        {
+          "name": "R. PATRESE",
+          "points": "4"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "M. BRUNDLE",
+          "points": "-"
+        },
+        {
+          "name": "G. BERGER",
+          "points": "-"
+        },
+        {
+          "name": "J. HERBERT",
+          "points": "3"
+        },
+        {
+          "name": "M. BLUNDELL",
+          "points": "-"
+        },
+        {
+          "name": "M. ANDRETTI",
+          "points": "-"
+        },
+        {
+          "name": "K. WENDLINGER",
+          "points": "-"
+        },
+        {
+          "name": "J. LEHTO",
+          "points": "-"
+        },
+        {
+          "name": "C. FITTIPALDI",
+          "points": "-"
+        },
+        {
+          "name": "M. HAKKINEN",
+          "points": null
+        },
+        {
+          "name": "D. WARWICK",
+          "points": "1"
+        },
+        {
+          "name": "P. ALLIOT",
+          "points": "-"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "-"
+        },
+        {
+          "name": "F. BARBAZZA",
+          "points": null
+        },
+        {
+          "name": "A. ZANARDI",
+          "points": "-"
+        },
+        {
+          "name": "E. COMAS",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "10. Allemagne 25 juil",
+      "date": "10. Allemagne 25 juil",
+      "drivers": [
+        {
+          "name": "1 ZAF",
+          "points": "11 HUN"
+        },
+        {
+          "name": "A. PROST",
+          "points": "10"
+        },
+        {
+          "name": "A. SENNA",
+          "points": "3"
+        },
+        {
+          "name": "D. HILL",
+          "points": "-"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "6"
+        },
+        {
+          "name": "R. PATRESE",
+          "points": "2"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "M. BRUNDLE",
+          "points": "-"
+        },
+        {
+          "name": "G. BERGER",
+          "points": "1"
+        },
+        {
+          "name": "J. HERBERT",
+          "points": "-"
+        },
+        {
+          "name": "M. BLUNDELL",
+          "points": "4"
+        },
+        {
+          "name": "M. ANDRETTI",
+          "points": "-"
+        },
+        {
+          "name": "K. WENDLINGER",
+          "points": "-"
+        },
+        {
+          "name": "J. LEHTO",
+          "points": "-"
+        },
+        {
+          "name": "C. FITTIPALDI",
+          "points": "-"
+        },
+        {
+          "name": "M. HAKKINEN",
+          "points": null
+        },
+        {
+          "name": "D. WARWICK",
+          "points": "-"
+        },
+        {
+          "name": "P. ALLIOT",
+          "points": "-"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "-"
+        },
+        {
+          "name": "F. BARBAZZA",
+          "points": null
+        },
+        {
+          "name": "A. ZANARDI",
+          "points": "-"
+        },
+        {
+          "name": "E. COMAS",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "11. Hongrie 15 août",
+      "date": "11. Hongrie 15 août",
+      "drivers": [
+        {
+          "name": "1 ZAF",
+          "points": "12 BEL"
+        },
+        {
+          "name": "A. PROST",
+          "points": "-"
+        },
+        {
+          "name": "A. SENNA",
+          "points": "-"
+        },
+        {
+          "name": "D. HILL",
+          "points": "10"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "-"
+        },
+        {
+          "name": "R. PATRESE",
+          "points": "6"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "M. BRUNDLE",
+          "points": "2"
+        },
+        {
+          "name": "G. BERGER",
+          "points": "4"
+        },
+        {
+          "name": "J. HERBERT",
+          "points": "-"
+        },
+        {
+          "name": "M. BLUNDELL",
+          "points": "-"
+        },
+        {
+          "name": "M. ANDRETTI",
+          "points": "-"
+        },
+        {
+          "name": "K. WENDLINGER",
+          "points": "1"
+        },
+        {
+          "name": "J. LEHTO",
+          "points": "-"
+        },
+        {
+          "name": "C. FITTIPALDI",
+          "points": "-"
+        },
+        {
+          "name": "M. HAKKINEN",
+          "points": null
+        },
+        {
+          "name": "D. WARWICK",
+          "points": "3"
+        },
+        {
+          "name": "P. ALLIOT",
+          "points": "-"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "-"
+        },
+        {
+          "name": "F. BARBAZZA",
+          "points": null
+        },
+        {
+          "name": "A. ZANARDI",
+          "points": "-"
+        },
+        {
+          "name": "E. COMAS",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "12. Belgique 29 août",
+      "date": "12. Belgique 29 août",
+      "drivers": [
+        {
+          "name": "1 ZAF",
+          "points": "13 ITA"
+        },
+        {
+          "name": "A. PROST",
+          "points": "4"
+        },
+        {
+          "name": "A. SENNA",
+          "points": "3"
+        },
+        {
+          "name": "D. HILL",
+          "points": "10"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "6"
+        },
+        {
+          "name": "R. PATRESE",
+          "points": "1"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "M. BRUNDLE",
+          "points": "-"
+        },
+        {
+          "name": "G. BERGER",
+          "points": "-"
+        },
+        {
+          "name": "J. HERBERT",
+          "points": "2"
+        },
+        {
+          "name": "M. BLUNDELL",
+          "points": "-"
+        },
+        {
+          "name": "M. ANDRETTI",
+          "points": "-"
+        },
+        {
+          "name": "K. WENDLINGER",
+          "points": "-"
+        },
+        {
+          "name": "J. LEHTO",
+          "points": "-"
+        },
+        {
+          "name": "C. FITTIPALDI",
+          "points": "-"
+        },
+        {
+          "name": "M. HAKKINEN",
+          "points": null
+        },
+        {
+          "name": "D. WARWICK",
+          "points": "-"
+        },
+        {
+          "name": "P. ALLIOT",
+          "points": "-"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "-"
+        },
+        {
+          "name": "F. BARBAZZA",
+          "points": null
+        },
+        {
+          "name": "A. ZANARDI",
+          "points": "-"
+        },
+        {
+          "name": "E. COMAS",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "13. Italie 12 sept",
+      "date": "13. Italie 12 sept",
+      "drivers": [
+        {
+          "name": "1 ZAF",
+          "points": "14 PRT"
+        },
+        {
+          "name": "A. PROST",
+          "points": "-"
+        },
+        {
+          "name": "A. SENNA",
+          "points": "-"
+        },
+        {
+          "name": "D. HILL",
+          "points": "10"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "-"
+        },
+        {
+          "name": "R. PATRESE",
+          "points": "2"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "6"
+        },
+        {
+          "name": "M. BRUNDLE",
+          "points": "-"
+        },
+        {
+          "name": "G. BERGER",
+          "points": "-"
+        },
+        {
+          "name": "J. HERBERT",
+          "points": "-"
+        },
+        {
+          "name": "M. BLUNDELL",
+          "points": "-"
+        },
+        {
+          "name": "M. ANDRETTI",
+          "points": "4"
+        },
+        {
+          "name": "K. WENDLINGER",
+          "points": "3"
+        },
+        {
+          "name": "J. LEHTO",
+          "points": "-"
+        },
+        {
+          "name": "C. FITTIPALDI",
+          "points": "-"
+        },
+        {
+          "name": "M. HAKKINEN",
+          "points": null
+        },
+        {
+          "name": "D. WARWICK",
+          "points": "-"
+        },
+        {
+          "name": "P. ALLIOT",
+          "points": "-"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "-"
+        },
+        {
+          "name": "F. BARBAZZA",
+          "points": null
+        },
+        {
+          "name": "A. ZANARDI",
+          "points": null
+        },
+        {
+          "name": "E. COMAS",
+          "points": "1"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "14. Portugal 26 sept",
+      "date": "14. Portugal 26 sept",
+      "drivers": [
+        {
+          "name": "1 ZAF",
+          "points": "15 JPN"
+        },
+        {
+          "name": "A. PROST",
+          "points": "6"
+        },
+        {
+          "name": "A. SENNA",
+          "points": "-"
+        },
+        {
+          "name": "D. HILL",
+          "points": "4"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "10"
+        },
+        {
+          "name": "R. PATRESE",
+          "points": "-"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "3"
+        },
+        {
+          "name": "M. BRUNDLE",
+          "points": "1"
+        },
+        {
+          "name": "G. BERGER",
+          "points": "-"
+        },
+        {
+          "name": "J. HERBERT",
+          "points": "-"
+        },
+        {
+          "name": "M. BLUNDELL",
+          "points": "-"
+        },
+        {
+          "name": "M. ANDRETTI",
+          "points": null
+        },
+        {
+          "name": "K. WENDLINGER",
+          "points": "2"
+        },
+        {
+          "name": "J. LEHTO",
+          "points": "-"
+        },
+        {
+          "name": "C. FITTIPALDI",
+          "points": "-"
+        },
+        {
+          "name": "M. HAKKINEN",
+          "points": "-"
+        },
+        {
+          "name": "D. WARWICK",
+          "points": "-"
+        },
+        {
+          "name": "P. ALLIOT",
+          "points": "-"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "-"
+        },
+        {
+          "name": "F. BARBAZZA",
+          "points": null
+        },
+        {
+          "name": "A. ZANARDI",
+          "points": null
+        },
+        {
+          "name": "E. COMAS",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "15. Japon 24 oct",
+      "date": "15. Japon 24 oct",
+      "drivers": [
+        {
+          "name": "1 ZAF",
+          "points": "16 AUS"
+        },
+        {
+          "name": "A. PROST",
+          "points": "6"
+        },
+        {
+          "name": "A. SENNA",
+          "points": "10"
+        },
+        {
+          "name": "D. HILL",
+          "points": "3"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "-"
+        },
+        {
+          "name": "R. PATRESE",
+          "points": "-"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "M. BRUNDLE",
+          "points": "-"
+        },
+        {
+          "name": "G. BERGER",
+          "points": "-"
+        },
+        {
+          "name": "J. HERBERT",
+          "points": "-"
+        },
+        {
+          "name": "M. BLUNDELL",
+          "points": "-"
+        },
+        {
+          "name": "M. ANDRETTI",
+          "points": null
+        },
+        {
+          "name": "K. WENDLINGER",
+          "points": "-"
+        },
+        {
+          "name": "J. LEHTO",
+          "points": "-"
+        },
+        {
+          "name": "C. FITTIPALDI",
+          "points": null
+        },
+        {
+          "name": "M. HAKKINEN",
+          "points": "4"
+        },
+        {
+          "name": "D. WARWICK",
+          "points": "-"
+        },
+        {
+          "name": "P. ALLIOT",
+          "points": null
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "2"
+        },
+        {
+          "name": "F. BARBAZZA",
+          "points": null
+        },
+        {
+          "name": "A. ZANARDI",
+          "points": null
+        },
+        {
+          "name": "E. COMAS",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "1"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,779 @@
+{
+  "season": 1959,
+  "gps": [
+    {
+      "gp_name": "1. Monaco 10 mai",
+      "date": "1. Monaco 10 mai",
+      "drivers": [
+        {
+          "name": "1 MCO",
+          "points": "2 500"
+        },
+        {
+          "name": "J. BRABHAM",
+          "points": "9"
+        },
+        {
+          "name": "T. BROOKS",
+          "points": "6"
+        },
+        {
+          "name": "S. MOSS",
+          "points": "-"
+        },
+        {
+          "name": "P. HILL",
+          "points": "3"
+        },
+        {
+          "name": "M. TRINTIGNANT",
+          "points": "4"
+        },
+        {
+          "name": "B. McLAREN",
+          "points": "2"
+        },
+        {
+          "name": "D. GURNEY",
+          "points": null
+        },
+        {
+          "name": "J. BONNIER",
+          "points": "-"
+        },
+        {
+          "name": "M. GREGORY",
+          "points": "-"
+        },
+        {
+          "name": "R. WARD",
+          "points": null
+        },
+        {
+          "name": "J. RATHMANN",
+          "points": null
+        },
+        {
+          "name": "J. THOMSON",
+          "points": null
+        },
+        {
+          "name": "H. SCHELL",
+          "points": "-"
+        },
+        {
+          "name": "I. IRELAND",
+          "points": null
+        },
+        {
+          "name": "O. GENDEBIEN",
+          "points": null
+        },
+        {
+          "name": "T. BETTENHAUSEN",
+          "points": null
+        },
+        {
+          "name": "C. ALLISON",
+          "points": "-"
+        },
+        {
+          "name": "P. GOLDSMITH",
+          "points": null
+        },
+        {
+          "name": "J. BEHRA",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "2. Indianapolis 30 mai",
+      "date": "2. Indianapolis 30 mai",
+      "drivers": [
+        {
+          "name": "1 MCO",
+          "points": "3 NLD"
+        },
+        {
+          "name": "J. BRABHAM",
+          "points": null
+        },
+        {
+          "name": "T. BROOKS",
+          "points": null
+        },
+        {
+          "name": "S. MOSS",
+          "points": null
+        },
+        {
+          "name": "P. HILL",
+          "points": null
+        },
+        {
+          "name": "M. TRINTIGNANT",
+          "points": null
+        },
+        {
+          "name": "B. McLAREN",
+          "points": null
+        },
+        {
+          "name": "D. GURNEY",
+          "points": null
+        },
+        {
+          "name": "J. BONNIER",
+          "points": null
+        },
+        {
+          "name": "M. GREGORY",
+          "points": null
+        },
+        {
+          "name": "R. WARD",
+          "points": "8"
+        },
+        {
+          "name": "J. RATHMANN",
+          "points": "6"
+        },
+        {
+          "name": "J. THOMSON",
+          "points": "5"
+        },
+        {
+          "name": "H. SCHELL",
+          "points": null
+        },
+        {
+          "name": "I. IRELAND",
+          "points": null
+        },
+        {
+          "name": "O. GENDEBIEN",
+          "points": null
+        },
+        {
+          "name": "T. BETTENHAUSEN",
+          "points": "3"
+        },
+        {
+          "name": "C. ALLISON",
+          "points": null
+        },
+        {
+          "name": "P. GOLDSMITH",
+          "points": "2"
+        },
+        {
+          "name": "J. BEHRA",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "3. Pays-Bas 31 mai",
+      "date": "3. Pays-Bas 31 mai",
+      "drivers": [
+        {
+          "name": "1 MCO",
+          "points": "4 FRA"
+        },
+        {
+          "name": "J. BRABHAM",
+          "points": "6"
+        },
+        {
+          "name": "T. BROOKS",
+          "points": "-"
+        },
+        {
+          "name": "S. MOSS",
+          "points": "1"
+        },
+        {
+          "name": "P. HILL",
+          "points": "-"
+        },
+        {
+          "name": "M. TRINTIGNANT",
+          "points": "-"
+        },
+        {
+          "name": "B. McLAREN",
+          "points": null
+        },
+        {
+          "name": "D. GURNEY",
+          "points": null
+        },
+        {
+          "name": "J. BONNIER",
+          "points": "8"
+        },
+        {
+          "name": "M. GREGORY",
+          "points": "4"
+        },
+        {
+          "name": "R. WARD",
+          "points": null
+        },
+        {
+          "name": "J. RATHMANN",
+          "points": null
+        },
+        {
+          "name": "J. THOMSON",
+          "points": null
+        },
+        {
+          "name": "H. SCHELL",
+          "points": "-"
+        },
+        {
+          "name": "I. IRELAND",
+          "points": "3"
+        },
+        {
+          "name": "O. GENDEBIEN",
+          "points": null
+        },
+        {
+          "name": "T. BETTENHAUSEN",
+          "points": null
+        },
+        {
+          "name": "C. ALLISON",
+          "points": "-"
+        },
+        {
+          "name": "P. GOLDSMITH",
+          "points": null
+        },
+        {
+          "name": "J. BEHRA",
+          "points": "2"
+        }
+      ]
+    },
+    {
+      "gp_name": "4. France 5 juil",
+      "date": "4. France 5 juil",
+      "drivers": [
+        {
+          "name": "1 MCO",
+          "points": "5 GBR"
+        },
+        {
+          "name": "J. BRABHAM",
+          "points": "4"
+        },
+        {
+          "name": "T. BROOKS",
+          "points": "8"
+        },
+        {
+          "name": "S. MOSS",
+          "points": "1"
+        },
+        {
+          "name": "P. HILL",
+          "points": "6"
+        },
+        {
+          "name": "M. TRINTIGNANT",
+          "points": "-"
+        },
+        {
+          "name": "B. McLAREN",
+          "points": "2"
+        },
+        {
+          "name": "D. GURNEY",
+          "points": "-"
+        },
+        {
+          "name": "J. BONNIER",
+          "points": "-"
+        },
+        {
+          "name": "M. GREGORY",
+          "points": "-"
+        },
+        {
+          "name": "R. WARD",
+          "points": null
+        },
+        {
+          "name": "J. RATHMANN",
+          "points": null
+        },
+        {
+          "name": "J. THOMSON",
+          "points": null
+        },
+        {
+          "name": "H. SCHELL",
+          "points": "-"
+        },
+        {
+          "name": "I. IRELAND",
+          "points": "-"
+        },
+        {
+          "name": "O. GENDEBIEN",
+          "points": "3"
+        },
+        {
+          "name": "T. BETTENHAUSEN",
+          "points": null
+        },
+        {
+          "name": "C. ALLISON",
+          "points": null
+        },
+        {
+          "name": "P. GOLDSMITH",
+          "points": null
+        },
+        {
+          "name": "J. BEHRA",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "5. Grande-Bretagne 18 juil",
+      "date": "5. Grande-Bretagne 18 juil",
+      "drivers": [
+        {
+          "name": "1 MCO",
+          "points": "6 DEU"
+        },
+        {
+          "name": "J. BRABHAM",
+          "points": "8"
+        },
+        {
+          "name": "T. BROOKS",
+          "points": "-"
+        },
+        {
+          "name": "S. MOSS",
+          "points": "6,5"
+        },
+        {
+          "name": "P. HILL",
+          "points": null
+        },
+        {
+          "name": "M. TRINTIGNANT",
+          "points": "2"
+        },
+        {
+          "name": "B. McLAREN",
+          "points": "4,5"
+        },
+        {
+          "name": "D. GURNEY",
+          "points": null
+        },
+        {
+          "name": "J. BONNIER",
+          "points": "-"
+        },
+        {
+          "name": "M. GREGORY",
+          "points": "-"
+        },
+        {
+          "name": "R. WARD",
+          "points": null
+        },
+        {
+          "name": "J. RATHMANN",
+          "points": null
+        },
+        {
+          "name": "J. THOMSON",
+          "points": null
+        },
+        {
+          "name": "H. SCHELL",
+          "points": "3"
+        },
+        {
+          "name": "I. IRELAND",
+          "points": "-"
+        },
+        {
+          "name": "O. GENDEBIEN",
+          "points": null
+        },
+        {
+          "name": "T. BETTENHAUSEN",
+          "points": null
+        },
+        {
+          "name": "C. ALLISON",
+          "points": null
+        },
+        {
+          "name": "P. GOLDSMITH",
+          "points": null
+        },
+        {
+          "name": "J. BEHRA",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "6. Allemagne 2 août",
+      "date": "6. Allemagne 2 août",
+      "drivers": [
+        {
+          "name": "1 MCO",
+          "points": "7 PRT"
+        },
+        {
+          "name": "J. BRABHAM",
+          "points": "-"
+        },
+        {
+          "name": "T. BROOKS",
+          "points": "9"
+        },
+        {
+          "name": "S. MOSS",
+          "points": "-"
+        },
+        {
+          "name": "P. HILL",
+          "points": "4"
+        },
+        {
+          "name": "M. TRINTIGNANT",
+          "points": "3"
+        },
+        {
+          "name": "B. McLAREN",
+          "points": "-"
+        },
+        {
+          "name": "D. GURNEY",
+          "points": "6"
+        },
+        {
+          "name": "J. BONNIER",
+          "points": "2"
+        },
+        {
+          "name": "M. GREGORY",
+          "points": "-"
+        },
+        {
+          "name": "R. WARD",
+          "points": null
+        },
+        {
+          "name": "J. RATHMANN",
+          "points": null
+        },
+        {
+          "name": "J. THOMSON",
+          "points": null
+        },
+        {
+          "name": "H. SCHELL",
+          "points": "-"
+        },
+        {
+          "name": "I. IRELAND",
+          "points": "-"
+        },
+        {
+          "name": "O. GENDEBIEN",
+          "points": null
+        },
+        {
+          "name": "T. BETTENHAUSEN",
+          "points": null
+        },
+        {
+          "name": "C. ALLISON",
+          "points": "-"
+        },
+        {
+          "name": "P. GOLDSMITH",
+          "points": null
+        },
+        {
+          "name": "J. BEHRA",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "7. Portugal 23 août",
+      "date": "7. Portugal 23 août",
+      "drivers": [
+        {
+          "name": "1 MCO",
+          "points": "8 ITA"
+        },
+        {
+          "name": "J. BRABHAM",
+          "points": "-"
+        },
+        {
+          "name": "T. BROOKS",
+          "points": "-"
+        },
+        {
+          "name": "S. MOSS",
+          "points": "9"
+        },
+        {
+          "name": "P. HILL",
+          "points": "-"
+        },
+        {
+          "name": "M. TRINTIGNANT",
+          "points": "3"
+        },
+        {
+          "name": "B. McLAREN",
+          "points": "-"
+        },
+        {
+          "name": "D. GURNEY",
+          "points": "4"
+        },
+        {
+          "name": "J. BONNIER",
+          "points": "-"
+        },
+        {
+          "name": "M. GREGORY",
+          "points": "6"
+        },
+        {
+          "name": "R. WARD",
+          "points": null
+        },
+        {
+          "name": "J. RATHMANN",
+          "points": null
+        },
+        {
+          "name": "J. THOMSON",
+          "points": null
+        },
+        {
+          "name": "H. SCHELL",
+          "points": "2"
+        },
+        {
+          "name": "I. IRELAND",
+          "points": "-"
+        },
+        {
+          "name": "O. GENDEBIEN",
+          "points": null
+        },
+        {
+          "name": "T. BETTENHAUSEN",
+          "points": null
+        },
+        {
+          "name": "C. ALLISON",
+          "points": null
+        },
+        {
+          "name": "P. GOLDSMITH",
+          "points": null
+        },
+        {
+          "name": "J. BEHRA",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "8. Italie 13 sept",
+      "date": "8. Italie 13 sept",
+      "drivers": [
+        {
+          "name": "1 MCO",
+          "points": "9 USA"
+        },
+        {
+          "name": "J. BRABHAM",
+          "points": "4"
+        },
+        {
+          "name": "T. BROOKS",
+          "points": "-"
+        },
+        {
+          "name": "S. MOSS",
+          "points": "8"
+        },
+        {
+          "name": "P. HILL",
+          "points": "7"
+        },
+        {
+          "name": "M. TRINTIGNANT",
+          "points": "-"
+        },
+        {
+          "name": "B. McLAREN",
+          "points": "-"
+        },
+        {
+          "name": "D. GURNEY",
+          "points": "3"
+        },
+        {
+          "name": "J. BONNIER",
+          "points": "-"
+        },
+        {
+          "name": "M. GREGORY",
+          "points": null
+        },
+        {
+          "name": "R. WARD",
+          "points": null
+        },
+        {
+          "name": "J. RATHMANN",
+          "points": null
+        },
+        {
+          "name": "J. THOMSON",
+          "points": null
+        },
+        {
+          "name": "H. SCHELL",
+          "points": "-"
+        },
+        {
+          "name": "I. IRELAND",
+          "points": "-"
+        },
+        {
+          "name": "O. GENDEBIEN",
+          "points": "-"
+        },
+        {
+          "name": "T. BETTENHAUSEN",
+          "points": null
+        },
+        {
+          "name": "C. ALLISON",
+          "points": "2"
+        },
+        {
+          "name": "P. GOLDSMITH",
+          "points": null
+        },
+        {
+          "name": "J. BEHRA",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "9. Etats-Unis 12 déc",
+      "date": "9. Etats-Unis 12 déc",
+      "drivers": [
+        {
+          "name": "1 MCO",
+          "points": "Pts"
+        },
+        {
+          "name": "J. BRABHAM",
+          "points": "(3)"
+        },
+        {
+          "name": "T. BROOKS",
+          "points": "4"
+        },
+        {
+          "name": "S. MOSS",
+          "points": "-"
+        },
+        {
+          "name": "P. HILL",
+          "points": "-"
+        },
+        {
+          "name": "M. TRINTIGNANT",
+          "points": "7"
+        },
+        {
+          "name": "B. McLAREN",
+          "points": "8"
+        },
+        {
+          "name": "D. GURNEY",
+          "points": null
+        },
+        {
+          "name": "J. BONNIER",
+          "points": null
+        },
+        {
+          "name": "M. GREGORY",
+          "points": null
+        },
+        {
+          "name": "R. WARD",
+          "points": "-"
+        },
+        {
+          "name": "J. RATHMANN",
+          "points": null
+        },
+        {
+          "name": "J. THOMSON",
+          "points": null
+        },
+        {
+          "name": "H. SCHELL",
+          "points": "-"
+        },
+        {
+          "name": "I. IRELAND",
+          "points": "2"
+        },
+        {
+          "name": "O. GENDEBIEN",
+          "points": null
+        },
+        {
+          "name": "T. BETTENHAUSEN",
+          "points": null
+        },
+        {
+          "name": "C. ALLISON",
+          "points": "-"
+        },
+        {
+          "name": "P. GOLDSMITH",
+          "points": null
+        },
+        {
+          "name": "J. BEHRA",
+          "points": null
+        }
+      ]
+    }
+  ]
+}

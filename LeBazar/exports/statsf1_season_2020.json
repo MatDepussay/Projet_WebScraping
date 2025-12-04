@@ -1,0 +1,1637 @@
+{
+  "season": 2020,
+  "gps": [
+    {
+      "gp_name": "1. Autriche 5 juil",
+      "date": "1. Autriche 5 juil",
+      "drivers": [
+        {
+          "name": "1 AUT",
+          "points": "2 STY"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "12"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "25"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "-"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "8"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": "-"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "10"
+        },
+        {
+          "name": "A. ALBON",
+          "points": "-"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "18"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "16"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "6"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "-"
+        },
+        {
+          "name": "E. OCON",
+          "points": "4"
+        },
+        {
+          "name": "S. VETTEL",
+          "points": "1"
+        },
+        {
+          "name": "D. KVYAT",
+          "points": "-"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": null
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "-"
+        },
+        {
+          "name": "A. GIOVINAZZI",
+          "points": "2"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "-"
+        },
+        {
+          "name": "R. GROSJEAN",
+          "points": "-"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "-"
+        },
+        {
+          "name": "N. LATIFI",
+          "points": "-"
+        },
+        {
+          "name": "J. AITKEN",
+          "points": null
+        },
+        {
+          "name": "P. FITTIPALDI",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "2. Styrie 12 juil",
+      "date": "2. Styrie 12 juil",
+      "drivers": [
+        {
+          "name": "1 AUT",
+          "points": "3 HUN"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "25"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "18"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "15"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "8"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": "4"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "3"
+        },
+        {
+          "name": "A. ALBON",
+          "points": "12"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "-"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "10"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "-"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "6"
+        },
+        {
+          "name": "E. OCON",
+          "points": "-"
+        },
+        {
+          "name": "S. VETTEL",
+          "points": "-"
+        },
+        {
+          "name": "D. KVYAT",
+          "points": "1"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": null
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "-"
+        },
+        {
+          "name": "A. GIOVINAZZI",
+          "points": "-"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "-"
+        },
+        {
+          "name": "R. GROSJEAN",
+          "points": "-"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "-"
+        },
+        {
+          "name": "N. LATIFI",
+          "points": "-"
+        },
+        {
+          "name": "J. AITKEN",
+          "points": null
+        },
+        {
+          "name": "P. FITTIPALDI",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "3. Hongrie 19 juil",
+      "date": "3. Hongrie 19 juil",
+      "drivers": [
+        {
+          "name": "1 AUT",
+          "points": "4 GBR"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "26"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "15"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "18"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "6"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": "4"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "2"
+        },
+        {
+          "name": "A. ALBON",
+          "points": "10"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "-"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "-"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "-"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "12"
+        },
+        {
+          "name": "E. OCON",
+          "points": "-"
+        },
+        {
+          "name": "S. VETTEL",
+          "points": "8"
+        },
+        {
+          "name": "D. KVYAT",
+          "points": "-"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": null
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "-"
+        },
+        {
+          "name": "A. GIOVINAZZI",
+          "points": "-"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "-"
+        },
+        {
+          "name": "R. GROSJEAN",
+          "points": "-"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "1"
+        },
+        {
+          "name": "N. LATIFI",
+          "points": "-"
+        },
+        {
+          "name": "J. AITKEN",
+          "points": null
+        },
+        {
+          "name": "P. FITTIPALDI",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "4. Grande-Bretagne 2 août",
+      "date": "4. Grande-Bretagne 2 août",
+      "drivers": [
+        {
+          "name": "1 AUT",
+          "points": "5 70"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "25"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "-"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "19"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "-"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": "12"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "-"
+        },
+        {
+          "name": "A. ALBON",
+          "points": "4"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "15"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "10"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "6"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "2"
+        },
+        {
+          "name": "E. OCON",
+          "points": "8"
+        },
+        {
+          "name": "S. VETTEL",
+          "points": "1"
+        },
+        {
+          "name": "D. KVYAT",
+          "points": "-"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": "-"
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "-"
+        },
+        {
+          "name": "A. GIOVINAZZI",
+          "points": "-"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "-"
+        },
+        {
+          "name": "R. GROSJEAN",
+          "points": "-"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "-"
+        },
+        {
+          "name": "N. LATIFI",
+          "points": "-"
+        },
+        {
+          "name": "J. AITKEN",
+          "points": null
+        },
+        {
+          "name": "P. FITTIPALDI",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "5. 70e Anniversaire 9 août",
+      "date": "5. 70e Anniversaire 9 août",
+      "drivers": [
+        {
+          "name": "1 AUT",
+          "points": "6 ESP"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "19"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "15"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "25"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": null
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": "-"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "-"
+        },
+        {
+          "name": "A. ALBON",
+          "points": "10"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "12"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "2"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "-"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "8"
+        },
+        {
+          "name": "E. OCON",
+          "points": "4"
+        },
+        {
+          "name": "S. VETTEL",
+          "points": "-"
+        },
+        {
+          "name": "D. KVYAT",
+          "points": "1"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": "6"
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "-"
+        },
+        {
+          "name": "A. GIOVINAZZI",
+          "points": "-"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "-"
+        },
+        {
+          "name": "R. GROSJEAN",
+          "points": "-"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "-"
+        },
+        {
+          "name": "N. LATIFI",
+          "points": "-"
+        },
+        {
+          "name": "J. AITKEN",
+          "points": null
+        },
+        {
+          "name": "P. FITTIPALDI",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "6. Espagne 16 août",
+      "date": "6. Espagne 16 août",
+      "drivers": [
+        {
+          "name": "1 AUT",
+          "points": "7 BEL"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "25"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "16"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "18"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "10"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": "-"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "8"
+        },
+        {
+          "name": "A. ALBON",
+          "points": "4"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "-"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "1"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "2"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "12"
+        },
+        {
+          "name": "E. OCON",
+          "points": "-"
+        },
+        {
+          "name": "S. VETTEL",
+          "points": "6"
+        },
+        {
+          "name": "D. KVYAT",
+          "points": "-"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": null
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "-"
+        },
+        {
+          "name": "A. GIOVINAZZI",
+          "points": "-"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "-"
+        },
+        {
+          "name": "R. GROSJEAN",
+          "points": "-"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "-"
+        },
+        {
+          "name": "N. LATIFI",
+          "points": "-"
+        },
+        {
+          "name": "J. AITKEN",
+          "points": null
+        },
+        {
+          "name": "P. FITTIPALDI",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "7. Belgique 30 août",
+      "date": "7. Belgique 30 août",
+      "drivers": [
+        {
+          "name": "1 AUT",
+          "points": "8 ITA"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "25"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "18"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "15"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "1"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": "13"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "-"
+        },
+        {
+          "name": "A. ALBON",
+          "points": "8"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "-"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "6"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "4"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "2"
+        },
+        {
+          "name": "E. OCON",
+          "points": "10"
+        },
+        {
+          "name": "S. VETTEL",
+          "points": "-"
+        },
+        {
+          "name": "D. KVYAT",
+          "points": "-"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": null
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "-"
+        },
+        {
+          "name": "A. GIOVINAZZI",
+          "points": "-"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "-"
+        },
+        {
+          "name": "R. GROSJEAN",
+          "points": "-"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "-"
+        },
+        {
+          "name": "N. LATIFI",
+          "points": "-"
+        },
+        {
+          "name": "J. AITKEN",
+          "points": null
+        },
+        {
+          "name": "P. FITTIPALDI",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "8. Italie 6 sept",
+      "date": "8. Italie 6 sept",
+      "drivers": [
+        {
+          "name": "1 AUT",
+          "points": "9 TOS"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "7"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "10"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "-"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "1"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": "8"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "18"
+        },
+        {
+          "name": "A. ALBON",
+          "points": "-"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "-"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "12"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "25"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "15"
+        },
+        {
+          "name": "E. OCON",
+          "points": "4"
+        },
+        {
+          "name": "S. VETTEL",
+          "points": "-"
+        },
+        {
+          "name": "D. KVYAT",
+          "points": "2"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": null
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "-"
+        },
+        {
+          "name": "A. GIOVINAZZI",
+          "points": "-"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "-"
+        },
+        {
+          "name": "R. GROSJEAN",
+          "points": "-"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "-"
+        },
+        {
+          "name": "N. LATIFI",
+          "points": "-"
+        },
+        {
+          "name": "J. AITKEN",
+          "points": null
+        },
+        {
+          "name": "P. FITTIPALDI",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "9. Toscane 13 sept",
+      "date": "9. Toscane 13 sept",
+      "drivers": [
+        {
+          "name": "1 AUT",
+          "points": "10 RUS"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "26"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "18"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "-"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "10"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": "12"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "-"
+        },
+        {
+          "name": "A. ALBON",
+          "points": "15"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "4"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "8"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "-"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "-"
+        },
+        {
+          "name": "E. OCON",
+          "points": "-"
+        },
+        {
+          "name": "S. VETTEL",
+          "points": "1"
+        },
+        {
+          "name": "D. KVYAT",
+          "points": "6"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": null
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "2"
+        },
+        {
+          "name": "A. GIOVINAZZI",
+          "points": "-"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "-"
+        },
+        {
+          "name": "R. GROSJEAN",
+          "points": "-"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "-"
+        },
+        {
+          "name": "N. LATIFI",
+          "points": "-"
+        },
+        {
+          "name": "J. AITKEN",
+          "points": null
+        },
+        {
+          "name": "P. FITTIPALDI",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "10. Russie 27 sept",
+      "date": "10. Russie 27 sept",
+      "drivers": [
+        {
+          "name": "1 AUT",
+          "points": "11 EIF"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "15"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "26"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "18"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "12"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": "10"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "-"
+        },
+        {
+          "name": "A. ALBON",
+          "points": "1"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "8"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "-"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "2"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "-"
+        },
+        {
+          "name": "E. OCON",
+          "points": "6"
+        },
+        {
+          "name": "S. VETTEL",
+          "points": "-"
+        },
+        {
+          "name": "D. KVYAT",
+          "points": "4"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": null
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "-"
+        },
+        {
+          "name": "A. GIOVINAZZI",
+          "points": "-"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "-"
+        },
+        {
+          "name": "R. GROSJEAN",
+          "points": "-"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "-"
+        },
+        {
+          "name": "N. LATIFI",
+          "points": "-"
+        },
+        {
+          "name": "J. AITKEN",
+          "points": null
+        },
+        {
+          "name": "P. FITTIPALDI",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "11. Eifel 11 oct",
+      "date": "11. Eifel 11 oct",
+      "drivers": [
+        {
+          "name": "1 AUT",
+          "points": "12 PRT"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "25"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "-"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "19"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "12"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": "15"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "10"
+        },
+        {
+          "name": "A. ALBON",
+          "points": "-"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "6"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "-"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "8"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "-"
+        },
+        {
+          "name": "E. OCON",
+          "points": "-"
+        },
+        {
+          "name": "S. VETTEL",
+          "points": "-"
+        },
+        {
+          "name": "D. KVYAT",
+          "points": "-"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": "4"
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "-"
+        },
+        {
+          "name": "A. GIOVINAZZI",
+          "points": "1"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "-"
+        },
+        {
+          "name": "R. GROSJEAN",
+          "points": "2"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "-"
+        },
+        {
+          "name": "N. LATIFI",
+          "points": "-"
+        },
+        {
+          "name": "J. AITKEN",
+          "points": null
+        },
+        {
+          "name": "P. FITTIPALDI",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "12. Portugal 25 oct",
+      "date": "12. Portugal 25 oct",
+      "drivers": [
+        {
+          "name": "1 AUT",
+          "points": "13 ERO"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "26"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "18"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "15"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "6"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": "2"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "8"
+        },
+        {
+          "name": "A. ALBON",
+          "points": "-"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "12"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "-"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "10"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "-"
+        },
+        {
+          "name": "E. OCON",
+          "points": "4"
+        },
+        {
+          "name": "S. VETTEL",
+          "points": "1"
+        },
+        {
+          "name": "D. KVYAT",
+          "points": "-"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": null
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "-"
+        },
+        {
+          "name": "A. GIOVINAZZI",
+          "points": "-"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "-"
+        },
+        {
+          "name": "R. GROSJEAN",
+          "points": "-"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "-"
+        },
+        {
+          "name": "N. LATIFI",
+          "points": "-"
+        },
+        {
+          "name": "J. AITKEN",
+          "points": null
+        },
+        {
+          "name": "P. FITTIPALDI",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "13. Émilie-Romagne 1 nov",
+      "date": "13. Émilie-Romagne 1 nov",
+      "drivers": [
+        {
+          "name": "1 AUT",
+          "points": "14 TUR"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "26"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "18"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "-"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "8"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": "15"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "6"
+        },
+        {
+          "name": "A. ALBON",
+          "points": "-"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "10"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "4"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "-"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "-"
+        },
+        {
+          "name": "E. OCON",
+          "points": "-"
+        },
+        {
+          "name": "S. VETTEL",
+          "points": "-"
+        },
+        {
+          "name": "D. KVYAT",
+          "points": "12"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": null
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "2"
+        },
+        {
+          "name": "A. GIOVINAZZI",
+          "points": "1"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "-"
+        },
+        {
+          "name": "R. GROSJEAN",
+          "points": "-"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "-"
+        },
+        {
+          "name": "N. LATIFI",
+          "points": "-"
+        },
+        {
+          "name": "J. AITKEN",
+          "points": null
+        },
+        {
+          "name": "P. FITTIPALDI",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "14. Turquie 15 nov",
+      "date": "14. Turquie 15 nov",
+      "drivers": [
+        {
+          "name": "1 AUT",
+          "points": "15 BHR"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "25"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "-"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "8"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "18"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": "1"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "10"
+        },
+        {
+          "name": "A. ALBON",
+          "points": "6"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "12"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "5"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "-"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "2"
+        },
+        {
+          "name": "E. OCON",
+          "points": "-"
+        },
+        {
+          "name": "S. VETTEL",
+          "points": "15"
+        },
+        {
+          "name": "D. KVYAT",
+          "points": "-"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": null
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "-"
+        },
+        {
+          "name": "A. GIOVINAZZI",
+          "points": "-"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "-"
+        },
+        {
+          "name": "R. GROSJEAN",
+          "points": "-"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "-"
+        },
+        {
+          "name": "N. LATIFI",
+          "points": "-"
+        },
+        {
+          "name": "J. AITKEN",
+          "points": null
+        },
+        {
+          "name": "P. FITTIPALDI",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "15. Bahreïn 29 nov",
+      "date": "15. Bahreïn 29 nov",
+      "drivers": [
+        {
+          "name": "1 AUT",
+          "points": "16 SAK"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": "25"
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "4"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "19"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "-"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": "6"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "10"
+        },
+        {
+          "name": "A. ALBON",
+          "points": "15"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "1"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "12"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "8"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "-"
+        },
+        {
+          "name": "E. OCON",
+          "points": "2"
+        },
+        {
+          "name": "S. VETTEL",
+          "points": "-"
+        },
+        {
+          "name": "D. KVYAT",
+          "points": "-"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": null
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "-"
+        },
+        {
+          "name": "A. GIOVINAZZI",
+          "points": "-"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "-"
+        },
+        {
+          "name": "R. GROSJEAN",
+          "points": "-"
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "-"
+        },
+        {
+          "name": "N. LATIFI",
+          "points": "-"
+        },
+        {
+          "name": "J. AITKEN",
+          "points": null
+        },
+        {
+          "name": "P. FITTIPALDI",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "16. Sakhir 6 déc",
+      "date": "16. Sakhir 6 déc",
+      "drivers": [
+        {
+          "name": "1 AUT",
+          "points": "17 ABD"
+        },
+        {
+          "name": "L. HAMILTON",
+          "points": null
+        },
+        {
+          "name": "V. BOTTAS",
+          "points": "4"
+        },
+        {
+          "name": "M. VERSTAPPEN",
+          "points": "-"
+        },
+        {
+          "name": "S. PEREZ",
+          "points": "25"
+        },
+        {
+          "name": "D. RICCIARDO",
+          "points": "10"
+        },
+        {
+          "name": "C. SAINZ",
+          "points": "12"
+        },
+        {
+          "name": "A. ALBON",
+          "points": "8"
+        },
+        {
+          "name": "C. LECLERC",
+          "points": "-"
+        },
+        {
+          "name": "L. NORRIS",
+          "points": "1"
+        },
+        {
+          "name": "P. GASLY",
+          "points": "-"
+        },
+        {
+          "name": "L. STROLL",
+          "points": "15"
+        },
+        {
+          "name": "E. OCON",
+          "points": "18"
+        },
+        {
+          "name": "S. VETTEL",
+          "points": "-"
+        },
+        {
+          "name": "D. KVYAT",
+          "points": "6"
+        },
+        {
+          "name": "N. HULKENBERG",
+          "points": null
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "-"
+        },
+        {
+          "name": "A. GIOVINAZZI",
+          "points": "-"
+        },
+        {
+          "name": "G. RUSSELL",
+          "points": "3"
+        },
+        {
+          "name": "R. GROSJEAN",
+          "points": null
+        },
+        {
+          "name": "K. MAGNUSSEN",
+          "points": "-"
+        },
+        {
+          "name": "N. LATIFI",
+          "points": "-"
+        },
+        {
+          "name": "J. AITKEN",
+          "points": "-"
+        },
+        {
+          "name": "P. FITTIPALDI",
+          "points": "-"
+        }
+      ]
+    }
+  ]
+}

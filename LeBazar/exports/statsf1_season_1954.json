@@ -1,0 +1,1031 @@
+{
+  "season": 1954,
+  "gps": [
+    {
+      "gp_name": "1. Argentine 17 janv",
+      "date": "1. Argentine 17 janv",
+      "drivers": [
+        {
+          "name": "1 ARG",
+          "points": "2 500"
+        },
+        {
+          "name": "J. FANGIO",
+          "points": "8"
+        },
+        {
+          "name": "J. GONZALEZ",
+          "points": "5"
+        },
+        {
+          "name": "M. HAWTHORN",
+          "points": "-"
+        },
+        {
+          "name": "M. TRINTIGNANT",
+          "points": "3"
+        },
+        {
+          "name": "K. KLING",
+          "points": null
+        },
+        {
+          "name": "B. VUKOVICH",
+          "points": null
+        },
+        {
+          "name": "H. HERRMANN",
+          "points": null
+        },
+        {
+          "name": "G. FARINA",
+          "points": "6"
+        },
+        {
+          "name": "J. BRYAN",
+          "points": null
+        },
+        {
+          "name": "L. MUSSO",
+          "points": "-"
+        },
+        {
+          "name": "R. MIERES",
+          "points": "-"
+        },
+        {
+          "name": "J. McGRATH",
+          "points": null
+        },
+        {
+          "name": "S. MOSS",
+          "points": null
+        },
+        {
+          "name": "O. MARIMON",
+          "points": "-"
+        },
+        {
+          "name": "R. MANZON",
+          "points": null
+        },
+        {
+          "name": "S. MANTOVANI",
+          "points": null
+        },
+        {
+          "name": "P. BIRA",
+          "points": "-"
+        },
+        {
+          "name": "U. MAGLIOLI",
+          "points": "-"
+        },
+        {
+          "name": "A. PILETTE",
+          "points": null
+        },
+        {
+          "name": "E. BAYOL",
+          "points": "2"
+        },
+        {
+          "name": "M. NAZARUK",
+          "points": null
+        },
+        {
+          "name": "L. VILLORESI",
+          "points": null
+        },
+        {
+          "name": "D. CARTER",
+          "points": null
+        },
+        {
+          "name": "T. RUTTMAN",
+          "points": null
+        },
+        {
+          "name": "A. ASCARI",
+          "points": null
+        },
+        {
+          "name": "J. BEHRA",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "2. Indianapolis 31 mai",
+      "date": "2. Indianapolis 31 mai",
+      "drivers": [
+        {
+          "name": "1 ARG",
+          "points": "3 BEL"
+        },
+        {
+          "name": "J. FANGIO",
+          "points": null
+        },
+        {
+          "name": "J. GONZALEZ",
+          "points": null
+        },
+        {
+          "name": "M. HAWTHORN",
+          "points": null
+        },
+        {
+          "name": "M. TRINTIGNANT",
+          "points": null
+        },
+        {
+          "name": "K. KLING",
+          "points": null
+        },
+        {
+          "name": "B. VUKOVICH",
+          "points": "8"
+        },
+        {
+          "name": "H. HERRMANN",
+          "points": null
+        },
+        {
+          "name": "G. FARINA",
+          "points": null
+        },
+        {
+          "name": "J. BRYAN",
+          "points": "6"
+        },
+        {
+          "name": "L. MUSSO",
+          "points": null
+        },
+        {
+          "name": "R. MIERES",
+          "points": null
+        },
+        {
+          "name": "J. McGRATH",
+          "points": "5"
+        },
+        {
+          "name": "S. MOSS",
+          "points": null
+        },
+        {
+          "name": "O. MARIMON",
+          "points": null
+        },
+        {
+          "name": "R. MANZON",
+          "points": null
+        },
+        {
+          "name": "S. MANTOVANI",
+          "points": null
+        },
+        {
+          "name": "P. BIRA",
+          "points": null
+        },
+        {
+          "name": "U. MAGLIOLI",
+          "points": null
+        },
+        {
+          "name": "A. PILETTE",
+          "points": null
+        },
+        {
+          "name": "E. BAYOL",
+          "points": null
+        },
+        {
+          "name": "M. NAZARUK",
+          "points": "2"
+        },
+        {
+          "name": "L. VILLORESI",
+          "points": null
+        },
+        {
+          "name": "D. CARTER",
+          "points": "1,5"
+        },
+        {
+          "name": "T. RUTTMAN",
+          "points": "1,5"
+        },
+        {
+          "name": "A. ASCARI",
+          "points": null
+        },
+        {
+          "name": "J. BEHRA",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "3. Belgique 20 juin",
+      "date": "3. Belgique 20 juin",
+      "drivers": [
+        {
+          "name": "1 ARG",
+          "points": "4 FRA"
+        },
+        {
+          "name": "J. FANGIO",
+          "points": "9"
+        },
+        {
+          "name": "J. GONZALEZ",
+          "points": "(1,5)"
+        },
+        {
+          "name": "M. HAWTHORN",
+          "points": "1,5"
+        },
+        {
+          "name": "M. TRINTIGNANT",
+          "points": "6"
+        },
+        {
+          "name": "K. KLING",
+          "points": null
+        },
+        {
+          "name": "B. VUKOVICH",
+          "points": null
+        },
+        {
+          "name": "H. HERRMANN",
+          "points": null
+        },
+        {
+          "name": "G. FARINA",
+          "points": "-"
+        },
+        {
+          "name": "J. BRYAN",
+          "points": null
+        },
+        {
+          "name": "L. MUSSO",
+          "points": null
+        },
+        {
+          "name": "R. MIERES",
+          "points": "-"
+        },
+        {
+          "name": "J. McGRATH",
+          "points": null
+        },
+        {
+          "name": "S. MOSS",
+          "points": "4"
+        },
+        {
+          "name": "O. MARIMON",
+          "points": "-"
+        },
+        {
+          "name": "R. MANZON",
+          "points": null
+        },
+        {
+          "name": "S. MANTOVANI",
+          "points": "-"
+        },
+        {
+          "name": "P. BIRA",
+          "points": "-"
+        },
+        {
+          "name": "U. MAGLIOLI",
+          "points": null
+        },
+        {
+          "name": "A. PILETTE",
+          "points": "2"
+        },
+        {
+          "name": "E. BAYOL",
+          "points": null
+        },
+        {
+          "name": "M. NAZARUK",
+          "points": null
+        },
+        {
+          "name": "L. VILLORESI",
+          "points": null
+        },
+        {
+          "name": "D. CARTER",
+          "points": null
+        },
+        {
+          "name": "T. RUTTMAN",
+          "points": null
+        },
+        {
+          "name": "A. ASCARI",
+          "points": null
+        },
+        {
+          "name": "J. BEHRA",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "4. France 4 juil",
+      "date": "4. France 4 juil",
+      "drivers": [
+        {
+          "name": "1 ARG",
+          "points": "5 GBR"
+        },
+        {
+          "name": "J. FANGIO",
+          "points": "8"
+        },
+        {
+          "name": "J. GONZALEZ",
+          "points": "-"
+        },
+        {
+          "name": "M. HAWTHORN",
+          "points": "-"
+        },
+        {
+          "name": "M. TRINTIGNANT",
+          "points": "-"
+        },
+        {
+          "name": "K. KLING",
+          "points": "6"
+        },
+        {
+          "name": "B. VUKOVICH",
+          "points": null
+        },
+        {
+          "name": "H. HERRMANN",
+          "points": "1"
+        },
+        {
+          "name": "G. FARINA",
+          "points": "-"
+        },
+        {
+          "name": "J. BRYAN",
+          "points": null
+        },
+        {
+          "name": "L. MUSSO",
+          "points": null
+        },
+        {
+          "name": "R. MIERES",
+          "points": "-"
+        },
+        {
+          "name": "J. McGRATH",
+          "points": null
+        },
+        {
+          "name": "S. MOSS",
+          "points": null
+        },
+        {
+          "name": "O. MARIMON",
+          "points": "-"
+        },
+        {
+          "name": "R. MANZON",
+          "points": "4"
+        },
+        {
+          "name": "S. MANTOVANI",
+          "points": "-"
+        },
+        {
+          "name": "P. BIRA",
+          "points": "3"
+        },
+        {
+          "name": "U. MAGLIOLI",
+          "points": null
+        },
+        {
+          "name": "A. PILETTE",
+          "points": null
+        },
+        {
+          "name": "E. BAYOL",
+          "points": null
+        },
+        {
+          "name": "M. NAZARUK",
+          "points": null
+        },
+        {
+          "name": "L. VILLORESI",
+          "points": "2"
+        },
+        {
+          "name": "D. CARTER",
+          "points": null
+        },
+        {
+          "name": "T. RUTTMAN",
+          "points": null
+        },
+        {
+          "name": "A. ASCARI",
+          "points": "-"
+        },
+        {
+          "name": "J. BEHRA",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "5. Grande-Bretagne 17 juil",
+      "date": "5. Grande-Bretagne 17 juil",
+      "drivers": [
+        {
+          "name": "1 ARG",
+          "points": "6 DEU"
+        },
+        {
+          "name": "J. FANGIO",
+          "points": "(3,14)"
+        },
+        {
+          "name": "J. GONZALEZ",
+          "points": "8,14"
+        },
+        {
+          "name": "M. HAWTHORN",
+          "points": "6,14"
+        },
+        {
+          "name": "M. TRINTIGNANT",
+          "points": "2"
+        },
+        {
+          "name": "K. KLING",
+          "points": "-"
+        },
+        {
+          "name": "B. VUKOVICH",
+          "points": null
+        },
+        {
+          "name": "H. HERRMANN",
+          "points": null
+        },
+        {
+          "name": "G. FARINA",
+          "points": null
+        },
+        {
+          "name": "J. BRYAN",
+          "points": null
+        },
+        {
+          "name": "L. MUSSO",
+          "points": null
+        },
+        {
+          "name": "R. MIERES",
+          "points": "-"
+        },
+        {
+          "name": "J. McGRATH",
+          "points": null
+        },
+        {
+          "name": "S. MOSS",
+          "points": "0,14"
+        },
+        {
+          "name": "O. MARIMON",
+          "points": "4,14"
+        },
+        {
+          "name": "R. MANZON",
+          "points": "-"
+        },
+        {
+          "name": "S. MANTOVANI",
+          "points": null
+        },
+        {
+          "name": "P. BIRA",
+          "points": "-"
+        },
+        {
+          "name": "U. MAGLIOLI",
+          "points": null
+        },
+        {
+          "name": "A. PILETTE",
+          "points": "-"
+        },
+        {
+          "name": "E. BAYOL",
+          "points": null
+        },
+        {
+          "name": "M. NAZARUK",
+          "points": null
+        },
+        {
+          "name": "L. VILLORESI",
+          "points": "-"
+        },
+        {
+          "name": "D. CARTER",
+          "points": null
+        },
+        {
+          "name": "T. RUTTMAN",
+          "points": null
+        },
+        {
+          "name": "A. ASCARI",
+          "points": "0,14"
+        },
+        {
+          "name": "J. BEHRA",
+          "points": "0,14"
+        }
+      ]
+    },
+    {
+      "gp_name": "6. Allemagne 1 août",
+      "date": "6. Allemagne 1 août",
+      "drivers": [
+        {
+          "name": "1 ARG",
+          "points": "7 CHE"
+        },
+        {
+          "name": "J. FANGIO",
+          "points": "8"
+        },
+        {
+          "name": "J. GONZALEZ",
+          "points": "3"
+        },
+        {
+          "name": "M. HAWTHORN",
+          "points": "3"
+        },
+        {
+          "name": "M. TRINTIGNANT",
+          "points": "4"
+        },
+        {
+          "name": "K. KLING",
+          "points": "4"
+        },
+        {
+          "name": "B. VUKOVICH",
+          "points": null
+        },
+        {
+          "name": "H. HERRMANN",
+          "points": "-"
+        },
+        {
+          "name": "G. FARINA",
+          "points": null
+        },
+        {
+          "name": "J. BRYAN",
+          "points": null
+        },
+        {
+          "name": "L. MUSSO",
+          "points": null
+        },
+        {
+          "name": "R. MIERES",
+          "points": "-"
+        },
+        {
+          "name": "J. McGRATH",
+          "points": null
+        },
+        {
+          "name": "S. MOSS",
+          "points": "-"
+        },
+        {
+          "name": "O. MARIMON",
+          "points": "-"
+        },
+        {
+          "name": "R. MANZON",
+          "points": "-"
+        },
+        {
+          "name": "S. MANTOVANI",
+          "points": "2"
+        },
+        {
+          "name": "P. BIRA",
+          "points": "-"
+        },
+        {
+          "name": "U. MAGLIOLI",
+          "points": null
+        },
+        {
+          "name": "A. PILETTE",
+          "points": "-"
+        },
+        {
+          "name": "E. BAYOL",
+          "points": null
+        },
+        {
+          "name": "M. NAZARUK",
+          "points": null
+        },
+        {
+          "name": "L. VILLORESI",
+          "points": "-"
+        },
+        {
+          "name": "D. CARTER",
+          "points": null
+        },
+        {
+          "name": "T. RUTTMAN",
+          "points": null
+        },
+        {
+          "name": "A. ASCARI",
+          "points": null
+        },
+        {
+          "name": "J. BEHRA",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "7. Suisse 22 août",
+      "date": "7. Suisse 22 août",
+      "drivers": [
+        {
+          "name": "1 ARG",
+          "points": "8 ITA"
+        },
+        {
+          "name": "J. FANGIO",
+          "points": "9"
+        },
+        {
+          "name": "J. GONZALEZ",
+          "points": "6"
+        },
+        {
+          "name": "M. HAWTHORN",
+          "points": "-"
+        },
+        {
+          "name": "M. TRINTIGNANT",
+          "points": "-"
+        },
+        {
+          "name": "K. KLING",
+          "points": "-"
+        },
+        {
+          "name": "B. VUKOVICH",
+          "points": null
+        },
+        {
+          "name": "H. HERRMANN",
+          "points": "4"
+        },
+        {
+          "name": "G. FARINA",
+          "points": null
+        },
+        {
+          "name": "J. BRYAN",
+          "points": null
+        },
+        {
+          "name": "L. MUSSO",
+          "points": null
+        },
+        {
+          "name": "R. MIERES",
+          "points": "3"
+        },
+        {
+          "name": "J. McGRATH",
+          "points": null
+        },
+        {
+          "name": "S. MOSS",
+          "points": "-"
+        },
+        {
+          "name": "O. MARIMON",
+          "points": null
+        },
+        {
+          "name": "R. MANZON",
+          "points": "-"
+        },
+        {
+          "name": "S. MANTOVANI",
+          "points": "2"
+        },
+        {
+          "name": "P. BIRA",
+          "points": null
+        },
+        {
+          "name": "U. MAGLIOLI",
+          "points": "-"
+        },
+        {
+          "name": "A. PILETTE",
+          "points": null
+        },
+        {
+          "name": "E. BAYOL",
+          "points": null
+        },
+        {
+          "name": "M. NAZARUK",
+          "points": null
+        },
+        {
+          "name": "L. VILLORESI",
+          "points": null
+        },
+        {
+          "name": "D. CARTER",
+          "points": null
+        },
+        {
+          "name": "T. RUTTMAN",
+          "points": null
+        },
+        {
+          "name": "A. ASCARI",
+          "points": null
+        },
+        {
+          "name": "J. BEHRA",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "8. Italie 5 sept",
+      "date": "8. Italie 5 sept",
+      "drivers": [
+        {
+          "name": "1 ARG",
+          "points": "9 ESP"
+        },
+        {
+          "name": "J. FANGIO",
+          "points": "(8)"
+        },
+        {
+          "name": "J. GONZALEZ",
+          "points": "3"
+        },
+        {
+          "name": "M. HAWTHORN",
+          "points": "6"
+        },
+        {
+          "name": "M. TRINTIGNANT",
+          "points": "2"
+        },
+        {
+          "name": "K. KLING",
+          "points": "-"
+        },
+        {
+          "name": "B. VUKOVICH",
+          "points": null
+        },
+        {
+          "name": "H. HERRMANN",
+          "points": "3"
+        },
+        {
+          "name": "G. FARINA",
+          "points": null
+        },
+        {
+          "name": "J. BRYAN",
+          "points": null
+        },
+        {
+          "name": "L. MUSSO",
+          "points": "-"
+        },
+        {
+          "name": "R. MIERES",
+          "points": "-"
+        },
+        {
+          "name": "J. McGRATH",
+          "points": null
+        },
+        {
+          "name": "S. MOSS",
+          "points": "-"
+        },
+        {
+          "name": "O. MARIMON",
+          "points": null
+        },
+        {
+          "name": "R. MANZON",
+          "points": "-"
+        },
+        {
+          "name": "S. MANTOVANI",
+          "points": "-"
+        },
+        {
+          "name": "P. BIRA",
+          "points": null
+        },
+        {
+          "name": "U. MAGLIOLI",
+          "points": "2"
+        },
+        {
+          "name": "A. PILETTE",
+          "points": null
+        },
+        {
+          "name": "E. BAYOL",
+          "points": null
+        },
+        {
+          "name": "M. NAZARUK",
+          "points": null
+        },
+        {
+          "name": "L. VILLORESI",
+          "points": "-"
+        },
+        {
+          "name": "D. CARTER",
+          "points": null
+        },
+        {
+          "name": "T. RUTTMAN",
+          "points": null
+        },
+        {
+          "name": "A. ASCARI",
+          "points": "-"
+        },
+        {
+          "name": "J. BEHRA",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "9. Espagne 24 oct",
+      "date": "9. Espagne 24 oct",
+      "drivers": [
+        {
+          "name": "1 ARG",
+          "points": "Pts"
+        },
+        {
+          "name": "J. FANGIO",
+          "points": "(4)"
+        },
+        {
+          "name": "J. GONZALEZ",
+          "points": null
+        },
+        {
+          "name": "M. HAWTHORN",
+          "points": "8"
+        },
+        {
+          "name": "M. TRINTIGNANT",
+          "points": "-"
+        },
+        {
+          "name": "K. KLING",
+          "points": "2"
+        },
+        {
+          "name": "B. VUKOVICH",
+          "points": null
+        },
+        {
+          "name": "H. HERRMANN",
+          "points": "-"
+        },
+        {
+          "name": "G. FARINA",
+          "points": "-"
+        },
+        {
+          "name": "J. BRYAN",
+          "points": null
+        },
+        {
+          "name": "L. MUSSO",
+          "points": "6"
+        },
+        {
+          "name": "R. MIERES",
+          "points": "3"
+        },
+        {
+          "name": "J. McGRATH",
+          "points": null
+        },
+        {
+          "name": "S. MOSS",
+          "points": "-"
+        },
+        {
+          "name": "O. MARIMON",
+          "points": null
+        },
+        {
+          "name": "R. MANZON",
+          "points": "-"
+        },
+        {
+          "name": "S. MANTOVANI",
+          "points": "-"
+        },
+        {
+          "name": "P. BIRA",
+          "points": "-"
+        },
+        {
+          "name": "U. MAGLIOLI",
+          "points": null
+        },
+        {
+          "name": "A. PILETTE",
+          "points": null
+        },
+        {
+          "name": "E. BAYOL",
+          "points": null
+        },
+        {
+          "name": "M. NAZARUK",
+          "points": null
+        },
+        {
+          "name": "L. VILLORESI",
+          "points": "-"
+        },
+        {
+          "name": "D. CARTER",
+          "points": null
+        },
+        {
+          "name": "T. RUTTMAN",
+          "points": null
+        },
+        {
+          "name": "A. ASCARI",
+          "points": "1"
+        },
+        {
+          "name": "J. BEHRA",
+          "points": "-"
+        }
+      ]
+    }
+  ]
+}

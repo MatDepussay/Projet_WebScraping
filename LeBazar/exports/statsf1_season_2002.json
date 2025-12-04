@@ -1,0 +1,1573 @@
+{
+  "season": 2002,
+  "gps": [
+    {
+      "gp_name": "1. Australie 3 mars",
+      "date": "1. Australie 3 mars",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": "2 MYS"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "10"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "-"
+        },
+        {
+          "name": "J. MONTOYA",
+          "points": "6"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "-"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "-"
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "4"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "-"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "3"
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "-"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "-"
+        },
+        {
+          "name": "J. VILLENEUVE",
+          "points": "-"
+        },
+        {
+          "name": "F. MASSA",
+          "points": "-"
+        },
+        {
+          "name": "O. PANIS",
+          "points": "-"
+        },
+        {
+          "name": "T. SATO",
+          "points": "-"
+        },
+        {
+          "name": "M. WEBBER",
+          "points": "2"
+        },
+        {
+          "name": "M. SALO",
+          "points": "1"
+        },
+        {
+          "name": "H. FRENTZEN",
+          "points": "-"
+        },
+        {
+          "name": "A. McNISH",
+          "points": "-"
+        },
+        {
+          "name": "A. YOONG",
+          "points": "-"
+        },
+        {
+          "name": "P. de la ROSA",
+          "points": "-"
+        },
+        {
+          "name": "E. BERNOLDI",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "2. Malaisie 17 mars",
+      "date": "2. Malaisie 17 mars",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": "3 BRA"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "4"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "-"
+        },
+        {
+          "name": "J. MONTOYA",
+          "points": "6"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "10"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "-"
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "-"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "3"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "-"
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "2"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "-"
+        },
+        {
+          "name": "J. VILLENEUVE",
+          "points": "-"
+        },
+        {
+          "name": "F. MASSA",
+          "points": "1"
+        },
+        {
+          "name": "O. PANIS",
+          "points": "-"
+        },
+        {
+          "name": "T. SATO",
+          "points": "-"
+        },
+        {
+          "name": "M. WEBBER",
+          "points": "-"
+        },
+        {
+          "name": "M. SALO",
+          "points": "-"
+        },
+        {
+          "name": "H. FRENTZEN",
+          "points": "-"
+        },
+        {
+          "name": "A. McNISH",
+          "points": "-"
+        },
+        {
+          "name": "A. YOONG",
+          "points": "-"
+        },
+        {
+          "name": "P. de la ROSA",
+          "points": "-"
+        },
+        {
+          "name": "E. BERNOLDI",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "3. Brésil 31 mars",
+      "date": "3. Brésil 31 mars",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": "4 SMR"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "10"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "-"
+        },
+        {
+          "name": "J. MONTOYA",
+          "points": "2"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "6"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "4"
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "-"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "3"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "-"
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "-"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "-"
+        },
+        {
+          "name": "J. VILLENEUVE",
+          "points": "-"
+        },
+        {
+          "name": "F. MASSA",
+          "points": "-"
+        },
+        {
+          "name": "O. PANIS",
+          "points": "-"
+        },
+        {
+          "name": "T. SATO",
+          "points": "-"
+        },
+        {
+          "name": "M. WEBBER",
+          "points": "-"
+        },
+        {
+          "name": "M. SALO",
+          "points": "1"
+        },
+        {
+          "name": "H. FRENTZEN",
+          "points": "-"
+        },
+        {
+          "name": "A. McNISH",
+          "points": "-"
+        },
+        {
+          "name": "A. YOONG",
+          "points": "-"
+        },
+        {
+          "name": "P. de la ROSA",
+          "points": "-"
+        },
+        {
+          "name": "E. BERNOLDI",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "4. Saint-Marin 14 avr",
+      "date": "4. Saint-Marin 14 avr",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": "5 ESP"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "10"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "6"
+        },
+        {
+          "name": "J. MONTOYA",
+          "points": "3"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "4"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "1"
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "-"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "2"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "-"
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "-"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "-"
+        },
+        {
+          "name": "J. VILLENEUVE",
+          "points": "-"
+        },
+        {
+          "name": "F. MASSA",
+          "points": "-"
+        },
+        {
+          "name": "O. PANIS",
+          "points": "-"
+        },
+        {
+          "name": "T. SATO",
+          "points": "-"
+        },
+        {
+          "name": "M. WEBBER",
+          "points": "-"
+        },
+        {
+          "name": "M. SALO",
+          "points": "-"
+        },
+        {
+          "name": "H. FRENTZEN",
+          "points": "-"
+        },
+        {
+          "name": "A. McNISH",
+          "points": "-"
+        },
+        {
+          "name": "A. YOONG",
+          "points": "-"
+        },
+        {
+          "name": "P. de la ROSA",
+          "points": "-"
+        },
+        {
+          "name": "E. BERNOLDI",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "5. Espagne 28 avr",
+      "date": "5. Espagne 28 avr",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": "6 AUT"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "10"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "-"
+        },
+        {
+          "name": "J. MONTOYA",
+          "points": "6"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "-"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "4"
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "-"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "-"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "-"
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "3"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "-"
+        },
+        {
+          "name": "J. VILLENEUVE",
+          "points": "-"
+        },
+        {
+          "name": "F. MASSA",
+          "points": "2"
+        },
+        {
+          "name": "O. PANIS",
+          "points": "-"
+        },
+        {
+          "name": "T. SATO",
+          "points": "-"
+        },
+        {
+          "name": "M. WEBBER",
+          "points": "-"
+        },
+        {
+          "name": "M. SALO",
+          "points": "-"
+        },
+        {
+          "name": "H. FRENTZEN",
+          "points": "1"
+        },
+        {
+          "name": "A. McNISH",
+          "points": "-"
+        },
+        {
+          "name": "A. YOONG",
+          "points": "-"
+        },
+        {
+          "name": "P. de la ROSA",
+          "points": "-"
+        },
+        {
+          "name": "E. BERNOLDI",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "6. Autriche 12 mai",
+      "date": "6. Autriche 12 mai",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": "7 MCO"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "10"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "6"
+        },
+        {
+          "name": "J. MONTOYA",
+          "points": "4"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "3"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "1"
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "-"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "-"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "-"
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "-"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "2"
+        },
+        {
+          "name": "J. VILLENEUVE",
+          "points": "-"
+        },
+        {
+          "name": "F. MASSA",
+          "points": "-"
+        },
+        {
+          "name": "O. PANIS",
+          "points": "-"
+        },
+        {
+          "name": "T. SATO",
+          "points": "-"
+        },
+        {
+          "name": "M. WEBBER",
+          "points": "-"
+        },
+        {
+          "name": "M. SALO",
+          "points": "-"
+        },
+        {
+          "name": "H. FRENTZEN",
+          "points": "-"
+        },
+        {
+          "name": "A. McNISH",
+          "points": "-"
+        },
+        {
+          "name": "A. YOONG",
+          "points": "-"
+        },
+        {
+          "name": "P. de la ROSA",
+          "points": "-"
+        },
+        {
+          "name": "E. BERNOLDI",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "7. Monaco 26 mai",
+      "date": "7. Monaco 26 mai",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": "8 CAN"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "6"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "-"
+        },
+        {
+          "name": "J. MONTOYA",
+          "points": "-"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "4"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "10"
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "-"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "-"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "3"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "-"
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "-"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "2"
+        },
+        {
+          "name": "J. VILLENEUVE",
+          "points": "-"
+        },
+        {
+          "name": "F. MASSA",
+          "points": "-"
+        },
+        {
+          "name": "O. PANIS",
+          "points": "-"
+        },
+        {
+          "name": "T. SATO",
+          "points": "-"
+        },
+        {
+          "name": "M. WEBBER",
+          "points": "-"
+        },
+        {
+          "name": "M. SALO",
+          "points": "-"
+        },
+        {
+          "name": "H. FRENTZEN",
+          "points": "1"
+        },
+        {
+          "name": "A. McNISH",
+          "points": "-"
+        },
+        {
+          "name": "A. YOONG",
+          "points": "-"
+        },
+        {
+          "name": "P. de la ROSA",
+          "points": "-"
+        },
+        {
+          "name": "E. BERNOLDI",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "8. Canada 9 juin",
+      "date": "8. Canada 9 juin",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": "9 EUR"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "10"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "4"
+        },
+        {
+          "name": "J. MONTOYA",
+          "points": "-"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "-"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "6"
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "3"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "-"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "1"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "-"
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "-"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "2"
+        },
+        {
+          "name": "J. VILLENEUVE",
+          "points": "-"
+        },
+        {
+          "name": "F. MASSA",
+          "points": "-"
+        },
+        {
+          "name": "O. PANIS",
+          "points": "-"
+        },
+        {
+          "name": "T. SATO",
+          "points": "-"
+        },
+        {
+          "name": "M. WEBBER",
+          "points": "-"
+        },
+        {
+          "name": "M. SALO",
+          "points": "-"
+        },
+        {
+          "name": "H. FRENTZEN",
+          "points": "-"
+        },
+        {
+          "name": "A. McNISH",
+          "points": "-"
+        },
+        {
+          "name": "A. YOONG",
+          "points": "-"
+        },
+        {
+          "name": "P. de la ROSA",
+          "points": "-"
+        },
+        {
+          "name": "E. BERNOLDI",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "9. Europe 23 juin",
+      "date": "9. Europe 23 juin",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": "10 GBR"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "6"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "10"
+        },
+        {
+          "name": "J. MONTOYA",
+          "points": "-"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "3"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "-"
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "4"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "2"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "-"
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "-"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "-"
+        },
+        {
+          "name": "J. VILLENEUVE",
+          "points": "-"
+        },
+        {
+          "name": "F. MASSA",
+          "points": "1"
+        },
+        {
+          "name": "O. PANIS",
+          "points": "-"
+        },
+        {
+          "name": "T. SATO",
+          "points": "-"
+        },
+        {
+          "name": "M. WEBBER",
+          "points": "-"
+        },
+        {
+          "name": "M. SALO",
+          "points": "-"
+        },
+        {
+          "name": "H. FRENTZEN",
+          "points": "-"
+        },
+        {
+          "name": "A. McNISH",
+          "points": "-"
+        },
+        {
+          "name": "A. YOONG",
+          "points": "-"
+        },
+        {
+          "name": "P. de la ROSA",
+          "points": "-"
+        },
+        {
+          "name": "E. BERNOLDI",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "10. Grande-Bretagne 7 juil",
+      "date": "10. Grande-Bretagne 7 juil",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": "11 FRA"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "10"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "6"
+        },
+        {
+          "name": "J. MONTOYA",
+          "points": "4"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "-"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "-"
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "-"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "-"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "-"
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "1"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "-"
+        },
+        {
+          "name": "J. VILLENEUVE",
+          "points": "3"
+        },
+        {
+          "name": "F. MASSA",
+          "points": "-"
+        },
+        {
+          "name": "O. PANIS",
+          "points": "2"
+        },
+        {
+          "name": "T. SATO",
+          "points": "-"
+        },
+        {
+          "name": "M. WEBBER",
+          "points": "-"
+        },
+        {
+          "name": "M. SALO",
+          "points": "-"
+        },
+        {
+          "name": "H. FRENTZEN",
+          "points": "-"
+        },
+        {
+          "name": "A. McNISH",
+          "points": "-"
+        },
+        {
+          "name": "A. YOONG",
+          "points": "-"
+        },
+        {
+          "name": "P. de la ROSA",
+          "points": "-"
+        },
+        {
+          "name": "E. BERNOLDI",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "11. France 21 juil",
+      "date": "11. France 21 juil",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": "12 DEU"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "10"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "-"
+        },
+        {
+          "name": "J. MONTOYA",
+          "points": "3"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "2"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "4"
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "6"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "1"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "-"
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "-"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "-"
+        },
+        {
+          "name": "J. VILLENEUVE",
+          "points": "-"
+        },
+        {
+          "name": "F. MASSA",
+          "points": "-"
+        },
+        {
+          "name": "O. PANIS",
+          "points": "-"
+        },
+        {
+          "name": "T. SATO",
+          "points": "-"
+        },
+        {
+          "name": "M. WEBBER",
+          "points": "-"
+        },
+        {
+          "name": "M. SALO",
+          "points": "-"
+        },
+        {
+          "name": "H. FRENTZEN",
+          "points": "-"
+        },
+        {
+          "name": "A. McNISH",
+          "points": "-"
+        },
+        {
+          "name": "A. YOONG",
+          "points": "-"
+        },
+        {
+          "name": "P. de la ROSA",
+          "points": "-"
+        },
+        {
+          "name": "E. BERNOLDI",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "12. Allemagne 28 juil",
+      "date": "12. Allemagne 28 juil",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": "13 HUN"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "10"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "3"
+        },
+        {
+          "name": "J. MONTOYA",
+          "points": "6"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "4"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "2"
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "-"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "-"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "-"
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "1"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "-"
+        },
+        {
+          "name": "J. VILLENEUVE",
+          "points": "-"
+        },
+        {
+          "name": "F. MASSA",
+          "points": "-"
+        },
+        {
+          "name": "O. PANIS",
+          "points": "-"
+        },
+        {
+          "name": "T. SATO",
+          "points": "-"
+        },
+        {
+          "name": "M. WEBBER",
+          "points": "-"
+        },
+        {
+          "name": "M. SALO",
+          "points": "-"
+        },
+        {
+          "name": "H. FRENTZEN",
+          "points": "-"
+        },
+        {
+          "name": "A. McNISH",
+          "points": "-"
+        },
+        {
+          "name": "A. YOONG",
+          "points": "-"
+        },
+        {
+          "name": "P. de la ROSA",
+          "points": "-"
+        },
+        {
+          "name": "E. BERNOLDI",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "13. Hongrie 18 août",
+      "date": "13. Hongrie 18 août",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": "14 BEL"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "6"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "10"
+        },
+        {
+          "name": "J. MONTOYA",
+          "points": "-"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "4"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "2"
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "3"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "-"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "-"
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "-"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "1"
+        },
+        {
+          "name": "J. VILLENEUVE",
+          "points": "-"
+        },
+        {
+          "name": "F. MASSA",
+          "points": "-"
+        },
+        {
+          "name": "O. PANIS",
+          "points": "-"
+        },
+        {
+          "name": "T. SATO",
+          "points": "-"
+        },
+        {
+          "name": "M. WEBBER",
+          "points": "-"
+        },
+        {
+          "name": "M. SALO",
+          "points": "-"
+        },
+        {
+          "name": "H. FRENTZEN",
+          "points": null
+        },
+        {
+          "name": "A. McNISH",
+          "points": "-"
+        },
+        {
+          "name": "A. YOONG",
+          "points": null
+        },
+        {
+          "name": "P. de la ROSA",
+          "points": "-"
+        },
+        {
+          "name": "E. BERNOLDI",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "14. Belgique 1 sept",
+      "date": "14. Belgique 1 sept",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": "15 ITA"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "10"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "6"
+        },
+        {
+          "name": "J. MONTOYA",
+          "points": "4"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "2"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "3"
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "-"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "-"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "-"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "1"
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "-"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "-"
+        },
+        {
+          "name": "J. VILLENEUVE",
+          "points": "-"
+        },
+        {
+          "name": "F. MASSA",
+          "points": "-"
+        },
+        {
+          "name": "O. PANIS",
+          "points": "-"
+        },
+        {
+          "name": "T. SATO",
+          "points": "-"
+        },
+        {
+          "name": "M. WEBBER",
+          "points": "-"
+        },
+        {
+          "name": "M. SALO",
+          "points": "-"
+        },
+        {
+          "name": "H. FRENTZEN",
+          "points": "-"
+        },
+        {
+          "name": "A. McNISH",
+          "points": "-"
+        },
+        {
+          "name": "A. YOONG",
+          "points": null
+        },
+        {
+          "name": "P. de la ROSA",
+          "points": "-"
+        },
+        {
+          "name": "E. BERNOLDI",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "15. Italie 15 sept",
+      "date": "15. Italie 15 sept",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": "16 USA"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "6"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "10"
+        },
+        {
+          "name": "J. MONTOYA",
+          "points": "-"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "-"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "-"
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "-"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "2"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "3"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "4"
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "-"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "-"
+        },
+        {
+          "name": "J. VILLENEUVE",
+          "points": "-"
+        },
+        {
+          "name": "F. MASSA",
+          "points": "-"
+        },
+        {
+          "name": "O. PANIS",
+          "points": "1"
+        },
+        {
+          "name": "T. SATO",
+          "points": "-"
+        },
+        {
+          "name": "M. WEBBER",
+          "points": "-"
+        },
+        {
+          "name": "M. SALO",
+          "points": "-"
+        },
+        {
+          "name": "H. FRENTZEN",
+          "points": null
+        },
+        {
+          "name": "A. McNISH",
+          "points": "-"
+        },
+        {
+          "name": "A. YOONG",
+          "points": "-"
+        },
+        {
+          "name": "P. de la ROSA",
+          "points": "-"
+        },
+        {
+          "name": "E. BERNOLDI",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "16. Etats-Unis 29 sept",
+      "date": "16. Etats-Unis 29 sept",
+      "drivers": [
+        {
+          "name": "1 AUS",
+          "points": "17 JPN"
+        },
+        {
+          "name": "M. SCHUMACHER",
+          "points": "6"
+        },
+        {
+          "name": "R. BARRICHELLO",
+          "points": "10"
+        },
+        {
+          "name": "J. MONTOYA",
+          "points": "3"
+        },
+        {
+          "name": "R. SCHUMACHER",
+          "points": "-"
+        },
+        {
+          "name": "D. COULTHARD",
+          "points": "4"
+        },
+        {
+          "name": "K. RAIKKONEN",
+          "points": "-"
+        },
+        {
+          "name": "J. BUTTON",
+          "points": "-"
+        },
+        {
+          "name": "J. TRULLI",
+          "points": "2"
+        },
+        {
+          "name": "E. IRVINE",
+          "points": "-"
+        },
+        {
+          "name": "N. HEIDFELD",
+          "points": "-"
+        },
+        {
+          "name": "G. FISICHELLA",
+          "points": "-"
+        },
+        {
+          "name": "J. VILLENEUVE",
+          "points": "1"
+        },
+        {
+          "name": "F. MASSA",
+          "points": null
+        },
+        {
+          "name": "O. PANIS",
+          "points": "-"
+        },
+        {
+          "name": "T. SATO",
+          "points": "-"
+        },
+        {
+          "name": "M. WEBBER",
+          "points": "-"
+        },
+        {
+          "name": "M. SALO",
+          "points": "-"
+        },
+        {
+          "name": "H. FRENTZEN",
+          "points": "-"
+        },
+        {
+          "name": "A. McNISH",
+          "points": "-"
+        },
+        {
+          "name": "A. YOONG",
+          "points": "-"
+        },
+        {
+          "name": "P. de la ROSA",
+          "points": "-"
+        },
+        {
+          "name": "E. BERNOLDI",
+          "points": null
+        }
+      ]
+    }
+  ]
+}
