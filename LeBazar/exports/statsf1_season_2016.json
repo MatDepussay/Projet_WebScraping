@@ -6,10 +6,6 @@
       "date": "1. Australie 20 mars",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "2 BHR"
-        },
-        {
           "name": "N. ROSBERG",
           "points": "25"
         },
@@ -111,10 +107,6 @@
       "gp_name": "2. Bahreïn 3 avr",
       "date": "2. Bahreïn 3 avr",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "3 CHN"
-        },
         {
           "name": "N. ROSBERG",
           "points": "25"
@@ -218,10 +210,6 @@
       "date": "3. Chine 17 avr",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "4 RUS"
-        },
-        {
           "name": "N. ROSBERG",
           "points": "25"
         },
@@ -323,10 +311,6 @@
       "gp_name": "4. Russie 1 mai",
       "date": "4. Russie 1 mai",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "5 ESP"
-        },
         {
           "name": "N. ROSBERG",
           "points": "25"
@@ -430,10 +414,6 @@
       "date": "5. Espagne 15 mai",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "6 MCO"
-        },
-        {
           "name": "N. ROSBERG",
           "points": "-"
         },
@@ -535,10 +515,6 @@
       "gp_name": "6. Monaco 29 mai",
       "date": "6. Monaco 29 mai",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "7 CAN"
-        },
         {
           "name": "N. ROSBERG",
           "points": "6"
@@ -642,10 +618,6 @@
       "date": "7. Canada 12 juin",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "8 EUR"
-        },
-        {
           "name": "N. ROSBERG",
           "points": "10"
         },
@@ -747,10 +719,6 @@
       "gp_name": "8. Europe 19 juin",
       "date": "8. Europe 19 juin",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "9 AUT"
-        },
         {
           "name": "N. ROSBERG",
           "points": "25"
@@ -854,10 +822,6 @@
       "date": "9. Autriche 3 juil",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "10 GBR"
-        },
-        {
           "name": "N. ROSBERG",
           "points": "12"
         },
@@ -959,10 +923,6 @@
       "gp_name": "10. Grande-Bretagne 10 juil",
       "date": "10. Grande-Bretagne 10 juil",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "11 HUN"
-        },
         {
           "name": "N. ROSBERG",
           "points": "15"
@@ -1066,10 +1026,6 @@
       "date": "11. Hongrie 24 juil",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "12 DEU"
-        },
-        {
           "name": "N. ROSBERG",
           "points": "18"
         },
@@ -1171,10 +1127,6 @@
       "gp_name": "12. Allemagne 31 juil",
       "date": "12. Allemagne 31 juil",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "13 BEL"
-        },
         {
           "name": "N. ROSBERG",
           "points": "12"
@@ -1278,10 +1230,6 @@
       "date": "13. Belgique 28 août",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "14 ITA"
-        },
-        {
           "name": "N. ROSBERG",
           "points": "25"
         },
@@ -1383,10 +1331,6 @@
       "gp_name": "14. Italie 4 sept",
       "date": "14. Italie 4 sept",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "15 SGP"
-        },
         {
           "name": "N. ROSBERG",
           "points": "25"
@@ -1490,10 +1434,6 @@
       "date": "15. Singapour 18 sept",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "16 MYS"
-        },
-        {
           "name": "N. ROSBERG",
           "points": "25"
         },
@@ -1595,10 +1535,6 @@
       "gp_name": "16. Malaisie 2 oct",
       "date": "16. Malaisie 2 oct",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "17 JPN"
-        },
         {
           "name": "N. ROSBERG",
           "points": "15"
@@ -1702,10 +1638,6 @@
       "date": "17. Japon 9 oct",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "18 USA"
-        },
-        {
           "name": "N. ROSBERG",
           "points": "25"
         },
@@ -1807,10 +1739,6 @@
       "gp_name": "18. Etats-Unis 23 oct",
       "date": "18. Etats-Unis 23 oct",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "19 MEX"
-        },
         {
           "name": "N. ROSBERG",
           "points": "18"
@@ -1914,10 +1842,6 @@
       "date": "19. Mexique 30 oct",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "20 BRA"
-        },
-        {
           "name": "N. ROSBERG",
           "points": "18"
         },
@@ -2020,10 +1944,6 @@
       "date": "20. Brésil 13 nov",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "21 ABD"
-        },
-        {
           "name": "N. ROSBERG",
           "points": "18"
         },
@@ -2125,10 +2045,6 @@
       "gp_name": "21. Abou Dhabi 27 nov",
       "date": "21. Abou Dhabi 27 nov",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": null
-        },
         {
           "name": "N. ROSBERG",
           "points": "18"

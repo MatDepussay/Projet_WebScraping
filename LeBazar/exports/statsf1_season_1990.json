@@ -6,10 +6,6 @@
       "date": "1. Etats-Unis 11 mars",
       "drivers": [
         {
-          "name": "1 USA",
-          "points": "2 BRA"
-        },
-        {
           "name": "A. SENNA",
           "points": "9"
         },
@@ -87,10 +83,6 @@
       "gp_name": "2. Brésil 25 mars",
       "date": "2. Brésil 25 mars",
       "drivers": [
-        {
-          "name": "1 USA",
-          "points": "3 SMR"
-        },
         {
           "name": "A. SENNA",
           "points": "4"
@@ -170,10 +162,6 @@
       "date": "3. Saint-Marin 13 mai",
       "drivers": [
         {
-          "name": "1 USA",
-          "points": "4 MCO"
-        },
-        {
           "name": "A. SENNA",
           "points": "-"
         },
@@ -251,10 +239,6 @@
       "gp_name": "4. Monaco 27 mai",
       "date": "4. Monaco 27 mai",
       "drivers": [
-        {
-          "name": "1 USA",
-          "points": "5 CAN"
-        },
         {
           "name": "A. SENNA",
           "points": "9"
@@ -334,10 +318,6 @@
       "date": "5. Canada 10 juin",
       "drivers": [
         {
-          "name": "1 USA",
-          "points": "6 MEX"
-        },
-        {
           "name": "A. SENNA",
           "points": "9"
         },
@@ -415,10 +395,6 @@
       "gp_name": "6. Mexique 24 juin",
       "date": "6. Mexique 24 juin",
       "drivers": [
-        {
-          "name": "1 USA",
-          "points": "7 FRA"
-        },
         {
           "name": "A. SENNA",
           "points": "-"
@@ -498,10 +474,6 @@
       "date": "7. France 8 juil",
       "drivers": [
         {
-          "name": "1 USA",
-          "points": "8 GBR"
-        },
-        {
           "name": "A. SENNA",
           "points": "4"
         },
@@ -579,10 +551,6 @@
       "gp_name": "8. Grande-Bretagne 15 juil",
       "date": "8. Grande-Bretagne 15 juil",
       "drivers": [
-        {
-          "name": "1 USA",
-          "points": "9 DEU"
-        },
         {
           "name": "A. SENNA",
           "points": "4"
@@ -662,10 +630,6 @@
       "date": "9. Allemagne 29 juil",
       "drivers": [
         {
-          "name": "1 USA",
-          "points": "10 HUN"
-        },
-        {
           "name": "A. SENNA",
           "points": "9"
         },
@@ -743,10 +707,6 @@
       "gp_name": "10. Hongrie 12 août",
       "date": "10. Hongrie 12 août",
       "drivers": [
-        {
-          "name": "1 USA",
-          "points": "11 BEL"
-        },
         {
           "name": "A. SENNA",
           "points": "6"
@@ -826,10 +786,6 @@
       "date": "11. Belgique 26 août",
       "drivers": [
         {
-          "name": "1 USA",
-          "points": "12 ITA"
-        },
-        {
           "name": "A. SENNA",
           "points": "9"
         },
@@ -907,10 +863,6 @@
       "gp_name": "12. Italie 9 sept",
       "date": "12. Italie 9 sept",
       "drivers": [
-        {
-          "name": "1 USA",
-          "points": "13 PRT"
-        },
         {
           "name": "A. SENNA",
           "points": "9"
@@ -990,10 +942,6 @@
       "date": "13. Portugal 23 sept",
       "drivers": [
         {
-          "name": "1 USA",
-          "points": "14 ESP"
-        },
-        {
           "name": "A. SENNA",
           "points": "6"
         },
@@ -1071,10 +1019,6 @@
       "gp_name": "14. Espagne 30 sept",
       "date": "14. Espagne 30 sept",
       "drivers": [
-        {
-          "name": "1 USA",
-          "points": "15 JPN"
-        },
         {
           "name": "A. SENNA",
           "points": "-"
@@ -1154,10 +1098,6 @@
       "date": "15. Japon 21 oct",
       "drivers": [
         {
-          "name": "1 USA",
-          "points": "16 AUS"
-        },
-        {
           "name": "A. SENNA",
           "points": "-"
         },
@@ -1235,10 +1175,6 @@
       "gp_name": "16. Australie 4 nov",
       "date": "16. Australie 4 nov",
       "drivers": [
-        {
-          "name": "1 USA",
-          "points": "Pts"
-        },
         {
           "name": "A. SENNA",
           "points": "-"

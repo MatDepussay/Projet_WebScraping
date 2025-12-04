@@ -6,10 +6,6 @@
       "date": "1. Argentine 18 janv",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "2 500"
-        },
-        {
           "name": "A. ASCARI",
           "points": "9"
         },
@@ -91,10 +87,6 @@
       "gp_name": "2. Indianapolis 30 mai",
       "date": "2. Indianapolis 30 mai",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "3 NLD"
-        },
         {
           "name": "A. ASCARI",
           "points": null
@@ -178,10 +170,6 @@
       "date": "3. Pays-Bas 7 juin",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "4 BEL"
-        },
-        {
           "name": "A. ASCARI",
           "points": "8"
         },
@@ -263,10 +251,6 @@
       "gp_name": "4. Belgique 21 juin",
       "date": "4. Belgique 21 juin",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "5 FRA"
-        },
         {
           "name": "A. ASCARI",
           "points": "(8)"
@@ -350,10 +334,6 @@
       "date": "5. France 5 juil",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "6 GBR"
-        },
-        {
           "name": "A. ASCARI",
           "points": "(3)"
         },
@@ -435,10 +415,6 @@
       "gp_name": "6. Grande-Bretagne 18 juil",
       "date": "6. Grande-Bretagne 18 juil",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "7 DEU"
-        },
         {
           "name": "A. ASCARI",
           "points": "8,5"
@@ -522,10 +498,6 @@
       "date": "7. Allemagne 2 août",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "8 CHE"
-        },
-        {
           "name": "A. ASCARI",
           "points": "(1)"
         },
@@ -608,10 +580,6 @@
       "date": "8. Suisse 23 août",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "9 ITA"
-        },
-        {
           "name": "A. ASCARI",
           "points": "9"
         },
@@ -693,10 +661,6 @@
       "gp_name": "9. Italie 13 sept",
       "date": "9. Italie 13 sept",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "Pts"
-        },
         {
           "name": "A. ASCARI",
           "points": "-"

@@ -6,10 +6,6 @@
       "date": "1. Australie 29 mars",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "2 MYS"
-        },
-        {
           "name": "J. BUTTON",
           "points": "10"
         },
@@ -115,10 +111,6 @@
       "gp_name": "2. Malaisie 5 avr",
       "date": "2. Malaisie 5 avr",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "3 CHN"
-        },
         {
           "name": "J. BUTTON",
           "points": "5"
@@ -226,10 +218,6 @@
       "date": "3. Chine 19 avr",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "4 BHR"
-        },
-        {
           "name": "J. BUTTON",
           "points": "6"
         },
@@ -335,10 +323,6 @@
       "gp_name": "4. Bahreïn 26 avr",
       "date": "4. Bahreïn 26 avr",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "5 ESP"
-        },
         {
           "name": "J. BUTTON",
           "points": "10"
@@ -446,10 +430,6 @@
       "date": "5. Espagne 10 mai",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "6 MCO"
-        },
-        {
           "name": "J. BUTTON",
           "points": "10"
         },
@@ -555,10 +535,6 @@
       "gp_name": "6. Monaco 24 mai",
       "date": "6. Monaco 24 mai",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "7 TUR"
-        },
         {
           "name": "J. BUTTON",
           "points": "10"
@@ -666,10 +642,6 @@
       "date": "7. Turquie 7 juin",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "8 GBR"
-        },
-        {
           "name": "J. BUTTON",
           "points": "10"
         },
@@ -775,10 +747,6 @@
       "gp_name": "8. Grande-Bretagne 21 juin",
       "date": "8. Grande-Bretagne 21 juin",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "9 DEU"
-        },
         {
           "name": "J. BUTTON",
           "points": "3"
@@ -886,10 +854,6 @@
       "date": "9. Allemagne 12 juil",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "10 HUN"
-        },
-        {
           "name": "J. BUTTON",
           "points": "4"
         },
@@ -995,10 +959,6 @@
       "gp_name": "10. Hongrie 26 juil",
       "date": "10. Hongrie 26 juil",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "11 EUR"
-        },
         {
           "name": "J. BUTTON",
           "points": "2"
@@ -1106,10 +1066,6 @@
       "date": "11. Europe 23 août",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "12 BEL"
-        },
-        {
           "name": "J. BUTTON",
           "points": "2"
         },
@@ -1215,10 +1171,6 @@
       "gp_name": "12. Belgique 30 août",
       "date": "12. Belgique 30 août",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "13 ITA"
-        },
         {
           "name": "J. BUTTON",
           "points": "-"
@@ -1326,10 +1278,6 @@
       "date": "13. Italie 13 sept",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "14 SGP"
-        },
-        {
           "name": "J. BUTTON",
           "points": "8"
         },
@@ -1435,10 +1383,6 @@
       "gp_name": "14. Singapour 27 sept",
       "date": "14. Singapour 27 sept",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "15 JPN"
-        },
         {
           "name": "J. BUTTON",
           "points": "4"
@@ -1546,10 +1490,6 @@
       "date": "15. Japon 4 oct",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "16 BRA"
-        },
-        {
           "name": "J. BUTTON",
           "points": "1"
         },
@@ -1656,10 +1596,6 @@
       "date": "16. Brésil 18 oct",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "17 ABD"
-        },
-        {
           "name": "J. BUTTON",
           "points": "4"
         },
@@ -1765,10 +1701,6 @@
       "gp_name": "17. Abou Dhabi 1 nov",
       "date": "17. Abou Dhabi 1 nov",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": null
-        },
         {
           "name": "J. BUTTON",
           "points": "6"

@@ -6,10 +6,6 @@
       "date": "1. Brésil 7 avr",
       "drivers": [
         {
-          "name": "1 BRA",
-          "points": "2 PRT"
-        },
-        {
           "name": "A. PROST",
           "points": "9"
         },
@@ -95,10 +91,6 @@
       "gp_name": "2. Portugal 21 avr",
       "date": "2. Portugal 21 avr",
       "drivers": [
-        {
-          "name": "1 BRA",
-          "points": "3 SMR"
-        },
         {
           "name": "A. PROST",
           "points": "-"
@@ -186,10 +178,6 @@
       "date": "3. Saint-Marin 5 mai",
       "drivers": [
         {
-          "name": "1 BRA",
-          "points": "4 MCO"
-        },
-        {
           "name": "A. PROST",
           "points": "-"
         },
@@ -275,10 +263,6 @@
       "gp_name": "4. Monaco 19 mai",
       "date": "4. Monaco 19 mai",
       "drivers": [
-        {
-          "name": "1 BRA",
-          "points": "5 CAN"
-        },
         {
           "name": "A. PROST",
           "points": "9"
@@ -366,10 +350,6 @@
       "date": "5. Canada 16 juin",
       "drivers": [
         {
-          "name": "1 BRA",
-          "points": "6 DET"
-        },
-        {
           "name": "A. PROST",
           "points": "4"
         },
@@ -455,10 +435,6 @@
       "gp_name": "6. Détroit 23 juin",
       "date": "6. Détroit 23 juin",
       "drivers": [
-        {
-          "name": "1 BRA",
-          "points": "7 FRA"
-        },
         {
           "name": "A. PROST",
           "points": "-"
@@ -546,10 +522,6 @@
       "date": "7. France 7 juil",
       "drivers": [
         {
-          "name": "1 BRA",
-          "points": "8 GBR"
-        },
-        {
           "name": "A. PROST",
           "points": "4"
         },
@@ -635,10 +607,6 @@
       "gp_name": "8. Grande-Bretagne 21 juil",
       "date": "8. Grande-Bretagne 21 juil",
       "drivers": [
-        {
-          "name": "1 BRA",
-          "points": "9 DEU"
-        },
         {
           "name": "A. PROST",
           "points": "9"
@@ -726,10 +694,6 @@
       "date": "9. Allemagne 4 août",
       "drivers": [
         {
-          "name": "1 BRA",
-          "points": "10 AUT"
-        },
-        {
           "name": "A. PROST",
           "points": "6"
         },
@@ -815,10 +779,6 @@
       "gp_name": "10. Autriche 18 août",
       "date": "10. Autriche 18 août",
       "drivers": [
-        {
-          "name": "1 BRA",
-          "points": "11 NLD"
-        },
         {
           "name": "A. PROST",
           "points": "9"
@@ -906,10 +866,6 @@
       "date": "11. Pays-Bas 25 août",
       "drivers": [
         {
-          "name": "1 BRA",
-          "points": "12 ITA"
-        },
-        {
           "name": "A. PROST",
           "points": "6"
         },
@@ -995,10 +951,6 @@
       "gp_name": "12. Italie 8 sept",
       "date": "12. Italie 8 sept",
       "drivers": [
-        {
-          "name": "1 BRA",
-          "points": "13 BEL"
-        },
         {
           "name": "A. PROST",
           "points": "9"
@@ -1086,10 +1038,6 @@
       "date": "13. Belgique 15 sept",
       "drivers": [
         {
-          "name": "1 BRA",
-          "points": "14 EUR"
-        },
-        {
           "name": "A. PROST",
           "points": "4"
         },
@@ -1175,10 +1123,6 @@
       "gp_name": "14. Europe 6 oct",
       "date": "14. Europe 6 oct",
       "drivers": [
-        {
-          "name": "1 BRA",
-          "points": "15 ZAF"
-        },
         {
           "name": "A. PROST",
           "points": "(3)"
@@ -1266,10 +1210,6 @@
       "date": "15. Afrique du Sud 19 oct",
       "drivers": [
         {
-          "name": "1 BRA",
-          "points": "16 AUS"
-        },
-        {
           "name": "A. PROST",
           "points": "4"
         },
@@ -1355,10 +1295,6 @@
       "gp_name": "16. Australie 3 nov",
       "date": "16. Australie 3 nov",
       "drivers": [
-        {
-          "name": "1 BRA",
-          "points": "Pts"
-        },
         {
           "name": "A. PROST",
           "points": "-"

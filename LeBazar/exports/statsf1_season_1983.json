@@ -6,10 +6,6 @@
       "date": "1. Brésil 13 mars",
       "drivers": [
         {
-          "name": "1 BRA",
-          "points": "2 USO"
-        },
-        {
           "name": "N. PIQUET",
           "points": "9"
         },
@@ -95,10 +91,6 @@
       "gp_name": "2. Etats-Unis Ouest 27 mars",
       "date": "2. Etats-Unis Ouest 27 mars",
       "drivers": [
-        {
-          "name": "1 BRA",
-          "points": "3 FRA"
-        },
         {
           "name": "N. PIQUET",
           "points": "-"
@@ -186,10 +178,6 @@
       "date": "3. France 17 avr",
       "drivers": [
         {
-          "name": "1 BRA",
-          "points": "4 SMR"
-        },
-        {
           "name": "N. PIQUET",
           "points": "6"
         },
@@ -275,10 +263,6 @@
       "gp_name": "4. Saint-Marin 1 mai",
       "date": "4. Saint-Marin 1 mai",
       "drivers": [
-        {
-          "name": "1 BRA",
-          "points": "5 MCO"
-        },
         {
           "name": "N. PIQUET",
           "points": "-"
@@ -366,10 +350,6 @@
       "date": "5. Monaco 15 mai",
       "drivers": [
         {
-          "name": "1 BRA",
-          "points": "6 BEL"
-        },
-        {
           "name": "N. PIQUET",
           "points": "6"
         },
@@ -455,10 +435,6 @@
       "gp_name": "6. Belgique 22 mai",
       "date": "6. Belgique 22 mai",
       "drivers": [
-        {
-          "name": "1 BRA",
-          "points": "7 DET"
-        },
         {
           "name": "N. PIQUET",
           "points": "3"
@@ -546,10 +522,6 @@
       "date": "7. Détroit 5 juin",
       "drivers": [
         {
-          "name": "1 BRA",
-          "points": "8 CAN"
-        },
-        {
           "name": "N. PIQUET",
           "points": "3"
         },
@@ -635,10 +607,6 @@
       "gp_name": "8. Canada 12 juin",
       "date": "8. Canada 12 juin",
       "drivers": [
-        {
-          "name": "1 BRA",
-          "points": "9 GBR"
-        },
         {
           "name": "N. PIQUET",
           "points": "-"
@@ -726,10 +694,6 @@
       "date": "9. Grande-Bretagne 16 juil",
       "drivers": [
         {
-          "name": "1 BRA",
-          "points": "10 DEU"
-        },
-        {
           "name": "N. PIQUET",
           "points": "6"
         },
@@ -815,10 +779,6 @@
       "gp_name": "10. Allemagne 7 août",
       "date": "10. Allemagne 7 août",
       "drivers": [
-        {
-          "name": "1 BRA",
-          "points": "11 AUT"
-        },
         {
           "name": "N. PIQUET",
           "points": "-"
@@ -906,10 +866,6 @@
       "date": "11. Autriche 14 août",
       "drivers": [
         {
-          "name": "1 BRA",
-          "points": "12 NLD"
-        },
-        {
           "name": "N. PIQUET",
           "points": "4"
         },
@@ -995,10 +951,6 @@
       "gp_name": "12. Pays-Bas 28 août",
       "date": "12. Pays-Bas 28 août",
       "drivers": [
-        {
-          "name": "1 BRA",
-          "points": "13 ITA"
-        },
         {
           "name": "N. PIQUET",
           "points": "-"
@@ -1086,10 +1038,6 @@
       "date": "13. Italie 11 sept",
       "drivers": [
         {
-          "name": "1 BRA",
-          "points": "14 EUR"
-        },
-        {
           "name": "N. PIQUET",
           "points": "9"
         },
@@ -1176,10 +1124,6 @@
       "date": "14. Europe 25 sept",
       "drivers": [
         {
-          "name": "1 BRA",
-          "points": "15 ZAF"
-        },
-        {
           "name": "N. PIQUET",
           "points": "9"
         },
@@ -1265,10 +1209,6 @@
       "gp_name": "15. Afrique du Sud 15 oct",
       "date": "15. Afrique du Sud 15 oct",
       "drivers": [
-        {
-          "name": "1 BRA",
-          "points": "Pts"
-        },
         {
           "name": "N. PIQUET",
           "points": "4"

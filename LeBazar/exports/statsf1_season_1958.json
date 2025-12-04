@@ -6,10 +6,6 @@
       "date": "1. Argentine 19 janv",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "2 MCO"
-        },
-        {
           "name": "M. HAWTHORN",
           "points": "(4)"
         },
@@ -99,10 +95,6 @@
       "gp_name": "2. Monaco 18 mai",
       "date": "2. Monaco 18 mai",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "3 NLD"
-        },
         {
           "name": "M. HAWTHORN",
           "points": "(1)"
@@ -194,10 +186,6 @@
       "date": "3. Pays-Bas 26 mai",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "4 500"
-        },
-        {
           "name": "M. HAWTHORN",
           "points": "(2)"
         },
@@ -287,10 +275,6 @@
       "gp_name": "4. Indianapolis 30 mai",
       "date": "4. Indianapolis 30 mai",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "5 BEL"
-        },
         {
           "name": "M. HAWTHORN",
           "points": null
@@ -382,10 +366,6 @@
       "date": "5. Belgique 15 juin",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "6 FRA"
-        },
-        {
           "name": "M. HAWTHORN",
           "points": "7"
         },
@@ -475,10 +455,6 @@
       "gp_name": "6. France 6 juil",
       "date": "6. France 6 juil",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "7 GBR"
-        },
         {
           "name": "M. HAWTHORN",
           "points": "9"
@@ -570,10 +546,6 @@
       "date": "7. Grande-Bretagne 19 juil",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "8 DEU"
-        },
-        {
           "name": "M. HAWTHORN",
           "points": "7"
         },
@@ -663,10 +635,6 @@
       "gp_name": "8. Allemagne 3 août",
       "date": "8. Allemagne 3 août",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "9 PRT"
-        },
         {
           "name": "M. HAWTHORN",
           "points": "-"
@@ -758,10 +726,6 @@
       "date": "9. Portugal 24 août",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "10 ITA"
-        },
-        {
           "name": "M. HAWTHORN",
           "points": "7"
         },
@@ -852,10 +816,6 @@
       "date": "10. Italie 7 sept",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "11 MAR"
-        },
-        {
           "name": "M. HAWTHORN",
           "points": "6"
         },
@@ -945,10 +905,6 @@
       "gp_name": "11. Maroc 19 oct",
       "date": "11. Maroc 19 oct",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "Pts"
-        },
         {
           "name": "M. HAWTHORN",
           "points": "6"

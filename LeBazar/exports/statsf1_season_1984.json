@@ -6,10 +6,6 @@
       "date": "1. Brésil 25 mars",
       "drivers": [
         {
-          "name": "1 BRA",
-          "points": "2 ZAF"
-        },
-        {
           "name": "N. LAUDA",
           "points": "-"
         },
@@ -95,10 +91,6 @@
       "gp_name": "2. Afrique du Sud 7 avr",
       "date": "2. Afrique du Sud 7 avr",
       "drivers": [
-        {
-          "name": "1 BRA",
-          "points": "3 BEL"
-        },
         {
           "name": "N. LAUDA",
           "points": "9"
@@ -186,10 +178,6 @@
       "date": "3. Belgique 29 avr",
       "drivers": [
         {
-          "name": "1 BRA",
-          "points": "4 SMR"
-        },
-        {
           "name": "N. LAUDA",
           "points": "-"
         },
@@ -275,10 +263,6 @@
       "gp_name": "4. Saint-Marin 6 mai",
       "date": "4. Saint-Marin 6 mai",
       "drivers": [
-        {
-          "name": "1 BRA",
-          "points": "5 FRA"
-        },
         {
           "name": "N. LAUDA",
           "points": "-"
@@ -366,10 +350,6 @@
       "date": "5. France 20 mai",
       "drivers": [
         {
-          "name": "1 BRA",
-          "points": "6 MCO"
-        },
-        {
           "name": "N. LAUDA",
           "points": "9"
         },
@@ -455,10 +435,6 @@
       "gp_name": "6. Monaco 3 juin",
       "date": "6. Monaco 3 juin",
       "drivers": [
-        {
-          "name": "1 BRA",
-          "points": "7 CAN"
-        },
         {
           "name": "N. LAUDA",
           "points": "-"
@@ -546,10 +522,6 @@
       "date": "7. Canada 17 juin",
       "drivers": [
         {
-          "name": "1 BRA",
-          "points": "8 DET"
-        },
-        {
           "name": "N. LAUDA",
           "points": "6"
         },
@@ -635,10 +607,6 @@
       "gp_name": "8. Détroit 24 juin",
       "date": "8. Détroit 24 juin",
       "drivers": [
-        {
-          "name": "1 BRA",
-          "points": "9 DAL"
-        },
         {
           "name": "N. LAUDA",
           "points": "-"
@@ -726,10 +694,6 @@
       "date": "9. Dallas 8 juil",
       "drivers": [
         {
-          "name": "1 BRA",
-          "points": "10 GBR"
-        },
-        {
           "name": "N. LAUDA",
           "points": "-"
         },
@@ -815,10 +779,6 @@
       "gp_name": "10. Grande-Bretagne 22 juil",
       "date": "10. Grande-Bretagne 22 juil",
       "drivers": [
-        {
-          "name": "1 BRA",
-          "points": "11 DEU"
-        },
         {
           "name": "N. LAUDA",
           "points": "9"
@@ -906,10 +866,6 @@
       "date": "11. Allemagne 5 août",
       "drivers": [
         {
-          "name": "1 BRA",
-          "points": "12 AUT"
-        },
-        {
           "name": "N. LAUDA",
           "points": "6"
         },
@@ -995,10 +951,6 @@
       "gp_name": "12. Autriche 19 août",
       "date": "12. Autriche 19 août",
       "drivers": [
-        {
-          "name": "1 BRA",
-          "points": "13 NLD"
-        },
         {
           "name": "N. LAUDA",
           "points": "9"
@@ -1086,10 +1038,6 @@
       "date": "13. Pays-Bas 26 août",
       "drivers": [
         {
-          "name": "1 BRA",
-          "points": "14 ITA"
-        },
-        {
           "name": "N. LAUDA",
           "points": "6"
         },
@@ -1175,10 +1123,6 @@
       "gp_name": "14. Italie 9 sept",
       "date": "14. Italie 9 sept",
       "drivers": [
-        {
-          "name": "1 BRA",
-          "points": "15 EUR"
-        },
         {
           "name": "N. LAUDA",
           "points": "9"
@@ -1266,10 +1210,6 @@
       "date": "15. Europe 7 oct",
       "drivers": [
         {
-          "name": "1 BRA",
-          "points": "16 PRT"
-        },
-        {
           "name": "N. LAUDA",
           "points": "3"
         },
@@ -1355,10 +1295,6 @@
       "gp_name": "16. Portugal 21 oct",
       "date": "16. Portugal 21 oct",
       "drivers": [
-        {
-          "name": "1 BRA",
-          "points": "Pts"
-        },
         {
           "name": "N. LAUDA",
           "points": "6"

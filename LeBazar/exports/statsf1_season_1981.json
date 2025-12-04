@@ -6,10 +6,6 @@
       "date": "1. Etats-Unis Ouest 15 mars",
       "drivers": [
         {
-          "name": "1 USO",
-          "points": "2 BRA"
-        },
-        {
           "name": "N. PIQUET",
           "points": "4"
         },
@@ -99,10 +95,6 @@
       "gp_name": "2. Brésil 29 mars",
       "date": "2. Brésil 29 mars",
       "drivers": [
-        {
-          "name": "1 USO",
-          "points": "3 ARG"
-        },
         {
           "name": "N. PIQUET",
           "points": "-"
@@ -194,10 +186,6 @@
       "date": "3. Argentine 12 avr",
       "drivers": [
         {
-          "name": "1 USO",
-          "points": "4 SMR"
-        },
-        {
           "name": "N. PIQUET",
           "points": "9"
         },
@@ -287,10 +275,6 @@
       "gp_name": "4. Saint-Marin 3 mai",
       "date": "4. Saint-Marin 3 mai",
       "drivers": [
-        {
-          "name": "1 USO",
-          "points": "5 BEL"
-        },
         {
           "name": "N. PIQUET",
           "points": "9"
@@ -382,10 +366,6 @@
       "date": "5. Belgique 17 mai",
       "drivers": [
         {
-          "name": "1 USO",
-          "points": "6 MCO"
-        },
-        {
           "name": "N. PIQUET",
           "points": "-"
         },
@@ -475,10 +455,6 @@
       "gp_name": "6. Monaco 31 mai",
       "date": "6. Monaco 31 mai",
       "drivers": [
-        {
-          "name": "1 USO",
-          "points": "7 ESP"
-        },
         {
           "name": "N. PIQUET",
           "points": "-"
@@ -570,10 +546,6 @@
       "date": "7. Espagne 21 juin",
       "drivers": [
         {
-          "name": "1 USO",
-          "points": "8 FRA"
-        },
-        {
           "name": "N. PIQUET",
           "points": "-"
         },
@@ -663,10 +635,6 @@
       "gp_name": "8. France 5 juil",
       "date": "8. France 5 juil",
       "drivers": [
-        {
-          "name": "1 USO",
-          "points": "9 GBR"
-        },
         {
           "name": "N. PIQUET",
           "points": "4"
@@ -758,10 +726,6 @@
       "date": "9. Grande-Bretagne 18 juil",
       "drivers": [
         {
-          "name": "1 USO",
-          "points": "10 DEU"
-        },
-        {
           "name": "N. PIQUET",
           "points": "-"
         },
@@ -851,10 +815,6 @@
       "gp_name": "10. Allemagne 2 août",
       "date": "10. Allemagne 2 août",
       "drivers": [
-        {
-          "name": "1 USO",
-          "points": "11 AUT"
-        },
         {
           "name": "N. PIQUET",
           "points": "9"
@@ -946,10 +906,6 @@
       "date": "11. Autriche 16 août",
       "drivers": [
         {
-          "name": "1 USO",
-          "points": "12 NLD"
-        },
-        {
           "name": "N. PIQUET",
           "points": "4"
         },
@@ -1039,10 +995,6 @@
       "gp_name": "12. Pays-Bas 30 août",
       "date": "12. Pays-Bas 30 août",
       "drivers": [
-        {
-          "name": "1 USO",
-          "points": "13 ITA"
-        },
         {
           "name": "N. PIQUET",
           "points": "6"
@@ -1134,10 +1086,6 @@
       "date": "13. Italie 13 sept",
       "drivers": [
         {
-          "name": "1 USO",
-          "points": "14 CAN"
-        },
-        {
           "name": "N. PIQUET",
           "points": "1"
         },
@@ -1228,10 +1176,6 @@
       "date": "14. Canada 27 sept",
       "drivers": [
         {
-          "name": "1 USO",
-          "points": "15 CAE"
-        },
-        {
           "name": "N. PIQUET",
           "points": "2"
         },
@@ -1321,10 +1265,6 @@
       "gp_name": "15. Caesars Palace 17 oct",
       "date": "15. Caesars Palace 17 oct",
       "drivers": [
-        {
-          "name": "1 USO",
-          "points": "Pts"
-        },
         {
           "name": "N. PIQUET",
           "points": "2"

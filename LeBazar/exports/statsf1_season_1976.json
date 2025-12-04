@@ -6,10 +6,6 @@
       "date": "1. Brésil 25 janv",
       "drivers": [
         {
-          "name": "1 BRA",
-          "points": "2 ZAF"
-        },
-        {
           "name": "J. HUNT",
           "points": "-"
         },
@@ -95,10 +91,6 @@
       "gp_name": "2. Afrique du Sud 6 mars",
       "date": "2. Afrique du Sud 6 mars",
       "drivers": [
-        {
-          "name": "1 BRA",
-          "points": "3 USO"
-        },
         {
           "name": "J. HUNT",
           "points": "6"
@@ -186,10 +178,6 @@
       "date": "3. Etats-Unis Ouest 28 mars",
       "drivers": [
         {
-          "name": "1 BRA",
-          "points": "4 ESP"
-        },
-        {
           "name": "J. HUNT",
           "points": "-"
         },
@@ -275,10 +263,6 @@
       "gp_name": "4. Espagne 2 mai",
       "date": "4. Espagne 2 mai",
       "drivers": [
-        {
-          "name": "1 BRA",
-          "points": "5 BEL"
-        },
         {
           "name": "J. HUNT",
           "points": "9"
@@ -366,10 +350,6 @@
       "date": "5. Belgique 16 mai",
       "drivers": [
         {
-          "name": "1 BRA",
-          "points": "6 MCO"
-        },
-        {
           "name": "J. HUNT",
           "points": "-"
         },
@@ -455,10 +435,6 @@
       "gp_name": "6. Monaco 30 mai",
       "date": "6. Monaco 30 mai",
       "drivers": [
-        {
-          "name": "1 BRA",
-          "points": "7 SWE"
-        },
         {
           "name": "J. HUNT",
           "points": "-"
@@ -546,10 +522,6 @@
       "date": "7. Suède 13 juin",
       "drivers": [
         {
-          "name": "1 BRA",
-          "points": "8 FRA"
-        },
-        {
           "name": "J. HUNT",
           "points": "2"
         },
@@ -635,10 +607,6 @@
       "gp_name": "8. France 4 juil",
       "date": "8. France 4 juil",
       "drivers": [
-        {
-          "name": "1 BRA",
-          "points": "9 GBR"
-        },
         {
           "name": "J. HUNT",
           "points": "9"
@@ -726,10 +694,6 @@
       "date": "9. Grande-Bretagne 18 juil",
       "drivers": [
         {
-          "name": "1 BRA",
-          "points": "10 DEU"
-        },
-        {
           "name": "J. HUNT",
           "points": "-"
         },
@@ -815,10 +779,6 @@
       "gp_name": "10. Allemagne 1 août",
       "date": "10. Allemagne 1 août",
       "drivers": [
-        {
-          "name": "1 BRA",
-          "points": "11 AUT"
-        },
         {
           "name": "J. HUNT",
           "points": "9"
@@ -906,10 +866,6 @@
       "date": "11. Autriche 15 août",
       "drivers": [
         {
-          "name": "1 BRA",
-          "points": "12 NLD"
-        },
-        {
           "name": "J. HUNT",
           "points": "3"
         },
@@ -995,10 +951,6 @@
       "gp_name": "12. Pays-Bas 29 août",
       "date": "12. Pays-Bas 29 août",
       "drivers": [
-        {
-          "name": "1 BRA",
-          "points": "13 ITA"
-        },
         {
           "name": "J. HUNT",
           "points": "9"
@@ -1086,10 +1038,6 @@
       "date": "13. Italie 12 sept",
       "drivers": [
         {
-          "name": "1 BRA",
-          "points": "14 CAN"
-        },
-        {
           "name": "J. HUNT",
           "points": "-"
         },
@@ -1175,10 +1123,6 @@
       "gp_name": "14. Canada 3 oct",
       "date": "14. Canada 3 oct",
       "drivers": [
-        {
-          "name": "1 BRA",
-          "points": "15 USA"
-        },
         {
           "name": "J. HUNT",
           "points": "9"
@@ -1266,10 +1210,6 @@
       "date": "15. Etats-Unis 10 oct",
       "drivers": [
         {
-          "name": "1 BRA",
-          "points": "16 JPN"
-        },
-        {
           "name": "J. HUNT",
           "points": "9"
         },
@@ -1355,10 +1295,6 @@
       "gp_name": "16. Japon 24 oct",
       "date": "16. Japon 24 oct",
       "drivers": [
-        {
-          "name": "1 BRA",
-          "points": "Pts"
-        },
         {
           "name": "J. HUNT",
           "points": "4"

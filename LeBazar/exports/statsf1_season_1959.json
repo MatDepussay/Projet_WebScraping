@@ -6,10 +6,6 @@
       "date": "1. Monaco 10 mai",
       "drivers": [
         {
-          "name": "1 MCO",
-          "points": "2 500"
-        },
-        {
           "name": "J. BRABHAM",
           "points": "9"
         },
@@ -91,10 +87,6 @@
       "gp_name": "2. Indianapolis 30 mai",
       "date": "2. Indianapolis 30 mai",
       "drivers": [
-        {
-          "name": "1 MCO",
-          "points": "3 NLD"
-        },
         {
           "name": "J. BRABHAM",
           "points": null
@@ -178,10 +170,6 @@
       "date": "3. Pays-Bas 31 mai",
       "drivers": [
         {
-          "name": "1 MCO",
-          "points": "4 FRA"
-        },
-        {
           "name": "J. BRABHAM",
           "points": "6"
         },
@@ -263,10 +251,6 @@
       "gp_name": "4. France 5 juil",
       "date": "4. France 5 juil",
       "drivers": [
-        {
-          "name": "1 MCO",
-          "points": "5 GBR"
-        },
         {
           "name": "J. BRABHAM",
           "points": "4"
@@ -350,10 +334,6 @@
       "date": "5. Grande-Bretagne 18 juil",
       "drivers": [
         {
-          "name": "1 MCO",
-          "points": "6 DEU"
-        },
-        {
           "name": "J. BRABHAM",
           "points": "8"
         },
@@ -435,10 +415,6 @@
       "gp_name": "6. Allemagne 2 août",
       "date": "6. Allemagne 2 août",
       "drivers": [
-        {
-          "name": "1 MCO",
-          "points": "7 PRT"
-        },
         {
           "name": "J. BRABHAM",
           "points": "-"
@@ -522,10 +498,6 @@
       "date": "7. Portugal 23 août",
       "drivers": [
         {
-          "name": "1 MCO",
-          "points": "8 ITA"
-        },
-        {
           "name": "J. BRABHAM",
           "points": "-"
         },
@@ -608,10 +580,6 @@
       "date": "8. Italie 13 sept",
       "drivers": [
         {
-          "name": "1 MCO",
-          "points": "9 USA"
-        },
-        {
           "name": "J. BRABHAM",
           "points": "4"
         },
@@ -693,10 +661,6 @@
       "gp_name": "9. Etats-Unis 12 déc",
       "date": "9. Etats-Unis 12 déc",
       "drivers": [
-        {
-          "name": "1 MCO",
-          "points": "Pts"
-        },
         {
           "name": "J. BRABHAM",
           "points": "(3)"

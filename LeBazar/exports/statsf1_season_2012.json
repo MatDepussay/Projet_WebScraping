@@ -6,10 +6,6 @@
       "date": "1. Australie 18 mars",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "2 MYS"
-        },
-        {
           "name": "S. VETTEL",
           "points": "18"
         },
@@ -115,10 +111,6 @@
       "gp_name": "2. Malaisie 25 mars",
       "date": "2. Malaisie 25 mars",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "3 CHN"
-        },
         {
           "name": "S. VETTEL",
           "points": "-"
@@ -226,10 +218,6 @@
       "date": "3. Chine 15 avr",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "4 BHR"
-        },
-        {
           "name": "S. VETTEL",
           "points": "10"
         },
@@ -335,10 +323,6 @@
       "gp_name": "4. Bahreïn 22 avr",
       "date": "4. Bahreïn 22 avr",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "5 ESP"
-        },
         {
           "name": "S. VETTEL",
           "points": "25"
@@ -446,10 +430,6 @@
       "date": "5. Espagne 13 mai",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "6 MCO"
-        },
-        {
           "name": "S. VETTEL",
           "points": "8"
         },
@@ -555,10 +535,6 @@
       "gp_name": "6. Monaco 27 mai",
       "date": "6. Monaco 27 mai",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "7 CAN"
-        },
         {
           "name": "S. VETTEL",
           "points": "12"
@@ -666,10 +642,6 @@
       "date": "7. Canada 10 juin",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "8 EUR"
-        },
-        {
           "name": "S. VETTEL",
           "points": "12"
         },
@@ -775,10 +747,6 @@
       "gp_name": "8. Europe 24 juin",
       "date": "8. Europe 24 juin",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "9 GBR"
-        },
         {
           "name": "S. VETTEL",
           "points": "-"
@@ -886,10 +854,6 @@
       "date": "9. Grande-Bretagne 8 juil",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "10 DEU"
-        },
-        {
           "name": "S. VETTEL",
           "points": "15"
         },
@@ -995,10 +959,6 @@
       "gp_name": "10. Allemagne 22 juil",
       "date": "10. Allemagne 22 juil",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "11 HUN"
-        },
         {
           "name": "S. VETTEL",
           "points": "10"
@@ -1106,10 +1066,6 @@
       "date": "11. Hongrie 29 juil",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "12 BEL"
-        },
-        {
           "name": "S. VETTEL",
           "points": "12"
         },
@@ -1215,10 +1171,6 @@
       "gp_name": "12. Belgique 2 sept",
       "date": "12. Belgique 2 sept",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "13 ITA"
-        },
         {
           "name": "S. VETTEL",
           "points": "18"
@@ -1326,10 +1278,6 @@
       "date": "13. Italie 9 sept",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "14 SGP"
-        },
-        {
           "name": "S. VETTEL",
           "points": "-"
         },
@@ -1435,10 +1383,6 @@
       "gp_name": "14. Singapour 23 sept",
       "date": "14. Singapour 23 sept",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "15 JPN"
-        },
         {
           "name": "S. VETTEL",
           "points": "25"
@@ -1546,10 +1490,6 @@
       "date": "15. Japon 7 oct",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "16 KOR"
-        },
-        {
           "name": "S. VETTEL",
           "points": "25"
         },
@@ -1655,10 +1595,6 @@
       "gp_name": "16. Corée du Sud 14 oct",
       "date": "16. Corée du Sud 14 oct",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "17 IND"
-        },
         {
           "name": "S. VETTEL",
           "points": "25"
@@ -1766,10 +1702,6 @@
       "date": "17. Inde 28 oct",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "18 ABD"
-        },
-        {
           "name": "S. VETTEL",
           "points": "25"
         },
@@ -1875,10 +1807,6 @@
       "gp_name": "18. Abou Dhabi 4 nov",
       "date": "18. Abou Dhabi 4 nov",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "19 USA"
-        },
         {
           "name": "S. VETTEL",
           "points": "15"
@@ -1986,10 +1914,6 @@
       "date": "19. Etats-Unis 18 nov",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "20 BRA"
-        },
-        {
           "name": "S. VETTEL",
           "points": "18"
         },
@@ -2095,10 +2019,6 @@
       "gp_name": "20. Brésil 25 nov",
       "date": "20. Brésil 25 nov",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": null
-        },
         {
           "name": "S. VETTEL",
           "points": "8"

@@ -6,10 +6,6 @@
       "date": "1. Argentine 22 janv",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "2 MCO"
-        },
-        {
           "name": "J. FANGIO",
           "points": "5"
         },
@@ -123,10 +119,6 @@
       "gp_name": "2. Monaco 13 mai",
       "date": "2. Monaco 13 mai",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "3 500"
-        },
         {
           "name": "J. FANGIO",
           "points": "4"
@@ -242,10 +234,6 @@
       "date": "3. Indianapolis 30 mai",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "4 BEL"
-        },
-        {
           "name": "J. FANGIO",
           "points": null
         },
@@ -359,10 +347,6 @@
       "gp_name": "4. Belgique 3 juin",
       "date": "4. Belgique 3 juin",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "5 FRA"
-        },
         {
           "name": "J. FANGIO",
           "points": "-"
@@ -478,10 +462,6 @@
       "date": "5. France 1 juil",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "6 GBR"
-        },
-        {
           "name": "J. FANGIO",
           "points": "4"
         },
@@ -595,10 +575,6 @@
       "gp_name": "6. Grande-Bretagne 14 juil",
       "date": "6. Grande-Bretagne 14 juil",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "7 DEU"
-        },
         {
           "name": "J. FANGIO",
           "points": "8"
@@ -714,10 +690,6 @@
       "date": "7. Allemagne 5 août",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "8 ITA"
-        },
-        {
           "name": "J. FANGIO",
           "points": "9"
         },
@@ -831,10 +803,6 @@
       "gp_name": "8. Italie 2 sept",
       "date": "8. Italie 2 sept",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "Pts"
-        },
         {
           "name": "J. FANGIO",
           "points": "(3)"

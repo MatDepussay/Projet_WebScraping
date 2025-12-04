@@ -6,10 +6,6 @@
       "date": "1. Argentine 17 janv",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "2 500"
-        },
-        {
           "name": "J. FANGIO",
           "points": "8"
         },
@@ -119,10 +115,6 @@
       "gp_name": "2. Indianapolis 31 mai",
       "date": "2. Indianapolis 31 mai",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "3 BEL"
-        },
         {
           "name": "J. FANGIO",
           "points": null
@@ -234,10 +226,6 @@
       "date": "3. Belgique 20 juin",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "4 FRA"
-        },
-        {
           "name": "J. FANGIO",
           "points": "9"
         },
@@ -347,10 +335,6 @@
       "gp_name": "4. France 4 juil",
       "date": "4. France 4 juil",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "5 GBR"
-        },
         {
           "name": "J. FANGIO",
           "points": "8"
@@ -462,10 +446,6 @@
       "date": "5. Grande-Bretagne 17 juil",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "6 DEU"
-        },
-        {
           "name": "J. FANGIO",
           "points": "(3,14)"
         },
@@ -575,10 +555,6 @@
       "gp_name": "6. Allemagne 1 août",
       "date": "6. Allemagne 1 août",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "7 CHE"
-        },
         {
           "name": "J. FANGIO",
           "points": "8"
@@ -690,10 +666,6 @@
       "date": "7. Suisse 22 août",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "8 ITA"
-        },
-        {
           "name": "J. FANGIO",
           "points": "9"
         },
@@ -804,10 +776,6 @@
       "date": "8. Italie 5 sept",
       "drivers": [
         {
-          "name": "1 ARG",
-          "points": "9 ESP"
-        },
-        {
           "name": "J. FANGIO",
           "points": "(8)"
         },
@@ -917,10 +885,6 @@
       "gp_name": "9. Espagne 24 oct",
       "date": "9. Espagne 24 oct",
       "drivers": [
-        {
-          "name": "1 ARG",
-          "points": "Pts"
-        },
         {
           "name": "J. FANGIO",
           "points": "(4)"

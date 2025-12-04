@@ -6,10 +6,6 @@
       "date": "1. Australie 16 mars",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "2 MYS"
-        },
-        {
           "name": "L. HAMILTON",
           "points": "10"
         },
@@ -103,10 +99,6 @@
       "gp_name": "2. Malaisie 23 mars",
       "date": "2. Malaisie 23 mars",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "3 BHR"
-        },
         {
           "name": "L. HAMILTON",
           "points": "4"
@@ -202,10 +194,6 @@
       "date": "3. Bahreïn 6 avr",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "4 ESP"
-        },
-        {
           "name": "L. HAMILTON",
           "points": "-"
         },
@@ -299,10 +287,6 @@
       "gp_name": "4. Espagne 27 avr",
       "date": "4. Espagne 27 avr",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "5 TUR"
-        },
         {
           "name": "L. HAMILTON",
           "points": "6"
@@ -398,10 +382,6 @@
       "date": "5. Turquie 11 mai",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "6 MCO"
-        },
-        {
           "name": "L. HAMILTON",
           "points": "8"
         },
@@ -495,10 +475,6 @@
       "gp_name": "6. Monaco 25 mai",
       "date": "6. Monaco 25 mai",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "7 CAN"
-        },
         {
           "name": "L. HAMILTON",
           "points": "10"
@@ -594,10 +570,6 @@
       "date": "7. Canada 8 juin",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "8 FRA"
-        },
-        {
           "name": "L. HAMILTON",
           "points": "-"
         },
@@ -691,10 +663,6 @@
       "gp_name": "8. France 22 juin",
       "date": "8. France 22 juin",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "9 GBR"
-        },
         {
           "name": "L. HAMILTON",
           "points": "-"
@@ -790,10 +758,6 @@
       "date": "9. Grande-Bretagne 6 juil",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "10 DEU"
-        },
-        {
           "name": "L. HAMILTON",
           "points": "10"
         },
@@ -887,10 +851,6 @@
       "gp_name": "10. Allemagne 20 juil",
       "date": "10. Allemagne 20 juil",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "11 HUN"
-        },
         {
           "name": "L. HAMILTON",
           "points": "10"
@@ -986,10 +946,6 @@
       "date": "11. Hongrie 3 août",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "12 EUR"
-        },
-        {
           "name": "L. HAMILTON",
           "points": "4"
         },
@@ -1083,10 +1039,6 @@
       "gp_name": "12. Europe 24 août",
       "date": "12. Europe 24 août",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "13 BEL"
-        },
         {
           "name": "L. HAMILTON",
           "points": "8"
@@ -1182,10 +1134,6 @@
       "date": "13. Belgique 7 sept",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "14 ITA"
-        },
-        {
           "name": "L. HAMILTON",
           "points": "6"
         },
@@ -1279,10 +1227,6 @@
       "gp_name": "14. Italie 14 sept",
       "date": "14. Italie 14 sept",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "15 SGP"
-        },
         {
           "name": "L. HAMILTON",
           "points": "2"
@@ -1378,10 +1322,6 @@
       "date": "15. Singapour 28 sept",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "16 JPN"
-        },
-        {
           "name": "L. HAMILTON",
           "points": "6"
         },
@@ -1475,10 +1415,6 @@
       "gp_name": "16. Japon 12 oct",
       "date": "16. Japon 12 oct",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "17 CHN"
-        },
         {
           "name": "L. HAMILTON",
           "points": "-"
@@ -1574,10 +1510,6 @@
       "date": "17. Chine 19 oct",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "18 BRA"
-        },
-        {
           "name": "L. HAMILTON",
           "points": "10"
         },
@@ -1671,10 +1603,6 @@
       "gp_name": "18. Brésil 2 nov",
       "date": "18. Brésil 2 nov",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": null
-        },
         {
           "name": "L. HAMILTON",
           "points": "4"

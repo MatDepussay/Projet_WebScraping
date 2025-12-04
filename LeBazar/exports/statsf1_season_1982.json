@@ -6,10 +6,6 @@
       "date": "1. Afrique du Sud 23 janv",
       "drivers": [
         {
-          "name": "1 ZAF",
-          "points": "2 BRA"
-        },
-        {
           "name": "K. ROSBERG",
           "points": "2"
         },
@@ -119,10 +115,6 @@
       "gp_name": "2. Brésil 21 mars",
       "date": "2. Brésil 21 mars",
       "drivers": [
-        {
-          "name": "1 ZAF",
-          "points": "3 USO"
-        },
         {
           "name": "K. ROSBERG",
           "points": "-"
@@ -234,10 +226,6 @@
       "date": "3. Etats-Unis Ouest 4 avr",
       "drivers": [
         {
-          "name": "1 ZAF",
-          "points": "4 SMR"
-        },
-        {
           "name": "K. ROSBERG",
           "points": "6"
         },
@@ -347,10 +335,6 @@
       "gp_name": "4. Saint-Marin 25 avr",
       "date": "4. Saint-Marin 25 avr",
       "drivers": [
-        {
-          "name": "1 ZAF",
-          "points": "5 BEL"
-        },
         {
           "name": "K. ROSBERG",
           "points": null
@@ -462,10 +446,6 @@
       "date": "5. Belgique 9 mai",
       "drivers": [
         {
-          "name": "1 ZAF",
-          "points": "6 MCO"
-        },
-        {
           "name": "K. ROSBERG",
           "points": "6"
         },
@@ -575,10 +555,6 @@
       "gp_name": "6. Monaco 23 mai",
       "date": "6. Monaco 23 mai",
       "drivers": [
-        {
-          "name": "1 ZAF",
-          "points": "7 DET"
-        },
         {
           "name": "K. ROSBERG",
           "points": "-"
@@ -690,10 +666,6 @@
       "date": "7. Détroit 6 juin",
       "drivers": [
         {
-          "name": "1 ZAF",
-          "points": "8 CAN"
-        },
-        {
           "name": "K. ROSBERG",
           "points": "3"
         },
@@ -803,10 +775,6 @@
       "gp_name": "8. Canada 13 juin",
       "date": "8. Canada 13 juin",
       "drivers": [
-        {
-          "name": "1 ZAF",
-          "points": "9 NLD"
-        },
         {
           "name": "K. ROSBERG",
           "points": "-"
@@ -918,10 +886,6 @@
       "date": "9. Pays-Bas 3 juil",
       "drivers": [
         {
-          "name": "1 ZAF",
-          "points": "10 GBR"
-        },
-        {
           "name": "K. ROSBERG",
           "points": "4"
         },
@@ -1031,10 +995,6 @@
       "gp_name": "10. Grande-Bretagne 18 juil",
       "date": "10. Grande-Bretagne 18 juil",
       "drivers": [
-        {
-          "name": "1 ZAF",
-          "points": "11 FRA"
-        },
         {
           "name": "K. ROSBERG",
           "points": "-"
@@ -1146,10 +1106,6 @@
       "date": "11. France 25 juil",
       "drivers": [
         {
-          "name": "1 ZAF",
-          "points": "12 DEU"
-        },
-        {
           "name": "K. ROSBERG",
           "points": "2"
         },
@@ -1259,10 +1215,6 @@
       "gp_name": "12. Allemagne 8 août",
       "date": "12. Allemagne 8 août",
       "drivers": [
-        {
-          "name": "1 ZAF",
-          "points": "13 AUT"
-        },
         {
           "name": "K. ROSBERG",
           "points": "4"
@@ -1374,10 +1326,6 @@
       "date": "13. Autriche 15 août",
       "drivers": [
         {
-          "name": "1 ZAF",
-          "points": "14 CHE"
-        },
-        {
           "name": "K. ROSBERG",
           "points": "6"
         },
@@ -1487,10 +1435,6 @@
       "gp_name": "14. Suisse 29 août",
       "date": "14. Suisse 29 août",
       "drivers": [
-        {
-          "name": "1 ZAF",
-          "points": "15 ITA"
-        },
         {
           "name": "K. ROSBERG",
           "points": "9"
@@ -1602,10 +1546,6 @@
       "date": "15. Italie 12 sept",
       "drivers": [
         {
-          "name": "1 ZAF",
-          "points": "16 CAE"
-        },
-        {
           "name": "K. ROSBERG",
           "points": "-"
         },
@@ -1715,10 +1655,6 @@
       "gp_name": "16. Caesars Palace 25 sept",
       "date": "16. Caesars Palace 25 sept",
       "drivers": [
-        {
-          "name": "1 ZAF",
-          "points": "Pts"
-        },
         {
           "name": "K. ROSBERG",
           "points": "2"

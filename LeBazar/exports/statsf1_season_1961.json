@@ -6,10 +6,6 @@
       "date": "1. Monaco 14 mai",
       "drivers": [
         {
-          "name": "1 MCO",
-          "points": "2 NLD"
-        },
-        {
           "name": "P. HILL",
           "points": "4"
         },
@@ -83,10 +79,6 @@
       "gp_name": "2. Pays-Bas 22 mai",
       "date": "2. Pays-Bas 22 mai",
       "drivers": [
-        {
-          "name": "1 MCO",
-          "points": "3 BEL"
-        },
         {
           "name": "P. HILL",
           "points": "6"
@@ -162,10 +154,6 @@
       "date": "3. Belgique 18 juin",
       "drivers": [
         {
-          "name": "1 MCO",
-          "points": "4 FRA"
-        },
-        {
           "name": "P. HILL",
           "points": "9"
         },
@@ -239,10 +227,6 @@
       "gp_name": "4. France 2 juil",
       "date": "4. France 2 juil",
       "drivers": [
-        {
-          "name": "1 MCO",
-          "points": "5 GBR"
-        },
         {
           "name": "P. HILL",
           "points": "-"
@@ -318,10 +302,6 @@
       "date": "5. Grande-Bretagne 15 juil",
       "drivers": [
         {
-          "name": "1 MCO",
-          "points": "6 DEU"
-        },
-        {
           "name": "P. HILL",
           "points": "6"
         },
@@ -395,10 +375,6 @@
       "gp_name": "6. Allemagne 6 août",
       "date": "6. Allemagne 6 août",
       "drivers": [
-        {
-          "name": "1 MCO",
-          "points": "7 ITA"
-        },
         {
           "name": "P. HILL",
           "points": "(4)"
@@ -474,10 +450,6 @@
       "date": "7. Italie 10 sept",
       "drivers": [
         {
-          "name": "1 MCO",
-          "points": "8 USA"
-        },
-        {
           "name": "P. HILL",
           "points": "9"
         },
@@ -551,10 +523,6 @@
       "gp_name": "8. Etats-Unis 8 oct",
       "date": "8. Etats-Unis 8 oct",
       "drivers": [
-        {
-          "name": "1 MCO",
-          "points": "Pts"
-        },
         {
           "name": "P. HILL",
           "points": "-"

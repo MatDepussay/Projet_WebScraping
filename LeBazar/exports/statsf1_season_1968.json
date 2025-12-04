@@ -6,10 +6,6 @@
       "date": "1. Afrique du Sud 1 janv",
       "drivers": [
         {
-          "name": "1 ZAF",
-          "points": "2 ESP"
-        },
-        {
           "name": "G. HILL",
           "points": "6"
         },
@@ -111,10 +107,6 @@
       "gp_name": "2. Espagne 12 mai",
       "date": "2. Espagne 12 mai",
       "drivers": [
-        {
-          "name": "1 ZAF",
-          "points": "3 MCO"
-        },
         {
           "name": "G. HILL",
           "points": "9"
@@ -218,10 +210,6 @@
       "date": "3. Monaco 26 mai",
       "drivers": [
         {
-          "name": "1 ZAF",
-          "points": "4 BEL"
-        },
-        {
           "name": "G. HILL",
           "points": "9"
         },
@@ -323,10 +311,6 @@
       "gp_name": "4. Belgique 9 juin",
       "date": "4. Belgique 9 juin",
       "drivers": [
-        {
-          "name": "1 ZAF",
-          "points": "5 NLD"
-        },
         {
           "name": "G. HILL",
           "points": "-"
@@ -430,10 +414,6 @@
       "date": "5. Pays-Bas 23 juin",
       "drivers": [
         {
-          "name": "1 ZAF",
-          "points": "6 FRA"
-        },
-        {
           "name": "G. HILL",
           "points": "-"
         },
@@ -535,10 +515,6 @@
       "gp_name": "6. France 7 juil",
       "date": "6. France 7 juil",
       "drivers": [
-        {
-          "name": "1 ZAF",
-          "points": "7 GBR"
-        },
         {
           "name": "G. HILL",
           "points": "-"
@@ -642,10 +618,6 @@
       "date": "7. Grande-Bretagne 20 juil",
       "drivers": [
         {
-          "name": "1 ZAF",
-          "points": "8 DEU"
-        },
-        {
           "name": "G. HILL",
           "points": "-"
         },
@@ -747,10 +719,6 @@
       "gp_name": "8. Allemagne 4 août",
       "date": "8. Allemagne 4 août",
       "drivers": [
-        {
-          "name": "1 ZAF",
-          "points": "9 ITA"
-        },
         {
           "name": "G. HILL",
           "points": "6"
@@ -854,10 +822,6 @@
       "date": "9. Italie 8 sept",
       "drivers": [
         {
-          "name": "1 ZAF",
-          "points": "10 CAN"
-        },
-        {
           "name": "G. HILL",
           "points": "-"
         },
@@ -959,10 +923,6 @@
       "gp_name": "10. Canada 22 sept",
       "date": "10. Canada 22 sept",
       "drivers": [
-        {
-          "name": "1 ZAF",
-          "points": "11 USA"
-        },
         {
           "name": "G. HILL",
           "points": "3"
@@ -1066,10 +1026,6 @@
       "date": "11. Etats-Unis 6 oct",
       "drivers": [
         {
-          "name": "1 ZAF",
-          "points": "12 MEX"
-        },
-        {
           "name": "G. HILL",
           "points": "6"
         },
@@ -1171,10 +1127,6 @@
       "gp_name": "12. Mexique 3 nov",
       "date": "12. Mexique 3 nov",
       "drivers": [
-        {
-          "name": "1 ZAF",
-          "points": "Pts"
-        },
         {
           "name": "G. HILL",
           "points": "9"

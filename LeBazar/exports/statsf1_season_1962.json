@@ -6,10 +6,6 @@
       "date": "1. Pays-Bas 20 mai",
       "drivers": [
         {
-          "name": "1 NLD",
-          "points": "2 MCO"
-        },
-        {
           "name": "G. HILL",
           "points": "9"
         },
@@ -91,10 +87,6 @@
       "gp_name": "2. Monaco 3 juin",
       "date": "2. Monaco 3 juin",
       "drivers": [
-        {
-          "name": "1 NLD",
-          "points": "3 BEL"
-        },
         {
           "name": "G. HILL",
           "points": "(1)"
@@ -178,10 +170,6 @@
       "date": "3. Belgique 17 juin",
       "drivers": [
         {
-          "name": "1 NLD",
-          "points": "4 FRA"
-        },
-        {
           "name": "G. HILL",
           "points": "6"
         },
@@ -263,10 +251,6 @@
       "gp_name": "4. France 8 juil",
       "date": "4. France 8 juil",
       "drivers": [
-        {
-          "name": "1 NLD",
-          "points": "5 GBR"
-        },
         {
           "name": "G. HILL",
           "points": "-"
@@ -350,10 +334,6 @@
       "date": "5. Grande-Bretagne 21 juil",
       "drivers": [
         {
-          "name": "1 NLD",
-          "points": "6 DEU"
-        },
-        {
           "name": "G. HILL",
           "points": "(3)"
         },
@@ -435,10 +415,6 @@
       "gp_name": "6. Allemagne 5 août",
       "date": "6. Allemagne 5 août",
       "drivers": [
-        {
-          "name": "1 NLD",
-          "points": "7 ITA"
-        },
         {
           "name": "G. HILL",
           "points": "9"
@@ -522,10 +498,6 @@
       "date": "7. Italie 16 sept",
       "drivers": [
         {
-          "name": "1 NLD",
-          "points": "8 USA"
-        },
-        {
           "name": "G. HILL",
           "points": "9"
         },
@@ -608,10 +580,6 @@
       "date": "8. Etats-Unis 7 oct",
       "drivers": [
         {
-          "name": "1 NLD",
-          "points": "9 ZAF"
-        },
-        {
           "name": "G. HILL",
           "points": "(6)"
         },
@@ -693,10 +661,6 @@
       "gp_name": "9. Afrique du Sud 29 déc",
       "date": "9. Afrique du Sud 29 déc",
       "drivers": [
-        {
-          "name": "1 NLD",
-          "points": "Pts"
-        },
         {
           "name": "G. HILL",
           "points": "9"

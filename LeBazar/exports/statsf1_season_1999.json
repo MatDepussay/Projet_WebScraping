@@ -6,10 +6,6 @@
       "date": "1. Australie 7 mars",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "2 BRA"
-        },
-        {
           "name": "M. HAKKINEN",
           "points": "-"
         },
@@ -87,10 +83,6 @@
       "gp_name": "2. Brésil 11 avr",
       "date": "2. Brésil 11 avr",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "3 SMR"
-        },
         {
           "name": "M. HAKKINEN",
           "points": "10"
@@ -170,10 +162,6 @@
       "date": "3. Saint-Marin 2 mai",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "4 MCO"
-        },
-        {
           "name": "M. HAKKINEN",
           "points": "-"
         },
@@ -251,10 +239,6 @@
       "gp_name": "4. Monaco 16 mai",
       "date": "4. Monaco 16 mai",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "5 ESP"
-        },
         {
           "name": "M. HAKKINEN",
           "points": "4"
@@ -334,10 +318,6 @@
       "date": "5. Espagne 30 mai",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "6 CAN"
-        },
-        {
           "name": "M. HAKKINEN",
           "points": "10"
         },
@@ -415,10 +395,6 @@
       "gp_name": "6. Canada 13 juin",
       "date": "6. Canada 13 juin",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "7 FRA"
-        },
         {
           "name": "M. HAKKINEN",
           "points": "10"
@@ -498,10 +474,6 @@
       "date": "7. France 27 juin",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "8 GBR"
-        },
-        {
           "name": "M. HAKKINEN",
           "points": "6"
         },
@@ -579,10 +551,6 @@
       "gp_name": "8. Grande-Bretagne 11 juil",
       "date": "8. Grande-Bretagne 11 juil",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "9 AUT"
-        },
         {
           "name": "M. HAKKINEN",
           "points": "-"
@@ -662,10 +630,6 @@
       "date": "9. Autriche 25 juil",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "10 DEU"
-        },
-        {
           "name": "M. HAKKINEN",
           "points": "4"
         },
@@ -743,10 +707,6 @@
       "gp_name": "10. Allemagne 1 août",
       "date": "10. Allemagne 1 août",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "11 HUN"
-        },
         {
           "name": "M. HAKKINEN",
           "points": "-"
@@ -826,10 +786,6 @@
       "date": "11. Hongrie 15 août",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "12 BEL"
-        },
-        {
           "name": "M. HAKKINEN",
           "points": "10"
         },
@@ -907,10 +863,6 @@
       "gp_name": "12. Belgique 29 août",
       "date": "12. Belgique 29 août",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "13 ITA"
-        },
         {
           "name": "M. HAKKINEN",
           "points": "6"
@@ -990,10 +942,6 @@
       "date": "13. Italie 12 sept",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "14 EUR"
-        },
-        {
           "name": "M. HAKKINEN",
           "points": "-"
         },
@@ -1071,10 +1019,6 @@
       "gp_name": "14. Europe 26 sept",
       "date": "14. Europe 26 sept",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "15 MYS"
-        },
         {
           "name": "M. HAKKINEN",
           "points": "2"
@@ -1154,10 +1098,6 @@
       "date": "15. Malaisie 17 oct",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "16 JPN"
-        },
-        {
           "name": "M. HAKKINEN",
           "points": "4"
         },
@@ -1235,10 +1175,6 @@
       "gp_name": "16. Japon 31 oct",
       "date": "16. Japon 31 oct",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": null
-        },
         {
           "name": "M. HAKKINEN",
           "points": "10"

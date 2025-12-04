@@ -6,10 +6,6 @@
       "date": "1. Australie 18 mars",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "2 MYS"
-        },
-        {
           "name": "K. RAIKKONEN",
           "points": "10"
         },
@@ -115,10 +111,6 @@
       "gp_name": "2. Malaisie 8 avr",
       "date": "2. Malaisie 8 avr",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "3 BHR"
-        },
         {
           "name": "K. RAIKKONEN",
           "points": "6"
@@ -226,10 +218,6 @@
       "date": "3. Bahreïn 15 avr",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "4 ESP"
-        },
-        {
           "name": "K. RAIKKONEN",
           "points": "6"
         },
@@ -335,10 +323,6 @@
       "gp_name": "4. Espagne 13 mai",
       "date": "4. Espagne 13 mai",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "5 MCO"
-        },
         {
           "name": "K. RAIKKONEN",
           "points": "-"
@@ -446,10 +430,6 @@
       "date": "5. Monaco 27 mai",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "6 CAN"
-        },
-        {
           "name": "K. RAIKKONEN",
           "points": "1"
         },
@@ -555,10 +535,6 @@
       "gp_name": "6. Canada 10 juin",
       "date": "6. Canada 10 juin",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "7 USA"
-        },
         {
           "name": "K. RAIKKONEN",
           "points": "4"
@@ -666,10 +642,6 @@
       "date": "7. Etats-Unis 17 juin",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "8 FRA"
-        },
-        {
           "name": "K. RAIKKONEN",
           "points": "5"
         },
@@ -775,10 +747,6 @@
       "gp_name": "8. France 1 juil",
       "date": "8. France 1 juil",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "9 GBR"
-        },
         {
           "name": "K. RAIKKONEN",
           "points": "10"
@@ -886,10 +854,6 @@
       "date": "9. Grande-Bretagne 8 juil",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "10 EUR"
-        },
-        {
           "name": "K. RAIKKONEN",
           "points": "10"
         },
@@ -995,10 +959,6 @@
       "gp_name": "10. Europe 22 juil",
       "date": "10. Europe 22 juil",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "11 HUN"
-        },
         {
           "name": "K. RAIKKONEN",
           "points": "-"
@@ -1106,10 +1066,6 @@
       "date": "11. Hongrie 5 août",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "12 TUR"
-        },
-        {
           "name": "K. RAIKKONEN",
           "points": "8"
         },
@@ -1215,10 +1171,6 @@
       "gp_name": "12. Turquie 26 août",
       "date": "12. Turquie 26 août",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "13 ITA"
-        },
         {
           "name": "K. RAIKKONEN",
           "points": "8"
@@ -1326,10 +1278,6 @@
       "date": "13. Italie 9 sept",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "14 BEL"
-        },
-        {
           "name": "K. RAIKKONEN",
           "points": "6"
         },
@@ -1435,10 +1383,6 @@
       "gp_name": "14. Belgique 16 sept",
       "date": "14. Belgique 16 sept",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": "15 JPN"
-        },
         {
           "name": "K. RAIKKONEN",
           "points": "10"
@@ -1546,10 +1490,6 @@
       "date": "15. Japon 30 sept",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "16 CHN"
-        },
-        {
           "name": "K. RAIKKONEN",
           "points": "6"
         },
@@ -1656,10 +1596,6 @@
       "date": "16. Chine 7 oct",
       "drivers": [
         {
-          "name": "1 AUS",
-          "points": "17 BRA"
-        },
-        {
           "name": "K. RAIKKONEN",
           "points": "10"
         },
@@ -1765,10 +1701,6 @@
       "gp_name": "17. Brésil 21 oct",
       "date": "17. Brésil 21 oct",
       "drivers": [
-        {
-          "name": "1 AUS",
-          "points": null
-        },
         {
           "name": "K. RAIKKONEN",
           "points": "10"
