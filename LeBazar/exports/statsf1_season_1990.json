@@ -1,0 +1,1317 @@
+{
+  "season": 1990,
+  "gps": [
+    {
+      "gp_name": "1. Etats-Unis 11 mars",
+      "date": "1. Etats-Unis 11 mars",
+      "drivers": [
+        {
+          "name": "1 USA",
+          "points": "2 BRA"
+        },
+        {
+          "name": "A. SENNA",
+          "points": "9"
+        },
+        {
+          "name": "A. PROST",
+          "points": "-"
+        },
+        {
+          "name": "N. PIQUET",
+          "points": "3"
+        },
+        {
+          "name": "G. BERGER",
+          "points": "-"
+        },
+        {
+          "name": "N. MANSELL",
+          "points": "-"
+        },
+        {
+          "name": "T. BOUTSEN",
+          "points": "4"
+        },
+        {
+          "name": "R. PATRESE",
+          "points": "-"
+        },
+        {
+          "name": "A. NANNINI",
+          "points": "-"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "6"
+        },
+        {
+          "name": "I. CAPELLI",
+          "points": "-"
+        },
+        {
+          "name": "R. MORENO",
+          "points": "-"
+        },
+        {
+          "name": "A. SUZUKI",
+          "points": "-"
+        },
+        {
+          "name": "E. BERNARD",
+          "points": "-"
+        },
+        {
+          "name": "D. WARWICK",
+          "points": "-"
+        },
+        {
+          "name": "S. NAKAJIMA",
+          "points": "1"
+        },
+        {
+          "name": "A. CAFFI",
+          "points": null
+        },
+        {
+          "name": "S. MODENA",
+          "points": "2"
+        },
+        {
+          "name": "M. GUGELMIN",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "2. Brésil 25 mars",
+      "date": "2. Brésil 25 mars",
+      "drivers": [
+        {
+          "name": "1 USA",
+          "points": "3 SMR"
+        },
+        {
+          "name": "A. SENNA",
+          "points": "4"
+        },
+        {
+          "name": "A. PROST",
+          "points": "9"
+        },
+        {
+          "name": "N. PIQUET",
+          "points": "1"
+        },
+        {
+          "name": "G. BERGER",
+          "points": "6"
+        },
+        {
+          "name": "N. MANSELL",
+          "points": "3"
+        },
+        {
+          "name": "T. BOUTSEN",
+          "points": "2"
+        },
+        {
+          "name": "R. PATRESE",
+          "points": "-"
+        },
+        {
+          "name": "A. NANNINI",
+          "points": "-"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "I. CAPELLI",
+          "points": "-"
+        },
+        {
+          "name": "R. MORENO",
+          "points": "-"
+        },
+        {
+          "name": "A. SUZUKI",
+          "points": "-"
+        },
+        {
+          "name": "E. BERNARD",
+          "points": "-"
+        },
+        {
+          "name": "D. WARWICK",
+          "points": "-"
+        },
+        {
+          "name": "S. NAKAJIMA",
+          "points": "-"
+        },
+        {
+          "name": "A. CAFFI",
+          "points": "-"
+        },
+        {
+          "name": "S. MODENA",
+          "points": "-"
+        },
+        {
+          "name": "M. GUGELMIN",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "3. Saint-Marin 13 mai",
+      "date": "3. Saint-Marin 13 mai",
+      "drivers": [
+        {
+          "name": "1 USA",
+          "points": "4 MCO"
+        },
+        {
+          "name": "A. SENNA",
+          "points": "-"
+        },
+        {
+          "name": "A. PROST",
+          "points": "3"
+        },
+        {
+          "name": "N. PIQUET",
+          "points": "2"
+        },
+        {
+          "name": "G. BERGER",
+          "points": "6"
+        },
+        {
+          "name": "N. MANSELL",
+          "points": "-"
+        },
+        {
+          "name": "T. BOUTSEN",
+          "points": "-"
+        },
+        {
+          "name": "R. PATRESE",
+          "points": "9"
+        },
+        {
+          "name": "A. NANNINI",
+          "points": "4"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "1"
+        },
+        {
+          "name": "I. CAPELLI",
+          "points": "-"
+        },
+        {
+          "name": "R. MORENO",
+          "points": "-"
+        },
+        {
+          "name": "A. SUZUKI",
+          "points": "-"
+        },
+        {
+          "name": "E. BERNARD",
+          "points": "-"
+        },
+        {
+          "name": "D. WARWICK",
+          "points": "-"
+        },
+        {
+          "name": "S. NAKAJIMA",
+          "points": "-"
+        },
+        {
+          "name": "A. CAFFI",
+          "points": "-"
+        },
+        {
+          "name": "S. MODENA",
+          "points": "-"
+        },
+        {
+          "name": "M. GUGELMIN",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "4. Monaco 27 mai",
+      "date": "4. Monaco 27 mai",
+      "drivers": [
+        {
+          "name": "1 USA",
+          "points": "5 CAN"
+        },
+        {
+          "name": "A. SENNA",
+          "points": "9"
+        },
+        {
+          "name": "A. PROST",
+          "points": "-"
+        },
+        {
+          "name": "N. PIQUET",
+          "points": "-"
+        },
+        {
+          "name": "G. BERGER",
+          "points": "4"
+        },
+        {
+          "name": "N. MANSELL",
+          "points": "-"
+        },
+        {
+          "name": "T. BOUTSEN",
+          "points": "3"
+        },
+        {
+          "name": "R. PATRESE",
+          "points": "-"
+        },
+        {
+          "name": "A. NANNINI",
+          "points": "-"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "6"
+        },
+        {
+          "name": "I. CAPELLI",
+          "points": "-"
+        },
+        {
+          "name": "R. MORENO",
+          "points": "-"
+        },
+        {
+          "name": "A. SUZUKI",
+          "points": "-"
+        },
+        {
+          "name": "E. BERNARD",
+          "points": "1"
+        },
+        {
+          "name": "D. WARWICK",
+          "points": "-"
+        },
+        {
+          "name": "S. NAKAJIMA",
+          "points": "-"
+        },
+        {
+          "name": "A. CAFFI",
+          "points": "2"
+        },
+        {
+          "name": "S. MODENA",
+          "points": "-"
+        },
+        {
+          "name": "M. GUGELMIN",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "5. Canada 10 juin",
+      "date": "5. Canada 10 juin",
+      "drivers": [
+        {
+          "name": "1 USA",
+          "points": "6 MEX"
+        },
+        {
+          "name": "A. SENNA",
+          "points": "9"
+        },
+        {
+          "name": "A. PROST",
+          "points": "(2)"
+        },
+        {
+          "name": "N. PIQUET",
+          "points": "6"
+        },
+        {
+          "name": "G. BERGER",
+          "points": "3"
+        },
+        {
+          "name": "N. MANSELL",
+          "points": "4"
+        },
+        {
+          "name": "T. BOUTSEN",
+          "points": "-"
+        },
+        {
+          "name": "R. PATRESE",
+          "points": "-"
+        },
+        {
+          "name": "A. NANNINI",
+          "points": "-"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "I. CAPELLI",
+          "points": "-"
+        },
+        {
+          "name": "R. MORENO",
+          "points": "-"
+        },
+        {
+          "name": "A. SUZUKI",
+          "points": "-"
+        },
+        {
+          "name": "E. BERNARD",
+          "points": "-"
+        },
+        {
+          "name": "D. WARWICK",
+          "points": "1"
+        },
+        {
+          "name": "S. NAKAJIMA",
+          "points": "-"
+        },
+        {
+          "name": "A. CAFFI",
+          "points": "-"
+        },
+        {
+          "name": "S. MODENA",
+          "points": "-"
+        },
+        {
+          "name": "M. GUGELMIN",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "6. Mexique 24 juin",
+      "date": "6. Mexique 24 juin",
+      "drivers": [
+        {
+          "name": "1 USA",
+          "points": "7 FRA"
+        },
+        {
+          "name": "A. SENNA",
+          "points": "-"
+        },
+        {
+          "name": "A. PROST",
+          "points": "9"
+        },
+        {
+          "name": "N. PIQUET",
+          "points": "(1)"
+        },
+        {
+          "name": "G. BERGER",
+          "points": "4"
+        },
+        {
+          "name": "N. MANSELL",
+          "points": "6"
+        },
+        {
+          "name": "T. BOUTSEN",
+          "points": "2"
+        },
+        {
+          "name": "R. PATRESE",
+          "points": "-"
+        },
+        {
+          "name": "A. NANNINI",
+          "points": "3"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "I. CAPELLI",
+          "points": "-"
+        },
+        {
+          "name": "R. MORENO",
+          "points": "-"
+        },
+        {
+          "name": "A. SUZUKI",
+          "points": "-"
+        },
+        {
+          "name": "E. BERNARD",
+          "points": "-"
+        },
+        {
+          "name": "D. WARWICK",
+          "points": "-"
+        },
+        {
+          "name": "S. NAKAJIMA",
+          "points": "-"
+        },
+        {
+          "name": "A. CAFFI",
+          "points": "-"
+        },
+        {
+          "name": "S. MODENA",
+          "points": "-"
+        },
+        {
+          "name": "M. GUGELMIN",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "7. France 8 juil",
+      "date": "7. France 8 juil",
+      "drivers": [
+        {
+          "name": "1 USA",
+          "points": "8 GBR"
+        },
+        {
+          "name": "A. SENNA",
+          "points": "4"
+        },
+        {
+          "name": "A. PROST",
+          "points": "9"
+        },
+        {
+          "name": "N. PIQUET",
+          "points": "3"
+        },
+        {
+          "name": "G. BERGER",
+          "points": "2"
+        },
+        {
+          "name": "N. MANSELL",
+          "points": "-"
+        },
+        {
+          "name": "T. BOUTSEN",
+          "points": "-"
+        },
+        {
+          "name": "R. PATRESE",
+          "points": "1"
+        },
+        {
+          "name": "A. NANNINI",
+          "points": "-"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "I. CAPELLI",
+          "points": "6"
+        },
+        {
+          "name": "R. MORENO",
+          "points": "-"
+        },
+        {
+          "name": "A. SUZUKI",
+          "points": "-"
+        },
+        {
+          "name": "E. BERNARD",
+          "points": "-"
+        },
+        {
+          "name": "D. WARWICK",
+          "points": "-"
+        },
+        {
+          "name": "S. NAKAJIMA",
+          "points": "-"
+        },
+        {
+          "name": "A. CAFFI",
+          "points": "-"
+        },
+        {
+          "name": "S. MODENA",
+          "points": "-"
+        },
+        {
+          "name": "M. GUGELMIN",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "8. Grande-Bretagne 15 juil",
+      "date": "8. Grande-Bretagne 15 juil",
+      "drivers": [
+        {
+          "name": "1 USA",
+          "points": "9 DEU"
+        },
+        {
+          "name": "A. SENNA",
+          "points": "4"
+        },
+        {
+          "name": "A. PROST",
+          "points": "9"
+        },
+        {
+          "name": "N. PIQUET",
+          "points": "2"
+        },
+        {
+          "name": "G. BERGER",
+          "points": "-"
+        },
+        {
+          "name": "N. MANSELL",
+          "points": "-"
+        },
+        {
+          "name": "T. BOUTSEN",
+          "points": "6"
+        },
+        {
+          "name": "R. PATRESE",
+          "points": "-"
+        },
+        {
+          "name": "A. NANNINI",
+          "points": "-"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "I. CAPELLI",
+          "points": "-"
+        },
+        {
+          "name": "R. MORENO",
+          "points": "-"
+        },
+        {
+          "name": "A. SUZUKI",
+          "points": "1"
+        },
+        {
+          "name": "E. BERNARD",
+          "points": "3"
+        },
+        {
+          "name": "D. WARWICK",
+          "points": "-"
+        },
+        {
+          "name": "S. NAKAJIMA",
+          "points": "-"
+        },
+        {
+          "name": "A. CAFFI",
+          "points": "-"
+        },
+        {
+          "name": "S. MODENA",
+          "points": "-"
+        },
+        {
+          "name": "M. GUGELMIN",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "9. Allemagne 29 juil",
+      "date": "9. Allemagne 29 juil",
+      "drivers": [
+        {
+          "name": "1 USA",
+          "points": "10 HUN"
+        },
+        {
+          "name": "A. SENNA",
+          "points": "9"
+        },
+        {
+          "name": "A. PROST",
+          "points": "3"
+        },
+        {
+          "name": "N. PIQUET",
+          "points": "-"
+        },
+        {
+          "name": "G. BERGER",
+          "points": "4"
+        },
+        {
+          "name": "N. MANSELL",
+          "points": "-"
+        },
+        {
+          "name": "T. BOUTSEN",
+          "points": "1"
+        },
+        {
+          "name": "R. PATRESE",
+          "points": "2"
+        },
+        {
+          "name": "A. NANNINI",
+          "points": "6"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "I. CAPELLI",
+          "points": "-"
+        },
+        {
+          "name": "R. MORENO",
+          "points": "-"
+        },
+        {
+          "name": "A. SUZUKI",
+          "points": "-"
+        },
+        {
+          "name": "E. BERNARD",
+          "points": "-"
+        },
+        {
+          "name": "D. WARWICK",
+          "points": "-"
+        },
+        {
+          "name": "S. NAKAJIMA",
+          "points": "-"
+        },
+        {
+          "name": "A. CAFFI",
+          "points": "-"
+        },
+        {
+          "name": "S. MODENA",
+          "points": "-"
+        },
+        {
+          "name": "M. GUGELMIN",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "10. Hongrie 12 août",
+      "date": "10. Hongrie 12 août",
+      "drivers": [
+        {
+          "name": "1 USA",
+          "points": "11 BEL"
+        },
+        {
+          "name": "A. SENNA",
+          "points": "6"
+        },
+        {
+          "name": "A. PROST",
+          "points": "-"
+        },
+        {
+          "name": "N. PIQUET",
+          "points": "4"
+        },
+        {
+          "name": "G. BERGER",
+          "points": "-"
+        },
+        {
+          "name": "N. MANSELL",
+          "points": "-"
+        },
+        {
+          "name": "T. BOUTSEN",
+          "points": "9"
+        },
+        {
+          "name": "R. PATRESE",
+          "points": "3"
+        },
+        {
+          "name": "A. NANNINI",
+          "points": "-"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "I. CAPELLI",
+          "points": "-"
+        },
+        {
+          "name": "R. MORENO",
+          "points": "-"
+        },
+        {
+          "name": "A. SUZUKI",
+          "points": "-"
+        },
+        {
+          "name": "E. BERNARD",
+          "points": "1"
+        },
+        {
+          "name": "D. WARWICK",
+          "points": "2"
+        },
+        {
+          "name": "S. NAKAJIMA",
+          "points": "-"
+        },
+        {
+          "name": "A. CAFFI",
+          "points": "-"
+        },
+        {
+          "name": "S. MODENA",
+          "points": "-"
+        },
+        {
+          "name": "M. GUGELMIN",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "11. Belgique 26 août",
+      "date": "11. Belgique 26 août",
+      "drivers": [
+        {
+          "name": "1 USA",
+          "points": "12 ITA"
+        },
+        {
+          "name": "A. SENNA",
+          "points": "9"
+        },
+        {
+          "name": "A. PROST",
+          "points": "6"
+        },
+        {
+          "name": "N. PIQUET",
+          "points": "2"
+        },
+        {
+          "name": "G. BERGER",
+          "points": "4"
+        },
+        {
+          "name": "N. MANSELL",
+          "points": "-"
+        },
+        {
+          "name": "T. BOUTSEN",
+          "points": "-"
+        },
+        {
+          "name": "R. PATRESE",
+          "points": "-"
+        },
+        {
+          "name": "A. NANNINI",
+          "points": "3"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "I. CAPELLI",
+          "points": "-"
+        },
+        {
+          "name": "R. MORENO",
+          "points": "-"
+        },
+        {
+          "name": "A. SUZUKI",
+          "points": "-"
+        },
+        {
+          "name": "E. BERNARD",
+          "points": "-"
+        },
+        {
+          "name": "D. WARWICK",
+          "points": "-"
+        },
+        {
+          "name": "S. NAKAJIMA",
+          "points": "-"
+        },
+        {
+          "name": "A. CAFFI",
+          "points": "-"
+        },
+        {
+          "name": "S. MODENA",
+          "points": "-"
+        },
+        {
+          "name": "M. GUGELMIN",
+          "points": "1"
+        }
+      ]
+    },
+    {
+      "gp_name": "12. Italie 9 sept",
+      "date": "12. Italie 9 sept",
+      "drivers": [
+        {
+          "name": "1 USA",
+          "points": "13 PRT"
+        },
+        {
+          "name": "A. SENNA",
+          "points": "9"
+        },
+        {
+          "name": "A. PROST",
+          "points": "6"
+        },
+        {
+          "name": "N. PIQUET",
+          "points": "-"
+        },
+        {
+          "name": "G. BERGER",
+          "points": "4"
+        },
+        {
+          "name": "N. MANSELL",
+          "points": "3"
+        },
+        {
+          "name": "T. BOUTSEN",
+          "points": "-"
+        },
+        {
+          "name": "R. PATRESE",
+          "points": "2"
+        },
+        {
+          "name": "A. NANNINI",
+          "points": "-"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "I. CAPELLI",
+          "points": "-"
+        },
+        {
+          "name": "R. MORENO",
+          "points": "-"
+        },
+        {
+          "name": "A. SUZUKI",
+          "points": "-"
+        },
+        {
+          "name": "E. BERNARD",
+          "points": "-"
+        },
+        {
+          "name": "D. WARWICK",
+          "points": "-"
+        },
+        {
+          "name": "S. NAKAJIMA",
+          "points": "1"
+        },
+        {
+          "name": "A. CAFFI",
+          "points": "-"
+        },
+        {
+          "name": "S. MODENA",
+          "points": "-"
+        },
+        {
+          "name": "M. GUGELMIN",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "13. Portugal 23 sept",
+      "date": "13. Portugal 23 sept",
+      "drivers": [
+        {
+          "name": "1 USA",
+          "points": "14 ESP"
+        },
+        {
+          "name": "A. SENNA",
+          "points": "6"
+        },
+        {
+          "name": "A. PROST",
+          "points": "4"
+        },
+        {
+          "name": "N. PIQUET",
+          "points": "2"
+        },
+        {
+          "name": "G. BERGER",
+          "points": "3"
+        },
+        {
+          "name": "N. MANSELL",
+          "points": "9"
+        },
+        {
+          "name": "T. BOUTSEN",
+          "points": "-"
+        },
+        {
+          "name": "R. PATRESE",
+          "points": "-"
+        },
+        {
+          "name": "A. NANNINI",
+          "points": "1"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "I. CAPELLI",
+          "points": "-"
+        },
+        {
+          "name": "R. MORENO",
+          "points": "-"
+        },
+        {
+          "name": "A. SUZUKI",
+          "points": "-"
+        },
+        {
+          "name": "E. BERNARD",
+          "points": "-"
+        },
+        {
+          "name": "D. WARWICK",
+          "points": "-"
+        },
+        {
+          "name": "S. NAKAJIMA",
+          "points": "-"
+        },
+        {
+          "name": "A. CAFFI",
+          "points": "-"
+        },
+        {
+          "name": "S. MODENA",
+          "points": "-"
+        },
+        {
+          "name": "M. GUGELMIN",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "14. Espagne 30 sept",
+      "date": "14. Espagne 30 sept",
+      "drivers": [
+        {
+          "name": "1 USA",
+          "points": "15 JPN"
+        },
+        {
+          "name": "A. SENNA",
+          "points": "-"
+        },
+        {
+          "name": "A. PROST",
+          "points": "9"
+        },
+        {
+          "name": "N. PIQUET",
+          "points": "-"
+        },
+        {
+          "name": "G. BERGER",
+          "points": "-"
+        },
+        {
+          "name": "N. MANSELL",
+          "points": "6"
+        },
+        {
+          "name": "T. BOUTSEN",
+          "points": "3"
+        },
+        {
+          "name": "R. PATRESE",
+          "points": "2"
+        },
+        {
+          "name": "A. NANNINI",
+          "points": "4"
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "I. CAPELLI",
+          "points": "-"
+        },
+        {
+          "name": "R. MORENO",
+          "points": "-"
+        },
+        {
+          "name": "A. SUZUKI",
+          "points": "1"
+        },
+        {
+          "name": "E. BERNARD",
+          "points": "-"
+        },
+        {
+          "name": "D. WARWICK",
+          "points": "-"
+        },
+        {
+          "name": "S. NAKAJIMA",
+          "points": "-"
+        },
+        {
+          "name": "A. CAFFI",
+          "points": null
+        },
+        {
+          "name": "S. MODENA",
+          "points": "-"
+        },
+        {
+          "name": "M. GUGELMIN",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "15. Japon 21 oct",
+      "date": "15. Japon 21 oct",
+      "drivers": [
+        {
+          "name": "1 USA",
+          "points": "16 AUS"
+        },
+        {
+          "name": "A. SENNA",
+          "points": "-"
+        },
+        {
+          "name": "A. PROST",
+          "points": "-"
+        },
+        {
+          "name": "N. PIQUET",
+          "points": "9"
+        },
+        {
+          "name": "G. BERGER",
+          "points": "-"
+        },
+        {
+          "name": "N. MANSELL",
+          "points": "-"
+        },
+        {
+          "name": "T. BOUTSEN",
+          "points": "2"
+        },
+        {
+          "name": "R. PATRESE",
+          "points": "3"
+        },
+        {
+          "name": "A. NANNINI",
+          "points": null
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "I. CAPELLI",
+          "points": "-"
+        },
+        {
+          "name": "R. MORENO",
+          "points": "6"
+        },
+        {
+          "name": "A. SUZUKI",
+          "points": "4"
+        },
+        {
+          "name": "E. BERNARD",
+          "points": "-"
+        },
+        {
+          "name": "D. WARWICK",
+          "points": "-"
+        },
+        {
+          "name": "S. NAKAJIMA",
+          "points": "1"
+        },
+        {
+          "name": "A. CAFFI",
+          "points": "-"
+        },
+        {
+          "name": "S. MODENA",
+          "points": "-"
+        },
+        {
+          "name": "M. GUGELMIN",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "16. Australie 4 nov",
+      "date": "16. Australie 4 nov",
+      "drivers": [
+        {
+          "name": "1 USA",
+          "points": "Pts"
+        },
+        {
+          "name": "A. SENNA",
+          "points": "-"
+        },
+        {
+          "name": "A. PROST",
+          "points": "4"
+        },
+        {
+          "name": "N. PIQUET",
+          "points": "9"
+        },
+        {
+          "name": "G. BERGER",
+          "points": "3"
+        },
+        {
+          "name": "N. MANSELL",
+          "points": "6"
+        },
+        {
+          "name": "T. BOUTSEN",
+          "points": "2"
+        },
+        {
+          "name": "R. PATRESE",
+          "points": "1"
+        },
+        {
+          "name": "A. NANNINI",
+          "points": null
+        },
+        {
+          "name": "J. ALESI",
+          "points": "-"
+        },
+        {
+          "name": "I. CAPELLI",
+          "points": "-"
+        },
+        {
+          "name": "R. MORENO",
+          "points": "-"
+        },
+        {
+          "name": "A. SUZUKI",
+          "points": "-"
+        },
+        {
+          "name": "E. BERNARD",
+          "points": "-"
+        },
+        {
+          "name": "D. WARWICK",
+          "points": "-"
+        },
+        {
+          "name": "S. NAKAJIMA",
+          "points": "-"
+        },
+        {
+          "name": "A. CAFFI",
+          "points": "-"
+        },
+        {
+          "name": "S. MODENA",
+          "points": "-"
+        },
+        {
+          "name": "M. GUGELMIN",
+          "points": "-"
+        }
+      ]
+    }
+  ]
+}

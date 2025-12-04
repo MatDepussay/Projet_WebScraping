@@ -1,0 +1,691 @@
+{
+  "season": 1950,
+  "gps": [
+    {
+      "gp_name": "1. Grande-Bretagne 13 mai",
+      "date": "1. Grande-Bretagne 13 mai",
+      "drivers": [
+        {
+          "name": "1 GBR",
+          "points": "2 MCO"
+        },
+        {
+          "name": "G. FARINA",
+          "points": "9"
+        },
+        {
+          "name": "J. FANGIO",
+          "points": "-"
+        },
+        {
+          "name": "L. FAGIOLI",
+          "points": "6"
+        },
+        {
+          "name": "L. ROSIER",
+          "points": "2"
+        },
+        {
+          "name": "A. ASCARI",
+          "points": null
+        },
+        {
+          "name": "J. PARSONS",
+          "points": null
+        },
+        {
+          "name": "B. HOLLAND",
+          "points": null
+        },
+        {
+          "name": "P. BIRA",
+          "points": "-"
+        },
+        {
+          "name": "P. WHITEHEAD",
+          "points": null
+        },
+        {
+          "name": "L. CHIRON",
+          "points": "-"
+        },
+        {
+          "name": "R. PARNELL",
+          "points": "4"
+        },
+        {
+          "name": "M. ROSE",
+          "points": null
+        },
+        {
+          "name": "D. SERAFINI",
+          "points": null
+        },
+        {
+          "name": "Y. GIRAUD-CABANTOUS",
+          "points": "3"
+        },
+        {
+          "name": "R. SOMMER",
+          "points": null
+        },
+        {
+          "name": "C. GREEN",
+          "points": null
+        },
+        {
+          "name": "R. MANZON",
+          "points": null
+        },
+        {
+          "name": "P. ETANCELIN",
+          "points": "-"
+        },
+        {
+          "name": "F. BONETTO",
+          "points": "-"
+        },
+        {
+          "name": "T. BETTENHAUSEN",
+          "points": null
+        },
+        {
+          "name": "J. CHITWOOD",
+          "points": null
+        },
+        {
+          "name": "E. CHABOUD",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "2. Monaco 21 mai",
+      "date": "2. Monaco 21 mai",
+      "drivers": [
+        {
+          "name": "1 GBR",
+          "points": "3 500"
+        },
+        {
+          "name": "G. FARINA",
+          "points": "-"
+        },
+        {
+          "name": "J. FANGIO",
+          "points": "9"
+        },
+        {
+          "name": "L. FAGIOLI",
+          "points": "-"
+        },
+        {
+          "name": "L. ROSIER",
+          "points": "-"
+        },
+        {
+          "name": "A. ASCARI",
+          "points": "6"
+        },
+        {
+          "name": "J. PARSONS",
+          "points": null
+        },
+        {
+          "name": "B. HOLLAND",
+          "points": null
+        },
+        {
+          "name": "P. BIRA",
+          "points": "2"
+        },
+        {
+          "name": "P. WHITEHEAD",
+          "points": "-"
+        },
+        {
+          "name": "L. CHIRON",
+          "points": "4"
+        },
+        {
+          "name": "R. PARNELL",
+          "points": null
+        },
+        {
+          "name": "M. ROSE",
+          "points": null
+        },
+        {
+          "name": "D. SERAFINI",
+          "points": null
+        },
+        {
+          "name": "Y. GIRAUD-CABANTOUS",
+          "points": "-"
+        },
+        {
+          "name": "R. SOMMER",
+          "points": "3"
+        },
+        {
+          "name": "C. GREEN",
+          "points": null
+        },
+        {
+          "name": "R. MANZON",
+          "points": "-"
+        },
+        {
+          "name": "P. ETANCELIN",
+          "points": "-"
+        },
+        {
+          "name": "F. BONETTO",
+          "points": null
+        },
+        {
+          "name": "T. BETTENHAUSEN",
+          "points": null
+        },
+        {
+          "name": "J. CHITWOOD",
+          "points": null
+        },
+        {
+          "name": "E. CHABOUD",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "3. Indianapolis 30 mai",
+      "date": "3. Indianapolis 30 mai",
+      "drivers": [
+        {
+          "name": "1 GBR",
+          "points": "4 CHE"
+        },
+        {
+          "name": "G. FARINA",
+          "points": null
+        },
+        {
+          "name": "J. FANGIO",
+          "points": null
+        },
+        {
+          "name": "L. FAGIOLI",
+          "points": null
+        },
+        {
+          "name": "L. ROSIER",
+          "points": null
+        },
+        {
+          "name": "A. ASCARI",
+          "points": null
+        },
+        {
+          "name": "J. PARSONS",
+          "points": "9"
+        },
+        {
+          "name": "B. HOLLAND",
+          "points": "6"
+        },
+        {
+          "name": "P. BIRA",
+          "points": null
+        },
+        {
+          "name": "P. WHITEHEAD",
+          "points": null
+        },
+        {
+          "name": "L. CHIRON",
+          "points": null
+        },
+        {
+          "name": "R. PARNELL",
+          "points": null
+        },
+        {
+          "name": "M. ROSE",
+          "points": "4"
+        },
+        {
+          "name": "D. SERAFINI",
+          "points": null
+        },
+        {
+          "name": "Y. GIRAUD-CABANTOUS",
+          "points": null
+        },
+        {
+          "name": "R. SOMMER",
+          "points": null
+        },
+        {
+          "name": "C. GREEN",
+          "points": "3"
+        },
+        {
+          "name": "R. MANZON",
+          "points": null
+        },
+        {
+          "name": "P. ETANCELIN",
+          "points": null
+        },
+        {
+          "name": "F. BONETTO",
+          "points": null
+        },
+        {
+          "name": "T. BETTENHAUSEN",
+          "points": "1"
+        },
+        {
+          "name": "J. CHITWOOD",
+          "points": "1"
+        },
+        {
+          "name": "E. CHABOUD",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "4. Suisse 4 juin",
+      "date": "4. Suisse 4 juin",
+      "drivers": [
+        {
+          "name": "1 GBR",
+          "points": "5 BEL"
+        },
+        {
+          "name": "G. FARINA",
+          "points": "9"
+        },
+        {
+          "name": "J. FANGIO",
+          "points": "-"
+        },
+        {
+          "name": "L. FAGIOLI",
+          "points": "6"
+        },
+        {
+          "name": "L. ROSIER",
+          "points": "4"
+        },
+        {
+          "name": "A. ASCARI",
+          "points": "-"
+        },
+        {
+          "name": "J. PARSONS",
+          "points": null
+        },
+        {
+          "name": "B. HOLLAND",
+          "points": null
+        },
+        {
+          "name": "P. BIRA",
+          "points": "3"
+        },
+        {
+          "name": "P. WHITEHEAD",
+          "points": "-"
+        },
+        {
+          "name": "L. CHIRON",
+          "points": "-"
+        },
+        {
+          "name": "R. PARNELL",
+          "points": "-"
+        },
+        {
+          "name": "M. ROSE",
+          "points": null
+        },
+        {
+          "name": "D. SERAFINI",
+          "points": null
+        },
+        {
+          "name": "Y. GIRAUD-CABANTOUS",
+          "points": "-"
+        },
+        {
+          "name": "R. SOMMER",
+          "points": "-"
+        },
+        {
+          "name": "C. GREEN",
+          "points": null
+        },
+        {
+          "name": "R. MANZON",
+          "points": null
+        },
+        {
+          "name": "P. ETANCELIN",
+          "points": "-"
+        },
+        {
+          "name": "F. BONETTO",
+          "points": "2"
+        },
+        {
+          "name": "T. BETTENHAUSEN",
+          "points": null
+        },
+        {
+          "name": "J. CHITWOOD",
+          "points": null
+        },
+        {
+          "name": "E. CHABOUD",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "5. Belgique 18 juin",
+      "date": "5. Belgique 18 juin",
+      "drivers": [
+        {
+          "name": "1 GBR",
+          "points": "6 FRA"
+        },
+        {
+          "name": "G. FARINA",
+          "points": "4"
+        },
+        {
+          "name": "J. FANGIO",
+          "points": "8"
+        },
+        {
+          "name": "L. FAGIOLI",
+          "points": "6"
+        },
+        {
+          "name": "L. ROSIER",
+          "points": "4"
+        },
+        {
+          "name": "A. ASCARI",
+          "points": "2"
+        },
+        {
+          "name": "J. PARSONS",
+          "points": null
+        },
+        {
+          "name": "B. HOLLAND",
+          "points": null
+        },
+        {
+          "name": "P. BIRA",
+          "points": null
+        },
+        {
+          "name": "P. WHITEHEAD",
+          "points": null
+        },
+        {
+          "name": "L. CHIRON",
+          "points": null
+        },
+        {
+          "name": "R. PARNELL",
+          "points": null
+        },
+        {
+          "name": "M. ROSE",
+          "points": null
+        },
+        {
+          "name": "D. SERAFINI",
+          "points": null
+        },
+        {
+          "name": "Y. GIRAUD-CABANTOUS",
+          "points": "-"
+        },
+        {
+          "name": "R. SOMMER",
+          "points": "-"
+        },
+        {
+          "name": "C. GREEN",
+          "points": null
+        },
+        {
+          "name": "R. MANZON",
+          "points": null
+        },
+        {
+          "name": "P. ETANCELIN",
+          "points": "-"
+        },
+        {
+          "name": "F. BONETTO",
+          "points": null
+        },
+        {
+          "name": "T. BETTENHAUSEN",
+          "points": null
+        },
+        {
+          "name": "J. CHITWOOD",
+          "points": null
+        },
+        {
+          "name": "E. CHABOUD",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "6. France 2 juil",
+      "date": "6. France 2 juil",
+      "drivers": [
+        {
+          "name": "1 GBR",
+          "points": "7 ITA"
+        },
+        {
+          "name": "G. FARINA",
+          "points": "-"
+        },
+        {
+          "name": "J. FANGIO",
+          "points": "9"
+        },
+        {
+          "name": "L. FAGIOLI",
+          "points": "6"
+        },
+        {
+          "name": "L. ROSIER",
+          "points": "-"
+        },
+        {
+          "name": "A. ASCARI",
+          "points": "-"
+        },
+        {
+          "name": "J. PARSONS",
+          "points": null
+        },
+        {
+          "name": "B. HOLLAND",
+          "points": null
+        },
+        {
+          "name": "P. BIRA",
+          "points": null
+        },
+        {
+          "name": "P. WHITEHEAD",
+          "points": "4"
+        },
+        {
+          "name": "L. CHIRON",
+          "points": "-"
+        },
+        {
+          "name": "R. PARNELL",
+          "points": "-"
+        },
+        {
+          "name": "M. ROSE",
+          "points": null
+        },
+        {
+          "name": "D. SERAFINI",
+          "points": null
+        },
+        {
+          "name": "Y. GIRAUD-CABANTOUS",
+          "points": "-"
+        },
+        {
+          "name": "R. SOMMER",
+          "points": "-"
+        },
+        {
+          "name": "C. GREEN",
+          "points": null
+        },
+        {
+          "name": "R. MANZON",
+          "points": "3"
+        },
+        {
+          "name": "P. ETANCELIN",
+          "points": "1"
+        },
+        {
+          "name": "F. BONETTO",
+          "points": "-"
+        },
+        {
+          "name": "T. BETTENHAUSEN",
+          "points": null
+        },
+        {
+          "name": "J. CHITWOOD",
+          "points": null
+        },
+        {
+          "name": "E. CHABOUD",
+          "points": "1"
+        }
+      ]
+    },
+    {
+      "gp_name": "7. Italie 3 sept",
+      "date": "7. Italie 3 sept",
+      "drivers": [
+        {
+          "name": "1 GBR",
+          "points": "Pts"
+        },
+        {
+          "name": "G. FARINA",
+          "points": "8"
+        },
+        {
+          "name": "J. FANGIO",
+          "points": "1"
+        },
+        {
+          "name": "L. FAGIOLI",
+          "points": "(4)"
+        },
+        {
+          "name": "L. ROSIER",
+          "points": "3"
+        },
+        {
+          "name": "A. ASCARI",
+          "points": "3"
+        },
+        {
+          "name": "J. PARSONS",
+          "points": null
+        },
+        {
+          "name": "B. HOLLAND",
+          "points": null
+        },
+        {
+          "name": "P. BIRA",
+          "points": "-"
+        },
+        {
+          "name": "P. WHITEHEAD",
+          "points": "-"
+        },
+        {
+          "name": "L. CHIRON",
+          "points": "-"
+        },
+        {
+          "name": "R. PARNELL",
+          "points": "-"
+        },
+        {
+          "name": "M. ROSE",
+          "points": null
+        },
+        {
+          "name": "D. SERAFINI",
+          "points": "3"
+        },
+        {
+          "name": "Y. GIRAUD-CABANTOUS",
+          "points": null
+        },
+        {
+          "name": "R. SOMMER",
+          "points": "-"
+        },
+        {
+          "name": "C. GREEN",
+          "points": null
+        },
+        {
+          "name": "R. MANZON",
+          "points": "-"
+        },
+        {
+          "name": "P. ETANCELIN",
+          "points": "2"
+        },
+        {
+          "name": "F. BONETTO",
+          "points": "-"
+        },
+        {
+          "name": "T. BETTENHAUSEN",
+          "points": null
+        },
+        {
+          "name": "J. CHITWOOD",
+          "points": null
+        },
+        {
+          "name": "E. CHABOUD",
+          "points": null
+        }
+      ]
+    }
+  ]
+}

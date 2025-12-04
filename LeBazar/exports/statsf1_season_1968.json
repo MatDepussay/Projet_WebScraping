@@ -1,0 +1,1277 @@
+{
+  "season": 1968,
+  "gps": [
+    {
+      "gp_name": "1. Afrique du Sud 1 janv",
+      "date": "1. Afrique du Sud 1 janv",
+      "drivers": [
+        {
+          "name": "1 ZAF",
+          "points": "2 ESP"
+        },
+        {
+          "name": "G. HILL",
+          "points": "6"
+        },
+        {
+          "name": "J. STEWART",
+          "points": "-"
+        },
+        {
+          "name": "D. HULME",
+          "points": "2"
+        },
+        {
+          "name": "J. ICKX",
+          "points": "-"
+        },
+        {
+          "name": "B. McLAREN",
+          "points": null
+        },
+        {
+          "name": "P. RODRIGUEZ",
+          "points": "-"
+        },
+        {
+          "name": "J. SIFFERT",
+          "points": "-"
+        },
+        {
+          "name": "J. SURTEES",
+          "points": "-"
+        },
+        {
+          "name": "J. BELTOISE",
+          "points": "1"
+        },
+        {
+          "name": "C. AMON",
+          "points": "3"
+        },
+        {
+          "name": "J. CLARK",
+          "points": "9"
+        },
+        {
+          "name": "J. RINDT",
+          "points": "4"
+        },
+        {
+          "name": "R. ATTWOOD",
+          "points": null
+        },
+        {
+          "name": "J. SERVOZ-GAVIN",
+          "points": null
+        },
+        {
+          "name": "J. OLIVER",
+          "points": null
+        },
+        {
+          "name": "L. SCARFIOTTI",
+          "points": "-"
+        },
+        {
+          "name": "L. BIANCHI",
+          "points": null
+        },
+        {
+          "name": "V. ELFORD",
+          "points": null
+        },
+        {
+          "name": "B. REDMAN",
+          "points": "-"
+        },
+        {
+          "name": "P. COURAGE",
+          "points": null
+        },
+        {
+          "name": "D. GURNEY",
+          "points": "-"
+        },
+        {
+          "name": "J. BONNIER",
+          "points": "-"
+        },
+        {
+          "name": "J. BRABHAM",
+          "points": "-"
+        },
+        {
+          "name": "S. MOSER",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "2. Espagne 12 mai",
+      "date": "2. Espagne 12 mai",
+      "drivers": [
+        {
+          "name": "1 ZAF",
+          "points": "3 MCO"
+        },
+        {
+          "name": "G. HILL",
+          "points": "9"
+        },
+        {
+          "name": "J. STEWART",
+          "points": null
+        },
+        {
+          "name": "D. HULME",
+          "points": "6"
+        },
+        {
+          "name": "J. ICKX",
+          "points": "-"
+        },
+        {
+          "name": "B. McLAREN",
+          "points": "-"
+        },
+        {
+          "name": "P. RODRIGUEZ",
+          "points": "-"
+        },
+        {
+          "name": "J. SIFFERT",
+          "points": "-"
+        },
+        {
+          "name": "J. SURTEES",
+          "points": "-"
+        },
+        {
+          "name": "J. BELTOISE",
+          "points": "2"
+        },
+        {
+          "name": "C. AMON",
+          "points": "-"
+        },
+        {
+          "name": "J. CLARK",
+          "points": null
+        },
+        {
+          "name": "J. RINDT",
+          "points": "-"
+        },
+        {
+          "name": "R. ATTWOOD",
+          "points": null
+        },
+        {
+          "name": "J. SERVOZ-GAVIN",
+          "points": null
+        },
+        {
+          "name": "J. OLIVER",
+          "points": "-"
+        },
+        {
+          "name": "L. SCARFIOTTI",
+          "points": "3"
+        },
+        {
+          "name": "L. BIANCHI",
+          "points": null
+        },
+        {
+          "name": "V. ELFORD",
+          "points": null
+        },
+        {
+          "name": "B. REDMAN",
+          "points": "4"
+        },
+        {
+          "name": "P. COURAGE",
+          "points": "-"
+        },
+        {
+          "name": "D. GURNEY",
+          "points": null
+        },
+        {
+          "name": "J. BONNIER",
+          "points": "-"
+        },
+        {
+          "name": "J. BRABHAM",
+          "points": "-"
+        },
+        {
+          "name": "S. MOSER",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "3. Monaco 26 mai",
+      "date": "3. Monaco 26 mai",
+      "drivers": [
+        {
+          "name": "1 ZAF",
+          "points": "4 BEL"
+        },
+        {
+          "name": "G. HILL",
+          "points": "9"
+        },
+        {
+          "name": "J. STEWART",
+          "points": null
+        },
+        {
+          "name": "D. HULME",
+          "points": "2"
+        },
+        {
+          "name": "J. ICKX",
+          "points": null
+        },
+        {
+          "name": "B. McLAREN",
+          "points": "-"
+        },
+        {
+          "name": "P. RODRIGUEZ",
+          "points": "-"
+        },
+        {
+          "name": "J. SIFFERT",
+          "points": "-"
+        },
+        {
+          "name": "J. SURTEES",
+          "points": "-"
+        },
+        {
+          "name": "J. BELTOISE",
+          "points": "-"
+        },
+        {
+          "name": "C. AMON",
+          "points": null
+        },
+        {
+          "name": "J. CLARK",
+          "points": null
+        },
+        {
+          "name": "J. RINDT",
+          "points": "-"
+        },
+        {
+          "name": "R. ATTWOOD",
+          "points": "6"
+        },
+        {
+          "name": "J. SERVOZ-GAVIN",
+          "points": "-"
+        },
+        {
+          "name": "J. OLIVER",
+          "points": "-"
+        },
+        {
+          "name": "L. SCARFIOTTI",
+          "points": "3"
+        },
+        {
+          "name": "L. BIANCHI",
+          "points": "4"
+        },
+        {
+          "name": "V. ELFORD",
+          "points": null
+        },
+        {
+          "name": "B. REDMAN",
+          "points": null
+        },
+        {
+          "name": "P. COURAGE",
+          "points": "-"
+        },
+        {
+          "name": "D. GURNEY",
+          "points": "-"
+        },
+        {
+          "name": "J. BONNIER",
+          "points": "-"
+        },
+        {
+          "name": "J. BRABHAM",
+          "points": "-"
+        },
+        {
+          "name": "S. MOSER",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "4. Belgique 9 juin",
+      "date": "4. Belgique 9 juin",
+      "drivers": [
+        {
+          "name": "1 ZAF",
+          "points": "5 NLD"
+        },
+        {
+          "name": "G. HILL",
+          "points": "-"
+        },
+        {
+          "name": "J. STEWART",
+          "points": "3"
+        },
+        {
+          "name": "D. HULME",
+          "points": "-"
+        },
+        {
+          "name": "J. ICKX",
+          "points": "4"
+        },
+        {
+          "name": "B. McLAREN",
+          "points": "9"
+        },
+        {
+          "name": "P. RODRIGUEZ",
+          "points": "6"
+        },
+        {
+          "name": "J. SIFFERT",
+          "points": "-"
+        },
+        {
+          "name": "J. SURTEES",
+          "points": "-"
+        },
+        {
+          "name": "J. BELTOISE",
+          "points": "-"
+        },
+        {
+          "name": "C. AMON",
+          "points": "-"
+        },
+        {
+          "name": "J. CLARK",
+          "points": null
+        },
+        {
+          "name": "J. RINDT",
+          "points": "-"
+        },
+        {
+          "name": "R. ATTWOOD",
+          "points": "-"
+        },
+        {
+          "name": "J. SERVOZ-GAVIN",
+          "points": null
+        },
+        {
+          "name": "J. OLIVER",
+          "points": "2"
+        },
+        {
+          "name": "L. SCARFIOTTI",
+          "points": null
+        },
+        {
+          "name": "L. BIANCHI",
+          "points": "1"
+        },
+        {
+          "name": "V. ELFORD",
+          "points": null
+        },
+        {
+          "name": "B. REDMAN",
+          "points": "-"
+        },
+        {
+          "name": "P. COURAGE",
+          "points": "-"
+        },
+        {
+          "name": "D. GURNEY",
+          "points": "-"
+        },
+        {
+          "name": "J. BONNIER",
+          "points": "-"
+        },
+        {
+          "name": "J. BRABHAM",
+          "points": "-"
+        },
+        {
+          "name": "S. MOSER",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "5. Pays-Bas 23 juin",
+      "date": "5. Pays-Bas 23 juin",
+      "drivers": [
+        {
+          "name": "1 ZAF",
+          "points": "6 FRA"
+        },
+        {
+          "name": "G. HILL",
+          "points": "-"
+        },
+        {
+          "name": "J. STEWART",
+          "points": "9"
+        },
+        {
+          "name": "D. HULME",
+          "points": "-"
+        },
+        {
+          "name": "J. ICKX",
+          "points": "3"
+        },
+        {
+          "name": "B. McLAREN",
+          "points": "-"
+        },
+        {
+          "name": "P. RODRIGUEZ",
+          "points": "4"
+        },
+        {
+          "name": "J. SIFFERT",
+          "points": "-"
+        },
+        {
+          "name": "J. SURTEES",
+          "points": "-"
+        },
+        {
+          "name": "J. BELTOISE",
+          "points": "6"
+        },
+        {
+          "name": "C. AMON",
+          "points": "1"
+        },
+        {
+          "name": "J. CLARK",
+          "points": null
+        },
+        {
+          "name": "J. RINDT",
+          "points": "-"
+        },
+        {
+          "name": "R. ATTWOOD",
+          "points": "-"
+        },
+        {
+          "name": "J. SERVOZ-GAVIN",
+          "points": null
+        },
+        {
+          "name": "J. OLIVER",
+          "points": "-"
+        },
+        {
+          "name": "L. SCARFIOTTI",
+          "points": null
+        },
+        {
+          "name": "L. BIANCHI",
+          "points": "-"
+        },
+        {
+          "name": "V. ELFORD",
+          "points": null
+        },
+        {
+          "name": "B. REDMAN",
+          "points": "-"
+        },
+        {
+          "name": "P. COURAGE",
+          "points": "-"
+        },
+        {
+          "name": "D. GURNEY",
+          "points": "-"
+        },
+        {
+          "name": "J. BONNIER",
+          "points": "-"
+        },
+        {
+          "name": "J. BRABHAM",
+          "points": "-"
+        },
+        {
+          "name": "S. MOSER",
+          "points": "2"
+        }
+      ]
+    },
+    {
+      "gp_name": "6. France 7 juil",
+      "date": "6. France 7 juil",
+      "drivers": [
+        {
+          "name": "1 ZAF",
+          "points": "7 GBR"
+        },
+        {
+          "name": "G. HILL",
+          "points": "-"
+        },
+        {
+          "name": "J. STEWART",
+          "points": "4"
+        },
+        {
+          "name": "D. HULME",
+          "points": "2"
+        },
+        {
+          "name": "J. ICKX",
+          "points": "9"
+        },
+        {
+          "name": "B. McLAREN",
+          "points": "-"
+        },
+        {
+          "name": "P. RODRIGUEZ",
+          "points": "-"
+        },
+        {
+          "name": "J. SIFFERT",
+          "points": "-"
+        },
+        {
+          "name": "J. SURTEES",
+          "points": "6"
+        },
+        {
+          "name": "J. BELTOISE",
+          "points": "-"
+        },
+        {
+          "name": "C. AMON",
+          "points": "-"
+        },
+        {
+          "name": "J. CLARK",
+          "points": null
+        },
+        {
+          "name": "J. RINDT",
+          "points": "-"
+        },
+        {
+          "name": "R. ATTWOOD",
+          "points": "-"
+        },
+        {
+          "name": "J. SERVOZ-GAVIN",
+          "points": "-"
+        },
+        {
+          "name": "J. OLIVER",
+          "points": "-"
+        },
+        {
+          "name": "L. SCARFIOTTI",
+          "points": null
+        },
+        {
+          "name": "L. BIANCHI",
+          "points": null
+        },
+        {
+          "name": "V. ELFORD",
+          "points": "3"
+        },
+        {
+          "name": "B. REDMAN",
+          "points": null
+        },
+        {
+          "name": "P. COURAGE",
+          "points": "1"
+        },
+        {
+          "name": "D. GURNEY",
+          "points": "-"
+        },
+        {
+          "name": "J. BONNIER",
+          "points": null
+        },
+        {
+          "name": "J. BRABHAM",
+          "points": "-"
+        },
+        {
+          "name": "S. MOSER",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "7. Grande-Bretagne 20 juil",
+      "date": "7. Grande-Bretagne 20 juil",
+      "drivers": [
+        {
+          "name": "1 ZAF",
+          "points": "8 DEU"
+        },
+        {
+          "name": "G. HILL",
+          "points": "-"
+        },
+        {
+          "name": "J. STEWART",
+          "points": "1"
+        },
+        {
+          "name": "D. HULME",
+          "points": "3"
+        },
+        {
+          "name": "J. ICKX",
+          "points": "4"
+        },
+        {
+          "name": "B. McLAREN",
+          "points": "-"
+        },
+        {
+          "name": "P. RODRIGUEZ",
+          "points": "-"
+        },
+        {
+          "name": "J. SIFFERT",
+          "points": "9"
+        },
+        {
+          "name": "J. SURTEES",
+          "points": "2"
+        },
+        {
+          "name": "J. BELTOISE",
+          "points": "-"
+        },
+        {
+          "name": "C. AMON",
+          "points": "6"
+        },
+        {
+          "name": "J. CLARK",
+          "points": null
+        },
+        {
+          "name": "J. RINDT",
+          "points": "-"
+        },
+        {
+          "name": "R. ATTWOOD",
+          "points": "-"
+        },
+        {
+          "name": "J. SERVOZ-GAVIN",
+          "points": null
+        },
+        {
+          "name": "J. OLIVER",
+          "points": "-"
+        },
+        {
+          "name": "L. SCARFIOTTI",
+          "points": null
+        },
+        {
+          "name": "L. BIANCHI",
+          "points": "-"
+        },
+        {
+          "name": "V. ELFORD",
+          "points": "-"
+        },
+        {
+          "name": "B. REDMAN",
+          "points": null
+        },
+        {
+          "name": "P. COURAGE",
+          "points": "-"
+        },
+        {
+          "name": "D. GURNEY",
+          "points": "-"
+        },
+        {
+          "name": "J. BONNIER",
+          "points": "-"
+        },
+        {
+          "name": "J. BRABHAM",
+          "points": "-"
+        },
+        {
+          "name": "S. MOSER",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "8. Allemagne 4 août",
+      "date": "8. Allemagne 4 août",
+      "drivers": [
+        {
+          "name": "1 ZAF",
+          "points": "9 ITA"
+        },
+        {
+          "name": "G. HILL",
+          "points": "6"
+        },
+        {
+          "name": "J. STEWART",
+          "points": "9"
+        },
+        {
+          "name": "D. HULME",
+          "points": "-"
+        },
+        {
+          "name": "J. ICKX",
+          "points": "3"
+        },
+        {
+          "name": "B. McLAREN",
+          "points": "-"
+        },
+        {
+          "name": "P. RODRIGUEZ",
+          "points": "1"
+        },
+        {
+          "name": "J. SIFFERT",
+          "points": "-"
+        },
+        {
+          "name": "J. SURTEES",
+          "points": "-"
+        },
+        {
+          "name": "J. BELTOISE",
+          "points": "-"
+        },
+        {
+          "name": "C. AMON",
+          "points": "-"
+        },
+        {
+          "name": "J. CLARK",
+          "points": null
+        },
+        {
+          "name": "J. RINDT",
+          "points": "4"
+        },
+        {
+          "name": "R. ATTWOOD",
+          "points": "-"
+        },
+        {
+          "name": "J. SERVOZ-GAVIN",
+          "points": null
+        },
+        {
+          "name": "J. OLIVER",
+          "points": "-"
+        },
+        {
+          "name": "L. SCARFIOTTI",
+          "points": null
+        },
+        {
+          "name": "L. BIANCHI",
+          "points": "-"
+        },
+        {
+          "name": "V. ELFORD",
+          "points": "-"
+        },
+        {
+          "name": "B. REDMAN",
+          "points": null
+        },
+        {
+          "name": "P. COURAGE",
+          "points": "-"
+        },
+        {
+          "name": "D. GURNEY",
+          "points": "-"
+        },
+        {
+          "name": "J. BONNIER",
+          "points": "-"
+        },
+        {
+          "name": "J. BRABHAM",
+          "points": "2"
+        },
+        {
+          "name": "S. MOSER",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "9. Italie 8 sept",
+      "date": "9. Italie 8 sept",
+      "drivers": [
+        {
+          "name": "1 ZAF",
+          "points": "10 CAN"
+        },
+        {
+          "name": "G. HILL",
+          "points": "-"
+        },
+        {
+          "name": "J. STEWART",
+          "points": "-"
+        },
+        {
+          "name": "D. HULME",
+          "points": "9"
+        },
+        {
+          "name": "J. ICKX",
+          "points": "4"
+        },
+        {
+          "name": "B. McLAREN",
+          "points": "-"
+        },
+        {
+          "name": "P. RODRIGUEZ",
+          "points": "-"
+        },
+        {
+          "name": "J. SIFFERT",
+          "points": "-"
+        },
+        {
+          "name": "J. SURTEES",
+          "points": "-"
+        },
+        {
+          "name": "J. BELTOISE",
+          "points": "2"
+        },
+        {
+          "name": "C. AMON",
+          "points": "-"
+        },
+        {
+          "name": "J. CLARK",
+          "points": null
+        },
+        {
+          "name": "J. RINDT",
+          "points": "-"
+        },
+        {
+          "name": "R. ATTWOOD",
+          "points": null
+        },
+        {
+          "name": "J. SERVOZ-GAVIN",
+          "points": "6"
+        },
+        {
+          "name": "J. OLIVER",
+          "points": "-"
+        },
+        {
+          "name": "L. SCARFIOTTI",
+          "points": null
+        },
+        {
+          "name": "L. BIANCHI",
+          "points": "-"
+        },
+        {
+          "name": "V. ELFORD",
+          "points": "-"
+        },
+        {
+          "name": "B. REDMAN",
+          "points": null
+        },
+        {
+          "name": "P. COURAGE",
+          "points": "3"
+        },
+        {
+          "name": "D. GURNEY",
+          "points": "-"
+        },
+        {
+          "name": "J. BONNIER",
+          "points": "1"
+        },
+        {
+          "name": "J. BRABHAM",
+          "points": "-"
+        },
+        {
+          "name": "S. MOSER",
+          "points": "-"
+        }
+      ]
+    },
+    {
+      "gp_name": "10. Canada 22 sept",
+      "date": "10. Canada 22 sept",
+      "drivers": [
+        {
+          "name": "1 ZAF",
+          "points": "11 USA"
+        },
+        {
+          "name": "G. HILL",
+          "points": "3"
+        },
+        {
+          "name": "J. STEWART",
+          "points": "1"
+        },
+        {
+          "name": "D. HULME",
+          "points": "9"
+        },
+        {
+          "name": "J. ICKX",
+          "points": "-"
+        },
+        {
+          "name": "B. McLAREN",
+          "points": "6"
+        },
+        {
+          "name": "P. RODRIGUEZ",
+          "points": "4"
+        },
+        {
+          "name": "J. SIFFERT",
+          "points": "-"
+        },
+        {
+          "name": "J. SURTEES",
+          "points": "-"
+        },
+        {
+          "name": "J. BELTOISE",
+          "points": "-"
+        },
+        {
+          "name": "C. AMON",
+          "points": "-"
+        },
+        {
+          "name": "J. CLARK",
+          "points": null
+        },
+        {
+          "name": "J. RINDT",
+          "points": "-"
+        },
+        {
+          "name": "R. ATTWOOD",
+          "points": null
+        },
+        {
+          "name": "J. SERVOZ-GAVIN",
+          "points": "-"
+        },
+        {
+          "name": "J. OLIVER",
+          "points": "-"
+        },
+        {
+          "name": "L. SCARFIOTTI",
+          "points": null
+        },
+        {
+          "name": "L. BIANCHI",
+          "points": "-"
+        },
+        {
+          "name": "V. ELFORD",
+          "points": "2"
+        },
+        {
+          "name": "B. REDMAN",
+          "points": null
+        },
+        {
+          "name": "P. COURAGE",
+          "points": "-"
+        },
+        {
+          "name": "D. GURNEY",
+          "points": "-"
+        },
+        {
+          "name": "J. BONNIER",
+          "points": "-"
+        },
+        {
+          "name": "J. BRABHAM",
+          "points": "-"
+        },
+        {
+          "name": "S. MOSER",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "11. Etats-Unis 6 oct",
+      "date": "11. Etats-Unis 6 oct",
+      "drivers": [
+        {
+          "name": "1 ZAF",
+          "points": "12 MEX"
+        },
+        {
+          "name": "G. HILL",
+          "points": "6"
+        },
+        {
+          "name": "J. STEWART",
+          "points": "9"
+        },
+        {
+          "name": "D. HULME",
+          "points": "-"
+        },
+        {
+          "name": "J. ICKX",
+          "points": null
+        },
+        {
+          "name": "B. McLAREN",
+          "points": "1"
+        },
+        {
+          "name": "P. RODRIGUEZ",
+          "points": "-"
+        },
+        {
+          "name": "J. SIFFERT",
+          "points": "2"
+        },
+        {
+          "name": "J. SURTEES",
+          "points": "4"
+        },
+        {
+          "name": "J. BELTOISE",
+          "points": "-"
+        },
+        {
+          "name": "C. AMON",
+          "points": "-"
+        },
+        {
+          "name": "J. CLARK",
+          "points": null
+        },
+        {
+          "name": "J. RINDT",
+          "points": "-"
+        },
+        {
+          "name": "R. ATTWOOD",
+          "points": null
+        },
+        {
+          "name": "J. SERVOZ-GAVIN",
+          "points": null
+        },
+        {
+          "name": "J. OLIVER",
+          "points": "-"
+        },
+        {
+          "name": "L. SCARFIOTTI",
+          "points": null
+        },
+        {
+          "name": "L. BIANCHI",
+          "points": "-"
+        },
+        {
+          "name": "V. ELFORD",
+          "points": "-"
+        },
+        {
+          "name": "B. REDMAN",
+          "points": null
+        },
+        {
+          "name": "P. COURAGE",
+          "points": "-"
+        },
+        {
+          "name": "D. GURNEY",
+          "points": "3"
+        },
+        {
+          "name": "J. BONNIER",
+          "points": "-"
+        },
+        {
+          "name": "J. BRABHAM",
+          "points": "-"
+        },
+        {
+          "name": "S. MOSER",
+          "points": null
+        }
+      ]
+    },
+    {
+      "gp_name": "12. Mexique 3 nov",
+      "date": "12. Mexique 3 nov",
+      "drivers": [
+        {
+          "name": "1 ZAF",
+          "points": "Pts"
+        },
+        {
+          "name": "G. HILL",
+          "points": "9"
+        },
+        {
+          "name": "J. STEWART",
+          "points": "-"
+        },
+        {
+          "name": "D. HULME",
+          "points": "-"
+        },
+        {
+          "name": "J. ICKX",
+          "points": "-"
+        },
+        {
+          "name": "B. McLAREN",
+          "points": "6"
+        },
+        {
+          "name": "P. RODRIGUEZ",
+          "points": "3"
+        },
+        {
+          "name": "J. SIFFERT",
+          "points": "1"
+        },
+        {
+          "name": "J. SURTEES",
+          "points": "-"
+        },
+        {
+          "name": "J. BELTOISE",
+          "points": "-"
+        },
+        {
+          "name": "C. AMON",
+          "points": "-"
+        },
+        {
+          "name": "J. CLARK",
+          "points": null
+        },
+        {
+          "name": "J. RINDT",
+          "points": "-"
+        },
+        {
+          "name": "R. ATTWOOD",
+          "points": null
+        },
+        {
+          "name": "J. SERVOZ-GAVIN",
+          "points": "-"
+        },
+        {
+          "name": "J. OLIVER",
+          "points": "4"
+        },
+        {
+          "name": "L. SCARFIOTTI",
+          "points": null
+        },
+        {
+          "name": "L. BIANCHI",
+          "points": "-"
+        },
+        {
+          "name": "V. ELFORD",
+          "points": "-"
+        },
+        {
+          "name": "B. REDMAN",
+          "points": null
+        },
+        {
+          "name": "P. COURAGE",
+          "points": "-"
+        },
+        {
+          "name": "D. GURNEY",
+          "points": "-"
+        },
+        {
+          "name": "J. BONNIER",
+          "points": "2"
+        },
+        {
+          "name": "J. BRABHAM",
+          "points": "-"
+        },
+        {
+          "name": "S. MOSER",
+          "points": null
+        }
+      ]
+    }
+  ]
+}
