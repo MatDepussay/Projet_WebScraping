@@ -1,0 +1,138 @@
+{
+  "year": 2016,
+  "gp": "europe",
+  "grid": [
+    {
+      "position": 1,
+      "driver": "N.ROSBERG",
+      "constructor": "Mercedes",
+      "engine": null
+    },
+    {
+      "position": 2,
+      "driver": "D.RICCIARDO",
+      "constructor": "Red Bull",
+      "engine": null
+    },
+    {
+      "position": 3,
+      "driver": "S.VETTEL",
+      "constructor": "Ferrari",
+      "engine": null
+    },
+    {
+      "position": 4,
+      "driver": "K.RAIKKONEN",
+      "constructor": "Ferrari",
+      "engine": null
+    },
+    {
+      "position": 5,
+      "driver": "F.MASSA",
+      "constructor": "Williams",
+      "engine": "Mercedes"
+    },
+    {
+      "position": 6,
+      "driver": "D.KVYAT",
+      "constructor": null,
+      "engine": "Ferrari"
+    },
+    {
+      "position": 7,
+      "driver": "S.PEREZ",
+      "constructor": null,
+      "engine": "Mercedes"
+    },
+    {
+      "position": 8,
+      "driver": "V.BOTTAS",
+      "constructor": "Williams",
+      "engine": "Mercedes"
+    },
+    {
+      "position": 9,
+      "driver": "M.VERSTAPPEN",
+      "constructor": "Red Bull",
+      "engine": null
+    },
+    {
+      "position": 10,
+      "driver": "L.HAMILTON",
+      "constructor": "Mercedes",
+      "engine": null
+    },
+    {
+      "position": 11,
+      "driver": "R.GROSJEAN",
+      "constructor": "Haas",
+      "engine": "Ferrari"
+    },
+    {
+      "position": 12,
+      "driver": "N.HULKENBERG",
+      "constructor": null,
+      "engine": "Mercedes"
+    },
+    {
+      "position": 13,
+      "driver": "F.ALONSO",
+      "constructor": "McLaren",
+      "engine": null
+    },
+    {
+      "position": 14,
+      "driver": "E.GUTIERREZ",
+      "constructor": "Haas",
+      "engine": "Ferrari"
+    },
+    {
+      "position": 15,
+      "driver": "F.NASR",
+      "constructor": null,
+      "engine": "Ferrari"
+    },
+    {
+      "position": 16,
+      "driver": "R.HARYANTO",
+      "constructor": null,
+      "engine": "Mercedes"
+    },
+    {
+      "position": 17,
+      "driver": "P.WEHRLEIN",
+      "constructor": null,
+      "engine": "Mercedes"
+    },
+    {
+      "position": 18,
+      "driver": "C.SAINZ",
+      "constructor": null,
+      "engine": "Ferrari"
+    },
+    {
+      "position": 19,
+      "driver": "J.BUTTON",
+      "constructor": "McLaren",
+      "engine": null
+    },
+    {
+      "position": 20,
+      "driver": "M.ERICSSON",
+      "constructor": null,
+      "engine": "Ferrari"
+    },
+    {
+      "position": 21,
+      "driver": "J.PALMER",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 22,
+      "driver": "K.MAGNUSSEN",
+      "constructor": null,
+      "engine": null
+    }
+  ]
+}

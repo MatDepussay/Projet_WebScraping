@@ -1,0 +1,138 @@
+{
+  "year": 2002,
+  "gp": "autriche",
+  "grid": [
+    {
+      "position": 1,
+      "driver": "R.BARRICHELLO",
+      "constructor": "Ferrari",
+      "engine": null
+    },
+    {
+      "position": 2,
+      "driver": "R.SCHUMACHER",
+      "constructor": "Williams",
+      "engine": null
+    },
+    {
+      "position": 3,
+      "driver": "M.SCHUMACHER",
+      "constructor": "Ferrari",
+      "engine": null
+    },
+    {
+      "position": 4,
+      "driver": "J.MONTOYA",
+      "constructor": "Williams",
+      "engine": null
+    },
+    {
+      "position": 5,
+      "driver": "N.HEIDFELD",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 6,
+      "driver": "K.RAIKKONEN",
+      "constructor": "McLaren",
+      "engine": "Mercedes"
+    },
+    {
+      "position": 7,
+      "driver": "F.MASSA",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 8,
+      "driver": "D.COULTHARD",
+      "constructor": "McLaren",
+      "engine": "Mercedes"
+    },
+    {
+      "position": 9,
+      "driver": "O.PANIS",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 10,
+      "driver": "M.SALO",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 11,
+      "driver": "H.FRENTZEN",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 12,
+      "driver": "E.BERNOLDI",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 13,
+      "driver": "J.BUTTON",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 14,
+      "driver": "A.McNISH",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 15,
+      "driver": "G.FISICHELLA",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 16,
+      "driver": "J.TRULLI",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 17,
+      "driver": "J.VILLENEUVE",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 18,
+      "driver": "T.SATO",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 19,
+      "driver": "P.de la ROSA",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 20,
+      "driver": "E.IRVINE",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 21,
+      "driver": "M.WEBBER",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 22,
+      "driver": "A.YOONG",
+      "constructor": null,
+      "engine": null
+    }
+  ]
+}

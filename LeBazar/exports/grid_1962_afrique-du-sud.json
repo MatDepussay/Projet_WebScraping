@@ -1,0 +1,108 @@
+{
+  "year": 1962,
+  "gp": "afrique-du-sud",
+  "grid": [
+    {
+      "position": 1,
+      "driver": "J.CLARK",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 2,
+      "driver": "G.HILL",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 3,
+      "driver": "J.BRABHAM",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 4,
+      "driver": "I.IRELAND",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 5,
+      "driver": "J.SURTEES",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 6,
+      "driver": "T.MAGGS",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 7,
+      "driver": "R.GINTHER",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 8,
+      "driver": "B.McLAREN",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 9,
+      "driver": "T.TAYLOR",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 10,
+      "driver": "N.LEDERLE",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 11,
+      "driver": "R.SALVADORI",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 12,
+      "driver": "J.LOVE",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 13,
+      "driver": "E.PIETERSE",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 14,
+      "driver": "D.SERRURIER",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 15,
+      "driver": "M.HARRIS",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 16,
+      "driver": "C.GODIN de BEAUFORT",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 17,
+      "driver": "B.JOHNSTONE",
+      "constructor": null,
+      "engine": null
+    }
+  ]
+}

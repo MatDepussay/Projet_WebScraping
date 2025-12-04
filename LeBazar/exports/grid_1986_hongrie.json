@@ -1,0 +1,162 @@
+{
+  "year": 1986,
+  "gp": "hongrie",
+  "grid": [
+    {
+      "position": 1,
+      "driver": "A.SENNA",
+      "constructor": null,
+      "engine": "Renault"
+    },
+    {
+      "position": 2,
+      "driver": "N.PIQUET",
+      "constructor": "Williams",
+      "engine": null
+    },
+    {
+      "position": 3,
+      "driver": "A.PROST",
+      "constructor": "McLaren",
+      "engine": null
+    },
+    {
+      "position": 4,
+      "driver": "N.MANSELL",
+      "constructor": "Williams",
+      "engine": null
+    },
+    {
+      "position": 5,
+      "driver": "K.ROSBERG",
+      "constructor": "McLaren",
+      "engine": null
+    },
+    {
+      "position": 6,
+      "driver": "P.TAMBAY",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 7,
+      "driver": "S.JOHANSSON",
+      "constructor": "Ferrari",
+      "engine": null
+    },
+    {
+      "position": 8,
+      "driver": "J.DUMFRIES",
+      "constructor": null,
+      "engine": "Renault"
+    },
+    {
+      "position": 9,
+      "driver": "R.ARNOUX",
+      "constructor": null,
+      "engine": "Renault"
+    },
+    {
+      "position": 10,
+      "driver": "A.JONES",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 11,
+      "driver": "G.BERGER",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 12,
+      "driver": "P.ALLIOT",
+      "constructor": null,
+      "engine": "Renault"
+    },
+    {
+      "position": 13,
+      "driver": "T.FABI",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 14,
+      "driver": "R.PATRESE",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 15,
+      "driver": "M.ALBORETO",
+      "constructor": "Ferrari",
+      "engine": null
+    },
+    {
+      "position": 16,
+      "driver": "M.BRUNDLE",
+      "constructor": null,
+      "engine": "Renault"
+    },
+    {
+      "position": 17,
+      "driver": "A.NANNINI",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 18,
+      "driver": "P.STREIFF",
+      "constructor": null,
+      "engine": "Renault"
+    },
+    {
+      "position": 19,
+      "driver": "D.WARWICK",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 20,
+      "driver": "A.De CESARIS",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 21,
+      "driver": "C.DANNER",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 22,
+      "driver": "T.BOUTSEN",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 23,
+      "driver": "P.GHINZANI",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 24,
+      "driver": "J.PALMER",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 25,
+      "driver": "H.ROTHENGATTER",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 26,
+      "driver": "A.BERG",
+      "constructor": null,
+      "engine": null
+    }
+  ]
+}

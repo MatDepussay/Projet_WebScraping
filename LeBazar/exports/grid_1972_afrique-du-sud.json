@@ -1,0 +1,162 @@
+{
+  "year": 1972,
+  "gp": "afrique-du-sud",
+  "grid": [
+    {
+      "position": 1,
+      "driver": "J.STEWART",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 2,
+      "driver": "C.REGAZZONI",
+      "constructor": "Ferrari",
+      "engine": null
+    },
+    {
+      "position": 3,
+      "driver": "E.FITTIPALDI",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 4,
+      "driver": "M.HAILWOOD",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 5,
+      "driver": "D.HULME",
+      "constructor": "McLaren",
+      "engine": null
+    },
+    {
+      "position": 6,
+      "driver": "M.ANDRETTI",
+      "constructor": "Ferrari",
+      "engine": null
+    },
+    {
+      "position": 7,
+      "driver": "J.ICKX",
+      "constructor": "Ferrari",
+      "engine": null
+    },
+    {
+      "position": 8,
+      "driver": "F.CEVERT",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 9,
+      "driver": "R.PETERSON",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 10,
+      "driver": "T.SCHENKEN",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 11,
+      "driver": "J.BELTOISE",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 12,
+      "driver": "P.REVSON",
+      "constructor": "McLaren",
+      "engine": null
+    },
+    {
+      "position": 13,
+      "driver": "C.AMON",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 14,
+      "driver": "G.HILL",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 15,
+      "driver": "C.REUTEMANN",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 16,
+      "driver": "H.GANLEY",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 17,
+      "driver": "D.CHARLTON",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 18,
+      "driver": "P.GETHIN",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 19,
+      "driver": "D.WALKER",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 20,
+      "driver": "A.De ADAMICH",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 21,
+      "driver": "N.LAUDA",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 22,
+      "driver": "H.PESCAROLO",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 23,
+      "driver": "H.MARKO",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 24,
+      "driver": "C.PACE",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 25,
+      "driver": "R.STOMMELEN",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 26,
+      "driver": "J.LOVE",
+      "constructor": null,
+      "engine": null
+    }
+  ]
+}

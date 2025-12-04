@@ -1,0 +1,138 @@
+{
+  "year": 2006,
+  "gp": "etats-unis",
+  "grid": [
+    {
+      "position": 1,
+      "driver": "M.SCHUMACHER",
+      "constructor": "Ferrari",
+      "engine": null
+    },
+    {
+      "position": 2,
+      "driver": "F.MASSA",
+      "constructor": "Ferrari",
+      "engine": null
+    },
+    {
+      "position": 3,
+      "driver": "G.FISICHELLA",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 4,
+      "driver": "R.BARRICHELLO",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 5,
+      "driver": "F.ALONSO",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 6,
+      "driver": "J.VILLENEUVE",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 7,
+      "driver": "J.BUTTON",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 8,
+      "driver": "R.SCHUMACHER",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 9,
+      "driver": "K.RAIKKONEN",
+      "constructor": "McLaren",
+      "engine": "Mercedes"
+    },
+    {
+      "position": 10,
+      "driver": "N.HEIDFELD",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 11,
+      "driver": "J.MONTOYA",
+      "constructor": "McLaren",
+      "engine": "Mercedes"
+    },
+    {
+      "position": 12,
+      "driver": "M.WEBBER",
+      "constructor": "Williams",
+      "engine": null
+    },
+    {
+      "position": 13,
+      "driver": "S.SPEED",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 14,
+      "driver": "C.ALBERS",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 15,
+      "driver": "T.MONTEIRO",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 16,
+      "driver": "C.KLIEN",
+      "constructor": "Red Bull",
+      "engine": "Ferrari"
+    },
+    {
+      "position": 17,
+      "driver": "D.COULTHARD",
+      "constructor": "Red Bull",
+      "engine": "Ferrari"
+    },
+    {
+      "position": 18,
+      "driver": "T.SATO",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 19,
+      "driver": "F.MONTAGNY",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 20,
+      "driver": "V.LIUZZI",
+      "constructor": null,
+      "engine": null
+    },
+    {
+      "position": 21,
+      "driver": "N.ROSBERG",
+      "constructor": "Williams",
+      "engine": null
+    },
+    {
+      "position": 22,
+      "driver": "J.TRULLI",
+      "constructor": null,
+      "engine": null
+    }
+  ]
+}
