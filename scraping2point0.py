@@ -14,8 +14,13 @@ import json
 
 # Charger le fichier HTML
 repertoire = Path(".").resolve()
-dossier = list(repertoire.glob("*"))[18]
-fichier = list(dossier.glob("*"))[7]
+print(repertoire)
+if "matde" in str(repertoire):
+    dossier = list(repertoire.glob("*"))[13]
+    fichier = list(dossier.glob("*"))[8]
+else:
+    dossier = list(repertoire.glob("*"))[18]
+    fichier = list(dossier.glob("*"))[7]
 
 code_html = fichier.read_text(encoding="utf-8")
 soupe = BS(code_html, features="html.parser")
@@ -74,3 +79,6 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+
+
