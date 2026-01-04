@@ -10,6 +10,7 @@
 # ///
 
 import json
+import re
 from bs4 import BeautifulSoup as BS
 from pydantic import BaseModel
 from pathlib import Path
@@ -22,7 +23,6 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
-import re
 
 # --- Modèles Pydantic ---
 class Voiture(BaseModel):
@@ -131,67 +131,199 @@ def extraire_details_annonce(html_content: str, url: str) -> dict:
     
     soupe = BS(html_content, "lxml")
     
-    # Prix
-    prix_tag = soupe.find(class_=re.compile(r"CurrentPrice_price"))
-    if prix_tag:
-        voiture["prix"] = prix_tag.get_text(strip=True)
+    # ===== EXTRACTION PRIORITAIRE: JSON-LD Schema =====
+    # AutoScout24 inclut les données structurées en JSON-LD
+    json_ld_script = soupe.find("script", type="application/ld+json")
+    if json_ld_script:
+        try:
+            json_data = json.loads(json_ld_script.string)
+            
+            # Prix
+            if "offers" in json_data and "price" in json_data["offers"]:
+                price = json_data["offers"]["price"]
+                currency = json_data["offers"].get("priceCurrency", "EUR")
+                voiture["prix"] = f"€ {price:,.0f}".replace(",", " ")
+            
+            # Location (depuis offeredBy)
+            if "offers" in json_data and "offeredBy" in json_data["offers"]:
+                offered_by = json_data["offers"]["offeredBy"]
+                if "address" in offered_by:
+                    address = offered_by["address"]
+                    city = address.get("addressLocality", "")
+                    postal = address.get("postalCode", "")
+                    if city or postal:
+                        voiture["localisation"] = f"{postal} {city}".strip()
+            
+            # Kilomètrage
+            if "itemOffered" in json_data and "mileageFromOdometer" in json_data["itemOffered"]:
+                km_data = json_data["itemOffered"]["mileageFromOdometer"]
+                if "value" in km_data:
+                    voiture["kilometrage"] = int(km_data["value"])
+            
+            # Année
+            if "itemOffered" in json_data and "productionDate" in json_data["itemOffered"]:
+                prod_date = json_data["itemOffered"]["productionDate"]
+                if prod_date:
+                    year_match = re.search(r'(\d{4})', prod_date)
+                    if year_match:
+                        voiture["annee"] = int(year_match.group(1))
+            
+            # Transmission
+            if "itemOffered" in json_data and "driveWheelConfiguration" in json_data["itemOffered"]:
+                voiture["transmission"] = json_data["itemOffered"]["driveWheelConfiguration"]
+            
+            # Boîte de vitesse
+            if "itemOffered" in json_data and "vehicleTransmission" in json_data["itemOffered"]:
+                transmission_text = json_data["itemOffered"]["vehicleTransmission"]
+                if "automatique" in transmission_text.lower():
+                    voiture["boite_de_vitesse"] = "Automatique"
+                elif "manuelle" in transmission_text.lower():
+                    voiture["boite_de_vitesse"] = "Manuelle"
+                else:
+                    voiture["boite_de_vitesse"] = transmission_text
+            
+            # Nombre de portes
+            if "itemOffered" in json_data and "numberOfDoors" in json_data["itemOffered"]:
+                voiture["portes"] = int(json_data["itemOffered"]["numberOfDoors"])
+            
+            # Type de carrosserie
+            if "itemOffered" in json_data and "bodyType" in json_data["itemOffered"]:
+                voiture["type_de_vehicule"] = json_data["itemOffered"]["bodyType"]
+            
+            # Puissance
+            if "itemOffered" in json_data and "vehicleEngine" in json_data["itemOffered"]:
+                engines = json_data["itemOffered"]["vehicleEngine"]
+                if engines and len(engines) > 0:
+                    engine = engines[0]
+                    if "enginePower" in engine:
+                        powers = engine["enginePower"]
+                        kw = None
+                        hp = None
+                        for power in powers:
+                            if power.get("unitCode") == "KWT":
+                                kw = power.get("value")
+                            elif power.get("unitCode") == "BHP":
+                                hp = power.get("value")
+                        if kw and hp:
+                            voiture["puissance"] = f"{kw} kW ({hp} CH)"
+        except Exception as e:
+            print(f"⚠️  Erreur lors du parsing JSON-LD: {e}")
     
-    # Marque/Modèle - chercher dans le titre principal
+    # ===== EXTRACTION HTML =====
+    
+    # Marque/Modèle - chercher dans le titre principal (L'ANCIENNE MÉTHODE QUI MARCHAIT)
     titre_tag = soupe.find("h1")
     if titre_tag:
         voiture["marque"] = titre_tag.get_text(strip=True)
     
-    # Localisation
-    localisation_tag = soupe.find("span", attrs={"data-testid": "dealer-address"})
-    if localisation_tag:
-        voiture["localisation"] = localisation_tag.get_text(strip=True)
+    # Prix (si pas trouvé dans JSON)
+    if not voiture.get("prix"):
+        prix_tag = soupe.find("span", class_=re.compile(r"PriceInfo_price"))
+        if prix_tag:
+            voiture["prix"] = prix_tag.get_text(strip=True)
+    
+    # Localisation (si pas trouvée dans JSON)
+    if not voiture.get("localisation"):
+        # Chercher près de l'icône de localisation
+        location_links = soupe.find_all("a", href=re.compile(r"dealer.*location", re.I))
+        for link in location_links:
+            text = link.get_text(strip=True)
+            if text and len(text) > 2:
+                voiture["localisation"] = text
+                break
     
     # Tous les détails dans les spans et divs
     all_text = soupe.get_text()
     
-    # Kilomètrage
-    km_match = re.search(r'([\d\s]+)\s*km', all_text, re.IGNORECASE)
-    if km_match:
-        km_str = km_match.group(1).replace(" ", "").replace("\xa0", "")
-        try:
-            voiture["kilometrage"] = int(km_str)
-        except ValueError:
-            pass
+    # Kilomètrage (si pas trouvé dans JSON)
+    if not voiture.get("kilometrage"):
+        km_match = re.search(r'([\d\s]+)\s*km', all_text, re.IGNORECASE)
+        if km_match:
+            km_str = km_match.group(1).replace(" ", "").replace("\xa0", "").replace("\u202f", "")
+            try:
+                voiture["kilometrage"] = int(km_str)
+            except ValueError:
+                pass
     
-    # Année
-    annee_match = re.search(r'(\d{2})?/?(\d{4})', all_text)
-    if annee_match:
-        year_str = annee_match.group(2)
-        try:
-            voiture["annee"] = int(year_str)
-        except ValueError:
-            pass
+    # Année (si pas trouvée dans JSON)
+    if not voiture.get("annee"):
+        annee_match = re.search(r'(\d{2})?/?(\d{4})', all_text)
+        if annee_match:
+            year_str = annee_match.group(2)
+            try:
+                year = int(year_str)
+                if 1950 <= year <= 2030:
+                    voiture["annee"] = year
+            except ValueError:
+                pass
     
     # Carburant
-    carburants = ["essence", "diesel", "électrique", "hybride", "gaz"]
-    for carb in carburants:
-        if carb.lower() in all_text.lower():
-            voiture["carburant"] = carb.capitalize()
-            break
+    if not voiture.get("carburant"):
+        carburants = ["Essence", "Diesel", "Électrique", "Hybride", "Gaz", "Hybrid"]
+        for carb in carburants:
+            if carb.lower() in all_text.lower():
+                voiture["carburant"] = carb
+                break
     
-    # Boîte de vitesse
-    if "manuelle" in all_text.lower():
-        voiture["boite_de_vitesse"] = "Manuelle"
-    elif "automatique" in all_text.lower():
-        voiture["boite_de_vitesse"] = "Automatique"
+    # Boîte de vitesse (si pas trouvée dans JSON)
+    if not voiture.get("boite_de_vitesse"):
+        if "manuelle" in all_text.lower():
+            voiture["boite_de_vitesse"] = "Manuelle"
+        elif "automatique" in all_text.lower():
+            voiture["boite_de_vitesse"] = "Automatique"
     
-    # Transmission
-    if "4x4" in all_text.upper():
-        voiture["transmission"] = "4x4"
-    elif "avant" in all_text.lower():
-        voiture["transmission"] = "Avant"
-    elif "arrière" in all_text.lower():
-        voiture["transmission"] = "Arrière"
+    # Transmission (si pas trouvée dans JSON)
+    if not voiture.get("transmission"):
+        if "4x4" in all_text.upper():
+            voiture["transmission"] = "4x4"
+        elif "avant" in all_text.lower():
+            voiture["transmission"] = "Avant"
+        elif "arrière" in all_text.lower():
+            voiture["transmission"] = "Arrière"
     
-    # Puissance
-    puissance_match = re.search(r'([\d\s]+)\s*kW\s*\(?\s*([\d\s]+)\s*CH\)?', all_text, re.IGNORECASE)
-    if puissance_match:
-        voiture["puissance"] = f"{puissance_match.group(1).strip()} kW ({puissance_match.group(2).strip()} CH)"
+    # Puissance (si pas trouvée dans JSON)
+    if not voiture.get("puissance"):
+        puissance_match = re.search(r'([\d\s]+)\s*kW\s*\(?\s*([\d\s]+)\s*CH\)?', all_text, re.IGNORECASE)
+        if puissance_match:
+            voiture["puissance"] = f"{puissance_match.group(1).strip()} kW ({puissance_match.group(2).strip()} CH)"
+    
+    # Chercher les détails dans les DataGrid (tables de caractéristiques)
+    data_grids = soupe.find_all("dl", class_=re.compile(r"DataGrid"))
+    for grid in data_grids:
+        dt_tags = grid.find_all("dt")
+        dd_tags = grid.find_all("dd")
+        
+        for dt, dd in zip(dt_tags, dd_tags):
+            label = dt.get_text(strip=True).lower()
+            value = dd.get_text(strip=True)
+            
+            # Portes (si pas trouvé dans JSON)
+            if "porte" in label and not voiture.get("portes"):
+                portes_match = re.search(r'(\d+)', value)
+                if portes_match:
+                    voiture["portes"] = int(portes_match.group(1))
+            
+            # Sièges / Places
+            if ("siège" in label or "place" in label) and not voiture.get("sieges"):
+                sieges_match = re.search(r'(\d+)', value)
+                if sieges_match:
+                    voiture["sieges"] = int(sieges_match.group(1))
+            
+            # Carburant (si pas trouvé)
+            if "carburant" in label and not voiture.get("carburant"):
+                voiture["carburant"] = value
+            
+            # Transmission (si pas trouvée)
+            if "transmission" in label and not voiture.get("transmission"):
+                voiture["transmission"] = value
+            
+            # Boîte de vitesse (si pas trouvée)
+            if "boîte" in label and not voiture.get("boite_de_vitesse"):
+                voiture["boite_de_vitesse"] = value
+            
+            # Type de véhicule / Carrosserie (si pas trouvé)
+            if "carrosserie" in label and not voiture.get("type_de_vehicule"):
+                voiture["type_de_vehicule"] = value
     
     return voiture
 
@@ -254,7 +386,19 @@ def main():
                 try:
                     voiture = Voiture(**details)
                     liste_voitures.append(voiture)
-                    print(f"✅ Annonce ajoutée: {voiture.marque} - {voiture.prix}")
+                    
+                    # Afficher un résumé
+                    info_parts = []
+                    if voiture.marque:
+                        info_parts.append(voiture.marque)
+                    if voiture.prix:
+                        info_parts.append(voiture.prix)
+                    if voiture.portes:
+                        info_parts.append(f"{voiture.portes} portes")
+                    if voiture.localisation:
+                        info_parts.append(voiture.localisation)
+                    
+                    print(f"✅ Annonce ajoutée: {' - '.join(info_parts)}")
                 except Exception as e:
                     print(f"⚠️  Erreur validation: {e}")
             
