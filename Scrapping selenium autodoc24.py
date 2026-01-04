@@ -341,22 +341,40 @@ def sauvegarder_json(voitures: list[Voiture], filename: str = "annonces_autoscou
 
 # --- 6. Main ---
 def main():
-    url_listage = "https://www.autoscout24.fr/lst?atype=C&cy=D%2CA%2CB%2CE%2CF%2CI%2CL%2CNL&damaged_listing=exclude&desc=0&powertype=kw&search_id=k9p7elkop&sort=standard&source=listpage_pagination&ustate=N%2CU"
+    # URL de base (sans page, on va l'ajouter)
+    url_base = "https://www.autoscout24.fr/lst?atype=C&cy=D%2CA%2CB%2CE%2CF%2CI%2CL%2CNL&damaged_listing=exclude&desc=0&powertype=kw&search_id=k9p7elkop&sort=standard&source=listpage_pagination&ustate=N%2CU"
     
     print("🚀 Démarrage du scraping AutoScout24")
     print("=" * 60)
     
-    # Étape 1 : Récupérer la page listage
-    html_listage = recupere_page_listage(url_listage)
+    # Étape 1 : Récupérer les URLs de plusieurs pages (1 à 5)
+    print("\n📋 Récupération des pages de listage...")
+    urls_annonces_toutes = {}  # Utiliser un dict pour éviter les doublons
     
-    # Étape 2 : Extraire les URLs
-    urls_annonces = extraire_urls_annonces(html_listage)
+    for page in range(1, 6):  # Pages 1 à 5
+        url_page = f"{url_base}&page={page}"
+        print(f"\n--- Page {page}/5 ---")
+        
+        html_listage = recupere_page_listage(url_page)
+        urls_page = extraire_urls_annonces(html_listage)
+        
+        # Ajouter au dictionnaire (les doublons seront automatiquement ignorés)
+        for url in urls_page:
+            urls_annonces_toutes[url] = True
+        
+        print(f"📊 Total URLs uniques jusqu'ici : {len(urls_annonces_toutes)}")
+    
+    # Convertir en liste
+    urls_annonces = list(urls_annonces_toutes.keys())
+    
+    print(f"\n✅ Total final : {len(urls_annonces)} annonces uniques à scraper")
+    print("=" * 60)
     
     if not urls_annonces:
         print("⚠️  Aucune annonce trouvée")
         return
     
-    # Étape 3 : Créer un driver pour consulter chaque annonce
+    # Étape 2 : Créer un driver pour consulter chaque annonce
     print(f"\n📖 Consultation de {len(urls_annonces)} annonces...")
     print("=" * 60)
     
@@ -405,7 +423,7 @@ def main():
             # Petit délai entre les requêtes pour ne pas surcharger le serveur
             time.sleep(1)
         
-        # Étape 4 : Sauvegarder
+        # Étape 3 : Sauvegarder
         print("\n" + "=" * 60)
         if liste_voitures:
             sauvegarder_json(liste_voitures)
