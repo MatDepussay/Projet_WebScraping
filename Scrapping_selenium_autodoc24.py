@@ -133,11 +133,26 @@ def extraire_details_annonce(html_content: str, url: str) -> dict:
     
     # ===== EXTRACTION PRIORITAIRE: JSON-LD Schema =====
     # AutoScout24 inclut les données structurées en JSON-LD
-    json_ld_script = soupe.find("script", type="application/ld+json")
-    if json_ld_script:
+    json_ld_scripts = soupe.find_all("script", type="application/ld+json")
+    json_data = None
+
+    # Cherche le bloc JSON-LD qui contient l'offre (le premier <script> est souvent le fil d'Ariane)
+    for script in json_ld_scripts:
         try:
-            json_data = json.loads(json_ld_script.string)
-            
+            parsed = json.loads(script.string)
+        except Exception:
+            continue
+
+        candidates = parsed if isinstance(parsed, list) else [parsed]
+        for cand in candidates:
+            if isinstance(cand, dict) and ("offers" in cand or cand.get("@type") == "Product"):
+                json_data = cand
+                break
+        if json_data:
+            break
+
+    if json_data:
+        try:
             # Prix
             if "offers" in json_data and "price" in json_data["offers"]:
                 price = json_data["offers"]["price"]
@@ -153,6 +168,24 @@ def extraire_details_annonce(html_content: str, url: str) -> dict:
                     postal = address.get("postalCode", "")
                     if city or postal:
                         voiture["localisation"] = f"{postal} {city}".strip()
+
+            # Location alternative: certains schémas utilisent seller ou availableAtOrFrom
+            if not voiture.get("localisation") and "offers" in json_data:
+                offer = json_data["offers"]
+                seller = offer.get("seller") or offer.get("offeredBy")
+                if seller and isinstance(seller, dict):
+                    address = seller.get("address", {})
+                    city = address.get("addressLocality", "")
+                    postal = address.get("postalCode", "")
+                    if city or postal:
+                        voiture["localisation"] = f"{postal} {city}".strip()
+
+            if not voiture.get("localisation") and "availableAtOrFrom" in json_data:
+                address = json_data["availableAtOrFrom"].get("address", {})
+                city = address.get("addressLocality", "")
+                postal = address.get("postalCode", "")
+                if city or postal:
+                    voiture["localisation"] = f"{postal} {city}".strip()
             
             # Kilomètrage
             if "itemOffered" in json_data and "mileageFromOdometer" in json_data["itemOffered"]:
@@ -351,9 +384,9 @@ def main():
     print("\n📋 Récupération des pages de listage...")
     urls_annonces_toutes = {}  # Utiliser un dict pour éviter les doublons
     
-    for page in range(1, 6):  # Pages 1 à 5
+    for page in range(1, 6):  # Pages 1 à 200
         url_page = f"{url_base}&page={page}"
-        print(f"\n--- Page {page}/5 ---")
+        print(f"\n--- Page {page}/200 ---")
         
         html_listage = recupere_page_listage(url_page)
         urls_page = extraire_urls_annonces(html_listage)
