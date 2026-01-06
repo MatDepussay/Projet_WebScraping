@@ -106,34 +106,65 @@ def extraire_details_annonce(html_content: str | None, url: str) -> dict:
 
     soupe = BS(html_content, "lxml")
 
-    # JSON-LD
-    json_ld_script = soupe.find("script", type="application/ld+json")
-    if json_ld_script and json_ld_script.string:
-        try:
-            json_data = json.loads(json_ld_script.string)
+    # JSON-LD (robuste)
+    json_ld_scripts = soupe.find_all("script", type="application/ld+json")
+    json_data = None
 
+    for script in json_ld_scripts:
+        try:
+            parsed = json.loads(script.string)
+        except Exception:
+            continue
+
+        candidates = parsed if isinstance(parsed, list) else [parsed]
+        for cand in candidates:
+            if isinstance(cand, dict) and ("offers" in cand or cand.get("@type") == "Product"):
+                json_data = cand
+                break
+        if json_data:
+            break
+
+    if json_data:
+        try:
             if "offers" in json_data and "price" in json_data["offers"]:
                 price = json_data["offers"]["price"]
                 voiture["prix"] = f"€ {price:,.0f}".replace(",", " ")
 
+            # Localisation depuis offeredBy/seller/availableAtOrFrom
             if "offers" in json_data and "offeredBy" in json_data["offers"]:
                 offered_by = json_data["offers"]["offeredBy"]
-                if "address" in offered_by:
-                    address = offered_by["address"]
+                address = offered_by.get("address", {}) if isinstance(offered_by, dict) else {}
+                city = address.get("addressLocality", "")
+                postal = address.get("postalCode", "")
+                if city or postal:
+                    voiture["localisation"] = f"{postal} {city}".strip()
+
+            if not voiture.get("localisation") and "offers" in json_data:
+                offer = json_data["offers"]
+                seller = offer.get("seller") or offer.get("offeredBy")
+                if seller and isinstance(seller, dict):
+                    address = seller.get("address", {})
                     city = address.get("addressLocality", "")
                     postal = address.get("postalCode", "")
                     if city or postal:
                         voiture["localisation"] = f"{postal} {city}".strip()
 
+            if not voiture.get("localisation") and "availableAtOrFrom" in json_data:
+                addr = json_data["availableAtOrFrom"].get("address", {})
+                city = addr.get("addressLocality", "")
+                postal = addr.get("postalCode", "")
+                if city or postal:
+                    voiture["localisation"] = f"{postal} {city}".strip()
+
             if "itemOffered" in json_data and "mileageFromOdometer" in json_data["itemOffered"]:
                 km_data = json_data["itemOffered"]["mileageFromOdometer"]
-                if "value" in km_data:
+                if isinstance(km_data, dict) and "value" in km_data:
                     voiture["kilometrage"] = int(km_data["value"])
 
             if "itemOffered" in json_data and "productionDate" in json_data["itemOffered"]:
                 prod_date = json_data["itemOffered"]["productionDate"]
                 if prod_date:
-                    m = re.search(r"(\d{4})", prod_date)
+                    m = re.search(r"(\d{4})", str(prod_date))
                     if m:
                         voiture["annee"] = int(m.group(1))
 
@@ -142,34 +173,37 @@ def extraire_details_annonce(html_content: str | None, url: str) -> dict:
 
             if "itemOffered" in json_data and "vehicleTransmission" in json_data["itemOffered"]:
                 transmission_text = json_data["itemOffered"]["vehicleTransmission"]
-                if "automatique" in transmission_text.lower():
-                    voiture["boite_de_vitesse"] = "Automatique"
-                elif "manuelle" in transmission_text.lower():
-                    voiture["boite_de_vitesse"] = "Manuelle"
-                else:
-                    voiture["boite_de_vitesse"] = transmission_text
+                if isinstance(transmission_text, str):
+                    if "automatique" in transmission_text.lower():
+                        voiture["boite_de_vitesse"] = "Automatique"
+                    elif "manuelle" in transmission_text.lower():
+                        voiture["boite_de_vitesse"] = "Manuelle"
+                    else:
+                        voiture["boite_de_vitesse"] = transmission_text
 
             if "itemOffered" in json_data and "numberOfDoors" in json_data["itemOffered"]:
-                voiture["portes"] = int(json_data["itemOffered"]["numberOfDoors"])
+                try:
+                    voiture["portes"] = int(json_data["itemOffered"]["numberOfDoors"])
+                except Exception:
+                    pass
 
             if "itemOffered" in json_data and "bodyType" in json_data["itemOffered"]:
                 voiture["type_de_vehicule"] = json_data["itemOffered"]["bodyType"]
 
             if "itemOffered" in json_data and "vehicleEngine" in json_data["itemOffered"]:
-                engines = json_data["itemOffered"]["vehicleEngine"]
-                if engines and len(engines) > 0:
-                    engine = engines[0]
-                    if "enginePower" in engine:
-                        powers = engine["enginePower"]
-                        kw = None
-                        hp = None
-                        for power in powers:
-                            if power.get("unitCode") == "KWT":
-                                kw = power.get("value")
-                            elif power.get("unitCode") == "BHP":
-                                hp = power.get("value")
-                        if kw and hp:
-                            voiture["puissance"] = f"{kw} kW ({hp} CH)"
+                engines = json_data["itemOffered"].get("vehicleEngine")
+                if engines:
+                    engine = engines[0] if isinstance(engines, list) else engines
+                    powers = engine.get("enginePower", []) if isinstance(engine, dict) else []
+                    kw = None
+                    hp = None
+                    for power in powers:
+                        if power.get("unitCode") == "KWT":
+                            kw = power.get("value")
+                        elif power.get("unitCode") == "BHP":
+                            hp = power.get("value")
+                    if kw and hp:
+                        voiture["puissance"] = f"{kw} kW ({hp} CH)"
         except Exception:
             pass
 
