@@ -284,6 +284,24 @@ def sauvegarder_json(voitures: list[Voiture], filename: str = "annonces_autoscou
     return filepath
 
 
+def charger_voitures_depuis_json(uploaded_file) -> list[Voiture]:
+    try:
+        raw = uploaded_file.read()
+        text = raw.decode("utf-8") if isinstance(raw, (bytes, bytearray)) else raw
+        data = json.loads(text)
+    except Exception as exc:
+        st.error(f"❌ Erreur lors de la lecture du fichier: {exc}")
+        return []
+
+    voitures: list[Voiture] = []
+    for item in data:
+        try:
+            voitures.append(Voiture(**item))
+        except Exception:
+            pass
+    return voitures
+
+
 def run_scraping(nb_pages: int) -> Path | None:
     url_base = (
         "https://www.autoscout24.fr/lst?atype=C&cy=D%2CA%2CB%2CE%2CF%2CI%2CL%2CNL"
@@ -396,11 +414,43 @@ st.set_page_config(page_title="AutoScout24 Scraper", layout="wide")
 st.title("🚗 Scraping AutoScout24")
 st.write("Sélectionnez le nombre de pages à scraper et lancez le scraping")
 
+mode = st.radio(
+    "Source des données",
+    ("Scraper AutoScout24", "Charger un JSON"),
+    horizontal=True,
+)
+
 col1, col2 = st.columns([3, 1])
-with col1:
-    nb_pages = st.number_input("Nombre de pages à scraper", min_value=1, max_value=50, value=5, step=1)
-with col2:
-    st.write("")
-    st.write("")
-    if st.button("🚀 Lancer le scrapping", use_container_width=True):
-        run_scraping(int(nb_pages))
+
+if mode == "Scraper AutoScout24":
+    with col1:
+        nb_pages = st.number_input("Nombre de pages à scraper", min_value=1, max_value=50, value=5, step=1)
+    with col2:
+        st.write("")
+        st.write("")
+        if st.button("🚀 Lancer le scrapping", use_container_width=True):
+            run_scraping(int(nb_pages))
+else:
+    with col1:
+        uploaded_file = st.file_uploader("Fichier JSON existant", type=["json"])
+    with col2:
+        st.write("")
+        st.write("")
+        if st.button("📂 Charger le JSON", use_container_width=True):
+            if not uploaded_file:
+                st.warning("⚠️ Sélectionnez un fichier JSON pour continuer")
+            else:
+                voitures = charger_voitures_depuis_json(uploaded_file)
+                if not voitures:
+                    st.error("❌ Aucun enregistrement valide dans le fichier")
+                else:
+                    st.success(f"✅ {len(voitures)} annonces chargées depuis le JSON")
+                    col_success_1, col_success_2 = st.columns(2)
+                    with col_success_1:
+                        st.metric("Fichier chargé", uploaded_file.name)
+                    with col_success_2:
+                        st.metric("Nombre d'annonces", len(voitures))
+
+                    st.subheader("📊 Aperçu des données")
+                    preview_data = [v.model_dump() for v in voitures[:5]]
+                    st.json(preview_data)
