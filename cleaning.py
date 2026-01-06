@@ -135,6 +135,39 @@ def separer_specs(df: pl.DataFrame) -> pl.DataFrame:
 
     return df
 
+# =========================
+# LOCALISATION
+# =========================
+def normaliser_localisation(df: pl.DataFrame) -> pl.DataFrame:
+    """
+    Sépare la colonne 'localisation' en :
+    - 'code_postal' : les chiffres initiaux (4 ou 5 chiffres)
+    - 'ville'       : tout ce qui suit le code postal jusqu'à un tiret ou fin de chaîne
+    - 'pays'        : vide pour l'instant
+    """
+    # Extraire le code postal (4 ou 5 chiffres au début)
+    df = df.with_columns(
+        pl.col("localisation")
+        .str.extract(r"^(\d{4,5})", 1)
+        .alias("code_postal")
+    )
+
+    # Extraire la ville
+    df = df.with_columns(
+        pl.col("localisation")
+        .str.replace(r"^\d{4,5}\s*", "", literal=False)  # enlever code postal + espace
+        .str.extract(r"^([^-]+)", 1)                     # tout jusqu'au premier tiret
+        .str.strip_chars()                               # supprimer espaces début/fin
+        .alias("ville")
+    )
+
+    # pays = vide pour l'instant
+    df = df.with_columns([
+        pl.lit(None).cast(pl.Utf8).alias("pays")
+    ])
+
+    return df
+
 
 # =========================
 # 7. CAST DES COLONNES NUMÉRIQUES
@@ -170,6 +203,9 @@ def preparer_dataframe_ml(df: pl.DataFrame) -> pl.DataFrame:
             "transmission",
             "type_de_vehicule",
             "localisation",
+            "code_postal",  
+            "ville",       
+            "pays",        
         ])
         .drop_nulls(["prix", "kilometrage", "annee"])
     )
@@ -186,6 +222,9 @@ def main():
     df = separer_marque_modele(df)
     df = separer_specs(df)
     df = normaliser_types(df)
+    df = normaliser_localisation(df)
+    df.select(["localisation", "code_postal", "ville", "pays"]).head(10)
+
     df = preparer_dataframe_ml(df)
 
     # Affichage des 10 premières lignes
@@ -195,7 +234,8 @@ def main():
     qualitatives = [
         "marque", "modele", "moteur", "pack", "options",
         "carburant", "boite_de_vitesse", "transmission",
-        "type_de_vehicule", "localisation"
+        "type_de_vehicule", "localisation","code_postal",  
+        "ville","pays"
     ]
 
     for col in qualitatives:
@@ -209,7 +249,16 @@ def main():
             .head(10)
         )
         print(vc)
+    df_ml = df.drop(["localisation"])
+    categorical_cols = ["marque", "modele", "moteur", "pack", "options",
+                    "carburant", "boite_de_vitesse", "transmission",
+                    "type_de_vehicule", "ville", "pays"]
 
+    for col in categorical_cols:
+        df_ml = df_ml.with_columns(
+            pl.col(col).cast(pl.Categorical)
+        )
+    print(df_ml.null_count())
 
 if __name__ == "__main__":
     main()
