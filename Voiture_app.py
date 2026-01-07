@@ -17,13 +17,10 @@ import polars as pl
 
 # Import des fonctions de nettoyage depuis cleaning.py
 from cleaning import (
-    eliminer_doublons,
-    nettoyer_prix,
-    extraire_puissance_kw,
-    separer_marque_modele,
-    separer_specs,
-    normaliser_localisation,
-    normaliser_types
+    nettoyer_numeriques,
+    reparer_marque_modele,
+    extraire_specs_et_lieu,
+    preparer_ml
 )
 
 
@@ -372,16 +369,10 @@ def charger_voitures_depuis_fichier(filename: str = "annonces_autoscout24.json")
 def appliquer_cleaning(filename: str = "annonces_autoscout24.json") -> pl.DataFrame:
     """Applique tout le pipeline de cleaning et retourne un DataFrame propre"""
     df = pl.read_json(filename)
-    df = eliminer_doublons(df)
-    df = nettoyer_prix(df)
-    df = extraire_puissance_kw(df)
-    df = separer_marque_modele(df)
-    df = separer_specs(df)
-    df = normaliser_types(df)
-    df = normaliser_localisation(df)
-    
-    # Retirer les lignes avec prix, km ou année manquants
-    df = df.drop_nulls(["prix", "kilometrage", "annee"])
+    df = nettoyer_numeriques(df)
+    df = reparer_marque_modele(df)
+    df = extraire_specs_et_lieu(df)
+    df = preparer_ml(df)
     
     return df
 
@@ -515,6 +506,33 @@ def afficher_selection_voitures():
     """Interface pour visualiser, filtrer et sélectionner les voitures nettoyées"""
     st.header("🔍 Sélection et visualisation des voitures")
     
+    # Style CSS pour mettre les sliders en gris
+    st.markdown("""
+        <style>
+        /* Style pour les sliders */
+        div[data-baseweb="slider"] > div > div {
+            background-color: #e0e0e0 !important;
+        }
+        div[data-baseweb="slider"] > div > div > div {
+            background-color: #808080 !important;
+        }
+        div[data-baseweb="slider"] > div > div > div > div {
+            background-color: #606060 !important;
+        }
+        /* Curseurs des sliders */
+        div[data-baseweb="slider"] [role="slider"] {
+            background-color: #505050 !important;
+        }
+        /* Chiffres/valeurs des sliders en noir */
+        div[data-baseweb="slider"] [data-testid="stTickBar"] > div {
+            color: #000000 !important;
+        }
+        div[data-baseweb="slider"] div[data-testid="stThumbValue"] {
+            color: #000000 !important;
+        }
+        </style>
+    """, unsafe_allow_html=True)
+    
     # Vérifier que les fichiers existent
     if not Path("annonces_autoscout24.json").exists():
         st.warning("⚠️ Aucune donnée disponible. Veuillez d'abord scraper les annonces.")
@@ -533,9 +551,15 @@ def afficher_selection_voitures():
     
     st.info(f"📊 Total: {voitures_df.height} voitures disponibles après nettoyage")
     
+    # Calculer les valeurs min/max réelles pour les sliders
+    prix_max_reel = int(voitures_df["prix"].max() or 200000)
+    km_max_reel = int(voitures_df["kilometrage"].max() or 500000)
+    puissance_max_reel = int(voitures_df["puissance_kw"].max() or 500)
+    
     # --- Filtres ---
     st.subheader("⚙️ Filtres")
     
+    # Première ligne de filtres
     col_filter1, col_filter2, col_filter3, col_filter4 = st.columns(4)
     
     with col_filter1:
@@ -543,14 +567,59 @@ def afficher_selection_voitures():
         marque_selectionnee = st.multiselect("Marque", marques_disponibles, key="filter_marque")
     
     with col_filter2:
-        prix_min = st.number_input("Prix min (€)", value=0, step=500, key="filter_prix_min")
-        prix_max = st.number_input("Prix max (€)", value=100000, step=500, key="filter_prix_max")
+        # Filtrer les modèles selon la marque sélectionnée
+        if marque_selectionnee:
+            df_marques = voitures_df.filter(pl.col("marque").is_in(marque_selectionnee))
+        else:
+            df_marques = voitures_df
+        modeles_disponibles = sorted(df_marques["modele"].drop_nulls().unique().to_list())
+        modele_selectionne = st.multiselect("Modèle", modeles_disponibles, key="filter_modele")
     
     with col_filter3:
+        prix_range = st.slider(
+            "Prix (€)",
+            min_value=0,
+            max_value=prix_max_reel,
+            value=(0, prix_max_reel),
+            step=1000,
+            key="filter_prix_range"
+        )
+        prix_min, prix_max = prix_range
+    
+    with col_filter4:
         carburants_disponibles = sorted(voitures_df["carburant"].drop_nulls().unique().to_list())
         carburant_selectionne = st.multiselect("Carburant", carburants_disponibles, key="filter_carburant")
     
-    with col_filter4:
+    # Deuxième ligne de filtres
+    col_filter5, col_filter6, col_filter7, col_filter8 = st.columns(4)
+    
+    with col_filter5:
+        km_range = st.slider(
+            "Kilométrage",
+            min_value=0,
+            max_value=km_max_reel,
+            value=(0, km_max_reel),
+            step=5000,
+            key="filter_km_range"
+        )
+        km_min, km_max = km_range
+    
+    with col_filter6:
+        portes_disponibles = sorted(voitures_df["portes"].drop_nulls().unique().to_list())
+        portes_selectionnees = st.multiselect("Portes", portes_disponibles, key="filter_portes")
+    
+    with col_filter7:
+        puissance_range = st.slider(
+            "Puissance (kW)",
+            min_value=0,
+            max_value=puissance_max_reel,
+            value=(0, puissance_max_reel),
+            step=5,
+            key="filter_puissance_range"
+        )
+        puissance_min, puissance_max = puissance_range
+    
+    with col_filter8:
         villes_disponibles = sorted(voitures_df["ville"].drop_nulls().unique().to_list())
         ville_selectionnee = st.multiselect("Ville", villes_disponibles, key="filter_ville")
     
@@ -560,14 +629,28 @@ def afficher_selection_voitures():
     if marque_selectionnee:
         voitures_filtrees = voitures_filtrees.filter(pl.col("marque").is_in(marque_selectionnee))
     
+    if modele_selectionne:
+        voitures_filtrees = voitures_filtrees.filter(pl.col("modele").is_in(modele_selectionne))
+    
     if carburant_selectionne:
         voitures_filtrees = voitures_filtrees.filter(pl.col("carburant").is_in(carburant_selectionne))
     
     if ville_selectionnee:
         voitures_filtrees = voitures_filtrees.filter(pl.col("ville").is_in(ville_selectionnee))
     
+    if portes_selectionnees:
+        voitures_filtrees = voitures_filtrees.filter(pl.col("portes").is_in(portes_selectionnees))
+    
     voitures_filtrees = voitures_filtrees.filter(
         (pl.col("prix") >= prix_min) & (pl.col("prix") <= prix_max)
+    )
+    
+    voitures_filtrees = voitures_filtrees.filter(
+        (pl.col("kilometrage") >= km_min) & (pl.col("kilometrage") <= km_max)
+    )
+    
+    voitures_filtrees = voitures_filtrees.filter(
+        (pl.col("puissance_kw") >= puissance_min) & (pl.col("puissance_kw") <= puissance_max)
     )
     
     st.success(f"✅ {voitures_filtrees.height} voiture(s) correspondent aux critères")
@@ -583,18 +666,17 @@ def afficher_selection_voitures():
         
         if affichage_type == "Tableau":
             # Préparer les données pour le tableau
-            data_affichage = voitures_filtrees.select([
-                "marque", "modele", "moteur", "prix", "kilometrage", "annee",
-                "carburant", "boite_de_vitesse", "ville", "code_postal", "puissance_kw"
-            ]).to_dicts()
+            colonnes_affichage = ["marque", "modele", "prix", "kilometrage", "annee", "carburant", "boite_de_vitesse", "ville", "code_postal", "puissance_kw"]
+            colonnes_valides = [col for col in colonnes_affichage if col in voitures_filtrees.columns]
+            
+            data_affichage = voitures_filtrees.select(colonnes_valides).to_dicts()
             
             # Formater les données pour l'affichage
             data_tableau = []
             for v in data_affichage:
-                data_tableau.append({
+                row = {
                     "Marque": v.get("marque") or "N/A",
                     "Modèle": v.get("modele") or "N/A",
-                    "Moteur": v.get("moteur") or "N/A",
                     "Prix (€)": f"{v.get('prix'):,}".replace(",", " ") if v.get("prix") else "N/A",
                     "Km": f"{v.get('kilometrage'):,}".replace(",", " ") if v.get("kilometrage") else "N/A",
                     "Année": v.get("annee") or "N/A",
@@ -602,7 +684,8 @@ def afficher_selection_voitures():
                     "Boîte": v.get("boite_de_vitesse") or "N/A",
                     "Puissance (kW)": v.get("puissance_kw") or "N/A",
                     "Ville": v.get("ville") or "N/A",
-                })
+                }
+                data_tableau.append(row)
             
             st.dataframe(data_tableau, use_container_width=True, height=500)
             
@@ -628,25 +711,20 @@ def afficher_selection_voitures():
                     with col1:
                         st.write(f"**Marque:** {voiture.get('marque') or 'N/A'}")
                         st.write(f"**Modèle:** {voiture.get('modele') or 'N/A'}")
-                        st.write(f"**Moteur:** {voiture.get('moteur') or 'N/A'}")
-                        st.write(f"**Pack:** {voiture.get('pack') or 'N/A'}")
+                        st.write(f"**Cylindrée:** {voiture.get('cylindree_l') or 'N/A'} L")
                     
                     with col2:
                         st.write(f"**Prix:** {voiture.get('prix')}€" if voiture.get('prix') else "**Prix:** N/A")
                         km_formatted = f"{voiture.get('kilometrage'):,}".replace(',', ' ') if voiture.get('kilometrage') else None
                         st.write(f"**Km:** {km_formatted} km" if km_formatted else "**Km:** N/A")
                         st.write(f"**Année:** {voiture.get('annee') or 'N/A'}")
-                        st.write(f"**Puissance:** {voiture.get('puissance_kw')} kW" if voiture.get('puissance_kw') else "**Puissance:** N/A")
                     
                     with col3:
                         st.write(f"**Carburant:** {voiture.get('carburant') or 'N/A'}")
                         st.write(f"**Boîte:** {voiture.get('boite_de_vitesse') or 'N/A'}")
-                        st.write(f"**Transmission:** {voiture.get('transmission') or 'N/A'}")
-                        st.write(f"**Type:** {voiture.get('type_de_vehicule') or 'N/A'}")
+                        st.write(f"**Puissance:** {voiture.get('puissance_kw')} kW" if voiture.get('puissance_kw') else "**Puissance:** N/A")
                     
                     st.write(f"**Localisation:** {voiture.get('code_postal')} {voiture.get('ville')}" if voiture.get('ville') else "**Localisation:** N/A")
-                    st.write(f"**Options:** {voiture.get('options') or 'N/A'}")
-                    st.write(f"**Sièges:** {voiture.get('sieges') or 'N/A'} | **Portes:** {voiture.get('portes') or 'N/A'}")
                     if voiture.get('lien_fiche'):
                         st.write(f"**[🔗 Lien de l'annonce]({voiture.get('lien_fiche')})**")
 
