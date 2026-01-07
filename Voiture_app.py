@@ -13,6 +13,18 @@ from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+import polars as pl
+
+# Import des fonctions de nettoyage depuis cleaning.py
+from cleaning import (
+    eliminer_doublons,
+    nettoyer_prix,
+    extraire_puissance_kw,
+    separer_marque_modele,
+    separer_specs,
+    normaliser_localisation,
+    normaliser_types
+)
 
 
 # --- Modèles Pydantic ---
@@ -336,7 +348,81 @@ def charger_voitures_depuis_json(uploaded_file) -> list[Voiture]:
     return voitures
 
 
-def run_scraping(nb_pages: int) -> Path | None:
+def charger_voitures_depuis_fichier(filename: str = "annonces_autoscout24.json") -> list[Voiture]:
+    """Charge les voitures depuis un fichier JSON local"""
+    filepath = Path(filename)
+    if not filepath.exists():
+        return []
+    
+    try:
+        with open(filepath, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except Exception:
+        return []
+    
+    voitures: list[Voiture] = []
+    for item in data:
+        try:
+            voitures.append(Voiture(**item))
+        except Exception:
+            pass
+    return voitures
+
+
+def appliquer_cleaning(filename: str = "annonces_autoscout24.json") -> pl.DataFrame:
+    """Applique tout le pipeline de cleaning et retourne un DataFrame propre"""
+    df = pl.read_json(filename)
+    df = eliminer_doublons(df)
+    df = nettoyer_prix(df)
+    df = extraire_puissance_kw(df)
+    df = separer_marque_modele(df)
+    df = separer_specs(df)
+    df = normaliser_types(df)
+    df = normaliser_localisation(df)
+    
+    # Retirer les lignes avec prix, km ou année manquants
+    df = df.drop_nulls(["prix", "kilometrage", "annee"])
+    
+    return df
+
+
+def sauvegarder_donnees_nettoyees(df: pl.DataFrame, filename: str = "voitures_nettoyees.json"):
+    """Sauvegarde les données nettoyées en JSON"""
+    df.write_json(filename)
+    return Path(filename)
+
+
+def fusionner_et_proteger_annonces(
+    nouvelles_voitures: list[Voiture], 
+    filename: str = "annonces_autoscout24.json"
+) -> tuple[Path, int]:
+    """
+    Fusionne les nouvelles annonces avec les existantes.
+    Protège le fichier en s'assurant que le nombre d'annonces augmente seulement.
+    Retourne le chemin du fichier et le nombre net d'annonces ajoutées.
+    """
+    existantes = charger_voitures_depuis_fichier(filename)
+    
+    # Créer un dictionnaire des URLs existantes pour éviter les doublons
+    urls_existantes = {v.lien_fiche for v in existantes if v.lien_fiche}
+    
+    # Ajouter seulement les nouvelles voitures (par URL)
+    voitures_a_ajouter = [v for v in nouvelles_voitures if v.lien_fiche not in urls_existantes]
+    
+    # Fusionner: existantes + nouvelles
+    voitures_finales = existantes + voitures_a_ajouter
+    
+    # Sauvegarder
+    filepath = Path(filename)
+    data = [v.model_dump() for v in voitures_finales]
+    with open(filepath, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2, default=str)
+    
+    return filepath, len(voitures_a_ajouter)
+
+
+
+def run_scraping(nb_pages: int) -> list[Voiture] | None:
     url_base = (
         "https://www.autoscout24.fr/lst?atype=C&cy=D%2CA%2CB%2CE%2CF%2CI%2CL%2CNL"
         "&damaged_listing=exclude&desc=0&powertype=kw&search_id=k9p7elkop"
@@ -371,7 +457,7 @@ def run_scraping(nb_pages: int) -> Path | None:
     st.subheader("📖 Phase 2: Extraction des détails")
     progress_details = st.progress(0)
     status_details = st.empty()
-    metrics = st.columns(3)
+    metric_placeholder = st.empty()
     
     dir_path = Path(".").resolve()
     if "matde" in str(dir_path):
@@ -386,6 +472,7 @@ def run_scraping(nb_pages: int) -> Path | None:
     try:
         liste_voitures: list[Voiture] = []
         total = len(urls_annonces)
+        metric_placeholder = st.empty()
         
         for idx, url in enumerate(urls_annonces, 1):
             html_annonce = recupere_page_annonce(driver, url)
@@ -399,16 +486,18 @@ def run_scraping(nb_pages: int) -> Path | None:
             progress = idx / total
             progress_details.progress(progress)
             
-            # Mise à jour du statut
+            # Mise à jour du statut et métrique unique
             status_details.info(f"🔄 {idx}/{total} annonces traitées ({int(progress * 100)}%)")
             
-            # Mise à jour des métriques
-            with metrics[0]:
-                st.metric("Annonces traitées", idx)
-            with metrics[1]:
-                st.metric("Valides", len(liste_voitures))
-            with metrics[2]:
-                st.metric("Échouées", idx - len(liste_voitures))
+            # Mise à jour de la métrique unique (remplace l'ancienne à chaque itération)
+            with metric_placeholder.container():
+                col1, col2, col3 = st.columns(3)
+                with col1:
+                    st.metric("Annonces traitées", idx)
+                with col2:
+                    st.metric("Valides", len(liste_voitures))
+                with col3:
+                    st.metric("Échouées", idx - len(liste_voitures))
             
             time.sleep(1)
 
@@ -416,75 +505,294 @@ def run_scraping(nb_pages: int) -> Path | None:
             st.error("❌ Aucune annonce valide trouvée")
             return None
 
-        # --- PHASE 3: Sauvegarde JSON ---
-        st.subheader("💾 Phase 3: Sauvegarde du fichier JSON")
-        status_details.info("💾 Sauvegarde en cours...")
-        filepath = sauvegarder_json(liste_voitures)
-        
-        # Notification finale avec succès
-        st.success(f"✅ Succès! {len(liste_voitures)} annonces sauvegardées")
-        st.balloons()
-        
-        # Affichage du chemin du fichier et des stats
-        col1, col2 = st.columns(2)
-        with col1:
-            st.metric("Fichier généré", str(filepath.name))
-        with col2:
-            st.metric("Nombre d'annonces", len(liste_voitures))
-        
-        # Affichage d'un aperçu des données
-        st.subheader("📊 Aperçu des données")
-        preview_data = [v.model_dump() for v in liste_voitures[:5]]
-        st.json(preview_data)
-        
-        return filepath
+        return liste_voitures
 
     finally:
         driver.quit()
 
 
+def afficher_selection_voitures():
+    """Interface pour visualiser, filtrer et sélectionner les voitures nettoyées"""
+    st.header("🔍 Sélection et visualisation des voitures")
+    
+    # Vérifier que les fichiers existent
+    if not Path("annonces_autoscout24.json").exists():
+        st.warning("⚠️ Aucune donnée disponible. Veuillez d'abord scraper les annonces.")
+        return
+    
+    # Charger et nettoyer les données
+    try:
+        voitures_df = appliquer_cleaning("annonces_autoscout24.json")
+    except Exception as e:
+        st.error(f"❌ Erreur lors du nettoyage des données: {e}")
+        return
+    
+    if voitures_df.height == 0:
+        st.warning("⚠️ Aucune donnée valide après nettoyage.")
+        return
+    
+    st.info(f"📊 Total: {voitures_df.height} voitures disponibles après nettoyage")
+    
+    # --- Filtres ---
+    st.subheader("⚙️ Filtres")
+    
+    col_filter1, col_filter2, col_filter3, col_filter4 = st.columns(4)
+    
+    with col_filter1:
+        marques_disponibles = sorted(voitures_df["marque"].drop_nulls().unique().to_list())
+        marque_selectionnee = st.multiselect("Marque", marques_disponibles, key="filter_marque")
+    
+    with col_filter2:
+        prix_min = st.number_input("Prix min (€)", value=0, step=500, key="filter_prix_min")
+        prix_max = st.number_input("Prix max (€)", value=100000, step=500, key="filter_prix_max")
+    
+    with col_filter3:
+        carburants_disponibles = sorted(voitures_df["carburant"].drop_nulls().unique().to_list())
+        carburant_selectionne = st.multiselect("Carburant", carburants_disponibles, key="filter_carburant")
+    
+    with col_filter4:
+        villes_disponibles = sorted(voitures_df["ville"].drop_nulls().unique().to_list())
+        ville_selectionnee = st.multiselect("Ville", villes_disponibles, key="filter_ville")
+    
+    # Appliquer les filtres
+    voitures_filtrees = voitures_df
+    
+    if marque_selectionnee:
+        voitures_filtrees = voitures_filtrees.filter(pl.col("marque").is_in(marque_selectionnee))
+    
+    if carburant_selectionne:
+        voitures_filtrees = voitures_filtrees.filter(pl.col("carburant").is_in(carburant_selectionne))
+    
+    if ville_selectionnee:
+        voitures_filtrees = voitures_filtrees.filter(pl.col("ville").is_in(ville_selectionnee))
+    
+    voitures_filtrees = voitures_filtrees.filter(
+        (pl.col("prix") >= prix_min) & (pl.col("prix") <= prix_max)
+    )
+    
+    st.success(f"✅ {voitures_filtrees.height} voiture(s) correspondent aux critères")
+    
+    # --- Affichage des voitures ---
+    st.subheader("📋 Résultats")
+    
+    if voitures_filtrees.height == 0:
+        st.warning("Aucune voiture ne correspond aux critères de filtre.")
+    else:
+        # Options d'affichage
+        affichage_type = st.radio("Affichage", ("Tableau", "Carte"), horizontal=True, key="affichage_type")
+        
+        if affichage_type == "Tableau":
+            # Préparer les données pour le tableau
+            data_affichage = voitures_filtrees.select([
+                "marque", "modele", "moteur", "prix", "kilometrage", "annee",
+                "carburant", "boite_de_vitesse", "ville", "code_postal", "puissance_kw"
+            ]).to_dicts()
+            
+            # Formater les données pour l'affichage
+            data_tableau = []
+            for v in data_affichage:
+                data_tableau.append({
+                    "Marque": v.get("marque") or "N/A",
+                    "Modèle": v.get("modele") or "N/A",
+                    "Moteur": v.get("moteur") or "N/A",
+                    "Prix (€)": f"{v.get('prix'):,}".replace(",", " ") if v.get("prix") else "N/A",
+                    "Km": f"{v.get('kilometrage'):,}".replace(",", " ") if v.get("kilometrage") else "N/A",
+                    "Année": v.get("annee") or "N/A",
+                    "Carburant": v.get("carburant") or "N/A",
+                    "Boîte": v.get("boite_de_vitesse") or "N/A",
+                    "Puissance (kW)": v.get("puissance_kw") or "N/A",
+                    "Ville": v.get("ville") or "N/A",
+                })
+            
+            st.dataframe(data_tableau, use_container_width=True, height=500)
+            
+            # Export en JSON
+            if st.button("📥 Exporter les résultats en JSON", key="export_json"):
+                export_json = voitures_filtrees.write_json()
+                st.download_button(
+                    label="Télécharger JSON",
+                    data=export_json,
+                    file_name="selection_voitures.json",
+                    mime="application/json"
+                )
+        
+        else:  # Affichage en carte
+            voitures_list = voitures_filtrees.to_dicts()
+            for idx, voiture in enumerate(voitures_list, 1):
+                with st.expander(
+                    f"🚗 {voiture.get('marque')} {voiture.get('modele')} - {voiture.get('prix', 'N/A')}€",
+                    expanded=False
+                ):
+                    col1, col2, col3 = st.columns(3)
+                    
+                    with col1:
+                        st.write(f"**Marque:** {voiture.get('marque') or 'N/A'}")
+                        st.write(f"**Modèle:** {voiture.get('modele') or 'N/A'}")
+                        st.write(f"**Moteur:** {voiture.get('moteur') or 'N/A'}")
+                        st.write(f"**Pack:** {voiture.get('pack') or 'N/A'}")
+                    
+                    with col2:
+                        st.write(f"**Prix:** {voiture.get('prix')}€" if voiture.get('prix') else "**Prix:** N/A")
+                        km_formatted = f"{voiture.get('kilometrage'):,}".replace(',', ' ') if voiture.get('kilometrage') else None
+                        st.write(f"**Km:** {km_formatted} km" if km_formatted else "**Km:** N/A")
+                        st.write(f"**Année:** {voiture.get('annee') or 'N/A'}")
+                        st.write(f"**Puissance:** {voiture.get('puissance_kw')} kW" if voiture.get('puissance_kw') else "**Puissance:** N/A")
+                    
+                    with col3:
+                        st.write(f"**Carburant:** {voiture.get('carburant') or 'N/A'}")
+                        st.write(f"**Boîte:** {voiture.get('boite_de_vitesse') or 'N/A'}")
+                        st.write(f"**Transmission:** {voiture.get('transmission') or 'N/A'}")
+                        st.write(f"**Type:** {voiture.get('type_de_vehicule') or 'N/A'}")
+                    
+                    st.write(f"**Localisation:** {voiture.get('code_postal')} {voiture.get('ville')}" if voiture.get('ville') else "**Localisation:** N/A")
+                    st.write(f"**Options:** {voiture.get('options') or 'N/A'}")
+                    st.write(f"**Sièges:** {voiture.get('sieges') or 'N/A'} | **Portes:** {voiture.get('portes') or 'N/A'}")
+                    if voiture.get('lien_fiche'):
+                        st.write(f"**[🔗 Lien de l'annonce]({voiture.get('lien_fiche')})**")
+
+
 # --- STREAMLIT UI ---
 st.set_page_config(page_title="AutoScout24 Scraper", layout="wide")
 st.title("🚗 Scraping AutoScout24")
-st.write("Sélectionnez le nombre de pages à scraper et lancez le scraping")
 
-mode = st.radio(
-    "Source des données",
-    ("Scraper AutoScout24", "Charger un JSON"),
-    horizontal=True,
-)
+# Créer les onglets
+tab1, tab2 = st.tabs(["📥 Scraper", "🔍 Sélectionner"])
 
-col1, col2 = st.columns([3, 1])
+with tab1:
+    st.write("Gérez vos données d'annonces AutoScout24")
 
-if mode == "Scraper AutoScout24":
-    with col1:
-        nb_pages = st.number_input("Nombre de pages à scraper", min_value=1, max_value=50, value=5, step=1)
-    with col2:
-        st.write("")
-        st.write("")
-        if st.button("🚀 Lancer le scrapping", use_container_width=True):
-            run_scraping(int(nb_pages))
-else:
-    with col1:
-        uploaded_file = st.file_uploader("Fichier JSON existant", type=["json"])
-    with col2:
-        st.write("")
-        st.write("")
-        if st.button("📂 Charger le JSON", use_container_width=True):
-            if not uploaded_file:
-                st.warning("⚠️ Sélectionnez un fichier JSON pour continuer")
-            else:
-                voitures = charger_voitures_depuis_json(uploaded_file)
-                if not voitures:
-                    st.error("❌ Aucun enregistrement valide dans le fichier")
+    mode = st.radio(
+        "Mode de fonctionnement",
+        ("🔄 Redémarrer de zéro", "📂 Charger un JSON", "➕ Ajouter des données"),
+        horizontal=True,
+    )
+
+    col1, col2 = st.columns([3, 1])
+
+    if mode == "🔄 Redémarrer de zéro":
+        with col1:
+            nb_pages = st.number_input("Nombre de pages à scraper", min_value=1, max_value=50, value=5, step=1)
+        with col2:
+            st.write("")
+            st.write("")
+            if st.button("🚀 Lancer le scrapping", use_container_width=True):
+                liste_voitures = run_scraping(int(nb_pages))
+                if liste_voitures:
+                    # --- PHASE 3: Sauvegarde JSON ---
+                    st.subheader("💾 Phase 3: Sauvegarde du fichier JSON")
+                    filepath = sauvegarder_json(liste_voitures, "annonces_autoscout24.json")
+                    st.success(f"✅ {len(liste_voitures)} annonces sauvegardées")
+                    
+                    # --- PHASE 4: Nettoyage des données ---
+                    st.subheader("🧹 Phase 4: Nettoyage des données")
+                    try:
+                        with st.spinner("Nettoyage en cours..."):
+                            df_nettoyees = appliquer_cleaning("annonces_autoscout24.json")
+                        sauvegarder_donnees_nettoyees(df_nettoyees, "voitures_nettoyees.json")
+                        st.success(f"✅ {df_nettoyees.height} annonces nettoyées et sauvegardées")
+                        st.balloons()
+                        
+                        # Affichage des stats
+                        col_success_1, col_success_2, col_success_3 = st.columns(3)
+                        with col_success_1:
+                            st.metric("Brutes", len(liste_voitures))
+                        with col_success_2:
+                            st.metric("Nettoyées", df_nettoyees.height)
+                        with col_success_3:
+                            st.metric("Ratio", f"{(df_nettoyees.height / len(liste_voitures) * 100):.1f}%")
+                        
+                        # Aperçu des données nettoyées
+                        st.subheader("📊 Aperçu des données nettoyées")
+                        preview_data = df_nettoyees.select([
+                            "marque", "modele", "moteur", "prix", "kilometrage", "annee"
+                        ]).head(5).to_dicts()
+                        st.json(preview_data)
+                    except Exception as e:
+                        st.error(f"❌ Erreur lors du nettoyage: {e}")
+
+    elif mode == "📂 Charger un JSON":
+        with col1:
+            uploaded_file = st.file_uploader("Fichier JSON existant", type=["json"])
+        with col2:
+            st.write("")
+            st.write("")
+            if st.button("📂 Charger le JSON", use_container_width=True):
+                if not uploaded_file:
+                    st.warning("⚠️ Sélectionnez un fichier JSON pour continuer")
                 else:
-                    st.success(f"✅ {len(voitures)} annonces chargées depuis le JSON")
-                    col_success_1, col_success_2 = st.columns(2)
-                    with col_success_1:
-                        st.metric("Fichier chargé", uploaded_file.name)
-                    with col_success_2:
-                        st.metric("Nombre d'annonces", len(voitures))
+                    voitures = charger_voitures_depuis_json(uploaded_file)
+                    if not voitures:
+                        st.error("❌ Aucun enregistrement valide dans le fichier")
+                    else:
+                        st.success(f"✅ {len(voitures)} annonces chargées depuis le JSON")
+                        col_success_1, col_success_2 = st.columns(2)
+                        with col_success_1:
+                            st.metric("Fichier chargé", uploaded_file.name)
+                        with col_success_2:
+                            st.metric("Nombre d'annonces", len(voitures))
 
-                    st.subheader("📊 Aperçu des données")
-                    preview_data = [v.model_dump() for v in voitures[:5]]
-                    st.json(preview_data)
+                        st.subheader("📊 Aperçu des données")
+                        preview_data = [v.model_dump() for v in voitures[:5]]
+                        st.json(preview_data)
+
+    else:  # Mode "➕ Ajouter des données"
+        with col1:
+            nb_pages = st.number_input("Nombre de pages à scraper", min_value=1, max_value=50, value=5, step=1)
+        with col2:
+            st.write("")
+            st.write("")
+            if st.button("➕ Ajouter des données", use_container_width=True):
+                # Vérifier que le fichier existant existe
+                if not Path("annonces_autoscout24.json").exists():
+                    st.error("❌ Le fichier annonces_autoscout24.json n'existe pas. Utilisez 'Redémarrer de zéro' d'abord.")
+                else:
+                    # Afficher le nombre d'annonces actuellement
+                    voitures_actuelles = charger_voitures_depuis_fichier("annonces_autoscout24.json")
+                    st.info(f"📊 Fichier actuel contient {len(voitures_actuelles)} annonces")
+                    
+                    # Scraper les nouvelles données
+                    liste_voitures = run_scraping(int(nb_pages))
+                    if liste_voitures:
+                        # --- PHASE 3: Fusion et sauvegarde protégée ---
+                        st.subheader("💾 Phase 3: Fusion et sauvegarde protégée")
+                        filepath, ajoutees = fusionner_et_proteger_annonces(liste_voitures, "annonces_autoscout24.json")
+                        
+                        # Recharger pour vérifier
+                        voitures_finales = charger_voitures_depuis_fichier("annonces_autoscout24.json")
+                        st.success(f"✅ {ajoutees} nouvelles annonces ajoutées")
+                        
+                        # --- PHASE 4: Nettoyage des données ---
+                        st.subheader("🧹 Phase 4: Nettoyage des données mises à jour")
+                        try:
+                            with st.spinner("Nettoyage en cours..."):
+                                df_nettoyees = appliquer_cleaning("annonces_autoscout24.json")
+                            sauvegarder_donnees_nettoyees(df_nettoyees, "voitures_nettoyees.json")
+                            st.success(f"✅ {df_nettoyees.height} annonces nettoyées au total")
+                            st.balloons()
+                            
+                            # Affichage des stats
+                            col_stats_1, col_stats_2, col_stats_3 = st.columns(3)
+                            with col_stats_1:
+                                st.metric("Avant", len(voitures_actuelles))
+                            with col_stats_2:
+                                st.metric("Ajoutées", ajoutees)
+                            with col_stats_3:
+                                st.metric("Total (brutes)", len(voitures_finales))
+                            
+                            col_clean_1, col_clean_2 = st.columns(2)
+                            with col_clean_1:
+                                st.metric("Nettoyées", df_nettoyees.height)
+                            with col_clean_2:
+                                st.metric("Ratio qualité", f"{(df_nettoyees.height / len(voitures_finales) * 100):.1f}%")
+                            
+                            # Affichage d'un aperçu des données nettoyées
+                            st.subheader("📊 Aperçu des données nettoyées finales")
+                            preview_data = df_nettoyees.select([
+                                "marque", "modele", "moteur", "prix", "kilometrage", "annee"
+                            ]).head(5).to_dicts()
+                            st.json(preview_data)
+                        except Exception as e:
+                            st.error(f"❌ Erreur lors du nettoyage: {e}")
+
+with tab2:
+    afficher_selection_voitures()
