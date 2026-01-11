@@ -1,3 +1,22 @@
+# /// script
+# requires-python = ">=3.12"
+# dependencies = [
+#     "polars",
+#     "scikit-learn",
+#     "xgboost",
+#     "pandas",
+#     "fastexcel",
+#     "pyarrow",
+#     "openpyxl",
+#     "plotly",
+#     "numpy",
+#     "streamlit",
+#     "pydantic",
+#     "selenium",
+#     "beautifulsoup4",
+#     "lxml",
+# ]
+# ///
 import json
 import re
 import time
@@ -21,6 +40,14 @@ from cleaning import (
     reparer_marque_modele,
     extraire_specs_et_lieu,
     preparer_ml
+)
+
+# Import des fonctions ML depuis MachineLearning.py
+from MachineLearning import (
+    charger_et_preparer_donnees,
+    entrainer_random_forest,
+    entrainer_xgboost,
+    comparer_modeles
 )
 
 
@@ -729,12 +756,230 @@ def afficher_selection_voitures():
                         st.write(f"**[🔗 Lien de l'annonce]({voiture.get('lien_fiche')})**")
 
 
+def afficher_regression_ml():
+    """Interface Streamlit pour entraîner les modèles ML"""
+    import pandas as pd
+    import plotly.graph_objects as go
+    import plotly.express as px
+    from sklearn.model_selection import train_test_split
+    
+    st.header("📊 Régression - Prédiction des Prix")
+    
+    # Vérifier que le fichier existe
+    if not Path("autoscout_clean_ml.xlsx").exists():
+        st.warning("⚠️ Fichier autoscout_clean_ml.xlsx non trouvé. Assurez-vous d'avoir nettoyé les données.")
+        return
+    
+    try:
+        df = pl.read_excel("autoscout_clean_ml.xlsx")
+        df_pd = df.to_pandas()
+    except Exception as e:
+        st.error(f"❌ Erreur lors de la lecture du fichier: {e}")
+        return
+    
+    if "prix" not in df_pd.columns:
+        st.error("❌ La colonne 'prix' n'existe pas dans les données.")
+        return
+    
+    st.info(f"📈 Données: {len(df_pd)} lignes, {len(df_pd.columns)} colonnes")
+    
+    # --- Paramètres de configuration ---
+    st.subheader("⚙️ Configuration du modèle")
+    
+    col_config1, col_config2, col_config3 = st.columns(3)
+    
+    with col_config1:
+        model_type = st.selectbox(
+            "Modèle",
+            ["Random Forest", "XGBoost"],
+            key="model_selection"
+        )
+    
+    with col_config2:
+        test_split = st.slider(
+            "Test Split (%)",
+            min_value=10,
+            max_value=50,
+            value=20,
+            step=5,
+            key="test_split_slider"
+        ) / 100
+    
+    with col_config3:
+        st.selectbox(
+            "Métrique principale",
+            ["R² Score", "RMSE", "MAE"],
+            key="metric_selection"
+        )
+    
+    # Random state fixé à 42
+    random_state = 42
+    
+    # Bouton pour lancer l'entraînement
+    if st.button("🚀 Lancer l'entraînement", use_container_width=True):
+        with st.spinner("⏳ Préparation des données..."):
+            try:
+                # Préparer les données
+                X, y, numeric_cols, label_encoders = charger_et_preparer_donnees()
+                if X is None:
+                    st.error("❌ Erreur lors de la préparation des données")
+                    return
+                
+                # Split
+                X_train, X_test, y_train, y_test = train_test_split(
+                    X, y, test_size=test_split, random_state=random_state
+                )
+                
+                st.success(f"✅ Données préparées: Train={len(X_train)}, Test={len(X_test)}")
+                
+                # Entraîner le modèle
+                if model_type == "Random Forest":
+                    with st.spinner("⏳ Entraînement Random Forest..."):
+                        results = entrainer_random_forest(X_train, X_test, y_train, y_test)
+                else:
+                    with st.spinner("⏳ Entraînement XGBoost..."):
+                        results = entrainer_xgboost(X_train, X_test, y_train, y_test)
+                
+                model = results['model']
+                
+                # Affichage des métriques
+                st.subheader("📊 Résultats")
+                
+                col_metric1, col_metric2, col_metric3, col_metric4, col_metric5 = st.columns(5)
+                
+                with col_metric1:
+                    st.metric("RMSE Train", f"€{results['rmse_train']:,.0f}")
+                with col_metric2:
+                    st.metric("RMSE Test", f"€{results['rmse_test']:,.0f}")
+                with col_metric3:
+                    st.metric("R² Train", f"{results['r2_train']:.4f}")
+                with col_metric4:
+                    st.metric("R² Test", f"{results['r2_test']:.4f}")
+                with col_metric5:
+                    st.metric("MAE Test", f"€{results['mae_test']:,.0f}")
+                
+                # Feature Importance
+                st.subheader("🎯 Importance des features")
+                
+                feature_importance = results['feature_importance']
+                
+                col_fi1, col_fi2 = st.columns(2)
+                
+                with col_fi1:
+                    st.dataframe(feature_importance.head(10), use_container_width=True)
+                
+                with col_fi2:
+                    fig_fi = px.bar(
+                        feature_importance.head(10),
+                        x='importance',
+                        y='feature',
+                        orientation='h',
+                        title='Top 10 Features',
+                        labels={'importance': 'Importance', 'feature': 'Feature'}
+                    )
+                    fig_fi.update_layout(height=400)
+                    st.plotly_chart(fig_fi, use_container_width=True)
+                
+                # Visualisation: Prix réel vs Prix prédit
+                st.subheader("💰 Prix réel vs Prix prédit")
+                
+                y_pred_test = model.predict(X_test)
+                
+                # Créer un DataFrame pour les prédictions
+                results_df = pd.DataFrame({
+                    'Prix réel': y_test.values,
+                    'Prix prédit': y_pred_test,
+                    'Erreur (€)': y_test.values - y_pred_test,
+                    'Erreur (%)': ((y_test.values - y_pred_test) / y_test.values * 100)
+                }).reset_index(drop=True)
+                
+                col_viz1, col_viz2 = st.columns(2)
+                
+                with col_viz1:
+                    # Graphique de dispersion
+                    fig_scatter = go.Figure()
+                    fig_scatter.add_trace(go.Scatter(
+                        x=y_test.values,
+                        y=y_pred_test,
+                        mode='markers',
+                        marker=dict(
+                            size=6,
+                            color=results_df['Erreur (%)'].abs(),
+                            colorscale='Viridis',
+                            showscale=True,
+                            colorbar=dict(title="Erreur (%)")
+                        ),
+                        text=[f"Réel: €{r:,.0f}<br>Prédit: €{p:,.0f}<br>Erreur: {e:+.1f}%" 
+                              for r, p, e in zip(y_test.values, y_pred_test, results_df['Erreur (%)'])],
+                        hoverinfo='text',
+                        name='Prédictions'
+                    ))
+                    
+                    # Ajouter la ligne de perfection
+                    min_val = min(y_test.min(), y_pred_test.min())
+                    max_val = max(y_test.max(), y_pred_test.max())
+                    fig_scatter.add_trace(go.Scatter(
+                        x=[min_val, max_val],
+                        y=[min_val, max_val],
+                        mode='lines',
+                        name='Perfection',
+                        line=dict(dash='dash', color='red')
+                    ))
+                    
+                    fig_scatter.update_layout(
+                        title='Prédictions vs Réalité',
+                        xaxis_title='Prix réel (€)',
+                        yaxis_title='Prix prédit (€)',
+                        height=500,
+                        hovermode='closest'
+                    )
+                    st.plotly_chart(fig_scatter, use_container_width=True)
+                
+                with col_viz2:
+                    # Graphique des erreurs
+                    fig_error = go.Figure()
+                    fig_error.add_trace(go.Histogram(
+                        x=results_df['Erreur (%)'],
+                        nbinsx=30,
+                        name='Distribution des erreurs',
+                        marker_color='rgba(0, 100, 200, 0.7)'
+                    ))
+                    fig_error.update_layout(
+                        title='Distribution des erreurs (%)',
+                        xaxis_title='Erreur (%)',
+                        yaxis_title='Nombre de prédictions',
+                        height=500
+                    )
+                    st.plotly_chart(fig_error, use_container_width=True)
+                
+                # Tableau détaillé
+                st.subheader("📋 Détails des prédictions")
+                st.dataframe(results_df.head(20), use_container_width=True)
+                
+                # Statistiques des erreurs
+                st.subheader("📈 Statistiques des erreurs")
+                
+                col_stat1, col_stat2, col_stat3, col_stat4 = st.columns(4)
+                
+                with col_stat1:
+                    st.metric("Erreur moyenne (%)", f"{results_df['Erreur (%)'].mean():+.2f}%")
+                with col_stat2:
+                    st.metric("Écart-type erreur (%)", f"{results_df['Erreur (%)'].std():.2f}%")
+                with col_stat3:
+                    st.metric("Min erreur (%)", f"{results_df['Erreur (%)'].min():+.2f}%")
+                with col_stat4:
+                    st.metric("Max erreur (%)", f"{results_df['Erreur (%)'].max():+.2f}%")
+                
+            except Exception as e:
+                st.error(f"❌ Erreur: {e}")
+
+
 # --- STREAMLIT UI ---
 st.set_page_config(page_title="AutoScout24 Scraper", layout="wide")
 st.title("🚗 Scraping AutoScout24")
 
 # Créer les onglets
-tab1, tab2 = st.tabs(["📥 Scraper", "🔍 Sélectionner"])
+tab1, tab2, tab3 = st.tabs(["📥 Scraper", "🔍 Sélectionner", "📊 Régression ML"])
 
 with tab1:
     st.write("Gérez vos données d'annonces AutoScout24")
@@ -874,3 +1119,6 @@ with tab1:
 
 with tab2:
     afficher_selection_voitures()
+
+with tab3:
+    afficher_regression_ml()
