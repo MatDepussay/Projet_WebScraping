@@ -765,23 +765,24 @@ def afficher_regression_ml():
     
     st.header("📊 Régression - Prédiction des Prix")
     
-    # Vérifier que le fichier existe
-    if not Path("autoscout_clean_ml.xlsx").exists():
-        st.warning("⚠️ Fichier autoscout_clean_ml.xlsx non trouvé. Assurez-vous d'avoir nettoyé les données.")
+    # Vérifier que le fichier JSON des annonces existe
+    if not Path("annonces_autoscout24.json").exists():
+        st.warning("⚠️ Fichier annonces_autoscout24.json introuvable. Lancez un scraping ou chargez un JSON.")
         return
     
+    # Utiliser le pipeline cleaning.py pour préparer les données (pas de préparation custom)
     try:
-        df = pl.read_excel("autoscout_clean_ml.xlsx")
-        df_pd = df.to_pandas()
+        df_clean_pl = appliquer_cleaning("annonces_autoscout24.json")
+        df_pd = df_clean_pl.to_pandas()
     except Exception as e:
-        st.error(f"❌ Erreur lors de la lecture du fichier: {e}")
+        st.error(f"❌ Erreur lors du nettoyage/préparation des données: {e}")
         return
     
     if "prix" not in df_pd.columns:
-        st.error("❌ La colonne 'prix' n'existe pas dans les données.")
+        st.error("❌ La colonne 'prix' est manquante après nettoyage. Vérifiez `preparer_ml` dans cleaning.py.")
         return
     
-    st.info(f"📈 Données: {len(df_pd)} lignes, {len(df_pd.columns)} colonnes")
+    st.info(f"📈 Données nettoyées: {len(df_pd)} lignes, {len(df_pd.columns)} colonnes")
     
     # --- Paramètres de configuration ---
     st.subheader("⚙️ Configuration du modèle")
@@ -819,10 +820,13 @@ def afficher_regression_ml():
     if st.button("🚀 Lancer l'entraînement", use_container_width=True):
         with st.spinner("⏳ Préparation des données..."):
             try:
-                # Préparer les données
-                X, y, numeric_cols, label_encoders = charger_et_preparer_donnees()
-                if X is None:
-                    st.error("❌ Erreur lors de la préparation des données")
+                # Construire X/y depuis les données nettoyées (via cleaning.py)
+                y = df_pd["prix"]
+                X = df_pd.drop(columns=["prix"], errors="ignore")
+                # S'assurer que les features sont numériques pour sklearn
+                X = X.select_dtypes(include="number")
+                if X.empty:
+                    st.error("❌ Aucune feature numérique disponible après nettoyage. Vérifiez `preparer_ml`.")
                     return
                 
                 # Split
@@ -936,19 +940,47 @@ def afficher_regression_ml():
                     st.plotly_chart(fig_scatter, use_container_width=True)
                 
                 with col_viz2:
-                    # Graphique des erreurs
+                    # Graphique des erreurs amélioré
                     fig_error = go.Figure()
+                    
+                    # Séparer les erreurs positives et négatives
+                    erreurs_pos = results_df[results_df['Erreur (%)'] > 0]['Erreur (%)']
+                    erreurs_neg = results_df[results_df['Erreur (%)'] <= 0]['Erreur (%)']
+                    
+                    # Histogramme pour erreurs négatives (sur-estimation)
                     fig_error.add_trace(go.Histogram(
-                        x=results_df['Erreur (%)'],
+                        x=erreurs_neg,
                         nbinsx=30,
-                        name='Distribution des erreurs',
-                        marker_color='rgba(0, 100, 200, 0.7)'
+                        name='Sur-estimation (prix prédit > réel)',
+                        marker_color='rgba(255, 100, 100, 0.7)',
+                        opacity=0.7
                     ))
+                    
+                    # Histogramme pour erreurs positives (sous-estimation)
+                    fig_error.add_trace(go.Histogram(
+                        x=erreurs_pos,
+                        nbinsx=30,
+                        name='Sous-estimation (prix prédit < réel)',
+                        marker_color='rgba(100, 150, 255, 0.7)',
+                        opacity=0.7
+                    ))
+                    
+                    # Ajouter une ligne verticale à 0
+                    fig_error.add_vline(
+                        x=0, 
+                        line_dash="dash", 
+                        line_color="black",
+                        annotation_text="Erreur = 0",
+                        annotation_position="top"
+                    )
+                    
                     fig_error.update_layout(
                         title='Distribution des erreurs (%)',
                         xaxis_title='Erreur (%)',
                         yaxis_title='Nombre de prédictions',
-                        height=500
+                        height=500,
+                        barmode='overlay',
+                        showlegend=True
                     )
                     st.plotly_chart(fig_error, use_container_width=True)
                 
