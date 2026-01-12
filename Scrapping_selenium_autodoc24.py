@@ -360,19 +360,58 @@ def extraire_details_annonce(html_content: str, url: str) -> dict:
     
     return voiture
 
-# --- 5. Sauvegarder en JSON ---
-def sauvegarder_json(voitures: list[Voiture], filename: str = "annonces_autoscout24.json"):
-    """Sauvegarde la liste des voitures dans un fichier JSON."""
-    data = [v.model_dump() for v in voitures]
-    
+# --- 5. Charger les voitures depuis un fichier JSON ---
+def charger_voitures_depuis_fichier(filename: str = "annonces_autoscout24.json") -> list[Voiture]:
+    """Charge les voitures depuis un fichier JSON local"""
     filepath = Path(filename)
+    if not filepath.exists():
+        return []
+    
+    try:
+        with open(filepath, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except Exception:
+        return []
+    
+    voitures: list[Voiture] = []
+    for item in data:
+        try:
+            voitures.append(Voiture(**item))
+        except Exception:
+            pass
+    return voitures
+
+# --- 6. Fusionner et protéger les annonces ---
+def fusionner_et_proteger_annonces(
+    nouvelles_voitures: list[Voiture], 
+    filename: str = "annonces_autoscout24.json"
+) -> tuple[Path, int]:
+    """
+    Fusionne les nouvelles annonces avec les existantes.
+    Protège le fichier en s'assurant que le nombre d'annonces augmente seulement.
+    Retourne le chemin du fichier et le nombre net d'annonces ajoutées.
+    """
+    existantes = charger_voitures_depuis_fichier(filename)
+    
+    # Créer un dictionnaire des URLs existantes pour éviter les doublons
+    urls_existantes = {v.lien_fiche for v in existantes if v.lien_fiche}
+    
+    # Ajouter seulement les nouvelles voitures (par URL)
+    voitures_a_ajouter = [v for v in nouvelles_voitures if v.lien_fiche not in urls_existantes]
+    
+    # Fusionner: existantes + nouvelles
+    voitures_finales = existantes + voitures_a_ajouter
+    
+    # Sauvegarder
+    filepath = Path(filename)
+    data = [v.model_dump() for v in voitures_finales]
     with open(filepath, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2, default=str)
     
-    print(f"💾 {len(voitures)} annonces sauvegardées dans {filepath}")
-    return filepath
+    print(f"💾 {len(voitures_finales)} annonces totales ({len(existantes)} existantes + {len(voitures_a_ajouter)} nouvelles) dans {filepath}")
+    return filepath, len(voitures_a_ajouter)
 
-# --- 6. Main ---
+# --- 7. Main ---
 def main():
     # URL de base (sans page, on va l'ajouter)
     url_base = "https://www.autoscout24.fr/lst?atype=C&cy=D%2CA%2CB%2CE%2CF%2CI%2CL%2CNL&damaged_listing=exclude&desc=0&powertype=kw&search_id=k9p7elkop&sort=standard&source=listpage_pagination&ustate=N%2CU"
@@ -456,11 +495,13 @@ def main():
             # Petit délai entre les requêtes pour ne pas surcharger le serveur
             time.sleep(1)
         
-        # Étape 3 : Sauvegarder
+        # Étape 3 : Fusionner avec les données existantes
         print("\n" + "=" * 60)
         if liste_voitures:
-            sauvegarder_json(liste_voitures)
-            print(f"✨ Scraping terminé : {len(liste_voitures)} annonces")
+            filepath, nb_nouvelles = fusionner_et_proteger_annonces(liste_voitures)
+            print(f"✨ Scraping terminé : {nb_nouvelles} nouvelles annonces ajoutées")
+            if nb_nouvelles == 0:
+                print("ℹ️  Toutes les annonces scrapées existaient déjà")
         else:
             print("⚠️  Aucune annonce valide trouvée")
     
