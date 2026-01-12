@@ -787,7 +787,7 @@ def afficher_regression_ml():
     # --- Paramètres de configuration ---
     st.subheader("⚙️ Configuration du modèle")
     
-    col_config1, col_config2, col_config3 = st.columns(3)
+    col_config1, col_config2, col_config3 , = st.columns(3)
     
     with col_config1:
         model_type = st.selectbox(
@@ -812,7 +812,6 @@ def afficher_regression_ml():
             ["R² Score", "RMSE", "MAE"],
             key="metric_selection"
         )
-    
     # Random state fixé à 42
     random_state = 42
     
@@ -986,7 +985,7 @@ def afficher_regression_ml():
                 
                 # Tableau détaillé
                 st.subheader("📋 Détails des prédictions")
-                st.dataframe(results_df.head(20), use_container_width=True)
+                st.dataframe(results_df, use_container_width=True)
                 
                 # Statistiques des erreurs
                 st.subheader("📈 Statistiques des erreurs")
