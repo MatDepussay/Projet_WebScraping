@@ -36,7 +36,7 @@ jobs:
     - name: Install Python dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install bs4 pydantic requests selenium lxml
+        pip install bs4 pydantic requests selenium lxml fake_useragent
         
     - name: Run scraping script
       run: |
