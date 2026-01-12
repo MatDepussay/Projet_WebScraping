@@ -6,6 +6,7 @@
 #     "requests",
 #     "selenium",
 #     "lxml",
+#     "fake-useragent",
 # ]
 # ///
 
@@ -25,6 +26,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
+from fake_useragent import UserAgent
 
 # --- Modèles Pydantic ---
 class Voiture(BaseModel):
@@ -54,7 +56,10 @@ def recupere_page_listage(url: str) -> str:
     
     # Utiliser Chrome si: CI/CD, Linux, Windows, ou chemin contient "matde"
     if is_ci or is_linux or is_windows or "matde" in str(Path(".").resolve()):
+        ua = UserAgent()
+        
         options = ChromeOptions()
+        options.add_argument(f"user-agent={ua.random}")  # User-Agent aléatoire
         options.add_argument("--headless")
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-dev-shm-usage")
@@ -431,9 +436,9 @@ def main():
     print("\n📋 Récupération des pages de listage...")
     urls_annonces_toutes = {}  # Utiliser un dict pour éviter les doublons
     
-    for page in range(1, 101):  # Pages 1 à 200
+    for page in range(1, 51):  # Pages 1 à 50
         url_page = f"{url_base}&page={page}"
-        print(f"\n--- Page {page}/200 ---")
+        print(f"\n--- Page {page}/50 ---")
         
         html_listage = recupere_page_listage(url_page)
         urls_page = extraire_urls_annonces(html_listage)
