@@ -395,10 +395,14 @@ def charger_voitures_depuis_fichier(filename: str = "annonces_autoscout24.json")
 
 def appliquer_cleaning(filename: str = "annonces_autoscout24.json") -> pl.DataFrame:
     """Applique tout le pipeline de cleaning et retourne un DataFrame propre"""
+    from cleaning import nettoyer_transmission, traiter_valeurs_aberrantes
+    
     df = pl.read_json(filename)
     df = nettoyer_numeriques(df)
     df = reparer_marque_modele(df)
     df = extraire_specs_et_lieu(df)
+    df = nettoyer_transmission(df)
+    df = traiter_valeurs_aberrantes(df)
     df = preparer_ml(df)
     
     return df
