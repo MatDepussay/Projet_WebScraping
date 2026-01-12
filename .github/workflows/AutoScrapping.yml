@@ -2,8 +2,8 @@ name: Auto Scraping AutoScout24
 
 on:
   schedule:
-    # Exécution tous les jours à 3h du matin (UTC)
-    - cron: '0 3 * * *'
+    # Exécution 4 fois par jour, toutes les 6 heures (UTC)
+    - cron: '0 0,6,12,18 * * *'
   workflow_dispatch:  # Permet de lancer manuellement le workflow
 
 permissions:

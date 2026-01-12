@@ -431,7 +431,7 @@ def main():
     print("\n📋 Récupération des pages de listage...")
     urls_annonces_toutes = {}  # Utiliser un dict pour éviter les doublons
     
-    for page in range(1, 2):  # Pages 1 à 200
+    for page in range(1, 101):  # Pages 1 à 200
         url_page = f"{url_base}&page={page}"
         print(f"\n--- Page {page}/200 ---")
         
