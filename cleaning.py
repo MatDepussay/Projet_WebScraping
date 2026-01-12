@@ -33,18 +33,97 @@ def nettoyer_numeriques(df: pl.DataFrame) -> pl.DataFrame:
 # 3. MARQUE / MODÈLE
 # =========================
 def reparer_marque_modele(df: pl.DataFrame) -> pl.DataFrame:
-    marques_ref = [
-        "Alfa Romeo", "Audi", "BMW", "Citroen", "Citroën", "Dacia", "DS", "Fiat", "Ford", 
-        "Honda", "Hyundai", "Jaguar", "Jeep", "Kia","Lancia", "Land Rover", "Lexus", 
-        "Mazda", "Mercedes-Benz", "Mercedes", "Mini", "Nissan", "Opel", 
-        "Peugeot", "Porsche", "Renault", "Seat", "Skoda", "Smart", "Suzuki", 
-        "Tesla", "Toyota", "Volkswagen", "Volvo", "Polestar", "MG", "Cupra", "Omoda"
-    ]
-    regex_str = f"(?i)({'|'.join(marques_ref)})"
+    marques_ref = {
+        "Alfa Romeo": ["Alfa Romeo", "Alfa", "Alfa-Romeo"],
+        "Aston Martin": ["Aston Martin", "Aston"],
+        "Audi": ["Audi"],
+        "Bentley": ["Bentley"],
+        "BMW": ["BMW", "Bmw"],
+        "Bugatti": ["Bugatti"],
+        "Cadillac": ["Cadillac"],
+        "Chevrolet": ["Chevrolet", "Chevy"],
+        "Chrysler": ["Chrysler"],
+        "Citroën": ["Citroen", "Citroën"],
+        "Cupra": ["Cupra"],
+        "Dacia": ["Dacia"],
+        "Daihatsu": ["Daihatsu"],
+        "Dodge": ["Dodge"],
+        "DS": ["DS", "DS Automobiles"],
+        "Ferrari": ["Ferrari"],
+        "Fiat": ["Fiat"],
+        "Ford": ["Ford"],
+        "Genesis": ["Genesis"],
+        "Honda": ["Honda"],
+        "Hummer": ["Hummer"],
+        "Hyundai": ["Hyundai"],
+        "Infiniti": ["Infiniti"],
+        "Isuzu": ["Isuzu"],
+        "Jaguar": ["Jaguar"],
+        "Jeep": ["Jeep"],
+        "Kia": ["Kia"],
+        "Lada": ["Lada"],
+        "Lamborghini": ["Lamborghini"],
+        "Lancia": ["Lancia"],
+        "Land Rover": ["Land Rover", "Landrover", "Land-Rover"],
+        "Lexus": ["Lexus"],
+        "Lotus": ["Lotus"],
+        "Maserati": ["Maserati"],
+        "Mazda": ["Mazda"],
+        "McLaren": ["McLaren", "Mclaren"],
+        "Mercedes-Benz": ["Mercedes-Benz", "Mercedes", "Mercedes Benz"],
+        "MG": ["MG", "Mg"],
+        "Mini": ["Mini", "MINI"],
+        "Mitsubishi": ["Mitsubishi"],
+        "Nissan": ["Nissan"],
+        "Opel": ["Opel"],
+        "Peugeot": ["Peugeot"],
+        "Polestar": ["Polestar"],
+        "Porsche": ["Porsche"],
+        "Renault": ["Renault"],
+        "Rolls-Royce": ["Rolls-Royce", "Rolls Royce", "Rollsroyce"],
+        "Saab": ["Saab"],
+        "Seat": ["Seat", "SEAT"],
+        "Skoda": ["Skoda", "Škoda"],
+        "Smart": ["Smart", "SMART"],
+        "SsangYong": ["SsangYong", "Ssangyong"],
+        "Subaru": ["Subaru"],
+        "Suzuki": ["Suzuki"],
+        "Tesla": ["Tesla"],
+        "Toyota": ["Toyota"],
+        "Volkswagen": ["Volkswagen", "VW"],
+        "Volvo": ["Volvo"],
+        "Omoda": ["Omoda"],
+        "BYD": ["BYD"],
+        "Lynk & Co": ["Lynk & Co", "Lynk&Co", "Lynk"],
+        "Aiways": ["Aiways"],
+        "Nio": ["Nio", "NIO"],
+        "Rivian": ["Rivian"],
+        "Lucid": ["Lucid"],
+        "Fisker": ["Fisker"]}
+    
+    # Extraire TOUTES les variantes
+    all_variants = []
+    for variants in marques_ref.values():
+        all_variants.extend(variants)
+    
+    # Créer mapping inverse: variante → marque canonique
+    variant_to_canonical = {}
+    for canonical, variants in marques_ref.items():
+        for variant in variants:
+            variant_to_canonical[variant.lower()] = canonical
+    
+    regex_str = f"(?i)({'|'.join(all_variants)})"
 
-    return df.with_columns([
-        pl.col("marque").str.extract(regex_str, 1).str.to_titlecase()
-        .replace("Mercedes", "Mercedes-Benz").alias("marque_clean"),
+    df_temp = df.with_columns([
+        pl.col("marque").str.extract(regex_str, 1).alias("marque_extracted")
+    ])
+
+    return df_temp.with_columns([
+        pl.col("marque_extracted")
+        .str.to_lowercase()
+        .replace(variant_to_canonical)
+        .fill_null("Inconnu")
+        .alias("marque_clean"),
         
         pl.col("marque")
         .str.replace(regex_str, "")
@@ -53,9 +132,8 @@ def reparer_marque_modele(df: pl.DataFrame) -> pl.DataFrame:
         .str.split(" ").list.slice(0, 2).list.join(" ")
         .alias("modele_clean")
     ]).with_columns([
-        pl.col("marque_clean").fill_null("Inconnu"),
         pl.col("modele_clean").fill_null("Inconnu")
-    ]).drop("marque").rename({"marque_clean": "marque", "modele_clean": "modele"})
+    ]).drop(["marque", "marque_extracted"]).rename({"marque_clean": "marque", "modele_clean": "modele"})
 
 # =========================
 # 4. SPECS & LOCALISATION
