@@ -101,11 +101,29 @@ def reparer_marque_modele(df: pl.DataFrame) -> pl.DataFrame:
         "Lucid": ["Lucid"],
         "Fisker": ["Fisker"]}
     
-    regex_str = f"(?i)({'|'.join(marques_ref)})"
+    # Extraire TOUTES les variantes
+    all_variants = []
+    for variants in marques_ref.values():
+        all_variants.extend(variants)
+    
+    # Créer mapping inverse: variante → marque canonique
+    variant_to_canonical = {}
+    for canonical, variants in marques_ref.items():
+        for variant in variants:
+            variant_to_canonical[variant.lower()] = canonical
+    
+    regex_str = f"(?i)({'|'.join(all_variants)})"
 
-    return df.with_columns([
-        pl.col("marque").str.extract(regex_str, 1).str.to_titlecase()
-        .replace("Mercedes", "Mercedes-Benz").alias("marque_clean"),
+    df_temp = df.with_columns([
+        pl.col("marque").str.extract(regex_str, 1).alias("marque_extracted")
+    ])
+
+    return df_temp.with_columns([
+        pl.col("marque_extracted")
+        .str.to_lowercase()
+        .replace(variant_to_canonical)
+        .fill_null("Inconnu")
+        .alias("marque_clean"),
         
         pl.col("marque")
         .str.replace(regex_str, "")
@@ -114,9 +132,8 @@ def reparer_marque_modele(df: pl.DataFrame) -> pl.DataFrame:
         .str.split(" ").list.slice(0, 2).list.join(" ")
         .alias("modele_clean")
     ]).with_columns([
-        pl.col("marque_clean").fill_null("Inconnu"),
         pl.col("modele_clean").fill_null("Inconnu")
-    ]).drop("marque").rename({"marque_clean": "marque", "modele_clean": "modele"})
+    ]).drop(["marque", "marque_extracted"]).rename({"marque_clean": "marque", "modele_clean": "modele"})
 
 # =========================
 # 4. SPECS & LOCALISATION
