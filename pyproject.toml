@@ -15,5 +15,6 @@ dependencies = [
     "scikit-learn>=1.8.0",
     "selenium>=4.38.0",
     "streamlit>=1.52.2",
+    "streamlit-tile>=4.1.0",
     "xgboost>=3.1.3",
 ]
