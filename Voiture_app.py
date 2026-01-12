@@ -21,7 +21,10 @@ import json
 import re
 import time
 from pathlib import Path
-
+import pandas as pd
+import plotly.graph_objects as go
+import plotly.express as px
+from sklearn.model_selection import train_test_split
 import streamlit as st
 from bs4 import BeautifulSoup as BS
 from pydantic import BaseModel
@@ -33,6 +36,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import polars as pl
+from streamlit_tile import streamlit_tile
 
 # Import des fonctions de nettoyage depuis cleaning.py
 from cleaning import (
@@ -537,6 +541,40 @@ def afficher_selection_voitures():
     """Interface pour visualiser, filtrer et sélectionner les voitures nettoyées"""
     st.header("🔍 Sélection et visualisation des voitures")
     
+    # Charger le modèle ML si disponible
+    import pickle
+    model = None
+    label_encoders = None
+    
+    # Chercher le modèle Random Forest ou XGBoost
+    model_path_rf = Path("models/random_forest_model.pkl")
+    model_path_xgb = Path("models/xgboost_model.pkl")
+    model_path_old = Path("models/random_forest.pkl")
+    
+    if model_path_rf.exists():
+        try:
+            with open(model_path_rf, "rb") as f:
+                model = pickle.load(f)
+            st.success("✅ Modèle ML (Random Forest) chargé - Les prédictions seront affichées")
+        except Exception as e:
+            st.warning(f"⚠️ Impossible de charger le modèle Random Forest: {e}")
+    elif model_path_xgb.exists():
+        try:
+            with open(model_path_xgb, "rb") as f:
+                model = pickle.load(f)
+            st.success("✅ Modèle ML (XGBoost) chargé - Les prédictions seront affichées")
+        except Exception as e:
+            st.warning(f"⚠️ Impossible de charger le modèle XGBoost: {e}")
+    elif model_path_old.exists():
+        try:
+            with open(model_path_old, "rb") as f:
+                model = pickle.load(f)
+            st.success("✅ Modèle ML chargé - Les prédictions seront affichées")
+        except Exception as e:
+            st.warning(f"⚠️ Impossible de charger le modèle: {e}")
+    else:
+        st.info("ℹ️ Aucun modèle ML trouvé. Entraînez d'abord un modèle dans l'onglet 'Régression ML'")
+    
     # Style CSS pour mettre les sliders en gris
     st.markdown("""
         <style>
@@ -596,7 +634,7 @@ def afficher_selection_voitures():
     with col_filter1:
         marques_disponibles = sorted(voitures_df["marque"].drop_nulls().unique().to_list())
         marque_selectionnee = st.multiselect("Marque", marques_disponibles, key="filter_marque")
-    
+     
     with col_filter2:
         # Filtrer les modèles selon la marque sélectionnée
         if marque_selectionnee:
@@ -654,7 +692,18 @@ def afficher_selection_voitures():
         villes_disponibles = sorted(voitures_df["ville"].drop_nulls().unique().to_list())
         ville_selectionnee = st.multiselect("Ville", villes_disponibles, key="filter_ville")
     
-    # Appliquer les filtres
+    # Troisième ligne: Filtre pour catégorie de prix (si modèle disponible)
+    categorie_prix_selectionnee = None
+    if model is not None:
+        col_filter9 = st.columns([1])[0]
+        with col_filter9:
+            categories_disponibles = ["✅ Bonne Affaire", "⚠️ Normal", "❌ Arnaque"]
+            categorie_prix_selectionnee = st.multiselect(
+                "Catégorie de prix",
+                categories_disponibles,
+                default=categories_disponibles,
+                key="filter_categorie_prix_header"
+            )
     voitures_filtrees = voitures_df
     
     if marque_selectionnee:
@@ -684,6 +733,9 @@ def afficher_selection_voitures():
         (pl.col("puissance_kw") >= puissance_min) & (pl.col("puissance_kw") <= puissance_max)
     )
     
+    # Appliquer le filtre de catégorie de prix si sélectionné et modèle disponible
+    # (Ce filtre sera appliqué après le calcul des prédictions)
+    
     st.success(f"✅ {voitures_filtrees.height} voiture(s) correspondent aux critères")
     
     # --- Affichage des voitures ---
@@ -702,23 +754,76 @@ def afficher_selection_voitures():
             
             data_affichage = voitures_filtrees.select(colonnes_valides).to_dicts()
             
+            # Ajouter les prédictions si le modèle est chargé
+            predictions_disponibles = False
+            categorie_prix_data = {}
+            if model is not None:
+                try:
+                    # Préparer les features pour la prédiction
+                    df_for_pred = voitures_filtrees.to_pandas()
+                    X_pred = df_for_pred.drop(columns=["prix"], errors="ignore")
+                    X_pred = X_pred.select_dtypes(include="number")
+                    
+                    # Faire les prédictions
+                    predictions = model.predict(X_pred)
+                    predictions_disponibles = True
+                    
+                    # Ajouter les prédictions et catégories aux données
+                    for idx, v in enumerate(data_affichage):
+                        prix_reel = v.get('prix', 0)
+                        prix_predit = predictions[idx]
+                        difference_pct = ((prix_reel - prix_predit) / prix_predit * 100) if prix_predit != 0 else 0
+                        
+                        v["prix_predit"] = prix_predit
+                        v["difference_pct"] = difference_pct
+                        
+                        # Déterminer la catégorie
+                        if difference_pct < -5:  # Prix réel < Prix prédit = Bonne Affaire
+                            categorie = "✅ Bonne Affaire"
+                        elif difference_pct > 5:  # Prix réel > Prix prédit = Arnaque
+                            categorie = "❌ Arnaque"
+                        else:  # Entre -5% et +5% = Normal
+                            categorie = "⚠️ Normal"
+                        
+                        v["categorie_prix"] = categorie
+                except Exception as e:
+                    st.error(f"❌ Erreur lors des prédictions: {e}")
+                    import traceback
+                    st.code(traceback.format_exc())
+            
             # Formater les données pour l'affichage
             data_tableau = []
             for v in data_affichage:
                 row = {
                     "Marque": v.get("marque") or "N/A",
                     "Modèle": v.get("modele") or "N/A",
-                    "Prix (€)": f"{v.get('prix'):,}".replace(",", " ") if v.get("prix") else "N/A",
+                    "Prix réel (€)": f"{v.get('prix'):,.0f}".replace(",", " ") if v.get("prix") else "N/A",
+                }
+                
+                # Ajouter prix prédit et catégorie si disponible
+                if predictions_disponibles and "prix_predit" in v:
+                    prix_predit = v.get('prix_predit', 0)
+                    
+                    row["Prix prédit (€)"] = f"{prix_predit:,.0f}".replace(",", " ")
+                    row["Catégorie"] = v.get("categorie_prix", "⚠️ Normal")
+                
+                row.update({
                     "Km": f"{v.get('kilometrage'):,}".replace(",", " ") if v.get("kilometrage") else "N/A",
                     "Année": v.get("annee") or "N/A",
                     "Carburant": v.get("carburant") or "N/A",
                     "Boîte": v.get("boite_de_vitesse") or "N/A",
                     "Puissance (kW)": v.get("puissance_kw") or "N/A",
                     "Ville": v.get("ville") or "N/A",
-                }
+                })
                 data_tableau.append(row)
             
             st.dataframe(data_tableau, use_container_width=True, height=500)
+            
+            # Appliquer le filtre de catégorie si disponible
+            if predictions_disponibles and categorie_prix_selectionnee:
+                data_tableau_filtres = [row for row in data_tableau if row.get("Catégorie") in categorie_prix_selectionnee]
+                st.info(f"📊 Après filtrage par catégorie: {len(data_tableau_filtres)} voiture(s)")
+                st.dataframe(data_tableau_filtres, use_container_width=True, height=500)
             
             # Export en JSON
             if st.button("📥 Exporter les résultats en JSON", key="export_json"):
@@ -762,10 +867,7 @@ def afficher_selection_voitures():
 
 def afficher_regression_ml():
     """Interface Streamlit pour entraîner les modèles ML"""
-    import pandas as pd
-    import plotly.graph_objects as go
-    import plotly.express as px
-    from sklearn.model_selection import train_test_split
+
     
     st.header("📊 Régression - Prédiction des Prix")
     
@@ -1014,7 +1116,7 @@ st.set_page_config(page_title="AutoScout24 Scraper", layout="wide")
 st.title("🚗 Scraping AutoScout24")
 
 # Créer les onglets
-tab1, tab2, tab3 = st.tabs(["📥 Scraper", "🔍 Sélectionner", "📊 Régression ML"])
+tab1, tab2, tab3 = st.tabs(["📥 Scraper", "📊 Régression ML", "🔍 Sélectionner"])
 
 with tab1:
     st.write("Gérez vos données d'annonces AutoScout24")
@@ -1153,7 +1255,7 @@ with tab1:
                             st.error(f"❌ Erreur lors du nettoyage: {e}")
 
 with tab2:
-    afficher_selection_voitures()
+    afficher_regression_ml()
 
 with tab3:
-    afficher_regression_ml()
+    afficher_selection_voitures()
