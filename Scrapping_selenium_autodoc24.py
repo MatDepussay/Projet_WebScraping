@@ -11,6 +11,8 @@
 
 import json
 import re
+import os
+import sys
 from bs4 import BeautifulSoup as BS
 from pydantic import BaseModel
 from pathlib import Path
@@ -44,15 +46,21 @@ class Voiture(BaseModel):
 def recupere_page_listage(url: str) -> str:
     """Ouvre la page listage AutoScout24, scrolle, et retourne le HTML."""
     print(f"🌐 Ouverture de la page listage : {url}")
-    dir_path = Path(".").resolve()
-
-    if "matde" in str(dir_path):
+    
+    # Détecter l'environnement: CI/CD (GitHub Actions) ou OS local
+    is_ci = os.getenv('CI') == 'true' or os.getenv('GITHUB_ACTIONS') == 'true'
+    is_linux = sys.platform.startswith('linux')
+    is_windows = sys.platform.startswith('win')
+    
+    # Utiliser Chrome si: CI/CD, Linux, Windows, ou chemin contient "matde"
+    if is_ci or is_linux or is_windows or "matde" in str(Path(".").resolve()):
         options = ChromeOptions()
         options.add_argument("--headless")
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-dev-shm-usage")
         driver = webdriver.Chrome(service=ChromeService(), options=options)
     else:
+        # macOS local sans "matde" = Safari
         driver = webdriver.Safari(service=Service())
     
     try:
@@ -450,14 +458,20 @@ def main():
     print(f"\n📖 Consultation de {len(urls_annonces)} annonces...")
     print("=" * 60)
     
-    dir_path = Path(".").resolve()
-    if "matde" in str(dir_path):
+    # Détecter l'environnement: CI/CD (GitHub Actions) ou OS local
+    is_ci = os.getenv('CI') == 'true' or os.getenv('GITHUB_ACTIONS') == 'true'
+    is_linux = sys.platform.startswith('linux')
+    is_windows = sys.platform.startswith('win')
+    
+    # Utiliser Chrome si: CI/CD, Linux, Windows, ou chemin contient "matde"
+    if is_ci or is_linux or is_windows or "matde" in str(Path(".").resolve()):
         options = ChromeOptions()
         options.add_argument("--headless")
         options.add_argument("--no-sandbox")
         options.add_argument("--disable-dev-shm-usage")
         driver = webdriver.Chrome(service=ChromeService(), options=options)
     else:
+        # macOS local sans "matde" = Safari
         driver = webdriver.Safari(service=Service())
     
     try:
