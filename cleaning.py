@@ -7,7 +7,6 @@
 # ///
 
 import polars as pl
-import re
 
 # =========================
 # 1. CHARGEMENT
@@ -35,8 +34,8 @@ def nettoyer_numeriques(df: pl.DataFrame) -> pl.DataFrame:
 # =========================
 def reparer_marque_modele(df: pl.DataFrame) -> pl.DataFrame:
     marques_ref = [
-        "Alfa Romeo", "Audi", "BMW", "Citroen", "Dacia", "DS", "Fiat", "Ford", 
-        "Honda", "Hyundai", "Jaguar", "Jeep", "Kia", "Land Rover", "Lexus", 
+        "Alfa Romeo", "Audi", "BMW", "Citroen", "Citroën", "Dacia", "DS", "Fiat", "Ford", 
+        "Honda", "Hyundai", "Jaguar", "Jeep", "Kia","Lancia", "Land Rover", "Lexus", 
         "Mazda", "Mercedes-Benz", "Mercedes", "Mini", "Nissan", "Opel", 
         "Peugeot", "Porsche", "Renault", "Seat", "Skoda", "Smart", "Suzuki", 
         "Tesla", "Toyota", "Volkswagen", "Volvo", "Polestar", "MG", "Cupra", "Omoda"
@@ -70,47 +69,98 @@ def extraire_specs_et_lieu(df: pl.DataFrame) -> pl.DataFrame:
         pl.lit("Europe").alias("pays")
     ]).drop("localisation")
 
-# =========================
-# 5. PRÉPARATION ML (FIX DÉFINITIF)
-# =========================
-def preparer_ml(df: pl.DataFrame) -> pl.DataFrame:
-    # On calcule les médianes avant pour éviter l'erreur de "strategy"
-    med_p = df.select(pl.col("puissance_kw").median()).to_series()[0]
-    med_a = df.select(pl.col("annee").median()).to_series()[0]
+def nettoyer_transmission(df: pl.DataFrame) -> pl.DataFrame:
+    """
+    Conserve uniquement les valeurs de transmission :
+    - avant
+    - arriere
+    - 4x4
+    Supprime les valeurs liées à la boîte de vitesses.
+    """
 
-    # Un seul with_columns pour tout traiter sans doublons
+    return df.with_columns(
+        pl.when(
+            pl.col("transmission")
+            .str.to_lowercase()
+            .is_in(["avant", "arriere", "arrière", "4x4"])
+        )
+        .then(pl.col("transmission").str.to_lowercase())
+        .otherwise(None)
+        .alias("transmission")
+    )
+
+# =========================
+# 5. GESTION DES VALEURS ABERRANTES
+# =========================
+def traiter_valeurs_aberrantes(df: pl.DataFrame) -> pl.DataFrame:
+    """
+    Supprime les lignes inexploitables et corrige les valeurs aberrantes
+    à l'aide de bornes métier.
+    """
+
+    # Suppression des lignes sans année ou kilométrage
+    df = df.filter(
+        pl.col("annee").is_not_null() &
+        pl.col("kilometrage").is_not_null()
+    )
+
+    med_puissance = (
+        df.select(pl.col("puissance_kw").drop_nulls().median()).item()
+        or 100
+    )
+
     return df.with_columns([
-        # Remplissage des Nulls ET correction des aberrations en une fois
-        pl.when((pl.col("puissance_kw").is_null()) | (pl.col("puissance_kw") < 5) | (pl.col("puissance_kw") > 1000))
-          .then(med_p)
+        pl.when((pl.col("puissance_kw") < 5) | (pl.col("puissance_kw") > 1000))
+          .then(med_puissance)
           .otherwise(pl.col("puissance_kw"))
           .alias("puissance_kw"),
-          
-        pl.when((pl.col("annee").is_null()) | (pl.col("annee") < 1980) | (pl.col("annee") > 2026))
-          .then(med_a)
+
+        pl.when((pl.col("annee") < 1980) | (pl.col("annee") > 2026))
+          .then(None)
           .otherwise(pl.col("annee"))
           .alias("annee"),
-          
-        pl.col("cylindree_l").fill_null(0.0)
+
+        pl.when((pl.col("kilometrage") < 0) | (pl.col("kilometrage") > 500_000))
+          .then(None)
+          .otherwise(pl.col("kilometrage"))
+          .alias("kilometrage"),
+    ]).drop_nulls(["annee", "kilometrage"])
+
+
+# =========================
+# 7. PRÉPARATION ML (SIMPLIFIÉE)
+# =========================
+def preparer_ml(df: pl.DataFrame) -> pl.DataFrame:
+    return df.with_columns([
+        pl.col("puissance_kw").fill_null(df.select(pl.col("puissance_kw").median()).item()),
+        pl.col("annee").fill_null(df.select(pl.col("annee").median()).item()),
+        pl.col("cylindree_l").fill_null(0.0),
+        pl.col("kilometrage").fill_null(df.select(pl.col("kilometrage").median()).item()),
     ])
+
 
 # =========================
 # MAIN
 # =========================
 def main():
     df = charger_donnees()
-    if df.is_empty(): return
+    if df.is_empty(): 
+        return
 
     df = (
         df.pipe(nettoyer_numeriques)
-        .pipe(reparer_marque_modele)
-        .pipe(extraire_specs_et_lieu)
-        .pipe(preparer_ml)
+          .pipe(reparer_marque_modele)
+          .pipe(extraire_specs_et_lieu)
+          .pipe(nettoyer_transmission)
+          .pipe(traiter_valeurs_aberrantes)
+          .pipe(preparer_ml)
+          .drop(["lien_fiche", "puissance"])
     )
 
     df.write_excel("autoscout_clean_ml.xlsx")
     print(f"✅ Export réussi : {df.shape[0]} lignes.")
     print(df.head(5))
+
 
 if __name__ == "__main__":
     main()
