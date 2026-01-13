@@ -13,7 +13,7 @@ import polars as pl
 # =========================
 def charger_donnees() -> pl.DataFrame:
     try:
-        return pl.read_json("annonces_autoscout24.json")
+        return pl.read_json("annonces_autoscout24 2.json")
     except Exception as e:
         print(f"Erreur de lecture : {e}")
         return pl.DataFrame()
@@ -122,18 +122,23 @@ def reparer_marque_modele(df: pl.DataFrame) -> pl.DataFrame:
         pl.col("marque_extracted")
         .str.to_lowercase()
         .replace(variant_to_canonical)
-        .fill_null("Inconnu")
+        # On ne met plus .fill_null("Inconnu") ici
         .alias("marque_clean"),
         
         pl.col("marque")
         .str.replace(regex_str, "")
-        .str.replace_all(r"(?i)(TDI|HDI|VTi|1\.2|1\.4|1\.6|2\.0|kW|CH|CV)", "")
+        .str.replace_all(r"(?i)(TDI|CRDi|HDI|VTi|1\.2|1\.4|1\.6|2\.0|kW|CH|CV)", "")
         .str.strip_chars()
         .str.split(" ").list.slice(0, 2).list.join(" ")
         .alias("modele_clean")
-    ]).with_columns([
-        pl.col("modele_clean").fill_null("Inconnu")
-    ]).drop(["marque", "marque_extracted"]).rename({"marque_clean": "marque", "modele_clean": "modele"})
+    ]).drop([
+        "marque", "marque_extracted"
+    ]).rename({
+        "marque_clean": "marque", 
+        "modele_clean": "modele"
+    }).filter(
+        pl.col("marque").is_not_null() # Supprime les lignes où la marque n'a pas été trouvée
+    )
 
 # =========================
 # 4. SPECS & LOCALISATION
@@ -171,25 +176,16 @@ def nettoyer_transmission(df: pl.DataFrame) -> pl.DataFrame:
 # 5. GESTION DES VALEURS ABERRANTES
 # =========================
 def traiter_valeurs_aberrantes(df: pl.DataFrame) -> pl.DataFrame:
-    """
-    Supprime les lignes inexploitables et corrige les valeurs aberrantes
-    à l'aide de bornes métier.
-    """
-
-    # Suppression des lignes sans année ou kilométrage
+    # On garde ton filtre initial sur l'année et le kilométrage
     df = df.filter(
         pl.col("annee").is_not_null() &
         pl.col("kilometrage").is_not_null()
     )
 
-    med_puissance = (
-        df.select(pl.col("puissance_kw").drop_nulls().median()).item()
-        or 100
-    )
-
     return df.with_columns([
+        # Au lieu de remplacer par la médiane, on met à Null si hors bornes
         pl.when((pl.col("puissance_kw") < 5) | (pl.col("puissance_kw") > 1000))
-          .then(med_puissance)
+          .then(None)
           .otherwise(pl.col("puissance_kw"))
           .alias("puissance_kw"),
 
@@ -209,11 +205,12 @@ def traiter_valeurs_aberrantes(df: pl.DataFrame) -> pl.DataFrame:
 # 7. PRÉPARATION ML (SIMPLIFIÉE)
 # =========================
 def preparer_ml(df: pl.DataFrame) -> pl.DataFrame:
+    """
+    On ne remplit plus les médianes ici. 
+    On se contente de s'assurer que les types sont corrects.
+    """
     return df.with_columns([
-        pl.col("puissance_kw").fill_null(df.select(pl.col("puissance_kw").median()).item()),
-        pl.col("annee").fill_null(df.select(pl.col("annee").median()).item()),
-        pl.col("cylindree_l").fill_null(0.0),
-        pl.col("kilometrage").fill_null(df.select(pl.col("kilometrage").median()).item()),
+        pl.col("cylindree_l").fill_null(0.0), # Optionnel : garder le 0 pour les électriques
     ])
 
 
