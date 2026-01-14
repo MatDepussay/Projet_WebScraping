@@ -1160,13 +1160,6 @@ with tab1:
                             st.metric("Nettoyées", df_nettoyees.height)
                         with col_success_3:
                             st.metric("Ratio", f"{(df_nettoyees.height / len(liste_voitures) * 100):.1f}%")
-                        
-                        # Aperçu des données nettoyées
-                        st.subheader("📊 Aperçu des données nettoyées")
-                        preview_data = df_nettoyees.select([
-                            "marque", "modele", "moteur", "prix", "kilometrage", "annee"
-                        ]).head(5).to_dicts()
-                        st.json(preview_data)
                     except Exception as e:
                         st.error(f"❌ Erreur lors du nettoyage: {e}")
 
@@ -1190,10 +1183,6 @@ with tab1:
                             st.metric("Fichier chargé", uploaded_file.name)
                         with col_success_2:
                             st.metric("Nombre d'annonces", len(voitures))
-
-                        st.subheader("📊 Aperçu des données")
-                        preview_data = [v.model_dump() for v in voitures[:5]]
-                        st.json(preview_data)
 
     else:  # Mode "➕ Ajouter des données"
         with col1:
@@ -1244,15 +1233,34 @@ with tab1:
                                 st.metric("Nettoyées", df_nettoyees.height)
                             with col_clean_2:
                                 st.metric("Ratio qualité", f"{(df_nettoyees.height / len(voitures_finales) * 100):.1f}%")
-                            
-                            # Affichage d'un aperçu des données nettoyées
-                            st.subheader("📊 Aperçu des données nettoyées finales")
-                            preview_data = df_nettoyees.select([
-                                "marque", "modele", "moteur", "prix", "kilometrage", "annee"
-                            ]).head(5).to_dicts()
-                            st.json(preview_data)
                         except Exception as e:
                             st.error(f"❌ Erreur lors du nettoyage: {e}")
+    
+    # Bouton pour forcer le nettoyage des données existantes
+    st.divider()
+    col_clean_force_1, col_clean_force_2 = st.columns([3, 1])
+    with col_clean_force_1:
+        st.write("**🧹 Forcer le nettoyage des données existantes**")
+        st.caption("Nettoie le fichier annonces_autoscout24.json et régénère voitures_nettoyees.json")
+    with col_clean_force_2:
+        if st.button("🧹 Nettoyer", use_container_width=True, type="secondary"):
+            if not Path("annonces_autoscout24.json").exists():
+                st.error("❌ Fichier annonces_autoscout24.json introuvable")
+            else:
+                try:
+                    with st.spinner("Nettoyage en cours..."):
+                        df_nettoyees = appliquer_cleaning("annonces_autoscout24.json")
+                    sauvegarder_donnees_nettoyees(df_nettoyees, "voitures_nettoyees.json")
+                    st.success(f"✅ {df_nettoyees.height} annonces nettoyées avec succès")
+                    
+                    col_force_1, col_force_2 = st.columns(2)
+                    with col_force_1:
+                        voitures_brutes = len(charger_voitures_depuis_fichier("annonces_autoscout24.json"))
+                        st.metric("Annonces brutes", voitures_brutes)
+                    with col_force_2:
+                        st.metric("Annonces nettoyées", df_nettoyees.height)
+                except Exception as e:
+                    st.error(f"❌ Erreur lors du nettoyage: {e}")
 
 with tab2:
     afficher_regression_ml()
