@@ -127,7 +127,7 @@ def reparer_marque_modele(df: pl.DataFrame) -> pl.DataFrame:
         
         pl.col("marque")
         .str.replace(regex_str, "")
-        .str.replace_all(r"(?i)(TDI|CRDi|HDI|VTi|1\.2|1\.4|1\.6|2\.0|kW|CH|CV)", "")
+        .str.replace_all(r"(?i)(TDI|TDCi|TGDI|TSI|CRDi|crdi|HDI|VTi|1\.2|1\.4|1\.6|2\.0|kW|CH|CV)", "")
         .str.strip_chars()
         .str.split(" ").list.slice(0, 2).list.join(" ")
         .alias("modele_clean")
