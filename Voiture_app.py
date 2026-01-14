@@ -954,18 +954,16 @@ def afficher_regression_ml():
                 # Affichage des métriques
                 st.subheader("📊 Résultats")
                 
-                col_metric1, col_metric2, col_metric3, col_metric4, col_metric5 = st.columns(5)
+                col_metric1, col_metric2, col_metric3, col_metric4 = st.columns(4)
                 
                 with col_metric1:
-                    st.metric("RMSE Train", f"€{results['rmse_train']:,.0f}")
+                    st.metric("RMSE", f"€{results['rmse']:,.0f}")
                 with col_metric2:
-                    st.metric("RMSE Test", f"€{results['rmse_test']:,.0f}")
+                    st.metric("R² Score", f"{results['r2']:.4f}")
                 with col_metric3:
-                    st.metric("R² Train", f"{results['r2_train']:.4f}")
+                    st.metric("MAE", f"€{results['mae']:,.0f}")
                 with col_metric4:
-                    st.metric("R² Test", f"{results['r2_test']:.4f}")
-                with col_metric5:
-                    st.metric("MAE Test", f"€{results['mae_test']:,.0f}")
+                    st.metric("Modèle", model_type)
                 
                 # Feature Importance
                 st.subheader("🎯 Importance des features")
