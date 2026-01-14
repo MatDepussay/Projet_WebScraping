@@ -125,7 +125,8 @@ def entrainer_random_forest(X_train, X_test, y_train, y_test):
 
     enregistrer_erreurs(X_test, y_test, y_pred, "models/tableau_erreurs_rf.xlsx")
 
-    return {"model": rf_model, "rmse": rmse, "r2": r2, "mae": mae, "feature_importance": fi}
+    return {
+        "model": rf_model, "rmse": rmse, "r2": r2, "mae": mae, "feature_importance": fi}
 
 # =========================
 # 4. XGBOOST
