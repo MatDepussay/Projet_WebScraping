@@ -176,29 +176,74 @@ def nettoyer_transmission(df: pl.DataFrame) -> pl.DataFrame:
 # 5. GESTION DES VALEURS ABERRANTES
 # =========================
 def traiter_valeurs_aberrantes(df: pl.DataFrame) -> pl.DataFrame:
-    # On garde ton filtre initial sur l'année et le kilométrage
-    df = df.filter(
-        pl.col("annee").is_not_null() &
-        pl.col("kilometrage").is_not_null()
-    )
-
+    """
+    Remplace les valeurs manquantes/aberrantes par des moyennes intelligentes :
+    - Année/Km : moyenne par marque+modèle, sinon moyenne générale
+    - Puissance : laissée intacte (null si aberrante)
+    """
+    
+    # Calculer les moyennes par marque+modèle pour année et km
+    moyennes_marque_modele = df.group_by(["marque", "modele"]).agg([
+        pl.col("annee")
+          .filter((pl.col("annee") >= 1980) & (pl.col("annee") <= 2026))
+          .mean()
+          .alias("annee_moyenne_mm"),
+        pl.col("kilometrage")
+          .filter((pl.col("kilometrage") >= 0) & (pl.col("kilometrage") <= 500_000))
+          .mean()
+          .alias("km_moyenne_mm")
+    ])
+    
+    # Calculer les moyennes générales (fallback)
+    annee_moyenne_generale = df.select(
+        pl.col("annee")
+          .filter((pl.col("annee") >= 1980) & (pl.col("annee") <= 2026))
+          .mean()
+    ).item()
+    
+    km_moyenne_generale = df.select(
+        pl.col("kilometrage")
+          .filter((pl.col("kilometrage") >= 0) & (pl.col("kilometrage") <= 500_000))
+          .mean()
+    ).item()
+    
+    # Joindre les moyennes au DataFrame principal
+    df = df.join(moyennes_marque_modele, on=["marque", "modele"], how="left")
+    
+    # Remplacer les valeurs aberrantes/nulles
     return df.with_columns([
-        # Au lieu de remplacer par la médiane, on met à Null si hors bornes
-        pl.when((pl.col("puissance_kw") < 5) | (pl.col("puissance_kw") > 1000))
+        # Puissance : null si aberrante ou null (pas de remplacement)
+        pl.when((pl.col("puissance_kw").is_null()) | 
+                (pl.col("puissance_kw") < 5) | 
+                (pl.col("puissance_kw") > 1000))
           .then(None)
           .otherwise(pl.col("puissance_kw"))
           .alias("puissance_kw"),
 
-        pl.when((pl.col("annee") < 1980) | (pl.col("annee") > 2026))
-          .then(None)
+        # Année : moyenne marque+modèle, sinon moyenne générale
+        pl.when((pl.col("annee").is_null()) | 
+                (pl.col("annee") < 1980) | 
+                (pl.col("annee") > 2026))
+          .then(
+              pl.when(pl.col("annee_moyenne_mm").is_not_null())
+                .then(pl.col("annee_moyenne_mm").round(0).cast(pl.Int64))
+                .otherwise(pl.lit(int(annee_moyenne_generale) if annee_moyenne_generale else 2010))
+          )
           .otherwise(pl.col("annee"))
           .alias("annee"),
 
-        pl.when((pl.col("kilometrage") < 0) | (pl.col("kilometrage") > 500_000))
-          .then(None)
+        # Kilométrage : moyenne marque+modèle, sinon moyenne générale
+        pl.when((pl.col("kilometrage").is_null()) | 
+                (pl.col("kilometrage") < 0) | 
+                (pl.col("kilometrage") > 500_000))
+          .then(
+              pl.when(pl.col("km_moyenne_mm").is_not_null())
+                .then(pl.col("km_moyenne_mm").round(0).cast(pl.Int64))
+                .otherwise(pl.lit(int(km_moyenne_generale) if km_moyenne_generale else 100000))
+          )
           .otherwise(pl.col("kilometrage"))
           .alias("kilometrage"),
-    ]).drop_nulls(["annee", "kilometrage"])
+    ]).drop(["annee_moyenne_mm", "km_moyenne_mm"])
 
 
 # =========================
