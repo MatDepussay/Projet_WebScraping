@@ -27,6 +27,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 from fake_useragent import UserAgent
+from selenium.common.exceptions import TimeoutException
 
 # --- Modèles Pydantic ---
 class Voiture(BaseModel):
@@ -70,33 +71,46 @@ def recupere_page_listage(url: str) -> str:
     
     try:
         driver.get(url)
-        
-        # Attendre que les articles se chargent
+
         print("⏳ Attente du chargement des annonces...")
-        WebDriverWait(driver, 10).until(
-            EC.presence_of_element_located((By.TAG_NAME, "article"))
-        )
-        
-        # Scroll pour charger plus d'annonces
+        try:
+            # Attend plus longtemps pour des pages lentes, mais ne plante pas si timeout
+            WebDriverWait(driver, 20).until(
+                EC.presence_of_element_located((By.TAG_NAME, "article"))
+            )
+        except TimeoutException:
+            print("⏱️ Délai dépassé pour le chargement. On continue avec le HTML disponible.")
+
+        # Scroll pour charger plus d'annonces (même si l'attente a expiré)
         print("📜 Scroll de la page listage...")
-        last_height = driver.execute_script("return document.body.scrollHeight")
+        try:
+            last_height = driver.execute_script("return document.body.scrollHeight")
+        except Exception:
+            last_height = 0
+
         scroll_attempts = 0
         max_scrolls = 5
-        
+
         while scroll_attempts < max_scrolls:
-            driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-            time.sleep(2)
-            
-            new_height = driver.execute_script("return document.body.scrollHeight")
+            try:
+                driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+                time.sleep(2)
+                new_height = driver.execute_script("return document.body.scrollHeight")
+            except Exception:
+                break
+
             if new_height == last_height:
                 break
             last_height = new_height
             scroll_attempts += 1
-        
-        html_content = driver.page_source
+
+        html_content = driver.page_source or ""
         print(f"✅ Page listage récupérée ({len(html_content)} caractères)")
         return html_content
-    
+
+    except Exception as e:
+        print(f"❌ Erreur lors de l'ouverture de la page listage: {e}")
+        return ""
     finally:
         driver.quit()
 
