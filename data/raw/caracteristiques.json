@@ -1,0 +1,28 @@
+{
+  "donnees_base": {
+    "Carrosserie": "SUV/4x4/Pick-Up",
+    "Type de véhicule": "Occasion",
+    "Transmission": "Avant",
+    "Portes": "5",
+    "Version pays": "France",
+    "N° d'annonce": "Q345678"
+  },
+  "historique": {
+    "Kilométrage": "28 338 km",
+    "Année": "09/2024",
+    "Propriétaires préc.": "1",
+    "Carnet d'entretien": "Oui"
+  },
+  "technique": {
+    "Puissance kW (CH)": "110 kW (150 CH)",
+    "Transmission": "Boîte automatique"
+  },
+  "environnement": {
+    "Carburant": "Diesel"
+  },
+  "esthetique": {
+    "Couleur extérieure": "Gris",
+    "Type de peinture": "Métallisé",
+    "La couleur de l'intérieur": "Noir"
+  }
+}
