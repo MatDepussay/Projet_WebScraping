@@ -7,27 +7,79 @@
 # ///
 
 import polars as pl
+from pathlib import Path
 
 # =========================
-# 1. CHARGEMENT
+# 0. CHARGEMENT DES MODÈLES DE VOITURES
 # =========================
-def charger_donnees() -> pl.DataFrame:
+def charger_modeles_csv() -> dict:
+    """
+    Charge le CSV des modèles de voitures et retourne un dictionnaire:
+    {marque: [liste des modèles]}
+    """
+    csv_path = Path("Cars Datasets 2025.csv")
+    if not csv_path.exists():
+        return {}
+    
     try:
-        return pl.read_json("annonces_autoscout24 2.json")
+        df_cars = pl.read_csv(csv_path, encoding="utf8")
+        # Créer un dictionnaire: marque -> liste de modèles uniques
+        modeles_par_marque = {}
+        
+        for row in df_cars.iter_rows(named=True):
+            company = row["Company Names"].strip().lower() if row["Company Names"] else None
+            car_name = row["Cars Names"].strip() if row["Cars Names"] else None
+            
+            if company and car_name:
+                if company not in modeles_par_marque:
+                    modeles_par_marque[company] = []
+                # Ajouter le modèle s'il n'existe pas
+                if car_name not in modeles_par_marque[company]:
+                    modeles_par_marque[company].append(car_name)
+        
+        return modeles_par_marque
     except Exception as e:
-        print(f"Erreur de lecture : {e}")
-        return pl.DataFrame()
+        print(f"⚠️ Erreur lors du chargement du CSV: {e}")
+        return {}
 
-# =========================
-# 2. NETTOYAGE NUMÉRIQUE
-# =========================
-def nettoyer_numeriques(df: pl.DataFrame) -> pl.DataFrame:
-    for col in ["prix", "kilometrage"]:
-        df = df.with_columns(
-            pl.col(col).cast(pl.Utf8).str.replace_all(r"[^\d]", "")
-            .cast(pl.Int64, strict=False)
-        )
-    return df.filter(pl.col("prix").is_not_null())
+
+def identifier_modele(marque: str, modele_complet: str, modeles_dict: dict) -> tuple:
+    """
+    Identifie le modèle exact et retourne (modèle_identifié, le_reste)
+    
+    Exemple:
+    - identifier_modele("BMW", "M5 CS", {...}) -> ("M5", "CS")
+    - identifier_modele("AUDI", "RS7 SPORTBACK", {...}) -> ("RS7", "SPORTBACK")
+    """
+    if not modele_complet or not marque:
+        return (modele_complet, "")
+    
+    marque_lower = marque.strip().lower()
+    modele_clean = modele_complet.strip()
+    
+    # Récupérer les modèles pour cette marque
+    modeles_marque = modeles_dict.get(marque_lower, [])
+    
+    if not modeles_marque:
+        return (modele_clean, "")
+    
+    # Chercher le meilleur match (le plus long, pour éviter les faux positifs)
+    meilleur_match = None
+    meilleur_longueur = 0
+    
+    for modele_ref in modeles_marque:
+        modele_ref_lower = modele_ref.strip().lower()
+        if modele_clean.lower().startswith(modele_ref_lower):
+            if len(modele_ref) > meilleur_longueur:
+                meilleur_match = modele_ref
+                meilleur_longueur = len(modele_ref)
+    
+    # Si match trouvé, extraire le reste
+    if meilleur_match:
+        le_reste = modele_clean[len(meilleur_match):].strip()
+        return (meilleur_match, le_reste)
+    
+    return (modele_clean, "")
 
 # =========================
 # 3. MARQUE / MODÈLE
@@ -139,6 +191,55 @@ def reparer_marque_modele(df: pl.DataFrame) -> pl.DataFrame:
     }).filter(
         pl.col("marque").is_not_null() # Supprime les lignes où la marque n'a pas été trouvée
     )
+
+def raffiner_modele_csv(df: pl.DataFrame) -> pl.DataFrame:
+    """
+    Identifie le modèle exact en cherchant dans le CSV et ajoute une colonne 'le_reste'
+    """
+    modeles_dict = charger_modeles_csv()
+    
+    if not modeles_dict:
+        # Si CSV non trouvé, ajouter une colonne vide
+        return df.with_columns(pl.lit("").alias("le_reste"))
+    
+    # Créer une fonction Python pour appliquer sur chaque ligne
+    def identifier_et_splitter(marque, modele):
+        modele_id, le_reste = identifier_modele(marque, modele, modeles_dict)
+        return (modele_id, le_reste)
+    
+    # Appliquer sur le DataFrame
+    result = df.with_columns([
+        pl.struct(["marque", "modele"])
+          .map_elements(lambda x: identifier_et_splitter(x["marque"], x["modele"]))
+          .alias("modele_split")
+    ])
+    
+    # Extraire les résultats
+    return result.with_columns([
+        pl.col("modele_split").struct.field(0).alias("modele"),
+        pl.col("modele_split").struct.field(1).alias("le_reste")
+    ]).drop("modele_split")
+
+# =========================
+# 1. CHARGEMENT
+# =========================
+def charger_donnees() -> pl.DataFrame:
+    try:
+        return pl.read_json("annonces_autoscout24.json")
+    except Exception as e:
+        print(f"Erreur de lecture : {e}")
+        return pl.DataFrame()
+
+# =========================
+# 2. NETTOYAGE NUMÉRIQUE
+# =========================
+def nettoyer_numeriques(df: pl.DataFrame) -> pl.DataFrame:
+    for col in ["prix", "kilometrage"]:
+        df = df.with_columns(
+            pl.col(col).cast(pl.Utf8).str.replace_all(r"[^\d]", "")
+            .cast(pl.Int64, strict=False)
+        )
+    return df.filter(pl.col("prix").is_not_null())
 
 # =========================
 # 4. SPECS & LOCALISATION
@@ -270,6 +371,7 @@ def main():
     df = (
         df.pipe(nettoyer_numeriques)
           .pipe(reparer_marque_modele)
+          .pipe(raffiner_modele_csv)  # ← Ajouter ici pour identifier le modèle exact
           .pipe(extraire_specs_et_lieu)
           .pipe(nettoyer_transmission)
           .pipe(traiter_valeurs_aberrantes)
