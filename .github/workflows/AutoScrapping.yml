@@ -40,7 +40,7 @@ jobs:
         
     - name: Run scraping script
       run: |
-        python Scrapping_selenium_autodoc24.py
+        python src/scraping/Scrapping_selenium_autodoc24.py
         
     - name: Commit and push changes
       run: |
