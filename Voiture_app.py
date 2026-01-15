@@ -399,15 +399,23 @@ def charger_voitures_depuis_fichier(filename: str = "annonces_autoscout24.json")
 
 def appliquer_cleaning(filename: str = "annonces_autoscout24.json") -> pl.DataFrame:
     """Applique tout le pipeline de cleaning et retourne un DataFrame propre"""
-    from cleaning import nettoyer_transmission, traiter_valeurs_aberrantes
+    from cleaning import nettoyer_transmission, traiter_valeurs_aberrantes, raffiner_modele_csv
     
     df = pl.read_json(filename)
     df = nettoyer_numeriques(df)
     df = reparer_marque_modele(df)
+    df = raffiner_modele_csv(df)  # Identification des modèles depuis le CSV
     df = extraire_specs_et_lieu(df)
     df = nettoyer_transmission(df)
     df = traiter_valeurs_aberrantes(df)
     df = preparer_ml(df)
+    
+    # Filtrer pour ne garder que les voitures avec modèle identifié
+    if "modele_identifie" in df.columns:
+        initial_count = df.height
+        df = df.filter(pl.col("modele_identifie") == True)
+        filtered_count = df.height
+        print(f"✅ Filtrage modèles identifiés: {filtered_count}/{initial_count} voitures gardées")
     
     return df
 
