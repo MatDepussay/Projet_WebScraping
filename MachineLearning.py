@@ -32,6 +32,15 @@ def charger_et_preparer_donnees(fichier="autoscout_clean_ml.xlsx"):
         print(f"❌ Erreur lors du chargement : {e}")
         return None, None, None, None
 
+    # 0. Filtrer pour ne garder que les modèles identifiés
+    if "modele_identifie" in df.columns:
+        initial_count = len(df)
+        df = df[df["modele_identifie"] == True]
+        filtered_count = len(df)
+        print(f"✅ Modèles identifiés: {filtered_count}/{initial_count} voitures gardées")
+    else:
+        print(f"⚠️ Colonne 'modele_identifie' introuvable, toutes les données seront utilisées")
+
     # 1. Nettoyage
     df = df.dropna(subset=["prix"])
 
@@ -39,8 +48,8 @@ def charger_et_preparer_donnees(fichier="autoscout_clean_ml.xlsx"):
     y = df["prix"]
 
     # 3. Suppression des colonnes que tu ne veux pas encoder
-    # On retire 'modele' pour éviter l'erreur que tu as eue
-    colonnes_a_exclure = ["prix", "modele", "code_postal", "pays", "ville"] 
+    # On retire 'modele' et 'modele_identifie' pour éviter l'erreur
+    colonnes_a_exclure = ["prix", "cylindree_l", "code_postal", "pays", "ville", "modele_identifie"] 
     # Ajoute d'autres colonnes ici si besoin (ex: "id", "url", "description")
     
     X = df.drop(columns=[c for c in colonnes_a_exclure if c in df.columns])
