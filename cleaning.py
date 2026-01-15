@@ -8,81 +8,32 @@
 
 import polars as pl
 from pathlib import Path
+import csv
+import re
 
 # =========================
-# 0. CHARGEMENT DES MODÈLES DE VOITURES
+# 1. CHARGEMENT DES DONNÉES
 # =========================
-def charger_modeles_csv() -> dict:
-    """
-    Charge le CSV des modèles de voitures et retourne un dictionnaire:
-    {marque: [liste des modèles]}
-    """
-    csv_path = Path("Cars Datasets 2025.csv")
-    if not csv_path.exists():
-        return {}
-    
+def charger_donnees() -> pl.DataFrame:
     try:
-        df_cars = pl.read_csv(csv_path, encoding="utf8")
-        # Créer un dictionnaire: marque -> liste de modèles uniques
-        modeles_par_marque = {}
-        
-        for row in df_cars.iter_rows(named=True):
-            company = row["Company Names"].strip().lower() if row["Company Names"] else None
-            car_name = row["Cars Names"].strip() if row["Cars Names"] else None
-            
-            if company and car_name:
-                if company not in modeles_par_marque:
-                    modeles_par_marque[company] = []
-                # Ajouter le modèle s'il n'existe pas
-                if car_name not in modeles_par_marque[company]:
-                    modeles_par_marque[company].append(car_name)
-        
-        return modeles_par_marque
+        return pl.read_json("annonces_autoscout24.json")
     except Exception as e:
-        print(f"⚠️ Erreur lors du chargement du CSV: {e}")
-        return {}
-
-
-def identifier_modele(marque: str, modele_complet: str, modeles_dict: dict) -> tuple:
-    """
-    Identifie le modèle exact et retourne (modèle_identifié, le_reste)
-    
-    Exemple:
-    - identifier_modele("BMW", "M5 CS", {...}) -> ("M5", "CS")
-    - identifier_modele("AUDI", "RS7 SPORTBACK", {...}) -> ("RS7", "SPORTBACK")
-    """
-    if not modele_complet or not marque:
-        return (modele_complet, "")
-    
-    marque_lower = marque.strip().lower()
-    modele_clean = modele_complet.strip()
-    
-    # Récupérer les modèles pour cette marque
-    modeles_marque = modeles_dict.get(marque_lower, [])
-    
-    if not modeles_marque:
-        return (modele_clean, "")
-    
-    # Chercher le meilleur match (le plus long, pour éviter les faux positifs)
-    meilleur_match = None
-    meilleur_longueur = 0
-    
-    for modele_ref in modeles_marque:
-        modele_ref_lower = modele_ref.strip().lower()
-        if modele_clean.lower().startswith(modele_ref_lower):
-            if len(modele_ref) > meilleur_longueur:
-                meilleur_match = modele_ref
-                meilleur_longueur = len(modele_ref)
-    
-    # Si match trouvé, extraire le reste
-    if meilleur_match:
-        le_reste = modele_clean[len(meilleur_match):].strip()
-        return (meilleur_match, le_reste)
-    
-    return (modele_clean, "")
+        print(f"Erreur de lecture : {e}")
+        return pl.DataFrame()
 
 # =========================
-# 3. MARQUE / MODÈLE
+# 2. NETTOYAGE NUMÉRIQUE
+# =========================
+def nettoyer_numeriques(df: pl.DataFrame) -> pl.DataFrame:
+    for col in ["prix", "kilometrage"]:
+        df = df.with_columns(
+            pl.col(col).cast(pl.Utf8).str.replace_all(r"[^\d]", "")
+            .cast(pl.Int64, strict=False)
+        )
+    return df.filter(pl.col("prix").is_not_null())
+
+# =========================
+# 3. RÉPARATION MARQUE/MODÈLE
 # =========================
 def reparer_marque_modele(df: pl.DataFrame) -> pl.DataFrame:
     marques_ref = {
@@ -153,12 +104,10 @@ def reparer_marque_modele(df: pl.DataFrame) -> pl.DataFrame:
         "Lucid": ["Lucid"],
         "Fisker": ["Fisker"]}
     
-    # Extraire TOUTES les variantes
     all_variants = []
     for variants in marques_ref.values():
         all_variants.extend(variants)
     
-    # Créer mapping inverse: variante → marque canonique
     variant_to_canonical = {}
     for canonical, variants in marques_ref.items():
         for variant in variants:
@@ -174,7 +123,6 @@ def reparer_marque_modele(df: pl.DataFrame) -> pl.DataFrame:
         pl.col("marque_extracted")
         .str.to_lowercase()
         .replace(variant_to_canonical)
-        # On ne met plus .fill_null("Inconnu") ici
         .alias("marque_clean"),
         
         pl.col("marque")
@@ -189,60 +137,141 @@ def reparer_marque_modele(df: pl.DataFrame) -> pl.DataFrame:
         "marque_clean": "marque", 
         "modele_clean": "modele"
     }).filter(
-        pl.col("marque").is_not_null() # Supprime les lignes où la marque n'a pas été trouvée
+        pl.col("marque").is_not_null()
     )
 
+# =========================
+# 4. IDENTIFICATION MODÈLE (CSV)
+# =========================
+def charger_modeles_csv() -> dict:
+    csv_path = Path("Cars Datasets 2025.csv")
+    if not csv_path.exists():
+        print(f"❌ Fichier introuvable: {csv_path}")
+        return {}
+    
+    encodages = ["cp1252", "windows-1252", "latin-1", "iso-8859-1", "utf-8-sig", "utf-8"]
+    
+    for enc in encodages:
+        try:
+            rows = []
+            with open(csv_path, "r", encoding=enc, newline="") as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    rows.append(row)
+            
+            modeles_par_marque = {}
+            for row in rows:
+                company = row.get("Company Names", "").strip().lower() if row.get("Company Names") else None
+                car_name = row.get("Cars Names", "").strip() if row.get("Cars Names") else None
+                
+                if company and car_name:
+                    if company not in modeles_par_marque:
+                        modeles_par_marque[company] = []
+                    if car_name not in modeles_par_marque[company]:
+                        modeles_par_marque[company].append(car_name)
+            
+            print(f"✅ CSV chargé avec succès ({enc}): {len(modeles_par_marque)} marques")
+            return modeles_par_marque
+            
+        except (UnicodeDecodeError, LookupError):
+            continue
+        except Exception as e:
+            print(f"⚠️ Erreur avec {enc}: {e}")
+            continue
+    
+    print(f"⚠️ Impossible de charger le CSV")
+    return {}
+
+
+def identifier_modele(marque: str, modele_complet: str, modeles_dict: dict) -> tuple:
+    if not modele_complet or not marque:
+        return (modele_complet or "", "", False)
+
+    marque_lower = marque.strip().lower()
+    s_orig = modele_complet.strip()
+    if not s_orig:
+        return ("", "", False)
+
+    refs = modeles_dict.get(marque_lower, [])
+    if not refs:
+        return (s_orig, "", False)
+
+    def norm(s: str) -> str:
+        return re.sub(r"[^a-z0-9]", "", s.lower())
+
+    s_norm = norm(s_orig)
+
+    candidats = []
+    for ref in refs:
+        rn = norm(ref)
+        if rn:
+            candidats.append((ref, rn))
+
+    candidats.sort(key=lambda x: len(x[1]), reverse=True)
+
+    best_ref = None
+    best_ref_norm = None
+    for ref, rn in candidats:
+        if rn in s_norm:
+            best_ref = ref
+            best_ref_norm = rn
+            break
+
+    if not best_ref:
+        return (s_orig, "", False)
+
+    chars = [re.escape(ch) for ch in best_ref_norm]
+    loose_pattern = r"(?i)" + r"[^a-z0-9]*".join(chars)
+
+    m = re.search(loose_pattern, s_orig)
+    if not m:
+        return (best_ref, "", True)
+
+    start, end = m.span()
+    avant = s_orig[:start].strip()
+    apres = s_orig[end:].strip()
+    le_reste = f"{avant} {apres}".strip()
+
+    return (best_ref, le_reste, True)
+
+
 def raffiner_modele_csv(df: pl.DataFrame) -> pl.DataFrame:
-    """
-    Identifie le modèle exact en cherchant dans le CSV et ajoute une colonne 'le_reste'
-    """
     modeles_dict = charger_modeles_csv()
     
     if not modeles_dict:
-        # Si CSV non trouvé, ajouter une colonne vide
-        return df.with_columns(pl.lit("").alias("le_reste"))
+        return df.with_columns([
+            pl.lit("").alias("le_reste"),
+            pl.lit(False).alias("modele_identifie")
+        ])
     
-    # Créer une fonction Python pour appliquer sur chaque ligne
-    def identifier_et_splitter(marque, modele):
-        modele_id, le_reste = identifier_modele(marque, modele, modeles_dict)
-        return (modele_id, le_reste)
+    def identifier_et_splitter(row):
+        marque = row["marque"]
+        modele = row["modele"]
+        modele_id, le_reste, identifie = identifier_modele(marque, modele, modeles_dict)
+        return {
+            "modele": modele_id,
+            "le_reste": le_reste,
+            "modele_identifie": identifie
+        }
     
-    # Appliquer sur le DataFrame
     result = df.with_columns([
         pl.struct(["marque", "modele"])
-          .map_elements(lambda x: identifier_et_splitter(x["marque"], x["modele"]))
+          .map_elements(identifier_et_splitter, return_dtype=pl.Struct([
+              pl.Field("modele", pl.Utf8),
+              pl.Field("le_reste", pl.Utf8),
+              pl.Field("modele_identifie", pl.Boolean)
+          ]))
           .alias("modele_split")
     ])
     
-    # Extraire les résultats
     return result.with_columns([
-        pl.col("modele_split").struct.field(0).alias("modele"),
-        pl.col("modele_split").struct.field(1).alias("le_reste")
+        pl.col("modele_split").struct.field("modele").alias("modele"),
+        pl.col("modele_split").struct.field("le_reste").alias("le_reste"),
+        pl.col("modele_split").struct.field("modele_identifie").alias("modele_identifie")
     ]).drop("modele_split")
 
 # =========================
-# 1. CHARGEMENT
-# =========================
-def charger_donnees() -> pl.DataFrame:
-    try:
-        return pl.read_json("annonces_autoscout24.json")
-    except Exception as e:
-        print(f"Erreur de lecture : {e}")
-        return pl.DataFrame()
-
-# =========================
-# 2. NETTOYAGE NUMÉRIQUE
-# =========================
-def nettoyer_numeriques(df: pl.DataFrame) -> pl.DataFrame:
-    for col in ["prix", "kilometrage"]:
-        df = df.with_columns(
-            pl.col(col).cast(pl.Utf8).str.replace_all(r"[^\d]", "")
-            .cast(pl.Int64, strict=False)
-        )
-    return df.filter(pl.col("prix").is_not_null())
-
-# =========================
-# 4. SPECS & LOCALISATION
+# 5. EXTRACTION SPECS & LOCALISATION
 # =========================
 def extraire_specs_et_lieu(df: pl.DataFrame) -> pl.DataFrame:
     return df.with_columns([
@@ -253,15 +282,10 @@ def extraire_specs_et_lieu(df: pl.DataFrame) -> pl.DataFrame:
         pl.lit("Europe").alias("pays")
     ]).drop("localisation")
 
+# =========================
+# 6. NETTOYAGE TRANSMISSION
+# =========================
 def nettoyer_transmission(df: pl.DataFrame) -> pl.DataFrame:
-    """
-    Conserve uniquement les valeurs de transmission :
-    - avant
-    - arriere
-    - 4x4
-    Supprime les valeurs liées à la boîte de vitesses.
-    """
-
     return df.with_columns(
         pl.when(
             pl.col("transmission")
@@ -274,16 +298,9 @@ def nettoyer_transmission(df: pl.DataFrame) -> pl.DataFrame:
     )
 
 # =========================
-# 5. GESTION DES VALEURS ABERRANTES
+# 7. GESTION VALEURS ABERRANTES
 # =========================
 def traiter_valeurs_aberrantes(df: pl.DataFrame) -> pl.DataFrame:
-    """
-    Remplace les valeurs manquantes/aberrantes par des moyennes intelligentes :
-    - Année/Km : moyenne par marque+modèle, sinon moyenne générale
-    - Puissance : laissée intacte (null si aberrante)
-    """
-    
-    # Calculer les moyennes par marque+modèle pour année et km
     moyennes_marque_modele = df.group_by(["marque", "modele"]).agg([
         pl.col("annee")
           .filter((pl.col("annee") >= 1980) & (pl.col("annee") <= 2026))
@@ -295,7 +312,6 @@ def traiter_valeurs_aberrantes(df: pl.DataFrame) -> pl.DataFrame:
           .alias("km_moyenne_mm")
     ])
     
-    # Calculer les moyennes générales (fallback)
     annee_moyenne_generale = df.select(
         pl.col("annee")
           .filter((pl.col("annee") >= 1980) & (pl.col("annee") <= 2026))
@@ -308,12 +324,9 @@ def traiter_valeurs_aberrantes(df: pl.DataFrame) -> pl.DataFrame:
           .mean()
     ).item()
     
-    # Joindre les moyennes au DataFrame principal
     df = df.join(moyennes_marque_modele, on=["marque", "modele"], how="left")
     
-    # Remplacer les valeurs aberrantes/nulles
     return df.with_columns([
-        # Puissance : null si aberrante ou null (pas de remplacement)
         pl.when((pl.col("puissance_kw").is_null()) | 
                 (pl.col("puissance_kw") < 5) | 
                 (pl.col("puissance_kw") > 1000))
@@ -321,7 +334,6 @@ def traiter_valeurs_aberrantes(df: pl.DataFrame) -> pl.DataFrame:
           .otherwise(pl.col("puissance_kw"))
           .alias("puissance_kw"),
 
-        # Année : moyenne marque+modèle, sinon moyenne générale
         pl.when((pl.col("annee").is_null()) | 
                 (pl.col("annee") < 1980) | 
                 (pl.col("annee") > 2026))
@@ -333,7 +345,6 @@ def traiter_valeurs_aberrantes(df: pl.DataFrame) -> pl.DataFrame:
           .otherwise(pl.col("annee"))
           .alias("annee"),
 
-        # Kilométrage : moyenne marque+modèle, sinon moyenne générale
         pl.when((pl.col("kilometrage").is_null()) | 
                 (pl.col("kilometrage") < 0) | 
                 (pl.col("kilometrage") > 500_000))
@@ -346,22 +357,16 @@ def traiter_valeurs_aberrantes(df: pl.DataFrame) -> pl.DataFrame:
           .alias("kilometrage"),
     ]).drop(["annee_moyenne_mm", "km_moyenne_mm"])
 
-
 # =========================
-# 7. PRÉPARATION ML (SIMPLIFIÉE)
+# 8. PRÉPARATION ML
 # =========================
 def preparer_ml(df: pl.DataFrame) -> pl.DataFrame:
-    """
-    On ne remplit plus les médianes ici. 
-    On se contente de s'assurer que les types sont corrects.
-    """
     return df.with_columns([
-        pl.col("cylindree_l").fill_null(0.0), # Optionnel : garder le 0 pour les électriques
+        pl.col("cylindree_l").fill_null(0.0),
     ])
 
-
 # =========================
-# MAIN
+# 9. MAIN
 # =========================
 def main():
     df = charger_donnees()
@@ -371,7 +376,7 @@ def main():
     df = (
         df.pipe(nettoyer_numeriques)
           .pipe(reparer_marque_modele)
-          .pipe(raffiner_modele_csv)  # ← Ajouter ici pour identifier le modèle exact
+          .pipe(raffiner_modele_csv)
           .pipe(extraire_specs_et_lieu)
           .pipe(nettoyer_transmission)
           .pipe(traiter_valeurs_aberrantes)
@@ -386,3 +391,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
