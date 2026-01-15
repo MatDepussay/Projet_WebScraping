@@ -75,19 +75,6 @@
     ]
   },
   {
-    "Make": "Alfa",
-    "Models": [
-      "Romeo 159",
-      "Romeo 4C",
-      "Romeo Giulia",
-      "Romeo Giulietta",
-      "Romeo MiTo",
-      "Romeo Quadrifoglio",
-      "Romeo Sportwagon",
-      "Romeo Stelvio"
-    ]
-  },
-  {
     "Make": "Alfa Romeo",
     "Models": [
       "111",
@@ -143,6 +130,14 @@
       "R1 Pro",
       "RR-5",
       "RR2",
+      "Romeo 159",
+      "Romeo 4C",
+      "Romeo Giulia",
+      "Romeo Giulietta",
+      "Romeo MiTo",
+      "Romeo Quadrifoglio",
+      "Romeo Sportwagon",
+      "Romeo Stelvio",
       "S-Class",
       "S5",
       "S6x",
@@ -214,17 +209,6 @@
     ]
   },
   {
-    "Make": "Aston",
-    "Models": [
-      "Martin",
-      "Martin DB11",
-      "Martin DBX",
-      "Martin Rapide",
-      "Martin V8",
-      "Martin Vantage"
-    ]
-  },
-  {
     "Make": "Aston Martin",
     "Models": [
       "888",
@@ -271,6 +255,12 @@
       "L88",
       "Lagonda",
       "M-Class",
+      "Martin",
+      "Martin DB11",
+      "Martin DBX",
+      "Martin Rapide",
+      "Martin V8",
+      "Martin Vantage",
       "N6",
       "O-Class",
       "P-Class",
@@ -2115,37 +2105,6 @@
     ]
   },
   {
-    "Make": "Citroen",
-    "Models": [
-      "Berlingo",
-      "C-Elysée",
-      "C-Zero",
-      "C1",
-      "C15",
-      "C3",
-      "C3 Aircross",
-      "C3 Picasso",
-      "C4",
-      "C4 Aircross",
-      "C4 Cactus",
-      "C4 Picasso",
-      "C4 SpaceTourer",
-      "C5",
-      "C5 Aircross",
-      "C6",
-      "C8",
-      "DS3",
-      "DS4",
-      "DS5",
-      "Grand C4 Picasso",
-      "Grand C4 SpaceTourer",
-      "Jumper",
-      "Jumpy",
-      "Nemo",
-      "Spacetourer"
-    ]
-  },
-  {
     "Make": "Citroën",
     "Models": [
       "111",
@@ -2170,8 +2129,25 @@
       "B4",
       "B6x",
       "BB-5",
+      "Berlingo",
+      "C-Elysée",
+      "C-Zero",
+      "C1",
+      "C15",
+      "C3",
+      "C3 Aircross",
+      "C3 Picasso",
+      "C4",
+      "C4 Aircross",
+      "C4 Cactus",
+      "C4 Picasso",
+      "C4 SpaceTourer",
       "C4x",
+      "C5",
+      "C5 Aircross",
+      "C6",
       "C6 Pro",
+      "C8",
       "C9 Pro",
       "C9x",
       "CC-5",
@@ -2181,6 +2157,9 @@
       "D8",
       "D8x",
       "DD5",
+      "DS3",
+      "DS4",
+      "DS5",
       "E-Class",
       "E2 Pro",
       "E55",
@@ -2199,10 +2178,14 @@
       "GG-3",
       "GG-5",
       "GG-55",
+      "Grand C4 Picasso",
+      "Grand C4 SpaceTourer",
       "H55",
       "I-Class",
       "II-6",
       "II-66",
+      "Jumper",
+      "Jumpy",
       "K77",
       "KK-1",
       "KK-5",
@@ -2224,6 +2207,7 @@
       "N88",
       "NN-6",
       "NN2",
+      "Nemo",
       "O1x",
       "O2",
       "O3 Pro",
@@ -2252,6 +2236,7 @@
       "S55",
       "S8x",
       "SS3",
+      "Spacetourer",
       "T2x",
       "T3 Pro",
       "T4x",
@@ -2686,16 +2671,6 @@
   {
     "Make": "DS",
     "Models": [
-      "Automobiles  3",
-      "Automobiles  3 Crossback",
-      "Automobiles  4",
-      "Automobiles  5",
-      "Automobiles  7 Crossback"
-    ]
-  },
-  {
-    "Make": "DS Automobiles",
-    "Models": [
       "333",
       "555",
       "666",
@@ -2704,6 +2679,11 @@
       "A2x",
       "A7x",
       "AA-2",
+      "Automobiles  3",
+      "Automobiles  3 Crossback",
+      "Automobiles  4",
+      "Automobiles  5",
+      "Automobiles  7 Crossback",
       "BB-7",
       "BB-88",
       "BB9",
@@ -7008,7 +6988,7 @@
     ]
   },
   {
-    "Make": "MINI",
+    "Make": "Mini",
     "Models": [
       "111",
       "333",
@@ -9637,7 +9617,7 @@
     ]
   },
   {
-    "Make": "smart",
+    "Make": "Smart",
     "Models": [
       "#1 2021",
       "#1 2022",

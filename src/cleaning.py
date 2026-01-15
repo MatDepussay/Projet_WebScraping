@@ -271,6 +271,23 @@ def extraire_specs_et_lieu(df: pl.DataFrame) -> pl.DataFrame:
         pl.lit("Europe").alias("pays")
     ]).drop("localisation")
 
+
+def corriger_cylindree(df: pl.DataFrame) -> pl.DataFrame:
+    """
+    - Véhicule électrique -> 0.0
+    - Cylindrée hors bornes réalistes (<0.6 ou >8.5) -> null
+    - Autres -> garder la valeur existante
+    """
+    return df.with_columns(
+        pl.when(pl.col("carburant").str.to_lowercase() == "électrique")
+          .then(0.0)
+        .when((pl.col("cylindree_l") < 0.6) | (pl.col("cylindree_l") > 8.5))
+          .then(None)
+        .otherwise(pl.col("cylindree_l"))
+        .alias("cylindree_l")
+    )
+
+
 # =========================
 # 6. NETTOYAGE TRANSMISSION
 # =========================
@@ -350,9 +367,8 @@ def traiter_valeurs_aberrantes(df: pl.DataFrame) -> pl.DataFrame:
 # 8. PRÉPARATION ML
 # =========================
 def preparer_ml(df: pl.DataFrame) -> pl.DataFrame:
-    return df.with_columns([
-        pl.col("cylindree_l").fill_null(0.0),
-    ])
+    return df
+
 
 # =========================
 # 9. MAIN
@@ -368,6 +384,7 @@ def main():
           .pipe(raffiner_modele_csv)
           .pipe(extraire_specs_et_lieu)
           .pipe(nettoyer_transmission)
+          .pipe(corriger_cylindree)
           .pipe(traiter_valeurs_aberrantes)
           .pipe(preparer_ml)
           .drop(["lien_fiche", "puissance"])
