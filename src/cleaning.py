@@ -198,16 +198,17 @@ def identifier_modele(marque: str, modele_complet: str, modeles_dict: dict) -> t
 
     candidats.sort(key=lambda x: len(x[1]), reverse=True)
 
-    best_ref = None
-    best_ref_norm = None
+    # Chercher TOUS les matches et prendre le PLUS LONG
+    matches_valides = []
     for ref, rn in candidats:
         if rn in s_norm:
-            best_ref = ref
-            best_ref_norm = rn
-            break
-
-    if not best_ref:
+            matches_valides.append((ref, rn))
+    
+    if not matches_valides:
         return (s_orig, "", False)
+    
+    # Le premier match_valides est le plus long (grâce au tri)
+    best_ref, best_ref_norm = matches_valides[0]
 
     chars = [re.escape(ch) for ch in best_ref_norm]
     loose_pattern = r"(?i)" + r"[^a-z0-9]*".join(chars)
