@@ -8,7 +8,7 @@
 
 import polars as pl
 from pathlib import Path
-import csv
+import json
 import re
 
 # =========================
@@ -143,44 +143,33 @@ def reparer_marque_modele(df: pl.DataFrame) -> pl.DataFrame:
 # =========================
 # 4. IDENTIFICATION MODÈLE (CSV)
 # =========================
-def charger_modeles_csv() -> dict:
-    csv_path = Path("Cars Datasets 2025.csv")
-    if not csv_path.exists():
-        print(f"❌ Fichier introuvable: {csv_path}")
+def charger_modeles_json() -> dict:
+    json_path = Path("vehicle_models_merged.json")
+    if not json_path.exists():
+        print(f"❌ Fichier introuvable: {json_path}")
         return {}
     
-    encodages = ["cp1252", "windows-1252", "latin-1", "iso-8859-1", "utf-8-sig", "utf-8"]
-    
-    for enc in encodages:
-        try:
-            rows = []
-            with open(csv_path, "r", encoding=enc, newline="") as f:
-                reader = csv.DictReader(f)
-                for row in reader:
-                    rows.append(row)
+    try:
+        with open(json_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        
+        modeles_par_marque = {}
+        for item in data:
+            make = item.get("Make", "").strip().lower()
+            models = item.get("Models", [])
             
-            modeles_par_marque = {}
-            for row in rows:
-                company = row.get("Company Names", "").strip().lower() if row.get("Company Names") else None
-                car_name = row.get("Cars Names", "").strip() if row.get("Cars Names") else None
-                
-                if company and car_name:
-                    if company not in modeles_par_marque:
-                        modeles_par_marque[company] = []
-                    if car_name not in modeles_par_marque[company]:
-                        modeles_par_marque[company].append(car_name)
-            
-            print(f"✅ CSV chargé avec succès ({enc}): {len(modeles_par_marque)} marques")
-            return modeles_par_marque
-            
-        except (UnicodeDecodeError, LookupError):
-            continue
-        except Exception as e:
-            print(f"⚠️ Erreur avec {enc}: {e}")
-            continue
-    
-    print(f"⚠️ Impossible de charger le CSV")
-    return {}
+            if make and models:
+                modeles_par_marque[make] = [m.strip() for m in models if m.strip()]
+        
+        print(f"✅ JSON chargé avec succès: {len(modeles_par_marque)} marques")
+        return modeles_par_marque
+        
+    except json.JSONDecodeError as e:
+        print(f"❌ Erreur JSON: {e}")
+        return {}
+    except Exception as e:
+        print(f"⚠️ Erreur lors du chargement: {e}")
+        return {}
 
 
 def identifier_modele(marque: str, modele_complet: str, modeles_dict: dict) -> tuple:
@@ -236,7 +225,7 @@ def identifier_modele(marque: str, modele_complet: str, modeles_dict: dict) -> t
 
 
 def raffiner_modele_csv(df: pl.DataFrame) -> pl.DataFrame:
-    modeles_dict = charger_modeles_csv()
+    modeles_dict = charger_modeles_json()
     
     if not modeles_dict:
         return df.with_columns([
