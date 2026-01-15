@@ -22,7 +22,7 @@ def charger_modeles_csv() -> dict:
         return {}
     
     try:
-        df_cars = pl.read_csv(csv_path, encoding="utf8")
+        df_cars = pl.read_csv(csv_path, encoding="latin1", ignore_errors=True)
         # Créer un dictionnaire: marque -> liste de modèles uniques
         modeles_par_marque = {}
         
@@ -216,8 +216,8 @@ def raffiner_modele_csv(df: pl.DataFrame) -> pl.DataFrame:
     
     # Extraire les résultats
     return result.with_columns([
-        pl.col("modele_split").struct.field(0).alias("modele"),
-        pl.col("modele_split").struct.field(1).alias("le_reste")
+        pl.col("modele_split").list.get(0).fill_null("").alias("modele"),
+        pl.col("modele_split").list.get(1).fill_null("").alias("le_reste")
     ]).drop("modele_split")
 
 # =========================
@@ -252,6 +252,22 @@ def extraire_specs_et_lieu(df: pl.DataFrame) -> pl.DataFrame:
         pl.col("localisation").str.replace(r"^\d{4,5}\s*", "").str.split("-").list.get(0).str.strip_chars().alias("ville"),
         pl.lit("Europe").alias("pays")
     ]).drop("localisation")
+
+def corriger_cylindree(df: pl.DataFrame) -> pl.DataFrame:
+    """
+    - Véhicule électrique -> 0.0
+    - Cylindrée hors bornes réalistes (<0.6 ou >8.5) -> null
+    - Autres -> garder la valeur existante
+    """
+    return df.with_columns(
+        pl.when(pl.col("carburant").str.to_lowercase() == "électrique")
+          .then(0.0)
+        .when((pl.col("cylindree_l") < 0.6) | (pl.col("cylindree_l") > 8.5))
+          .then(None)
+        .otherwise(pl.col("cylindree_l"))
+        .alias("cylindree_l")
+    )
+
 
 def nettoyer_transmission(df: pl.DataFrame) -> pl.DataFrame:
     """
@@ -355,9 +371,7 @@ def preparer_ml(df: pl.DataFrame) -> pl.DataFrame:
     On ne remplit plus les médianes ici. 
     On se contente de s'assurer que les types sont corrects.
     """
-    return df.with_columns([
-        pl.col("cylindree_l").fill_null(0.0), # Optionnel : garder le 0 pour les électriques
-    ])
+    return df
 
 
 # =========================
@@ -371,13 +385,22 @@ def main():
     df = (
         df.pipe(nettoyer_numeriques)
           .pipe(reparer_marque_modele)
-          .pipe(raffiner_modele_csv)  # ← Ajouter ici pour identifier le modèle exact
+          .pipe(raffiner_modele_csv)
           .pipe(extraire_specs_et_lieu)
+          .pipe(corriger_cylindree)
           .pipe(nettoyer_transmission)
           .pipe(traiter_valeurs_aberrantes)
           .pipe(preparer_ml)
           .drop(["lien_fiche", "puissance"])
+          .drop_nulls(subset=["marque", "modele", "prix", "kilometrage", "annee", "cylindree_l", "transmission"])
     )
+
+    print(df.select(pl.col("cylindree_l").null_count()))
+    print(df.select(pl.col("carburant").value_counts()).unnest("carburant"))
+
+    print(df.select(pl.col("transmission").null_count()))
+    print(df.select(pl.col("transmission").value_counts()).unnest("transmission"))
+
 
     df.write_excel("autoscout_clean_ml.xlsx")
     print(f"✅ Export réussi : {df.shape[0]} lignes.")
