@@ -275,18 +275,79 @@ def extraire_specs_et_lieu(df: pl.DataFrame) -> pl.DataFrame:
 
 def corriger_cylindree(df: pl.DataFrame) -> pl.DataFrame:
     """
-    - Véhicule électrique -> 0.0
-    - Cylindrée hors bornes réalistes (<0.6 ou >8.5) -> null
-    - Autres -> garder la valeur existante
+    - Si électrique -> 0.0
+    - Cylindrée hors bornes (<0.6 ou >8.5) -> null
+    - Pour BMW : si modèle = 3 chiffres, prend les deux derniers et divise par 10
     """
-    return df.with_columns(
+    # Extraire cylindrée BMW uniquement pour les modèles identifiés comme XXX (3 chiffres)
+    df = df.with_columns([
+        pl.when(
+            (pl.col("marque").str.to_lowercase() == "bmw") &
+            (pl.col("modele_identifie") == True) &
+            (pl.col("modele").str.contains(r"^\d{3}$"))
+        )
+        .then(
+            pl.col("modele").str.slice(-2).cast(pl.Float32, strict=False)
+        )
+        .otherwise(None)
+        .alias("cylindree_bmw")
+    ])
+    
+    # Extraire cylindrée Mercedes uniquement pour les modèles identifiés comme XXX (3 chiffres)
+    df = df.with_columns([
+        pl.when(
+            pl.col("marque").str.to_lowercase() == "mercedes-benz"
+        )
+        .then(
+            # Extraire le nombre dans le modèle (ex: "C 200" -> 200)
+            pl.col("modele")
+            .str.extract(r"(\d+)", 1)
+            .cast(pl.Float32) / 100  # diviser par 100 pour obtenir 2.0 à partir de 200
+        )
+        .otherwise(None)
+        .alias("cylindree_mercedes")
+    ])
+
+    df = df.with_columns([
+        pl.col("le_reste").str.extract(r"(\d+\.\d+)", 1).cast(pl.Float32).alias("cylindree_extraite")
+    ])
+    
+    
+    
+    # Appliquer les règles finales
+    df = df.with_columns(
         pl.when(pl.col("carburant").str.to_lowercase() == "électrique")
           .then(0.0)
-        .when((pl.col("cylindree_l") < 0.6) | (pl.col("cylindree_l") > 8.5))
+
+        .when(
+            pl.col("cylindree_l").is_null() &
+            pl.col("cylindree_bmw").is_not_null()
+        )
+          .then(pl.col("cylindree_bmw") / 10)
+        
+        .when(
+            pl.col("cylindree_l").is_null() &
+            pl.col("cylindree_mercedes").is_not_null()
+        )
+          .then(pl.col("cylindree_mercedes"))
+        
+        .when(
+            pl.col("cylindree_l").is_null() &
+            pl.col("cylindree_extraite").is_not_null()
+        )
+          .then(pl.col("cylindree_extraite"))
+        
+        .when(
+            (pl.col("cylindree_l") < 0.6) |
+            (pl.col("cylindree_l") > 8.5)
+        )
           .then(None)
+
         .otherwise(pl.col("cylindree_l"))
         .alias("cylindree_l")
-    )
+    ).drop("cylindree_bmw", "cylindree_mercedes", "cylindree_extraite")
+
+    return df
 
 
 # =========================
