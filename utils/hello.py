@@ -3,6 +3,90 @@ import json
 import openpyxl
 import csv
 
+# Dictionnaire des alias de marques pour normaliser les écritures
+BRAND_ALIASES = {
+    "Alfa Romeo": ["Alfa Romeo", "Alfa", "Alfa-Romeo"],
+    "Aston Martin": ["Aston Martin", "Aston"],
+    "Audi": ["Audi"],
+    "Bentley": ["Bentley"],
+    "BMW": ["BMW", "Bmw"],
+    "Bugatti": ["Bugatti"],
+    "Cadillac": ["Cadillac"],
+    "Chevrolet": ["Chevrolet", "Chevy"],
+    "Chrysler": ["Chrysler"],
+    "Citroën": ["Citroen", "Citroën"],
+    "Cupra": ["Cupra"],
+    "Dacia": ["Dacia"],
+    "Daihatsu": ["Daihatsu"],
+    "Dodge": ["Dodge"],
+    "DS": ["DS", "DS Automobiles"],
+    "Ferrari": ["Ferrari"],
+    "Fiat": ["Fiat"],
+    "Ford": ["Ford"],
+    "Genesis": ["Genesis"],
+    "Honda": ["Honda"],
+    "Hummer": ["Hummer"],
+    "Hyundai": ["Hyundai"],
+    "Infiniti": ["Infiniti"],
+    "Isuzu": ["Isuzu"],
+    "Jaguar": ["Jaguar"],
+    "Jeep": ["Jeep"],
+    "Kia": ["Kia"],
+    "Lada": ["Lada"],
+    "Lamborghini": ["Lamborghini"],
+    "Lancia": ["Lancia"],
+    "Land Rover": ["Land Rover", "Landrover", "Land-Rover"],
+    "Lexus": ["Lexus"],
+    "Lotus": ["Lotus"],
+    "Maserati": ["Maserati"],
+    "Mazda": ["Mazda"],
+    "McLaren": ["McLaren", "Mclaren"],
+    "Mercedes-Benz": ["Mercedes-Benz", "Mercedes", "Mercedes Benz"],
+    "MG": ["MG", "Mg"],
+    "Mini": ["Mini", "MINI"],
+    "Mitsubishi": ["Mitsubishi"],
+    "Nissan": ["Nissan"],
+    "Opel": ["Opel"],
+    "Peugeot": ["Peugeot"],
+    "Polestar": ["Polestar"],
+    "Porsche": ["Porsche"],
+    "Renault": ["Renault"],
+    "Rolls-Royce": ["Rolls-Royce", "Rolls Royce", "Rollsroyce"],
+    "Saab": ["Saab"],
+    "Seat": ["Seat", "SEAT"],
+    "Skoda": ["Skoda", "Škoda"],
+    "Smart": ["Smart", "SMART"],
+    "SsangYong": ["SsangYong", "Ssangyong"],
+    "Subaru": ["Subaru"],
+    "Suzuki": ["Suzuki"],
+    "Tesla": ["Tesla"],
+    "Toyota": ["Toyota"],
+    "Volkswagen": ["Volkswagen", "VW"],
+    "Volvo": ["Volvo"],
+    "Omoda": ["Omoda"],
+    "BYD": ["BYD"],
+    "Lynk & Co": ["Lynk & Co", "Lynk&Co", "Lynk"],
+    "Aiways": ["Aiways"],
+    "Nio": ["Nio", "NIO"],
+    "Rivian": ["Rivian"],
+    "Lucid": ["Lucid"],
+    "Fisker": ["Fisker"]
+}
+
+# Créer un mapping inverse pour rapidement normaliser une marque
+ALIAS_TO_CANONICAL = {}
+for canonical, aliases in BRAND_ALIASES.items():
+    for alias in aliases:
+        ALIAS_TO_CANONICAL[alias.lower()] = canonical
+
+def normaliser_marque(marque: str) -> str:
+    """Normalise une marque en utilisant le dictionnaire d'alias"""
+    if not marque:
+        return ""
+    marque_clean = marque.strip()
+    canonical = ALIAS_TO_CANONICAL.get(marque_clean.lower())
+    return canonical if canonical else marque_clean
+
 def fusionner_datasets():
     """Fusionne EUROPEAN CARS DATASET.xlsx, autoscout24-germany-dataset.csv avec vehicle models.json"""
     
@@ -26,8 +110,18 @@ def fusionner_datasets():
     with open(json_path, "r", encoding="utf-8") as f:
         json_data = json.load(f)
     
+    # Normaliser les marques dans le JSON
+    json_data_normalized = []
+    for item in json_data:
+        canonical = normaliser_marque(item["Make"])
+        json_data_normalized.append({
+            "Make": canonical,
+            "Models": item["Models"]
+        })
+    json_data = json_data_normalized
+    
     json_dict = {item["Make"].lower(): item["Models"] for item in json_data}
-    print(f"✅ {len(json_dict)} marques dans le JSON")
+    print(f"✅ {len(json_dict)} marques dans le JSON (après normalisation)")
     
     # Charger le fichier Excel
     print("📥 Chargement du fichier Excel...")
@@ -85,16 +179,19 @@ def fusionner_datasets():
             make_clean = str(make).strip()
             model_clean = str(model).strip()
             
+            # Normaliser la marque
+            make_canonical = normaliser_marque(make_clean)
+            
             # Vérifier si la marque est dans le modèle (erreur possible)
             if make_clean.lower() in model_clean.lower():
                 # Enlever la marque du modèle
                 model_clean = model_clean.replace(make_clean, "").strip()
                 model_clean = model_clean.lstrip("-").lstrip().rstrip()
             
-            make_lower = make_clean.lower()
+            make_lower = make_canonical.lower()
             
             if make_lower not in excel_data:
-                excel_data[make_lower] = {"name": make_clean, "models": []}
+                excel_data[make_lower] = {"name": make_canonical, "models": []}
             
             if model_clean and model_clean not in excel_data[make_lower]["models"]:
                 excel_data[make_lower]["models"].append(model_clean)
@@ -148,15 +245,18 @@ def fusionner_datasets():
                             make_clean = str(make).strip()
                             model_clean = str(model).strip()
                             
+                            # Normaliser la marque
+                            make_canonical = normaliser_marque(make_clean)
+                            
                             # Vérifier si la marque est dans le modèle
                             if make_clean.lower() in model_clean.lower():
                                 model_clean = model_clean.replace(make_clean, "").strip()
                                 model_clean = model_clean.lstrip("-").lstrip().rstrip()
                             
-                            make_lower = make_clean.lower()
+                            make_lower = make_canonical.lower()
                             
                             if make_lower not in csv_data:
-                                csv_data[make_lower] = {"name": make_clean, "models": []}
+                                csv_data[make_lower] = {"name": make_canonical, "models": []}
                             
                             if model_clean and model_clean not in csv_data[make_lower]["models"]:
                                 csv_data[make_lower]["models"].append(model_clean)
