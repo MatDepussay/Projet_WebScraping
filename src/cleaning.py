@@ -312,8 +312,6 @@ def corriger_cylindree(df: pl.DataFrame) -> pl.DataFrame:
         pl.col("le_reste").str.extract(r"(\d+\.\d+)", 1).cast(pl.Float32).alias("cylindree_extraite")
     ])
     
-    
-    
     # Appliquer les règles finales
     df = df.with_columns(
         pl.when(pl.col("carburant").str.to_lowercase() == "électrique")
@@ -348,7 +346,6 @@ def corriger_cylindree(df: pl.DataFrame) -> pl.DataFrame:
     ).drop("cylindree_bmw", "cylindree_mercedes", "cylindree_extraite")
 
     return df
-
 
 # =========================
 # 6. NETTOYAGE TRANSMISSION
@@ -450,6 +447,14 @@ def main():
           .pipe(traiter_valeurs_aberrantes)
           .pipe(preparer_ml)
           .drop(["lien_fiche", "puissance"])
+          .drop_nulls(["cylindree_l",
+                       "annee",
+                       "modele",
+                       "marque",
+                       "puissance_kw",
+                       "transmission",
+                       "kilometrage",
+                       "prix"])
     )
 
     df.write_excel("data/processed/autoscout_clean_ml.xlsx")
