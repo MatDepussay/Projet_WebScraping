@@ -54,7 +54,7 @@ from MachineLearning import (
     charger_et_preparer_donnees,
     entrainer_random_forest,
     entrainer_xgboost,
-    comparer_modeles
+    #comparer_modeles
 )
 
 
