@@ -182,7 +182,14 @@ def entrainer_random_forest(X_train, X_test, y_train, y_test):
         pickle.dump(model, f)
 
     enregistrer_erreurs(X_test, y_test, y_pred, "models/erreurs_rf.xlsx")
-    return r2
+    
+    return {
+        'model': model,
+        'rmse': rmse,
+        'r2': r2,
+        'mae': mae,
+        'feature_importance': fi
+    }
 
 
 def entrainer_xgboost(X_train, X_test, y_train, y_test):
@@ -200,12 +207,24 @@ def entrainer_xgboost(X_train, X_test, y_train, y_test):
     model.fit(X_train, y_train)
     y_pred, rmse, r2, mae = evaluer_modele(model, X_test, y_test)
     cross_validation_model(model, X_train, y_train)
+    
+    fi = pd.DataFrame({
+        "feature": X_train.columns,
+        "importance": model.feature_importances_
+    }).sort_values("importance", ascending=False)
 
     with open("models/xgboost_model.pkl", "wb") as f:
         pickle.dump(model, f)
 
     enregistrer_erreurs(X_test, y_test, y_pred, "models/erreurs_xgb.xlsx")
-    return r2
+    
+    return {
+        'model': model,
+        'rmse': rmse,
+        'r2': r2,
+        'mae': mae,
+        'feature_importance': fi
+    }
 
 
 # =========================
@@ -221,10 +240,10 @@ def main():
 
     print(f"📈 Dataset: {X_train.shape[0]} train / {X_test.shape[0]} test")
 
-    r2_rf = entrainer_random_forest(X_train, X_test, y_train, y_test)
-    r2_xgb = entrainer_xgboost(X_train, X_test, y_train, y_test)
+    results_rf = entrainer_random_forest(X_train, X_test, y_train, y_test)
+    results_xgb = entrainer_xgboost(X_train, X_test, y_train, y_test)
 
-    print("\n🏆 Meilleur modèle :", "RF" if r2_rf > r2_xgb else "XGB")
+    print("\n🏆 Meilleur modèle :", "RF" if results_rf['r2'] > results_xgb['r2'] else "XGB")
 
 
 if __name__ == "__main__":
