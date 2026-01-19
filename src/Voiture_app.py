@@ -20,10 +20,12 @@
 import json
 import re
 import time
+import io
 from pathlib import Path
 import pandas as pd
 import plotly.graph_objects as go
 import plotly.express as px
+import pickle
 from sklearn.model_selection import train_test_split
 import streamlit as st
 from bs4 import BeautifulSoup as BS
@@ -36,7 +38,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import polars as pl
-from streamlit_tile import streamlit_tile
+
+import numpy as np
 
 # Import des fonctions de nettoyage depuis cleaning.py
 from cleaning import (
@@ -551,39 +554,14 @@ def afficher_selection_voitures():
     """Interface pour visualiser, filtrer et sélectionner les voitures nettoyées"""
     st.header("🔍 Sélection et visualisation des voitures")
     
-    # Charger le modèle ML si disponible
-    import pickle
-    model = None
-    label_encoders = None
+    # Charger le modèle ML depuis la session state (chargé dans l'onglet ML)
+    model = st.session_state.get("model_ml", None)
+    model_source = st.session_state.get("model_source", "")
     
-    # Chercher le modèle Random Forest ou XGBoost
-    model_path_rf = Path("models/random_forest_model.pkl")
-    model_path_xgb = Path("models/xgboost_model.pkl")
-    model_path_old = Path("models/random_forest.pkl")
-    
-    if model_path_rf.exists():
-        try:
-            with open(model_path_rf, "rb") as f:
-                model = pickle.load(f)
-            st.success("✅ Modèle ML (Random Forest) chargé - Les prédictions seront affichées")
-        except Exception as e:
-            st.warning(f"⚠️ Impossible de charger le modèle Random Forest: {e}")
-    elif model_path_xgb.exists():
-        try:
-            with open(model_path_xgb, "rb") as f:
-                model = pickle.load(f)
-            st.success("✅ Modèle ML (XGBoost) chargé - Les prédictions seront affichées")
-        except Exception as e:
-            st.warning(f"⚠️ Impossible de charger le modèle XGBoost: {e}")
-    elif model_path_old.exists():
-        try:
-            with open(model_path_old, "rb") as f:
-                model = pickle.load(f)
-            st.success("✅ Modèle ML chargé - Les prédictions seront affichées")
-        except Exception as e:
-            st.warning(f"⚠️ Impossible de charger le modèle: {e}")
+    if model_source:
+        st.caption(f"📦 Modèle actif: {model_source}")
     else:
-        st.info("ℹ️ Aucun modèle ML trouvé. Entraînez d'abord un modèle dans l'onglet 'Régression ML'")
+        st.info("ℹ️ Aucun modèle ML chargé. Allez dans l'onglet 'Régression ML' pour charger ou entraîner un modèle.")
     
     # Style CSS pour mettre les sliders en gris
     st.markdown("""
@@ -875,11 +853,240 @@ def afficher_selection_voitures():
                         st.write(f"**[🔗 Lien de l'annonce]({voiture.get('lien_fiche')})**")
 
 
+def afficher_resultats_modele(model, X_test, y_test, feature_importance=None):
+    """Affiche les graphiques et résultats d'un modèle ML (réutilisable)"""
+    
+    # Prédictions
+    y_pred_test = model.predict(X_test)
+    
+    # Calculer les métriques
+    from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
+    
+    rmse = np.sqrt(mean_squared_error(y_test, y_pred_test))
+    r2 = r2_score(y_test, y_pred_test)
+    mae = mean_absolute_error(y_test, y_pred_test)
+    
+    # Affichage des métriques
+    st.subheader("📊 Résultats")
+    
+    col_metric1, col_metric2, col_metric3 = st.columns(3)
+    
+    with col_metric1:
+        st.metric("RMSE", f"€{rmse:,.0f}")
+    with col_metric2:
+        st.metric("R² Score", f"{r2:.4f}")
+    with col_metric3:
+        st.metric("MAE", f"€{mae:,.0f}")
+    
+    # Feature Importance (si disponible)
+    if feature_importance is not None:
+        st.subheader("🎯 Importance des features")
+        
+        col_fi1, col_fi2 = st.columns(2)
+        
+        with col_fi1:
+            st.dataframe(feature_importance.head(10), use_container_width=True)
+        
+        with col_fi2:
+            fig_fi = px.bar(
+                feature_importance.head(10),
+                x='importance',
+                y='feature',
+                orientation='h',
+                title='Top 10 Features',
+                labels={'importance': 'Importance', 'feature': 'Feature'}
+            )
+            fig_fi.update_layout(height=400)
+            st.plotly_chart(fig_fi, use_container_width=True)
+    
+    # Visualisation: Prix réel vs Prix prédit
+    st.subheader("💰 Prix réel vs Prix prédit")
+    
+    # Créer un DataFrame pour les prédictions
+    results_df = pd.DataFrame({
+        'Prix réel': y_test.values,
+        'Prix prédit': y_pred_test,
+        'Erreur (€)': y_test.values - y_pred_test,
+        'Erreur (%)': ((y_test.values - y_pred_test) / y_test.values * 100)
+    }).reset_index(drop=True)
+    
+    col_viz1, col_viz2 = st.columns(2)
+    
+    with col_viz1:
+        # Graphique de dispersion
+        fig_scatter = go.Figure()
+        fig_scatter.add_trace(go.Scatter(
+            x=y_test.values,
+            y=y_pred_test,
+            mode='markers',
+            marker=dict(
+                size=6,
+                color=results_df['Erreur (%)'].abs(),
+                colorscale='Viridis',
+                showscale=True,
+                colorbar=dict(title="Erreur (%)")
+            ),
+            text=[f"Réel: €{r:,.0f}<br>Prédit: €{p:,.0f}<br>Erreur: {e:+.1f}%" 
+                  for r, p, e in zip(y_test.values, y_pred_test, results_df['Erreur (%)'])],
+            hoverinfo='text',
+            name='Prédictions'
+        ))
+        
+        # Ajouter la ligne de perfection
+        min_val = min(y_test.min(), y_pred_test.min())
+        max_val = max(y_test.max(), y_pred_test.max())
+        fig_scatter.add_trace(go.Scatter(
+            x=[min_val, max_val],
+            y=[min_val, max_val],
+            mode='lines',
+            name='Perfection',
+            line=dict(dash='dash', color='red')
+        ))
+        
+        fig_scatter.update_layout(
+            title='Prédictions vs Réalité',
+            xaxis_title='Prix réel (€)',
+            yaxis_title='Prix prédit (€)',
+            height=500,
+            hovermode='closest'
+        )
+        st.plotly_chart(fig_scatter, use_container_width=True)
+    
+    with col_viz2:
+        # Graphique des erreurs
+        fig_error = go.Figure()
+        
+        # Séparer les erreurs positives et négatives
+        erreurs_pos = results_df[results_df['Erreur (%)'] > 0]['Erreur (%)']
+        erreurs_neg = results_df[results_df['Erreur (%)'] <= 0]['Erreur (%)']
+        
+        # Histogramme pour erreurs négatives (sur-estimation)
+        fig_error.add_trace(go.Histogram(
+            x=erreurs_neg,
+            nbinsx=30,
+            name='Sur-estimation (prix prédit > réel)',
+            marker_color='rgba(255, 100, 100, 0.7)',
+            opacity=0.7
+        ))
+        
+        # Histogramme pour erreurs positives (sous-estimation)
+        fig_error.add_trace(go.Histogram(
+            x=erreurs_pos,
+            nbinsx=30,
+            name='Sous-estimation (prix prédit < réel)',
+            marker_color='rgba(100, 150, 255, 0.7)',
+            opacity=0.7
+        ))
+        
+        # Ajouter une ligne verticale à 0
+        fig_error.add_vline(
+            x=0, 
+            line_dash="dash", 
+            line_color="black",
+            annotation_text="Erreur = 0",
+            annotation_position="top"
+        )
+        
+        fig_error.update_layout(
+            title='Distribution des erreurs (%)',
+            xaxis_title='Erreur (%)',
+            yaxis_title='Nombre de prédictions',
+            height=500,
+            barmode='overlay',
+            showlegend=True
+        )
+        st.plotly_chart(fig_error, use_container_width=True)
+    
+    # Tableau détaillé
+    st.subheader("📋 Détails des prédictions")
+    st.dataframe(results_df, use_container_width=True)
+    
+    # Statistiques des erreurs
+    st.subheader("📈 Statistiques des erreurs")
+    
+    col_stat1, col_stat2, col_stat3, col_stat4 = st.columns(4)
+    
+    with col_stat1:
+        st.metric("Erreur moyenne (%)", f"{results_df['Erreur (%)'].mean():+.2f}%")
+    with col_stat2:
+        st.metric("Écart-type erreur (%)", f"{results_df['Erreur (%)'].std():.2f}%")
+    with col_stat3:
+        st.metric("Min erreur (%)", f"{results_df['Erreur (%)'].min():+.2f}%")
+    with col_stat4:
+        st.metric("Max erreur (%)", f"{results_df['Erreur (%)'].max():+.2f}%")
+
+
 def afficher_regression_ml():
     """Interface Streamlit pour entraîner les modèles ML"""
 
     
     st.header("📊 Régression - Prédiction des Prix")
+    
+    # Charger le modèle ML si disponible
+    st.subheader("📦 Charger ou gérer un modèle ML")
+    col_upload, col_path = st.columns(2)
+    with col_upload:
+        uploaded_model = st.file_uploader("Importer un modèle .pkl", type=["pkl"], key="upload_model_regression")
+        if uploaded_model:
+            try:
+                model_loaded = pickle.load(io.BytesIO(uploaded_model.read()))
+                st.session_state.model_ml = model_loaded
+                st.session_state.model_source = "Modèle importé (uploader)"
+                st.success("✅ Modèle chargé depuis l'upload")
+            except Exception as e:
+                st.error(f"❌ Échec du chargement du modèle uploadé: {e}")
+    with col_path:
+        default_model_path = "models/random_forest_model.pkl"
+        custom_model_path = st.text_input("Chemin vers un modèle local", value=default_model_path, key="custom_model_path_regression")
+        if st.button("Charger ce fichier", key="load_custom_model_regression"):
+            path_obj = Path(custom_model_path)
+            if path_obj.exists():
+                try:
+                    with open(path_obj, "rb") as f:
+                        model_loaded = pickle.load(f)
+                    st.session_state.model_ml = model_loaded
+                    st.session_state.model_source = f"Modèle local: {path_obj}"
+                    st.success(f"✅ Modèle chargé depuis {path_obj}")
+                except Exception as e:
+                    st.error(f"❌ Échec du chargement: {e}")
+            else:
+                st.warning("⚠️ Fichier introuvable")
+    
+    # Chercher le modèle Random Forest ou XGBoost par défaut si aucun modèle n'a été fourni
+    if "model_ml" not in st.session_state:
+        model_path_rf = Path("models/random_forest_model.pkl")
+        model_path_xgb = Path("models/xgboost_model.pkl")
+        model_path_old = Path("models/random_forest.pkl")
+        
+        if model_path_rf.exists():
+            try:
+                with open(model_path_rf, "rb") as f:
+                    st.session_state.model_ml = pickle.load(f)
+                st.session_state.model_source = str(model_path_rf)
+                st.info("✅ Modèle ML (Random Forest) chargé par défaut")
+            except Exception as e:
+                st.warning(f"⚠️ Impossible de charger le modèle Random Forest: {e}")
+        elif model_path_xgb.exists():
+            try:
+                with open(model_path_xgb, "rb") as f:
+                    st.session_state.model_ml = pickle.load(f)
+                st.session_state.model_source = str(model_path_xgb)
+                st.info("✅ Modèle ML (XGBoost) chargé par défaut")
+            except Exception as e:
+                st.warning(f"⚠️ Impossible de charger le modèle XGBoost: {e}")
+        elif model_path_old.exists():
+            try:
+                with open(model_path_old, "rb") as f:
+                    st.session_state.model_ml = pickle.load(f)
+                st.session_state.model_source = str(model_path_old)
+                st.info("✅ Modèle ML chargé par défaut")
+            except Exception as e:
+                st.warning(f"⚠️ Impossible de charger le modèle: {e}")
+    
+    if "model_source" in st.session_state:
+        st.caption(f"Modèle actif: {st.session_state.model_source}")
+    
+    st.divider()
     
     # Vérifier que le fichier JSON des annonces existe
     if not Path("data/raw/annonces_autoscout24.json").exists():
@@ -930,8 +1137,7 @@ def afficher_regression_ml():
         )
     # Random state fixé à 42
     random_state = 42
-    
-    # Bouton pour lancer l'entraînement
+        # Bouton pour lancer l'entraînement
     if st.button("🚀 Lancer l'entraînement", use_container_width=True):
         with st.spinner("⏳ Préparation des données..."):
             try:
@@ -961,162 +1167,87 @@ def afficher_regression_ml():
                 
                 model = results['model']
                 
-                # Affichage des métriques
-                st.subheader("📊 Résultats")
+                # Sauvegarder le modèle en session state
+                st.session_state.model_ml = model
+                st.session_state.model_source = f"Modèle entraîné ({model_type})"
                 
-                col_metric1, col_metric2, col_metric3, col_metric4 = st.columns(4)
+                # Sauvegarde et export du modèle entraîné
+                st.subheader("💾 Sauvegarder le modèle entraîné")
+                models_dir = Path("models")
+                models_dir.mkdir(parents=True, exist_ok=True)
+
+                default_filename = models_dir / f"{model_type.lower().replace(' ', '_')}_model.pkl"
+                filename_input = st.text_input(
+                    "Nom de fichier",
+                    value=str(default_filename),
+                    help="Chemin local où enregistrer le modèle picklé"
+                )
+
+                col_save_local, col_download = st.columns(2)
+                with col_save_local:
+                    if st.button("💾 Enregistrer sur le disque", use_container_width=True):
+                        try:
+                            target_path = Path(filename_input)
+                            target_path.parent.mkdir(parents=True, exist_ok=True)
+                            with open(target_path, "wb") as f:
+                                pickle.dump(model, f)
+                            st.success(f"Modèle sauvegardé: {target_path}")
+                        except Exception as e:
+                            st.error(f"Erreur lors de la sauvegarde: {e}")
+
+                with col_download:
+                    try:
+                        model_bytes = pickle.dumps(model)
+                        st.download_button(
+                            label="⬇️ Télécharger le modèle (.pkl)",
+                            data=model_bytes,
+                            file_name=Path(filename_input).name,
+                            mime="application/octet-stream",
+                            use_container_width=True
+                        )
+                    except Exception as e:
+                        st.error(f"Erreur lors de la préparation du téléchargement: {e}")
                 
-                with col_metric1:
-                    st.metric("RMSE", f"€{results['rmse']:,.0f}")
-                with col_metric2:
-                    st.metric("R² Score", f"{results['r2']:.4f}")
-                with col_metric3:
-                    st.metric("MAE", f"€{results['mae']:,.0f}")
-                with col_metric4:
-                    st.metric("Modèle", model_type)
-                
-                # Feature Importance
-                st.subheader("🎯 Importance des features")
-                
-                feature_importance = results['feature_importance']
-                
-                col_fi1, col_fi2 = st.columns(2)
-                
-                with col_fi1:
-                    st.dataframe(feature_importance.head(10), use_container_width=True)
-                
-                with col_fi2:
-                    fig_fi = px.bar(
-                        feature_importance.head(10),
-                        x='importance',
-                        y='feature',
-                        orientation='h',
-                        title='Top 10 Features',
-                        labels={'importance': 'Importance', 'feature': 'Feature'}
-                    )
-                    fig_fi.update_layout(height=400)
-                    st.plotly_chart(fig_fi, use_container_width=True)
-                
-                # Visualisation: Prix réel vs Prix prédit
-                st.subheader("💰 Prix réel vs Prix prédit")
-                
-                y_pred_test = model.predict(X_test)
-                
-                # Créer un DataFrame pour les prédictions
-                results_df = pd.DataFrame({
-                    'Prix réel': y_test.values,
-                    'Prix prédit': y_pred_test,
-                    'Erreur (€)': y_test.values - y_pred_test,
-                    'Erreur (%)': ((y_test.values - y_pred_test) / y_test.values * 100)
-                }).reset_index(drop=True)
-                
-                col_viz1, col_viz2 = st.columns(2)
-                
-                with col_viz1:
-                    # Graphique de dispersion
-                    fig_scatter = go.Figure()
-                    fig_scatter.add_trace(go.Scatter(
-                        x=y_test.values,
-                        y=y_pred_test,
-                        mode='markers',
-                        marker=dict(
-                            size=6,
-                            color=results_df['Erreur (%)'].abs(),
-                            colorscale='Viridis',
-                            showscale=True,
-                            colorbar=dict(title="Erreur (%)")
-                        ),
-                        text=[f"Réel: €{r:,.0f}<br>Prédit: €{p:,.0f}<br>Erreur: {e:+.1f}%" 
-                              for r, p, e in zip(y_test.values, y_pred_test, results_df['Erreur (%)'])],
-                        hoverinfo='text',
-                        name='Prédictions'
-                    ))
-                    
-                    # Ajouter la ligne de perfection
-                    min_val = min(y_test.min(), y_pred_test.min())
-                    max_val = max(y_test.max(), y_pred_test.max())
-                    fig_scatter.add_trace(go.Scatter(
-                        x=[min_val, max_val],
-                        y=[min_val, max_val],
-                        mode='lines',
-                        name='Perfection',
-                        line=dict(dash='dash', color='red')
-                    ))
-                    
-                    fig_scatter.update_layout(
-                        title='Prédictions vs Réalité',
-                        xaxis_title='Prix réel (€)',
-                        yaxis_title='Prix prédit (€)',
-                        height=500,
-                        hovermode='closest'
-                    )
-                    st.plotly_chart(fig_scatter, use_container_width=True)
-                
-                with col_viz2:
-                    # Graphique des erreurs amélioré
-                    fig_error = go.Figure()
-                    
-                    # Séparer les erreurs positives et négatives
-                    erreurs_pos = results_df[results_df['Erreur (%)'] > 0]['Erreur (%)']
-                    erreurs_neg = results_df[results_df['Erreur (%)'] <= 0]['Erreur (%)']
-                    
-                    # Histogramme pour erreurs négatives (sur-estimation)
-                    fig_error.add_trace(go.Histogram(
-                        x=erreurs_neg,
-                        nbinsx=30,
-                        name='Sur-estimation (prix prédit > réel)',
-                        marker_color='rgba(255, 100, 100, 0.7)',
-                        opacity=0.7
-                    ))
-                    
-                    # Histogramme pour erreurs positives (sous-estimation)
-                    fig_error.add_trace(go.Histogram(
-                        x=erreurs_pos,
-                        nbinsx=30,
-                        name='Sous-estimation (prix prédit < réel)',
-                        marker_color='rgba(100, 150, 255, 0.7)',
-                        opacity=0.7
-                    ))
-                    
-                    # Ajouter une ligne verticale à 0
-                    fig_error.add_vline(
-                        x=0, 
-                        line_dash="dash", 
-                        line_color="black",
-                        annotation_text="Erreur = 0",
-                        annotation_position="top"
-                    )
-                    
-                    fig_error.update_layout(
-                        title='Distribution des erreurs (%)',
-                        xaxis_title='Erreur (%)',
-                        yaxis_title='Nombre de prédictions',
-                        height=500,
-                        barmode='overlay',
-                        showlegend=True
-                    )
-                    st.plotly_chart(fig_error, use_container_width=True)
-                
-                # Tableau détaillé
-                st.subheader("📋 Détails des prédictions")
-                st.dataframe(results_df, use_container_width=True)
-                
-                # Statistiques des erreurs
-                st.subheader("📈 Statistiques des erreurs")
-                
-                col_stat1, col_stat2, col_stat3, col_stat4 = st.columns(4)
-                
-                with col_stat1:
-                    st.metric("Erreur moyenne (%)", f"{results_df['Erreur (%)'].mean():+.2f}%")
-                with col_stat2:
-                    st.metric("Écart-type erreur (%)", f"{results_df['Erreur (%)'].std():.2f}%")
-                with col_stat3:
-                    st.metric("Min erreur (%)", f"{results_df['Erreur (%)'].min():+.2f}%")
-                with col_stat4:
-                    st.metric("Max erreur (%)", f"{results_df['Erreur (%)'].max():+.2f}%")
+                # Afficher les résultats avec la fonction réutilisable
+                afficher_resultats_modele(model, X_test, y_test, results['feature_importance'])
                 
             except Exception as e:
                 st.error(f"❌ Erreur: {e}")
+    # Évaluer le modèle chargé si disponible
+    if st.session_state.get("model_ml") is not None:
+        st.divider()
+        st.subheader("📊 Évaluation du modèle chargé")
+        
+        if st.button("📈 Évaluer ce modèle sur les données actuelles", use_container_width=True):
+            try:
+                # Préparer X et y
+                y_all = df_pd["prix"]
+                X_all = df_pd.drop(columns=["prix"], errors="ignore")
+                X_all = X_all.select_dtypes(include="number")
+                
+                if X_all.empty:
+                    st.error("❌ Aucune feature numérique disponible.")
+                    return
+                
+                # Split
+                X_train, X_test, y_train, y_test = train_test_split(
+                    X_all, y_all, test_size=0.2, random_state=42
+                )
+                
+                # Prédictions avec le modèle chargé
+                model = st.session_state.model_ml
+                
+                # Afficher les résultats avec la fonction réutilisable (sans feature_importance)
+                afficher_resultats_modele(model, X_test, y_test, feature_importance=None)
+                
+            except Exception as e:
+                st.error(f"❌ Erreur lors de l'évaluation: {e}")
+                import traceback
+                st.code(traceback.format_exc())
+        
+        st.divider()
+    
+
 
 
 # --- STREAMLIT UI ---
