@@ -143,10 +143,21 @@ def reparer_marque_modele(df: pl.DataFrame) -> pl.DataFrame:
 # =========================
 # 4. IDENTIFICATION MODÈLE (CSV)
 # =========================
+
+# Cache global pour éviter de recharger le JSON à chaque fois
+_MODELES_CACHE = None
+
 def charger_modeles_json() -> dict:
+    global _MODELES_CACHE
+    
+    # Retourner le cache si déjà chargé
+    if _MODELES_CACHE is not None:
+        return _MODELES_CACHE
+    
     json_path = Path("data/references/vehicle_models_merged.json")
     if not json_path.exists():
         print(f"❌ Fichier introuvable: {json_path}")
+        _MODELES_CACHE = {}
         return {}
     
     try:
@@ -162,13 +173,16 @@ def charger_modeles_json() -> dict:
                 modeles_par_marque[make] = [m.strip() for m in models if m.strip()]
         
         print(f"✅ JSON chargé avec succès: {len(modeles_par_marque)} marques")
+        _MODELES_CACHE = modeles_par_marque
         return modeles_par_marque
         
     except json.JSONDecodeError as e:
         print(f"❌ Erreur JSON: {e}")
+        _MODELES_CACHE = {}
         return {}
     except Exception as e:
         print(f"⚠️ Erreur lors du chargement: {e}")
+        _MODELES_CACHE = {}
         return {}
 
 
