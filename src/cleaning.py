@@ -457,11 +457,9 @@ def main():
                        "kilometrage",
                        "prix"])
     )
-
-    df.write_excel("data/processed/autoscout_clean_ml.xlsx")
+    df.write_json('data/processed/autoscout_clean_ml.json')
     print(f"✅ Export réussi : {df.shape[0]} lignes.")
     print(df.head(5))
-
 
 if __name__ == "__main__":
     main()
