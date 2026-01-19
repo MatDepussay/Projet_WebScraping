@@ -83,9 +83,9 @@ def analyser_clusters(df):
 # =========================
 # CHARGEMENT & PRÉPARATION
 # =========================
-def charger_et_preparer_donnees(fichier="data/processed/autoscout_clean_ml.xlsx"):
+def charger_et_preparer_donnees(fichier="data/processed/autoscout_clean_ml.json"):
     try:
-        df = pl.read_excel(fichier).to_pandas()
+        df = pl.read_json(fichier).to_pandas()
     except Exception as e:
         print(f"❌ Erreur lors du chargement : {e}")
         return None, None, None, None
