@@ -30,7 +30,7 @@ def nettoyer_numeriques(df: pl.DataFrame) -> pl.DataFrame:
             pl.col(col).cast(pl.Utf8).str.replace_all(r"[^\d]", "")
             .cast(pl.Int64, strict=False)
         )
-    return df.filter(pl.col("prix").is_not_null())
+    return df.filter((pl.col("prix").is_not_null()) & (pl.col("prix") > 100))
 
 # =========================
 # 3. RÉPARATION MARQUE/MODÈLE
@@ -409,6 +409,7 @@ def traiter_valeurs_aberrantes(df: pl.DataFrame) -> pl.DataFrame:
           )
           .otherwise(pl.col("annee"))
           .alias("annee"),
+          
 
         pl.when((pl.col("kilometrage").is_null()) | 
                 (pl.col("kilometrage") < 0) | 
