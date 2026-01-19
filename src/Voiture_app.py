@@ -382,8 +382,9 @@ def charger_voitures_depuis_json(uploaded_file) -> list[Voiture]:
     return voitures
 
 
+@st.cache_data(ttl=300, show_spinner="Chargement des données...")
 def charger_voitures_depuis_fichier(filename: str = "data/raw/annonces_autoscout24.json") -> list[Voiture]:
-    """Charge les voitures depuis un fichier JSON local"""
+    """Charge les voitures depuis un fichier JSON local (avec cache)"""
     filepath = Path(filename)
     if not filepath.exists():
         return []
@@ -403,8 +404,9 @@ def charger_voitures_depuis_fichier(filename: str = "data/raw/annonces_autoscout
     return voitures
 
 
+@st.cache_data(ttl=600, show_spinner="Nettoyage des données en cours...")
 def appliquer_cleaning(filename: str = "data/raw/annonces_autoscout24.json") -> pl.DataFrame:
-    """Applique tout le pipeline de cleaning et retourne un DataFrame propre"""
+    """Applique tout le pipeline de cleaning et retourne un DataFrame propre (avec cache)"""
     
     df = pl.read_json(filename)
     df = nettoyer_numeriques(df)
@@ -550,6 +552,13 @@ def run_scraping(nb_pages: int) -> list[Voiture] | None:
         driver.quit()
 
 
+@st.cache_data(ttl=300)
+def charger_donnees_nettoyees():
+    """Charge et nettoie les données (avec cache)"""
+    if not Path("data/raw/annonces_autoscout24.json").exists():
+        return None
+    return appliquer_cleaning("data/raw/annonces_autoscout24.json")
+
 def afficher_selection_voitures():
     """Interface pour visualiser, filtrer et sélectionner les voitures nettoyées"""
     st.header("🔍 Sélection et visualisation des voitures")
@@ -590,16 +599,10 @@ def afficher_selection_voitures():
         </style>
     """, unsafe_allow_html=True)
     
-    # Vérifier que les fichiers existent
-    if not Path("data/raw/annonces_autoscout24.json").exists():
+    # Charger les données avec cache
+    voitures_df = charger_donnees_nettoyees()
+    if voitures_df is None:
         st.warning("⚠️ Aucune donnée disponible. Veuillez d'abord scraper les annonces.")
-        return
-    
-    # Charger et nettoyer les données
-    try:
-        voitures_df = appliquer_cleaning("data/raw/annonces_autoscout24.json")
-    except Exception as e:
-        st.error(f"❌ Erreur lors du nettoyage des données: {e}")
         return
     
     if voitures_df.height == 0:
@@ -805,13 +808,14 @@ def afficher_selection_voitures():
                 })
                 data_tableau.append(row)
             
-            st.dataframe(data_tableau, use_container_width=True, height=500)
-            
-            # Appliquer le filtre de catégorie si disponible
+            # Appliquer le filtre de catégorie si disponible et afficher un seul tableau
             if predictions_disponibles and categorie_prix_selectionnee:
                 data_tableau_filtres = [row for row in data_tableau if row.get("Catégorie") in categorie_prix_selectionnee]
-                st.info(f"📊 Après filtrage par catégorie: {len(data_tableau_filtres)} voiture(s)")
+                st.info(f"📊 {len(data_tableau_filtres)} voiture(s) après filtrage par catégorie")
                 st.dataframe(data_tableau_filtres, use_container_width=True, height=500)
+            else:
+                # Afficher le tableau complet si pas de filtre de catégorie
+                st.dataframe(data_tableau, use_container_width=True, height=500)
             
             # Export en JSON
             if st.button("📥 Exporter les résultats en JSON", key="export_json"):
@@ -1093,13 +1097,13 @@ def afficher_regression_ml():
         st.warning("⚠️ Fichier annonces_autoscout24.json introuvable. Lancez un scraping ou chargez un JSON.")
         return
     
-    # Utiliser le pipeline cleaning.py pour préparer les données (pas de préparation custom)
-    try:
-        df_clean_pl = appliquer_cleaning("data/raw/annonces_autoscout24.json")
-        df_pd = df_clean_pl.to_pandas()
-    except Exception as e:
-        st.error(f"❌ Erreur lors du nettoyage/préparation des données: {e}")
+    # Utiliser le cache pour charger les données nettoyées
+    df_clean_pl = charger_donnees_nettoyees()
+    if df_clean_pl is None:
+        st.error("❌ Erreur lors du chargement des données.")
         return
+    
+    df_pd = df_clean_pl.to_pandas()
     
     if "prix" not in df_pd.columns:
         st.error("❌ La colonne 'prix' est manquante après nettoyage. Vérifiez `preparer_ml` dans cleaning.py.")
@@ -1253,6 +1257,17 @@ def afficher_regression_ml():
 # --- STREAMLIT UI ---
 st.set_page_config(page_title="AutoScout24 Scraper", layout="wide")
 st.title("🚗 Scraping AutoScout24")
+
+# Bouton pour vider le cache dans la sidebar
+with st.sidebar:
+    st.header("⚙️ Configuration")
+    if st.button("🗑️ Vider le cache", help="Vide le cache des données pour forcer le rechargement"):
+        st.cache_data.clear()
+        st.success("✅ Cache vidé !")
+        st.rerun()
+    
+    st.divider()
+    st.caption("💡 Le cache accélère l'application en mémorisant les données nettoyées pendant 5-10 minutes.")
 
 # Créer les onglets
 tab1, tab2, tab3 = st.tabs(["📥 Scraper", "📊 Régression ML", "🔍 Sélectionner"])
