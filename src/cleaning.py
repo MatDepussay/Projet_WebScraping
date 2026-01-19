@@ -199,27 +199,15 @@ def reparer_marque_modele(df: pl.DataFrame) -> pl.DataFrame:
 # =========================
 # 4. IDENTIFICATION MODÈLE (JSON)
 # =========================
+
+# Cache global pour éviter de recharger le JSON à chaque fois
+_MODELES_CACHE = None
+
 def charger_modeles_json() -> dict:
-    """
-    Charge un référentiel de modèles de véhicules depuis un fichier JSON.
-
-    Le fichier JSON est structuré sous la forme d'une liste d'objets,
-    chacun contenant une marque ("Make") et la liste des modèles associés
-    ("Models"). Les marques sont normalisées en minuscules afin de
-    faciliter les correspondances avec les données d'annonces nettoyées.
-
-    En cas d'absence du fichier ou d'erreur de lecture, la fonction retourne
-    un dictionnaire vide.
-
-    Returns
-    -------
-    dict[str, list[str]]
-        Dictionnaire associant chaque marque (en minuscules) à la liste
-        de ses modèles officiels.
-    """
     json_path = Path("data/references/vehicle_models_merged.json")
     if not json_path.exists():
         print(f"❌ Fichier introuvable: {json_path}")
+        _MODELES_CACHE = {}
         return {}
     
     try:
@@ -235,13 +223,16 @@ def charger_modeles_json() -> dict:
                 modeles_par_marque[make] = [m.strip() for m in models if m.strip()]
         
         print(f"✅ JSON chargé avec succès: {len(modeles_par_marque)} marques")
+        _MODELES_CACHE = modeles_par_marque
         return modeles_par_marque
         
     except json.JSONDecodeError as e:
         print(f"❌ Erreur JSON: {e}")
+        _MODELES_CACHE = {}
         return {}
     except Exception as e:
         print(f"⚠️ Erreur lors du chargement: {e}")
+        _MODELES_CACHE = {}
         return {}
 
 
@@ -615,11 +606,9 @@ def main():
                        "kilometrage",
                        "prix"])
     )
-
-    df.write_excel("data/processed/autoscout_clean_ml.xlsx")
+    df.write_json('data/processed/autoscout_clean_ml.json')
     print(f"✅ Export réussi : {df.shape[0]} lignes.")
     print(df.head(5))
-
 
 if __name__ == "__main__":
     main()
