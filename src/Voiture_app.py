@@ -808,13 +808,14 @@ def afficher_selection_voitures():
                 })
                 data_tableau.append(row)
             
-            st.dataframe(data_tableau, use_container_width=True, height=500)
-            
-            # Appliquer le filtre de catégorie si disponible
+            # Appliquer le filtre de catégorie si disponible et afficher un seul tableau
             if predictions_disponibles and categorie_prix_selectionnee:
                 data_tableau_filtres = [row for row in data_tableau if row.get("Catégorie") in categorie_prix_selectionnee]
-                st.info(f"📊 Après filtrage par catégorie: {len(data_tableau_filtres)} voiture(s)")
+                st.info(f"📊 {len(data_tableau_filtres)} voiture(s) après filtrage par catégorie")
                 st.dataframe(data_tableau_filtres, use_container_width=True, height=500)
+            else:
+                # Afficher le tableau complet si pas de filtre de catégorie
+                st.dataframe(data_tableau, use_container_width=True, height=500)
             
             # Export en JSON
             if st.button("📥 Exporter les résultats en JSON", key="export_json"):
