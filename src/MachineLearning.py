@@ -23,6 +23,7 @@ import seaborn as sns
 from pathlib import Path
 
 import xgboost as xgb
+from sklearn.model_selection import RandomizedSearchCV
 from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
@@ -248,6 +249,29 @@ def enregistrer_erreurs(X_test, y_test, y_pred, fichier):
 # =========================
 # MODÈLES
 # =========================
+def tune_random_forest(X_train, y_train):
+    print("\n🔍 Tuning Hyperparamètres : RANDOM FOREST")
+    
+    param_dist = {
+        'n_estimators': [100, 300, 500],
+        'max_depth': [10, 20, 30, None],
+        'min_samples_split': [2, 5, 10],
+        'min_samples_leaf': [1, 2, 4],
+        'max_features': ['sqrt', 'log2', None]
+    }
+    
+    rf = RandomForestRegressor(random_state=42, n_jobs=-1)
+    
+    # n_iter=10 teste 10 combinaisons au hasard
+    search = RandomizedSearchCV(
+        rf, param_distributions=param_dist, 
+        n_iter=10, cv=3, scoring='r2', verbose=1, random_state=42, n_jobs=-1
+    )
+    
+    search.fit(X_train, y_train)
+    print(f"✅ Meilleurs paramètres RF: {search.best_params_}")
+    return search.best_estimator_
+
 def entrainer_random_forest(X_train, X_test, y_train, y_test):
     print("\n🌲 RANDOM FOREST")
     model = RandomForestRegressor(
@@ -258,6 +282,7 @@ def entrainer_random_forest(X_train, X_test, y_train, y_test):
         n_jobs=-1
     )
     model.fit(X_train, y_train)
+    
     y_pred, rmse, r2, mae = evaluer_modele(model, X_test, y_test)
     cross_validation_model(model, X_train, y_train)
 
@@ -282,6 +307,28 @@ def entrainer_random_forest(X_train, X_test, y_train, y_test):
         'feature_importance': fi
     }
 
+def tune_xgboost(X_train, y_train):
+    print("\n🔍 Tuning Hyperparamètres : XGBOOST")
+    
+    param_dist = {
+        'n_estimators': [200, 500, 1000],
+        'max_depth': [3, 6, 9],
+        'learning_rate': [0.01, 0.05, 0.1],
+        'subsample': [0.7, 0.8, 0.9],
+        'colsample_bytree': [0.7, 0.8, 0.9],
+        'gamma': [0, 0.1, 0.2]
+    }
+    
+    xgb_model = xgb.XGBRegressor(random_state=42, n_jobs=-1, verbosity=0)
+    
+    search = RandomizedSearchCV(
+        xgb_model, param_distributions=param_dist, 
+        n_iter=10, cv=3, scoring='r2', verbose=1, random_state=42, n_jobs=-1
+    )
+    
+    search.fit(X_train, y_train)
+    print(f"✅ Meilleurs paramètres XGB: {search.best_params_}")
+    return search.best_estimator_
 
 def entrainer_xgboost(X_train, X_test, y_train, y_test):
     print("\n⚡ XGBOOST")
@@ -296,6 +343,7 @@ def entrainer_xgboost(X_train, X_test, y_train, y_test):
         verbosity=0
     )
     model.fit(X_train, y_train)
+    
     y_pred, rmse, r2, mae = evaluer_modele(model, X_test, y_test)
     cross_validation_model(model, X_train, y_train)
     
@@ -308,7 +356,7 @@ def entrainer_xgboost(X_train, X_test, y_train, y_test):
         pickle.dump(model, f)
 
     enregistrer_erreurs(X_test, y_test, y_pred, "models/erreurs_xgb.xlsx")
-    
+
     return {
         'model': model,
         'rmse': rmse,
@@ -322,30 +370,76 @@ def entrainer_xgboost(X_train, X_test, y_train, y_test):
 # =========================
 def main():
     os.makedirs("models", exist_ok=True)
-    print("🚀 Analyse des segments (Clusters)")
+    print("🚀 Démarrage du Pipeline ML")
 
-    # 1. Chargement brut pour l'analyse des clusters
     fichier = "data/processed/autoscout_clean_ml.json"
-    df = pl.read_json(fichier)
+    rf_path = "models/best_rf_final.pkl"
+    xgb_path = "models/best_xgb_final.pkl"
     
-    # 2. Trouver le K optimal (Méthode du coude)
-    # À lancer une fois pour vérifier si 5 est le bon choix
-    print("📈 Recherche du nombre de clusters optimal...")
-    trouver_meilleur_k(df, max_k=12) 
-
-    # 3. Préparation des données pour le ML
+    # 1. Préparation des données
     X_train, X_test, y_train, y_test = charger_et_preparer_donnees(fichier)
     
-    if X_train is not None:
-        print(f"📈 Dataset prêt: {X_train.shape[0]} train / {X_test.shape[0]} test")
-        
-        # 4. Entraînement des modèles
-        results_rf = entrainer_random_forest(X_train, X_test, y_train, y_test)
-        results_xgb = entrainer_xgboost(X_train, X_test, y_train, y_test)
+    if X_train is None:
+        return
 
-        print("\n🏆 Comparaison des scores R² :")
-        print(f"Random Forest : {results_rf['r2']:.4f}")
-        print(f"XGBoost       : {results_xgb['r2']:.4f}")
+    print(f"📈 Dataset prêt: {X_train.shape[0]} train / {X_test.shape[0]} test")
+
+    # 2. CHARGEMENT ou TUNING
+    if os.path.exists(rf_path) and os.path.exists(xgb_path):
+        print("♻️  Modèles optimisés trouvés. Chargement en cours...")
+        with open(rf_path, "rb") as f:
+            best_rf_model = pickle.load(f)
+        with open(xgb_path, "rb") as f:
+            best_xgb_model = pickle.load(f)
+    else:
+        print("🚀 Aucun modèle trouvé. Lancement du Tuning...")
+        best_rf_model = tune_random_forest(X_train, y_train)
+        best_xgb_model = tune_xgboost(X_train, y_train)
+        
+        # Sauvegarde immédiate
+        with open(rf_path, "wb") as f:
+            pickle.dump(best_rf_model, f)
+        with open(xgb_path, "wb") as f:
+            pickle.dump(best_xgb_model, f)
+        print("✅ Modèles tunés sauvegardés.")
+
+    # --- ÉTAPE B : ANALYSE DES IMPORTANCES (Hors du else !) ---
+    print("\n📊 ANALYSE DES VARIABLES (Modèles optimisés)")
+    
+    # Importance Random Forest
+    fi_rf = pd.DataFrame({
+        "feature": X_train.columns,
+        "importance": best_rf_model.feature_importances_
+    }).sort_values("importance", ascending=False)
+    
+    plt.figure(figsize=(10, 6))
+    sns.barplot(x="importance", y="feature", data=fi_rf.head(15), palette="viridis")
+    plt.title("Top 15 - Importance RF (Optimisé)")
+    plt.tight_layout()
+    plt.show()
+
+    # Importance XGBoost
+    plt.figure(figsize=(10, 8))
+    xgb.plot_importance(best_xgb_model, max_num_features=15, importance_type='weight')
+    plt.title("Top 15 - Importance XGBoost (Optimisé)")
+    plt.tight_layout()
+    plt.show()
+
+    # --- ÉTAPE C : ÉVALUATION FINALE ---
+    print("\n🏆 PERFORMANCES DES MODÈLES OPTIMISÉS")
+    
+    print("\n🌲 RANDOM FOREST (Paramètres tunés) :")
+    y_pred_rf, rmse_rf, r2_rf, mae_rf = evaluer_modele(best_rf_model, X_test, y_test)
+    
+    print("\n⚡ XGBOOST (Paramètres tunés) :")
+    y_pred_xgb, rmse_xgb, r2_xgb, mae_xgb = evaluer_modele(best_xgb_model, X_test, y_test)
+
+    # --- ÉTAPE D : SAUVEGARDE DES ERREURS ---
+    enregistrer_erreurs(X_test, y_test, y_pred_rf, "models/erreurs_rf_tuned.xlsx")
+    enregistrer_erreurs(X_test, y_test, y_pred_xgb, "models/erreurs_xgb_tuned.xlsx")
+
+    print(f"\n✅ Pipeline terminé.")
+    print(f"Meilleur score final : {'XGBoost' if r2_xgb > r2_rf else 'Random Forest'} (R²: {max(r2_rf, r2_xgb):.4f})")
 
 if __name__ == "__main__":
     main()
