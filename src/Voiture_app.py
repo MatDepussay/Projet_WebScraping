@@ -54,7 +54,6 @@ from cleaning import (
 
 # Import des fonctions ML depuis MachineLearning.py
 from MachineLearning import (
-    charger_et_preparer_donnees,
     entrainer_random_forest,
     entrainer_xgboost,
     #comparer_modeles
