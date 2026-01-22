@@ -354,7 +354,7 @@ def entrainer_xgboost(X_train, X_test, y_train, y_test):
 
     with open("models/xgboost_model.pkl", "wb") as f:
         pickle.dump(model, f)
-
+    
     enregistrer_erreurs(X_test, y_test, y_pred, "models/erreurs_xgb.xlsx")
 
     return {
@@ -381,7 +381,11 @@ def main():
     
     if X_train is None:
         return
-
+    
+    print(f"💾 Sauvegarde de la liste des {len(X_train.columns)} colonnes...")
+    with open("models/model_features.pkl", "wb") as f:
+        pickle.dump(X_train.columns.tolist(), f)
+        
     print(f"📈 Dataset prêt: {X_train.shape[0]} train / {X_test.shape[0]} test")
 
     # 2. CHARGEMENT ou TUNING

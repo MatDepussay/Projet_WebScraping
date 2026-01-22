@@ -21,6 +21,7 @@ import json
 import re
 import time
 import io
+import os
 from pathlib import Path
 import pandas as pd
 import plotly.graph_objects as go
@@ -711,11 +712,19 @@ def afficher_selection_voitures():
         villes_disponibles = sorted(voitures_df["ville"].drop_nulls().unique().to_list())
         ville_selectionnee = st.multiselect("Ville", villes_disponibles, key="filter_ville")
     
-    # Troisième ligne: Filtre pour catégorie de prix (si modèle disponible)
-    categorie_prix_selectionnee = None
-    if model is not None:
-        col_filter9 = st.columns([1])[0]
-        with col_filter9:
+    # Troisième ligne de filtres (Pays + Catégorie de prix)
+    col_filter9, col_filter10, col_filter_vide = st.columns([1, 1, 2])
+    
+    with col_filter9:
+        if "pays" in voitures_df.columns:
+            pays_disponibles = sorted(voitures_df["pays"].drop_nulls().unique().to_list())
+            pays_selectionne = st.multiselect("Pays", pays_disponibles, key="filter_pays")
+        else:
+            pays_selectionne = []
+            
+    with col_filter10:
+        categorie_prix_selectionnee = None
+        if model is not None:
             categories_disponibles = ["✅ Bonne Affaire", "⚠️ Normal", "❌ Arnaque"]
             categorie_prix_selectionnee = st.multiselect(
                 "Catégorie de prix",
@@ -736,6 +745,9 @@ def afficher_selection_voitures():
     
     if ville_selectionnee:
         voitures_filtrees = voitures_filtrees.filter(pl.col("ville").is_in(ville_selectionnee))
+    
+    if pays_selectionne:
+        voitures_filtrees = voitures_filtrees.filter(pl.col("pays").is_in(pays_selectionne))
     
     if portes_selectionnees:
         voitures_filtrees = voitures_filtrees.filter(pl.col("portes").is_in(portes_selectionnees))
@@ -776,33 +788,54 @@ def afficher_selection_voitures():
         predictions_disponibles = False
         if model is not None:
             try:
-                # Préparer les features pour la prédiction
+                # 1. Préparer les données pour la prédiction (Pandas)
                 df_for_pred = voitures_filtrees.to_pandas()
-                X_pred = df_for_pred.drop(columns=["prix"], errors="ignore")
-                X_pred = X_pred.select_dtypes(include="number")
                 
-                # Faire les prédictions
-                predictions = model.predict(X_pred)
-                predictions_disponibles = True
+                # 2. Nettoyage des colonnes comme lors de l'entraînement
+                # On enlève le prix (la cible) et les colonnes textuelles inutiles
+                cols_exclure = ["prix", "code_postal", "ville", "modele_identifie", "annonce_disponible"]
+                X_base = df_for_pred.drop(columns=[c for c in cols_exclure if c in df_for_pred.columns])
                 
-                # Ajouter les prédictions et catégories aux données
-                for idx, v in enumerate(data_affichage):
-                    prix_reel = v.get('prix', 0)
-                    prix_predit = predictions[idx]
-                    difference_pct = ((prix_reel - prix_predit) / prix_predit * 100) if prix_predit != 0 else 0
+                # 3. Forcer le type string pour le cluster avant l'encodage
+                if "cluster_vehicule" in X_base.columns:
+                    X_base["cluster_vehicule"] = X_base["cluster_vehicule"].astype(str)
+                
+                # 4. Encodage One-Hot (génère les colonnes marque_Audi, carburant_Diesel, etc.)
+                X_encoded = pd.get_dummies(X_base)
+                
+                # 5. ALIGNEMENT avec le fichier de référence (771 colonnes)
+                features_path = "models/model_features.pkl"
+                if os.path.exists(features_path):
+                    with open(features_path, "rb") as f:
+                        expected_cols = pickle.load(f)
                     
-                    v["prix_predit"] = prix_predit
-                    v["difference_pct"] = difference_pct
+                    # Reindex pour ajouter les colonnes manquantes (0) et supprimer les colonnes en trop
+                    X_final = X_encoded.reindex(columns=expected_cols, fill_value=0)
+                    # Force l'ordre exact pour XGBoost
+                    X_final = X_final[expected_cols]
                     
-                    # Déterminer la catégorie
-                    if difference_pct < -5:  # Prix réel < Prix prédit = Bonne Affaire
-                        categorie = "✅ Bonne Affaire"
-                    elif difference_pct > 5:  # Prix réel > Prix prédit = Arnaque
-                        categorie = "❌ Arnaque"
-                    else:  # Entre -5% et +5% = Normal
-                        categorie = "⚠️ Normal"
+                    # 6. Faire les prédictions
+                    predictions = model.predict(X_final)
+                    predictions_disponibles = True
                     
-                    v["categorie_prix"] = categorie
+                    # 7. Ajouter les prédictions et catégories aux données d'affichage
+                    for idx, v in enumerate(data_affichage):
+                        prix_reel = v.get('prix', 0)
+                        prix_predit = float(predictions[idx])
+                        difference_pct = ((prix_reel - prix_predit) / prix_predit * 100) if prix_predit != 0 else 0
+                        
+                        v["prix_predit"] = prix_predit
+                        v["difference_pct"] = difference_pct
+                        
+                        if difference_pct < -5:
+                            v["categorie_prix"] = "✅ Bonne Affaire"
+                        elif difference_pct > 5:
+                            v["categorie_prix"] = "❌ Arnaque"
+                        else:
+                            v["categorie_prix"] = "⚠️ Normal"
+                else:
+                    st.error("❌ Fichier 'model_features.pkl' introuvable. Relancez l'entraînement ML.")
+
             except Exception as e:
                 st.error(f"❌ Erreur lors des prédictions: {e}")
                 import traceback
@@ -1196,16 +1229,32 @@ def afficher_regression_ml():
                 
                 # Construire X/y depuis les données nettoyées (via cleaning.py)
                 y = df_pd["prix"]
-                X = df_pd.drop(columns=["prix"], errors="ignore")
-                # S'assurer que les features sont numériques pour sklearn
-                X = X.select_dtypes(include="number")
-                if X.empty:
-                    st.error("❌ Aucune feature numérique disponible après nettoyage. Vérifiez `preparer_ml`.")
-                    return
+                cols_exclure = ["prix", "code_postal", "ville", "modele_identifie"]
+                X = df_pd.drop(columns=[c for c in cols_exclure if c in df_pd.columns])
                 
+                cat_cols = X.select_dtypes(include=["object", "category", "string"]).columns.tolist()
+                X_encoded = pd.get_dummies(X, columns=cat_cols)
+                
+                # S'assurer que les features sont numériques pour sklearn
+                # 3. ALIGNEMENT (Si tu évalues un modèle existant)
+                if st.session_state.get("model_ml") is not None:
+                    model = st.session_state.model_ml
+                    # Récupérer les colonnes attendues par le modèle
+                    if hasattr(model, "feature_names_in_"): # Pour Random Forest
+                        expected_cols = model.feature_names_in_
+                    else: # Pour XGBoost
+                        expected_cols = model.get_booster().feature_names
+                    
+                    # Forcer l'alignement des colonnes
+                    X_final = X_encoded.reindex(columns=expected_cols, fill_value=0)
+                  
+                    if not hasattr(model, "feature_names_in_"):
+                        X_final = X_final[expected_cols]
+                else:
+                    X_final = X_encoded  
                 # Split
                 X_train, X_test, y_train, y_test = train_test_split(
-                    X, y, test_size=test_split, random_state=random_state
+                    X_final, y, test_size=test_split, random_state=random_state
                 )
                 
                 st.success(f"✅ Données préparées: Train={len(X_train)}, Test={len(X_test)}")
@@ -1273,33 +1322,43 @@ def afficher_regression_ml():
         
         if st.button("📈 Évaluer ce modèle sur les données actuelles", width='stretch'):
             try:
-                # Préparer X et y
-                y_all = df_pd["prix"]
-                X_all = df_pd.drop(columns=["prix"], errors="ignore")
-                X_all = X_all.select_dtypes(include="number")
-                
-                if X_all.empty:
-                    st.error("❌ Aucune feature numérique disponible.")
+                # 1. Clustering et Préparation (comme avant)
+                df_clean_pl_clustered = ajouter_cluster_vehicule(df_clean_pl, n_clusters=5)
+                df_pd_eval = df_clean_pl_clustered.to_pandas()
+                y_all = df_pd_eval["prix"]
+                X_all = df_pd_eval.drop(columns=["prix", "code_postal", "ville", "modele_identifie"], errors="ignore")
+                X_all["cluster_vehicule"] = X_all["cluster_vehicule"].astype(str)
+                X_encoded = pd.get_dummies(X_all)
+
+                # 2. CHARGEMENT DE LA LISTE OFFICIELLE DES COLONNES
+                features_path = Path("models/model_features.pkl")
+                if not features_path.exists():
+                    st.error("❌ Fichier 'model_features.pkl' introuvable. Vous devez relancer l'entraînement une fois pour le générer.")
                     return
+
+                with open(features_path, "rb") as f:
+                    expected_cols = pickle.load(f)
+
+                # 3. ALIGNEMENT STRICT (771 colonnes garanties)
+                # On force le DataFrame à avoir EXACTEMENT les colonnes du fichier pkl
+                X_final = X_encoded.reindex(columns=expected_cols, fill_value=0)
                 
-                # Split
-                X_train, X_test, y_train, y_test = train_test_split(
-                    X_all, y_all, test_size=0.2, random_state=42
-                )
+                # On s'assure de l'ordre pour XGBoost
+                X_final = X_final[expected_cols]
+
+                # 4. Split et Prédictions
+                _, X_test, _, y_test = train_test_split(X_final, y_all, test_size=0.2, random_state=42)
                 
-                # Prédictions avec le modèle chargé
                 model = st.session_state.model_ml
-                
-                # Afficher les résultats avec la fonction réutilisable (sans feature_importance)
                 afficher_resultats_modele(model, X_test, y_test, feature_importance=None)
-                
+
             except Exception as e:
-                st.error(f"❌ Erreur lors de l'évaluation: {e}")
+                st.error(f"❌ Erreur : {e}")
                 import traceback
                 st.code(traceback.format_exc())
         
         st.divider()
-    
+
 
 
 
