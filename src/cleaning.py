@@ -550,7 +550,7 @@ def traiter_valeurs_aberrantes(df: pl.DataFrame) -> pl.DataFrame:
     # On définit les seuils de cohérence métier
     return df.with_columns([
         # Année : si hors plage, on met à null
-        pl.when((pl.col("annee") >= 1980) & (pl.col("annee") <= 2026))
+        pl.when((pl.col("annee") >= 1980) & (pl.col("annee") <= 2027))
           .then(pl.col("annee"))
           .otherwise(None)
           .alias("annee"),
