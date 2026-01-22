@@ -724,13 +724,16 @@ def afficher_selection_voitures():
         (pl.col("puissance_kw") >= puissance_min) & (pl.col("puissance_kw") <= puissance_max)
     )
     
+    # Filtrer pour ne garder que les annonces disponibles
+    if "annonce_disponible" in voitures_filtrees.columns:
+        voitures_filtrees = voitures_filtrees.filter(pl.col("annonce_disponible") == 1)
+    
     # Appliquer le filtre de catégorie de prix si sélectionné et modèle disponible
     # (Ce filtre sera appliqué après le calcul des prédictions)
     
     st.success(f"✅ {voitures_filtrees.height} voiture(s) correspondent aux critères")
     
-    # --- Affichage des voitures ---
-    st.subheader("📋 Résultats")
+    # --- Affichage des voitures ---0
     
     if voitures_filtrees.height == 0:
         st.warning("Aucune voiture ne correspond aux critères de filtre.")
