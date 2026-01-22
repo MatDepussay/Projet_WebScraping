@@ -255,7 +255,7 @@ def charger_wikidata_modeles(marque_nom: str, marque_wikidata_id: str = None) ->
         return modeles
         
     except requests.exceptions.Timeout:
-        print(f"  ⏱️ Timeout lors de la requête Wikidata")
+        print("  ⏱️ Timeout lors de la requête Wikidata")
         return []
     except Exception as e:
         print(f"  ⚠️ Erreur Wikidata: {e}")
@@ -400,7 +400,7 @@ def fusionner_datasets():
                 model_col = col_idx
     
     if not make_col or not model_col:
-        print(f"⚠️ Colonnes Marque/Modèle non trouvées")
+        print("⚠️ Colonnes Marque/Modèle non trouvées")
         print(f"   Colonnes disponibles: {list(headers.values())}")
         return
     
@@ -468,7 +468,7 @@ def fusionner_datasets():
                             model_col_csv = col
                     
                     if not make_col_csv or not model_col_csv:
-                        print(f"⚠️ Colonnes Marque/Modèle non trouvées dans le CSV")
+                        print("⚠️ Colonnes Marque/Modèle non trouvées dans le CSV")
                         break
                     
                     print(f"✅ Colonne Marque CSV: {make_col_csv}")
@@ -587,7 +587,7 @@ def fusionner_datasets():
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(final_json, f, ensure_ascii=False, indent=2)
     
-    print(f"\n✅ Fusion complète!")
+    print("\n✅ Fusion complète!")
     print(f"✅ {len(final_json)} marques dans le JSON fusionné")
     print(f"✅ Fichier sauvegardé: {output_path}")
     
