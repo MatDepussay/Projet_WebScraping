@@ -48,6 +48,7 @@ from cleaning import (
     raffiner_modele_csv,
     extraire_specs_et_lieu,
     nettoyer_transmission,
+    corriger_cylindree,
     traiter_valeurs_aberrantes,
     preparer_ml
 )
@@ -56,6 +57,7 @@ from cleaning import (
 from MachineLearning import (
     entrainer_random_forest,
     entrainer_xgboost,
+    ajouter_cluster_vehicule,
     #comparer_modeles
 )
 
@@ -411,10 +413,6 @@ def appliquer_cleaning(filename: str = "data/raw/annonces_autoscout24.json") -> 
     df = nettoyer_numeriques(df)
     df = reparer_marque_modele(df)
     df = raffiner_modele_csv(df)
-    df = extraire_specs_et_lieu(df)
-    df = nettoyer_transmission(df)
-    df = traiter_valeurs_aberrantes(df)
-    df = preparer_ml(df)
     
     # Filtrer pour ne garder que les voitures avec modèle identifié
     if "modele_identifie" in df.columns:
@@ -422,6 +420,26 @@ def appliquer_cleaning(filename: str = "data/raw/annonces_autoscout24.json") -> 
         df = df.filter(pl.col("modele_identifie"))
         filtered_count = df.height
         print(f"✅ Filtrage modèles identifiés: {filtered_count}/{initial_count} voitures gardées")
+    
+    df = extraire_specs_et_lieu(df)
+    df = nettoyer_transmission(df)
+    df = corriger_cylindree(df)
+    df = traiter_valeurs_aberrantes(df)
+    df = preparer_ml(df)
+    
+    # Supprimer les lignes où il manque une info capitale (comme dans cleaning.py main)
+    colonnes_essentielles = ["prix", "ville", "annee", "kilometrage", "marque", "modele"]
+    colonnes_existantes = [col for col in colonnes_essentielles if col in df.columns]
+    if colonnes_existantes:
+        df = df.drop_nulls(colonnes_existantes)
+    
+    # Supprimer les colonnes inutiles pour le ML (comme dans cleaning.py main)
+    colonnes_a_supprimer = ["lien_fiche", "puissance", "modele_identifie", "le_reste"]
+    colonnes_a_supprimer_existantes = [col for col in colonnes_a_supprimer if col in df.columns]
+    if colonnes_a_supprimer_existantes:
+        df = df.drop(colonnes_a_supprimer_existantes)
+    
+    print(f"✅ Nettoyage complet: {df.height} lignes après tous les filtrages")
     
     return df
 
@@ -732,63 +750,69 @@ def afficher_selection_voitures():
     
     st.success(f"✅ {voitures_filtrees.height} voiture(s) correspondent aux critères")
     
-    # --- Affichage des voitures ---0
+    # --- Affichage des voitures ---
     
     if voitures_filtrees.height == 0:
         st.warning("Aucune voiture ne correspond aux critères de filtre.")
     else:
+        # Préparer les données avec prédictions (pour Tableau ET Carte)
+        colonnes_affichage = ["marque", "modele", "prix", "kilometrage", "annee", "carburant", "boite_de_vitesse", "ville", "code_postal", "puissance_kw"]
+        colonnes_valides = [col for col in colonnes_affichage if col in voitures_filtrees.columns]
+        
+        data_affichage = voitures_filtrees.select(colonnes_valides).to_dicts()
+        
+        # Ajouter les prédictions si le modèle est chargé
+        predictions_disponibles = False
+        if model is not None:
+            try:
+                # Préparer les features pour la prédiction
+                df_for_pred = voitures_filtrees.to_pandas()
+                X_pred = df_for_pred.drop(columns=["prix"], errors="ignore")
+                X_pred = X_pred.select_dtypes(include="number")
+                
+                # Faire les prédictions
+                predictions = model.predict(X_pred)
+                predictions_disponibles = True
+                
+                # Ajouter les prédictions et catégories aux données
+                for idx, v in enumerate(data_affichage):
+                    prix_reel = v.get('prix', 0)
+                    prix_predit = predictions[idx]
+                    difference_pct = ((prix_reel - prix_predit) / prix_predit * 100) if prix_predit != 0 else 0
+                    
+                    v["prix_predit"] = prix_predit
+                    v["difference_pct"] = difference_pct
+                    
+                    # Déterminer la catégorie
+                    if difference_pct < -5:  # Prix réel < Prix prédit = Bonne Affaire
+                        categorie = "✅ Bonne Affaire"
+                    elif difference_pct > 5:  # Prix réel > Prix prédit = Arnaque
+                        categorie = "❌ Arnaque"
+                    else:  # Entre -5% et +5% = Normal
+                        categorie = "⚠️ Normal"
+                    
+                    v["categorie_prix"] = categorie
+            except Exception as e:
+                st.error(f"❌ Erreur lors des prédictions: {e}")
+                import traceback
+                st.code(traceback.format_exc())
+        
+        # Appliquer le filtre de catégorie si sélectionné
+        if predictions_disponibles and categorie_prix_selectionnee:
+            data_affichage = [row for row in data_affichage if row.get("categorie_prix") in categorie_prix_selectionnee]
+            st.info(f"📊 {len(data_affichage)} voiture(s) après filtrage par catégorie")
+        
         # Options d'affichage
         affichage_type = st.radio("Affichage", ("Tableau", "Carte"), horizontal=True, key="affichage_type")
         
         if affichage_type == "Tableau":
-            # Préparer les données pour le tableau
-            colonnes_affichage = ["marque", "modele", "prix", "kilometrage", "annee", "carburant", "boite_de_vitesse", "ville", "code_postal", "puissance_kw"]
-            colonnes_valides = [col for col in colonnes_affichage if col in voitures_filtrees.columns]
             
-            data_affichage = voitures_filtrees.select(colonnes_valides).to_dicts()
-            
-            # Ajouter les prédictions si le modèle est chargé
-            predictions_disponibles = False
-            if model is not None:
-                try:
-                    # Préparer les features pour la prédiction
-                    df_for_pred = voitures_filtrees.to_pandas()
-                    X_pred = df_for_pred.drop(columns=["prix"], errors="ignore")
-                    X_pred = X_pred.select_dtypes(include="number")
-                    
-                    # Faire les prédictions
-                    predictions = model.predict(X_pred)
-                    predictions_disponibles = True
-                    
-                    # Ajouter les prédictions et catégories aux données
-                    for idx, v in enumerate(data_affichage):
-                        prix_reel = v.get('prix', 0)
-                        prix_predit = predictions[idx]
-                        difference_pct = ((prix_reel - prix_predit) / prix_predit * 100) if prix_predit != 0 else 0
-                        
-                        v["prix_predit"] = prix_predit
-                        v["difference_pct"] = difference_pct
-                        
-                        # Déterminer la catégorie
-                        if difference_pct < -5:  # Prix réel < Prix prédit = Bonne Affaire
-                            categorie = "✅ Bonne Affaire"
-                        elif difference_pct > 5:  # Prix réel > Prix prédit = Arnaque
-                            categorie = "❌ Arnaque"
-                        else:  # Entre -5% et +5% = Normal
-                            categorie = "⚠️ Normal"
-                        
-                        v["categorie_prix"] = categorie
-                except Exception as e:
-                    st.error(f"❌ Erreur lors des prédictions: {e}")
-                    import traceback
-                    st.code(traceback.format_exc())
-            
-            # Formater les données pour l'affichage
+            # Formater les données pour l'affichage tableau (convertir tous les types pour éviter les erreurs Arrow)
             data_tableau = []
             for v in data_affichage:
                 row = {
-                    "Marque": v.get("marque") or "N/A",
-                    "Modèle": v.get("modele") or "N/A",
+                    "Marque": str(v.get("marque") or "N/A"),
+                    "Modèle": str(v.get("modele") or "N/A"),
                     "Prix réel (€)": f"{v.get('prix'):,.0f}".replace(",", " ") if v.get("prix") else "N/A",
                 }
                 
@@ -797,26 +821,20 @@ def afficher_selection_voitures():
                     prix_predit = v.get('prix_predit', 0)
                     
                     row["Prix prédit (€)"] = f"{prix_predit:,.0f}".replace(",", " ")
-                    row["Catégorie"] = v.get("categorie_prix", "⚠️ Normal")
+                    row["Catégorie"] = str(v.get("categorie_prix", "⚠️ Normal"))
                 
                 row.update({
                     "Km": f"{v.get('kilometrage'):,}".replace(",", " ") if v.get("kilometrage") else "N/A",
-                    "Année": v.get("annee") or "N/A",
-                    "Carburant": v.get("carburant") or "N/A",
-                    "Boîte": v.get("boite_de_vitesse") or "N/A",
-                    "Puissance (kW)": v.get("puissance_kw") or "N/A",
-                    "Ville": v.get("ville") or "N/A",
+                    "Année": str(v.get("annee")) if v.get("annee") else "N/A",
+                    "Carburant": str(v.get("carburant") or "N/A"),
+                    "Boîte": str(v.get("boite_de_vitesse") or "N/A"),
+                    "Puissance (kW)": str(v.get("puissance_kw")) if v.get("puissance_kw") else "N/A",
+                    "Ville": str(v.get("ville") or "N/A"),
                 })
                 data_tableau.append(row)
             
-            # Appliquer le filtre de catégorie si disponible et afficher un seul tableau
-            if predictions_disponibles and categorie_prix_selectionnee:
-                data_tableau_filtres = [row for row in data_tableau if row.get("Catégorie") in categorie_prix_selectionnee]
-                st.info(f"📊 {len(data_tableau_filtres)} voiture(s) après filtrage par catégorie")
-                st.dataframe(data_tableau_filtres, use_container_width=True, height=500)
-            else:
-                # Afficher le tableau complet si pas de filtre de catégorie
-                st.dataframe(data_tableau, use_container_width=True, height=500)
+            # Afficher le tableau
+            st.dataframe(data_tableau, width='stretch', height=500)
             
             # Export en JSON
             if st.button("📥 Exporter les résultats en JSON", key="export_json"):
@@ -829,12 +847,13 @@ def afficher_selection_voitures():
                 )
         
         else:  # Affichage en carte
-            voitures_list = voitures_filtrees.to_dicts()
-            for idx, voiture in enumerate(voitures_list, 1):
-                with st.expander(
-                    f"🚗 {voiture.get('marque')} {voiture.get('modele')} - {voiture.get('prix', 'N/A')}€",
-                    expanded=False
-                ):
+            for idx, voiture in enumerate(data_affichage, 1):
+                # Construire l'en-tête avec la catégorie si disponible
+                header = f"🚗 {voiture.get('marque')} {voiture.get('modele')} - {voiture.get('prix', 'N/A')}€"
+                if predictions_disponibles and "categorie_prix" in voiture:
+                    header = f"{voiture.get('categorie_prix')} {voiture.get('marque')} {voiture.get('modele')} - {voiture.get('prix', 'N/A')}€"
+                
+                with st.expander(header, expanded=False):
                     col1, col2, col3 = st.columns(3)
                     
                     with col1:
@@ -852,8 +871,21 @@ def afficher_selection_voitures():
                         st.write(f"**Carburant:** {voiture.get('carburant') or 'N/A'}")
                         st.write(f"**Boîte:** {voiture.get('boite_de_vitesse') or 'N/A'}")
                         st.write(f"**Puissance:** {voiture.get('puissance_kw')} kW" if voiture.get('puissance_kw') else "**Puissance:** N/A")
+                    # Afficher les infos de prédiction si disponibles
+                    if predictions_disponibles and "prix_predit" in voiture:
+                        st.divider()
+                        col_pred1, col_pred2, col_pred3 = st.columns(3)
+                        with col_pred1:
+                            st.metric("Prix prédit", f"€{voiture.get('prix_predit'):,.0f}".replace(",", " "))
+                        with col_pred2:
+                            diff_pct = voiture.get('difference_pct', 0)
+                            st.metric("Différence", f"{diff_pct:+.1f}%")
+                        with col_pred3:
+                            st.metric("Catégorie", voiture.get('categorie_prix', 'N/A'))
+                    
                     
                     st.write(f"**Localisation:** {voiture.get('code_postal')} {voiture.get('ville')}" if voiture.get('ville') else "**Localisation:** N/A")
+                    
                     if voiture.get('lien_fiche'):
                         st.write(f"**[🔗 Lien de l'annonce]({voiture.get('lien_fiche')})**")
 
@@ -890,7 +922,7 @@ def afficher_resultats_modele(model, X_test, y_test, feature_importance=None):
         col_fi1, col_fi2 = st.columns(2)
         
         with col_fi1:
-            st.dataframe(feature_importance.head(10), use_container_width=True)
+            st.dataframe(feature_importance.head(10), width='stretch')
         
         with col_fi2:
             fig_fi = px.bar(
@@ -902,7 +934,7 @@ def afficher_resultats_modele(model, X_test, y_test, feature_importance=None):
                 labels={'importance': 'Importance', 'feature': 'Feature'}
             )
             fig_fi.update_layout(height=400)
-            st.plotly_chart(fig_fi, use_container_width=True)
+            st.plotly_chart(fig_fi, width='stretch')
     
     # Visualisation: Prix réel vs Prix prédit
     st.subheader("💰 Prix réel vs Prix prédit")
@@ -955,7 +987,7 @@ def afficher_resultats_modele(model, X_test, y_test, feature_importance=None):
             height=500,
             hovermode='closest'
         )
-        st.plotly_chart(fig_scatter, use_container_width=True)
+        st.plotly_chart(fig_scatter, width='stretch')
     
     with col_viz2:
         # Graphique des erreurs
@@ -1000,11 +1032,11 @@ def afficher_resultats_modele(model, X_test, y_test, feature_importance=None):
             barmode='overlay',
             showlegend=True
         )
-        st.plotly_chart(fig_error, use_container_width=True)
+        st.plotly_chart(fig_error, width='stretch')
     
     # Tableau détaillé
     st.subheader("📋 Détails des prédictions")
-    st.dataframe(results_df, use_container_width=True)
+    st.dataframe(results_df, width='stretch')
     
     # Statistiques des erreurs
     st.subheader("📈 Statistiques des erreurs")
@@ -1143,9 +1175,14 @@ def afficher_regression_ml():
     # Random state fixé à 42
     random_state = 42
         # Bouton pour lancer l'entraînement
-    if st.button("🚀 Lancer l'entraînement", use_container_width=True):
+    if st.button("🚀 Lancer l'entraînement", width='stretch'):
         with st.spinner("⏳ Préparation des données..."):
             try:
+                # Ajouter le clustering (comme dans MachineLearning.py)
+                st.info("🔍 Ajout du clustering des véhicules...")
+                df_clean_pl_clustered = ajouter_cluster_vehicule(df_clean_pl, n_clusters=5)
+                df_pd = df_clean_pl_clustered.to_pandas()
+                
                 # Construire X/y depuis les données nettoyées (via cleaning.py)
                 y = df_pd["prix"]
                 X = df_pd.drop(columns=["prix"], errors="ignore")
@@ -1190,7 +1227,7 @@ def afficher_regression_ml():
 
                 col_save_local, col_download = st.columns(2)
                 with col_save_local:
-                    if st.button("💾 Enregistrer sur le disque", use_container_width=True):
+                    if st.button("💾 Enregistrer sur le disque", width='stretch'):
                         try:
                             target_path = Path(filename_input)
                             target_path.parent.mkdir(parents=True, exist_ok=True)
@@ -1208,7 +1245,7 @@ def afficher_regression_ml():
                             data=model_bytes,
                             file_name=Path(filename_input).name,
                             mime="application/octet-stream",
-                            use_container_width=True
+                            width='stretch'
                         )
                     except Exception as e:
                         st.error(f"Erreur lors de la préparation du téléchargement: {e}")
@@ -1223,7 +1260,7 @@ def afficher_regression_ml():
         st.divider()
         st.subheader("📊 Évaluation du modèle chargé")
         
-        if st.button("📈 Évaluer ce modèle sur les données actuelles", use_container_width=True):
+        if st.button("📈 Évaluer ce modèle sur les données actuelles", width='stretch'):
             try:
                 # Préparer X et y
                 y_all = df_pd["prix"]
@@ -1290,7 +1327,7 @@ with tab1:
         with col2:
             st.write("")
             st.write("")
-            if st.button("🚀 Lancer le scrapping", use_container_width=True):
+            if st.button("🚀 Lancer le scrapping", width='stretch'):
                 liste_voitures = run_scraping(int(nb_pages))
                 if liste_voitures:
                     # --- PHASE 3: Sauvegarde JSON ---
@@ -1324,7 +1361,7 @@ with tab1:
         with col2:
             st.write("")
             st.write("")
-            if st.button("📂 Charger le JSON", use_container_width=True):
+            if st.button("📂 Charger le JSON", width='stretch'):
                 if not uploaded_file:
                     st.warning("⚠️ Sélectionnez un fichier JSON pour continuer")
                 else:
@@ -1345,7 +1382,7 @@ with tab1:
         with col2:
             st.write("")
             st.write("")
-            if st.button("➕ Ajouter des données", use_container_width=True):
+            if st.button("➕ Ajouter des données", width='stretch'):
                 # Vérifier que le fichier existant existe
                 if not Path("data/raw/annonces_autoscout24.json").exists():
                     st.error("❌ Le fichier annonces_autoscout24.json n'existe pas. Utilisez 'Redémarrer de zéro' d'abord.")
@@ -1398,7 +1435,7 @@ with tab1:
         st.write("**🧹 Forcer le nettoyage des données existantes**")
         st.caption("Nettoie le fichier annonces_autoscout24.json et régénère voitures_nettoyees.json")
     with col_clean_force_2:
-        if st.button("🧹 Nettoyer", use_container_width=True, type="secondary"):
+        if st.button("🧹 Nettoyer", width='stretch', type="secondary"):
             if not Path("data/raw/annonces_autoscout24.json").exists():
                 st.error("❌ Fichier annonces_autoscout24.json introuvable")
             else:
