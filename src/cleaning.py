@@ -448,7 +448,7 @@ def corriger_cylindree(df: pl.DataFrame) -> pl.DataFrame:
     df = df.with_columns([
         pl.when(
             (pl.col("marque").str.to_lowercase() == "bmw") &
-            (pl.col("modele_identifie") == True) &
+            (pl.col("modele_identifie")) &
             (pl.col("modele").str.contains(r"^\d{3}$"))
         )
         .then(
@@ -599,7 +599,7 @@ def main():
         df.pipe(nettoyer_numeriques)
           .pipe(reparer_marque_modele)
           .pipe(raffiner_modele_csv)
-          .filter(pl.col("modele_identifie") == True)
+          .filter(pl.col("modele_identifie"))
           .pipe(extraire_specs_et_lieu)
           .pipe(nettoyer_transmission)
           .pipe(corriger_cylindree)   
