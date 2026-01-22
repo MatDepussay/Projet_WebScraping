@@ -8,6 +8,8 @@
 #     "fastexcel",
 #     "pyarrow",
 #     "openpyxl",
+#     "matplotlib",
+#     "seaborn",
 # ]
 # ///
 
@@ -62,8 +64,60 @@ def ajouter_cluster_vehicule(df, n_clusters=5):
 
     return df
 
+###############################@@
+import matplotlib.pyplot as plt
+from sklearn.decomposition import PCA
+import seaborn as sns
+
+def visualiser_clusters_2d(df, n_clusters):
+    # 1. On récupère les données qui ont servi au clustering (les dummies scalées)
+    # Note : Il faut répéter la transformation ou passer X_scaled à cette fonction
+    # Ici, on simplifie pour l'exemple avec PCA
+    pca = PCA(n_components=2)
+    # On ne prend que les colonnes numériques pour la démo rapide
+    features_num = df[["annee", "kilometrage", "puissance_kw", "prix"]].dropna()
+    scaler = StandardScaler()
+    scaled_data = scaler.fit_transform(features_num)
+    
+    components = pca.fit_transform(scaled_data)
+    
+    plt.figure(figsize=(10, 7))
+    sns.scatterplot(
+        x=components[:, 0], y=components[:, 1], 
+        hue=df.loc[features_num.index, "cluster_vehicule"], 
+        palette="viridis", alpha=0.6
+    )
+    plt.title("Visualisation des clusters (Projection PCA 2D)")
+    plt.xlabel("Composante Principale 1")
+    plt.ylabel("Composante Principale 2")
+    plt.show()
+
+def voir_distribution_features(df):
+    cols_a_voir = ["prix", "kilometrage", "annee", "puissance_kw"]
+    
+    fig, axes = plt.subplots(2, 2, figsize=(15, 10))
+    axes = axes.flatten()
+    
+    for i, col in enumerate(cols_a_voir):
+        sns.boxplot(x="cluster_vehicule", y=col, data=df, ax=axes[i])
+        axes[i].set_title(f"Distribution de {col} par Cluster")
+    
+    plt.tight_layout()
+    plt.show()
+    
+def analyser_categories_par_cluster(df):
+    # Exemple avec le carburant
+    ct = pd.crosstab(df['cluster_vehicule'], df['carburant'], normalize='index') * 100
+    print("\n% de type de carburant par cluster :")
+    print(ct)
+    
+    ct.plot(kind='bar', stacked=True, figsize=(10, 6))
+    plt.title("Répartition du carburant par cluster")
+    plt.ylabel("%")
+    plt.show()
 
 def analyser_clusters(df):
+    # 1. Calcul des statistiques
     resume = (
         df.groupby("cluster_vehicule")
         .agg(
@@ -75,10 +129,24 @@ def analyser_clusters(df):
         )
         .sort_index()
     )
-    print("\n🧠 Profil des clusters :")
+    
+    # 2. Affichage des résultats textuels d'abord
+    print("\n🧠 Profil statistique des clusters :")
     print(resume)
-    resume.to_excel("models/analyse_clusters.xlsx")
+    
+    for i in sorted(df["cluster_vehicule"].unique()):
+        print(f"\n🚗 Exemples représentatifs du Cluster {i} :")
+        # On affiche un échantillon aléatoire pour mieux voir la diversité
+        print(df[df["cluster_vehicule"] == i][["marque", "modele", "prix", "annee", "carburant"]].sample(min(3, len(df[df["cluster_vehicule"] == i]))))
 
+    # 3. Exportation
+    resume.to_excel("models/analyse_clusters.xlsx")
+    print("\n✅ Analyse exportée dans 'models/analyse_clusters.xlsx'")
+
+    # 4. Visualisations graphiques (en dernier car elles peuvent bloquer le terminal)
+    print("\n📊 Génération des graphiques...")
+    voir_distribution_features(df)
+    analyser_categories_par_cluster(df)
 
 # =========================
 # CHARGEMENT & PRÉPARATION

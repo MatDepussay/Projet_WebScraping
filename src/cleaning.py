@@ -15,6 +15,20 @@ import re
 # 1. CHARGEMENT DES DONNÉES
 # =========================
 def charger_donnees() -> pl.DataFrame:
+    """
+    Charge les données d'annonces automobiles depuis le fichier JSON brut récupéré lors du scraping.
+
+    Cette fonction lit le fichier JSON contenant les annonces issues
+    d'AutoScout24 et retourne les données sous forme de DataFrame Polars.
+    En cas d'erreur lors de la lecture (fichier manquant, format invalide, etc.),
+    un DataFrame vide est retourné et un message d'erreur est affiché.
+
+    Returns
+    -------
+    pl.DataFrame
+        DataFrame Polars contenant les annonces automobiles si la lecture
+        réussit, sinon un DataFrame vide.
+    """
     try:
         return pl.read_json("data/raw/annonces_autoscout24.json")
     except Exception as e:
@@ -25,6 +39,25 @@ def charger_donnees() -> pl.DataFrame:
 # 2. NETTOYAGE NUMÉRIQUE
 # =========================
 def nettoyer_numeriques(df: pl.DataFrame) -> pl.DataFrame:
+    """
+    Nettoie et standardise les colonnes numériques issues des données brutes.
+
+    Cette fonction traite les colonnes 'prix' et 'kilometrage' en supprimant
+    tous les caractères non numériques, puis en les convertissant en entiers.
+    Elle applique ensuite un filtre pour exclure les annonces dont le prix est
+    nul, manquant ou manifestement incohérent (inférieur ou égal à 100).
+
+    Parameters
+    ----------
+    df : pl.DataFrame
+        DataFrame Polars contenant les données brutes des annonces automobiles.
+
+    Returns
+    -------
+    pl.DataFrame
+        DataFrame Polars nettoyé, avec des colonnes numériques typées et
+        des annonces à prix non cohérent exclues.
+    """
     for col in ["prix", "kilometrage"]:
         df = df.with_columns(
             pl.col(col).cast(pl.Utf8).str.replace_all(r"[^\d]", "")
@@ -36,6 +69,29 @@ def nettoyer_numeriques(df: pl.DataFrame) -> pl.DataFrame:
 # 3. RÉPARATION MARQUE/MODÈLE
 # =========================
 def reparer_marque_modele(df: pl.DataFrame) -> pl.DataFrame:
+    """
+    Normalise et fiabilise les informations de marque et de modèle des annonces.
+
+    Cette fonction corrige les incohérences de saisie liées aux marques
+    automobiles (variantes d'écriture, casse, abréviations) en s'appuyant
+    sur un référentiel de marques standardisées. Elle extrait la marque
+    depuis le champ textuel d'origine, puis nettoie le modèle en supprimant
+    les informations techniques parasites (motorisation, puissance, cylindrée).
+
+    Parameters
+    ----------
+    df : pl.DataFrame
+        DataFrame Polars contenant au minimum une colonne 'marque' issue
+        des données brutes d'annonces automobiles.
+
+    Returns
+    -------
+    pl.DataFrame
+        DataFrame Polars avec deux colonnes normalisées :
+        - 'marque' : marque canonique standardisée,
+        - 'modele' : modèle nettoyé et homogénéisé.
+        Les annonces dont la marque n'a pas pu être identifiée sont exclues.
+    """
     marques_ref = {
         "Alfa Romeo": ["Alfa Romeo", "Alfa", "Alfa-Romeo"],
         "Aston Martin": ["Aston Martin", "Aston"],
@@ -141,23 +197,29 @@ def reparer_marque_modele(df: pl.DataFrame) -> pl.DataFrame:
     )
 
 # =========================
-# 4. IDENTIFICATION MODÈLE (CSV)
+# 4. IDENTIFICATION MODÈLE (JSON)
 # =========================
-
-# Cache global pour éviter de recharger le JSON à chaque fois
-_MODELES_CACHE = None
-
 def charger_modeles_json() -> dict:
-    global _MODELES_CACHE
-    
-    # Retourner le cache si déjà chargé
-    if _MODELES_CACHE is not None:
-        return _MODELES_CACHE
-    
+    """
+    Charge un référentiel de modèles de véhicules depuis un fichier JSON.
+
+    Le fichier JSON est structuré sous la forme d'une liste d'objets,
+    chacun contenant une marque ("Make") et la liste des modèles associés
+    ("Models"). Les marques sont normalisées en minuscules afin de
+    faciliter les correspondances avec les données d'annonces nettoyées.
+
+    En cas d'absence du fichier ou d'erreur de lecture, la fonction retourne
+    un dictionnaire vide.
+
+    Returns
+    -------
+    dict[str, list[str]]
+        Dictionnaire associant chaque marque (en minuscules) à la liste
+        de ses modèles officiels.
+    """
     json_path = Path("data/references/vehicle_models_merged.json")
     if not json_path.exists():
         print(f"❌ Fichier introuvable: {json_path}")
-        _MODELES_CACHE = {}
         return {}
     
     try:
@@ -173,20 +235,49 @@ def charger_modeles_json() -> dict:
                 modeles_par_marque[make] = [m.strip() for m in models if m.strip()]
         
         print(f"✅ JSON chargé avec succès: {len(modeles_par_marque)} marques")
-        _MODELES_CACHE = modeles_par_marque
         return modeles_par_marque
         
     except json.JSONDecodeError as e:
         print(f"❌ Erreur JSON: {e}")
-        _MODELES_CACHE = {}
         return {}
     except Exception as e:
         print(f"⚠️ Erreur lors du chargement: {e}")
-        _MODELES_CACHE = {}
         return {}
 
 
 def identifier_modele(marque: str, modele_complet: str, modeles_dict: dict) -> tuple:
+    """
+    Identifie le modèle canonique d'un véhicule à partir d'une chaîne descriptive.
+
+    Cette fonction compare une description textuelle complète du véhicule
+    (incluant éventuellement des variantes, finitions ou informations techniques)
+    à un référentiel de modèles associé à une marque donnée. L'identification
+    repose sur une normalisation des chaînes et une recherche tolérante aux
+    variations de format (espaces, tirets, caractères spéciaux).
+
+    Lorsque plusieurs correspondances sont possibles, le modèle le plus long
+    est privilégié afin d'éviter les faux positifs (ex. "595 Competizione"
+    avant "595").
+
+    Parameters
+    ----------
+    marque : str
+        Marque du véhicule, préalablement nettoyée et normalisée.
+    modele_complet : str
+        Libellé complet du modèle tel qu'extrait de l'annonce.
+    modeles_dict : dict
+        Dictionnaire de référence associant chaque marque à la liste
+        de ses modèles officiels.
+
+    Returns
+    -------
+    tuple
+        Tuple de la forme (modele_identifie, reste_libelle, succes) où :
+        - modele_identifie : modèle reconnu selon le référentiel,
+        - reste_libelle : partie résiduelle du libellé non utilisée
+          (finition, motorisation, options),
+        - succes : booléen indiquant si une correspondance fiable a été trouvée.
+    """
     if not modele_complet or not marque:
         return (modele_complet or "", "", False)
 
@@ -278,20 +369,80 @@ def raffiner_modele_csv(df: pl.DataFrame) -> pl.DataFrame:
 # 5. EXTRACTION SPECS & LOCALISATION
 # =========================
 def extraire_specs_et_lieu(df: pl.DataFrame) -> pl.DataFrame:
-    return df.with_columns([
-        pl.col("puissance").str.extract(r"(\d+)\s*kW", 1).cast(pl.Int64, strict=False).alias("puissance_kw"),
-        pl.col("modele").str.extract(r"(\d+[.,]\d+)", 1).str.replace(",", ".").cast(pl.Float32, strict=False).alias("cylindree_l"),
-        pl.col("localisation").str.extract(r"^(\d{4,5})", 1).alias("code_postal"),
-        pl.col("localisation").str.replace(r"^\d{4,5}\s*", "").str.split("-").list.get(0).str.strip_chars().alias("ville"),
-        pl.lit("Europe").alias("pays")
-    ]).drop("localisation")
+    """
+    Extrait les caractéristiques techniques et géographiques des colonnes textuelles.
 
+    Transforme la puissance en kW, tente une première extraction de la cylindrée,
+    et décompose la localisation en code postal et ville.
+
+    Parameters
+    ----------
+    df : pl.DataFrame
+        DataFrame contenant les colonnes 'puissance', 'modele' et 'localisation'.
+
+    Returns
+    -------
+    pl.DataFrame
+        DataFrame enrichi des colonnes 'puissance_kw', 'cylindree_l', 
+        'code_postal', 'ville' et 'pays'.
+    """
+    return df.with_columns([
+        # 1. Puissance
+        pl.col("puissance").str.extract(r"(\d+)\s*kW", 1).cast(pl.Int64, strict=False).alias("puissance_kw"),
+
+        # 2. Initialisation cylindrée
+        pl.col("modele").str.extract(r"(\d+[.,]\d+)", 1).str.replace(",", ".").cast(pl.Float32, strict=False).alias("cylindree_l"),
+
+        # 3. Extraction du Code Postal
+        pl.col("localisation").str.extract(r"^(\d{4,5}(?:\s*[A-Z]{2})?)", 1).alias("code_postal"),
+
+        # 4. Identification du PAYS (Ordre corrigé pour éviter l'erreur Cassano d'Adda)
+        pl.when(pl.col("localisation").str.contains(r" - [A-Z]{2}$"))
+          .then(pl.lit("Italie")) # Priorité 1 : Le suffixe province italien
+          
+        .when(pl.col("localisation").str.contains(r"^\d{4}\s*[A-Z]{2}"))
+          .then(pl.lit("Pays-Bas")) # Priorité 2 : Le format CP néerlandais
+          
+        .when(pl.col("localisation").str.contains(r"^\d{4}\s"))
+          .then(pl.lit("Belgique")) # 4 chiffres = Belgique/Lux
+          
+        .when(pl.col("localisation").str.contains(r"^\d{5}\s"))
+          .then(pl.lit("Allemagne")) # 5 chiffres sans suffixe italien = Allemagne
+          
+        .when(pl.col("localisation").str.extract(r"^(\d{4,5})", 1).is_not_null())
+          .then(pl.lit("France")) # Le reste avec un CP = France
+          
+        .otherwise(None)
+        .alias("pays"),
+
+        # 5. Extraction de la Ville
+        pl.col("localisation")
+          .str.replace(r"^\d{4,5}(?:\s*[A-Z]{2})?\s*", "")
+          .str.replace(r"\s*-\s*[A-Z]{2}$", "")
+          .str.replace(r"\s*-.*$", "")
+          .str.strip_chars()
+          .alias("ville")
+    ]).drop("localisation")
 
 def corriger_cylindree(df: pl.DataFrame) -> pl.DataFrame:
     """
-    - Si électrique -> 0.0
-    - Cylindrée hors bornes (<0.6 ou >8.5) -> null
-    - Pour BMW : si modèle = 3 chiffres, prend les deux derniers et divise par 10
+    Affiner l'extraction de la cylindrée selon des règles métier spécifiques.
+
+    Applique une logique conditionnelle :
+    - Positionne à 0.0 pour les véhicules électriques.
+    - Utilise les codes modèles BMW (ex: 320 -> 2.0L) et Mercedes.
+    - Recherche des motifs décimaux dans le reste du libellé.
+    - Invalide les valeurs aberrantes (inférieures à 0.6L ou supérieures à 8.5L).
+
+    Parameters
+    ----------
+    df : pl.DataFrame
+        DataFrame avec les colonnes 'marque', 'modele' et 'carburant'.
+
+    Returns
+    -------
+    pl.DataFrame
+        DataFrame avec la colonne 'cylindree_l' corrigée et nettoyée.
     """
     # Extraire cylindrée BMW uniquement pour les modèles identifiés comme XXX (3 chiffres)
     df = df.with_columns([
@@ -365,6 +516,22 @@ def corriger_cylindree(df: pl.DataFrame) -> pl.DataFrame:
 # 6. NETTOYAGE TRANSMISSION
 # =========================
 def nettoyer_transmission(df: pl.DataFrame) -> pl.DataFrame:
+    """
+    Standardise les types de transmission.
+
+    Ne conserve que les valeurs connues ('avant', 'arriere', '4x4') et
+    remplace les autres entrées (souvent des erreurs de saisie) par null.
+
+    Parameters
+    ----------
+    df : pl.DataFrame
+        DataFrame avec la colonne 'transmission'.
+
+    Returns
+    -------
+    pl.DataFrame
+        DataFrame avec les types de transmission normalisés.
+    """
     return df.with_columns(
         pl.when(
             pl.col("transmission")
@@ -380,62 +547,32 @@ def nettoyer_transmission(df: pl.DataFrame) -> pl.DataFrame:
 # 7. GESTION VALEURS ABERRANTES
 # =========================
 def traiter_valeurs_aberrantes(df: pl.DataFrame) -> pl.DataFrame:
-    moyennes_marque_modele = df.group_by(["marque", "modele"]).agg([
-        pl.col("annee")
-          .filter((pl.col("annee") >= 1980) & (pl.col("annee") <= 2026))
-          .mean()
-          .alias("annee_moyenne_mm"),
-        pl.col("kilometrage")
-          .filter((pl.col("kilometrage") >= 0) & (pl.col("kilometrage") <= 500_000))
-          .mean()
-          .alias("km_moyenne_mm")
-    ])
-    
-    annee_moyenne_generale = df.select(
-        pl.col("annee")
-          .filter((pl.col("annee") >= 1980) & (pl.col("annee") <= 2026))
-          .mean()
-    ).item()
-    
-    km_moyenne_generale = df.select(
-        pl.col("kilometrage")
-          .filter((pl.col("kilometrage") >= 0) & (pl.col("kilometrage") <= 500_000))
-          .mean()
-    ).item()
-    
-    df = df.join(moyennes_marque_modele, on=["marque", "modele"], how="left")
-    
+    # On définit les seuils de cohérence métier
     return df.with_columns([
-        pl.when((pl.col("puissance_kw").is_null()) | 
-                (pl.col("puissance_kw") < 5) | 
-                (pl.col("puissance_kw") > 1000))
-          .then(None)
-          .otherwise(pl.col("puissance_kw"))
-          .alias("puissance_kw"),
-
-        pl.when((pl.col("annee").is_null()) | 
-                (pl.col("annee") < 1980) | 
-                (pl.col("annee") > 2026))
-          .then(
-              pl.when(pl.col("annee_moyenne_mm").is_not_null())
-                .then(pl.col("annee_moyenne_mm").round(0).cast(pl.Int64))
-                .otherwise(pl.lit(int(annee_moyenne_generale) if annee_moyenne_generale else 2010))
-          )
-          .otherwise(pl.col("annee"))
+        # Année : si hors plage, on met à null
+        pl.when((pl.col("annee") >= 1980) & (pl.col("annee") <= 2026))
+          .then(pl.col("annee"))
+          .otherwise(None)
           .alias("annee"),
-          
 
-        pl.when((pl.col("kilometrage").is_null()) | 
-                (pl.col("kilometrage") < 0) | 
-                (pl.col("kilometrage") > 500_000))
-          .then(
-              pl.when(pl.col("km_moyenne_mm").is_not_null())
-                .then(pl.col("km_moyenne_mm").round(0).cast(pl.Int64))
-                .otherwise(pl.lit(int(km_moyenne_generale) if km_moyenne_generale else 100000))
-          )
-          .otherwise(pl.col("kilometrage"))
+        # Kilométrage : si négatif ou trop élevé, on met à null
+        pl.when((pl.col("kilometrage") >= 0) & (pl.col("kilometrage") <= 500_000))
+          .then(pl.col("kilometrage"))
+          .otherwise(None)
           .alias("kilometrage"),
-    ]).drop(["annee_moyenne_mm", "km_moyenne_mm"])
+
+        # Puissance : si hors limites réalistes, on met à null
+        pl.when((pl.col("puissance_kw") >= 5) & (pl.col("puissance_kw") <= 1000))
+          .then(pl.col("puissance_kw"))
+          .otherwise(None)
+          .alias("puissance_kw"),
+          
+        # Prix : (Déjà filtré dans nettoyer_numeriques, mais on peut sécuriser ici)
+        pl.when(pl.col("prix") > 100)
+          .then(pl.col("prix"))
+          .otherwise(None)
+          .alias("prix")
+    ])
 
 # =========================
 # 8. PRÉPARATION ML
@@ -448,6 +585,12 @@ def preparer_ml(df: pl.DataFrame) -> pl.DataFrame:
 # 9. MAIN
 # =========================
 def main():
+    """
+    Point d'entrée du script : exécute le pipeline complet de nettoyage.
+
+    Ordonne les étapes de chargement, nettoyage numérique, réparation des labels,
+    imputation des valeurs et export final vers un fichier Excel.
+    """
     df = charger_donnees()
     if df.is_empty(): 
         return
@@ -456,24 +599,29 @@ def main():
         df.pipe(nettoyer_numeriques)
           .pipe(reparer_marque_modele)
           .pipe(raffiner_modele_csv)
+          .filter(pl.col("modele_identifie") == True)
           .pipe(extraire_specs_et_lieu)
           .pipe(nettoyer_transmission)
-          .pipe(corriger_cylindree)
+          .pipe(corriger_cylindree)   
           .pipe(traiter_valeurs_aberrantes)
-          .pipe(preparer_ml)
-          .drop(["lien_fiche", "puissance"])
-          .drop_nulls(["cylindree_l",
-                       "annee",
-                       "modele",
-                       "marque",
-                       "puissance_kw",
-                       "transmission",
-                       "kilometrage",
-                       "prix"])
+          # On supprime les lignes où il manque une info capitale
+          .drop_nulls([
+              "prix", 
+              "ville", 
+              "annee", 
+              "kilometrage", 
+              "marque", 
+              "modele"
+          ])
+          # On supprime les colonnes de travail devenues inutiles
+          .drop(["lien_fiche", "puissance", "modele_identifie", "le_reste"])
     )
-    df.write_json('data/processed/autoscout_clean_ml.json')
+
+    # Export en JSON (format 'records' pour avoir une liste d'objets [{}, {}])
+    df.write_json("data/processed/autoscout_clean_ml.json")
     print(f"✅ Export réussi : {df.shape[0]} lignes.")
     print(df.head(5))
+
 
 if __name__ == "__main__":
     main()
