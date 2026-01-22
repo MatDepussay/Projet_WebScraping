@@ -626,6 +626,15 @@ def afficher_selection_voitures():
         st.warning("⚠️ Aucune donnée valide après nettoyage.")
         return
     
+    # Ajouter le clustering si un modèle est chargé (et si le clustering n'existe pas déjà)
+    if model is not None and "cluster_vehicule" not in voitures_df.columns:
+        try:
+            st.info("🔍 Ajout du clustering pour les prédictions...")
+            voitures_df = ajouter_cluster_vehicule(voitures_df, n_clusters=5)
+            st.success("✅ Clustering ajouté")
+        except Exception as e:
+            st.warning(f"⚠️ Impossible d'ajouter le clustering: {e}")
+    
     st.info(f"📊 Total: {voitures_df.height} voitures disponibles après nettoyage")
     
     # Calculer les valeurs min/max réelles pour les sliders
