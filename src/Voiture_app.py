@@ -64,6 +64,7 @@ from MachineLearning import (
 
 # --- Modèles Pydantic ---
 class Voiture(BaseModel):
+    annonce_disponible: int = 1
     lien_fiche: str | None = None
     prix: str | None = None
     marque: str | None = None
@@ -77,6 +78,7 @@ class Voiture(BaseModel):
     type_de_vehicule: str | None = None
     sieges: int | None = None
     portes: int | None = None
+    annonce_disponible: int = 1
 
 
 # --- 1. Récupérer la page listage avec Selenium ---
@@ -147,7 +149,7 @@ def recupere_page_annonce(driver, url: str) -> str | None:
 
 # --- 4. Extraire les détails d'une page d'annonce ---
 def extraire_details_annonce(html_content: str | None, url: str) -> dict:
-    voiture = {"lien_fiche": url}
+    voiture = {"lien_fiche": url, "annonce_disponible": 1}
     if not html_content:
         return voiture
 
