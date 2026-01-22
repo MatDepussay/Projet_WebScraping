@@ -88,7 +88,7 @@ def ajouter_cluster_vehicule(df, n_clusters=5):
     Path("models").mkdir(parents=True, exist_ok=True)
     with open("models/cluster_full_pipeline.pkl", "wb") as f:
         pickle.dump(cluster_pipeline, f)
-
+    print(df['cluster_vehicule'].value_counts())
     print("✅ Clustering terminé et pipeline sauvegardé.")
     return df
 
@@ -202,7 +202,7 @@ def charger_et_preparer_donnees(fichier="data/processed/autoscout_clean_ml.json"
     ]
     X = df.drop(columns=[c for c in colonnes_a_exclure if c in df.columns])
 
-    categorical_cols = X.select_dtypes(include=["object", "category"]).columns.tolist()
+    categorical_cols = X.select_dtypes(include=["object", "category", "string"]).columns.tolist()
     print(f"📦 Colonnes encodées : {categorical_cols}")
 
     X_train, X_test, y_train, y_test = train_test_split(
@@ -391,6 +391,13 @@ def main():
             best_rf_model = pickle.load(f)
         with open(xgb_path, "rb") as f:
             best_xgb_model = pickle.load(f)
+        # On récupère les colonnes que XGBoost attend
+        expected_features = best_xgb_model.get_booster().feature_names
+        
+        # On force X_test à avoir EXACTEMENT ces colonnes (et dans le bon ordre)
+        # Les colonnes manquantes sont remplies par 0, les colonnes en trop sont supprimées
+        X_test = X_test.reindex(columns=expected_features, fill_value=0)
+        X_train = X_train.reindex(columns=expected_features, fill_value=0) # Sécurité pour la CV
     else:
         print("🚀 Aucun modèle trouvé. Lancement du Tuning...")
         best_rf_model = tune_random_forest(X_train, y_train)
