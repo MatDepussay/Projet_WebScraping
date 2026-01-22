@@ -182,7 +182,6 @@ def extraire_details_annonce(html_content: str, url: str) -> dict:
             # Prix
             if "offers" in json_data and "price" in json_data["offers"]:
                 price = json_data["offers"]["price"]
-                currency = json_data["offers"].get("priceCurrency", "EUR")
                 voiture["prix"] = f"€ {price:,.0f}".replace(",", " ")
             
             # Location (depuis offeredBy)

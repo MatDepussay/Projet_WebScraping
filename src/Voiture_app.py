@@ -419,7 +419,7 @@ def appliquer_cleaning(filename: str = "data/raw/annonces_autoscout24.json") -> 
     # Filtrer pour ne garder que les voitures avec modèle identifié
     if "modele_identifie" in df.columns:
         initial_count = df.height
-        df = df.filter(pl.col("modele_identifie") == True)
+        df = df.filter(pl.col("modele_identifie"))
         filtered_count = df.height
         print(f"✅ Filtrage modèles identifiés: {filtered_count}/{initial_count} voitures gardées")
     
@@ -746,7 +746,6 @@ def afficher_selection_voitures():
             
             # Ajouter les prédictions si le modèle est chargé
             predictions_disponibles = False
-            categorie_prix_data = {}
             if model is not None:
                 try:
                     # Préparer les features pour la prédiction

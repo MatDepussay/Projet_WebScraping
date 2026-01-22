@@ -32,7 +32,7 @@ from sklearn.compose import ColumnTransformer
 from sklearn.cluster import KMeans
 from sklearn.pipeline import Pipeline
 from sklearn.decomposition import PCA
-from sklearn.experimental import enable_iterative_imputer
+from sklearn.experimental import enable_iterative_imputer # A NE SURTOUT PAS ENLEVER
 from sklearn.impute import IterativeImputer, SimpleImputer
 
 
@@ -143,7 +143,7 @@ def visualiser_pca(df_pd):
         coords = pca.fit_transform(X_transformed)
         
         plt.figure(figsize=(10, 6))
-        sns.scatterplot(x=coords[:, 0], y=coords[:, 1], hue=df_pd["cluster_vehicule"], palette="viridis", alpha=0.5)
+        sns.scatterplot(x=coords[:, 0], y=coords[:, 1], hue=df_pd["cluster_vehicule"], palette="deep", alpha=0.5)
         plt.title("Séparation des clusters (Projection PCA)")
         plt.show()
     except Exception as e:
@@ -180,7 +180,7 @@ def charger_et_preparer_donnees(fichier="data/processed/autoscout_clean_ml.json"
         return None, None, None, None
 
     if "modele_identifie" in df.columns:
-        df = df[df["modele_identifie"] == True]
+        df = df[df["modele_identifie"]]
 
     df = df.dropna(subset=["prix"])
 
@@ -438,7 +438,7 @@ def main():
     enregistrer_erreurs(X_test, y_test, y_pred_rf, "models/erreurs_rf_tuned.xlsx")
     enregistrer_erreurs(X_test, y_test, y_pred_xgb, "models/erreurs_xgb_tuned.xlsx")
 
-    print(f"\n✅ Pipeline terminé.")
+    print("\n✅ Pipeline terminé.")
     print(f"Meilleur score final : {'XGBoost' if r2_xgb > r2_rf else 'Random Forest'} (R²: {max(r2_rf, r2_xgb):.4f})")
 
 if __name__ == "__main__":
