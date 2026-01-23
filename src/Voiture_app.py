@@ -437,7 +437,8 @@ def appliquer_cleaning(filename: str = "data/raw/annonces_autoscout24.json") -> 
         df = df.drop_nulls(colonnes_existantes)
     
     # Supprimer les colonnes inutiles pour le ML (comme dans cleaning.py main)
-    colonnes_a_supprimer = ["lien_fiche", "puissance", "modele_identifie", "le_reste"]
+    # On conserve lien_fiche pour l'affichage des cartes.
+    colonnes_a_supprimer = ["puissance", "modele_identifie", "le_reste"]
     colonnes_a_supprimer_existantes = [col for col in colonnes_a_supprimer if col in df.columns]
     if colonnes_a_supprimer_existantes:
         df = df.drop(colonnes_a_supprimer_existantes)
@@ -779,7 +780,19 @@ def afficher_selection_voitures():
         st.warning("Aucune voiture ne correspond aux critères de filtre.")
     else:
         # Préparer les données avec prédictions (pour Tableau ET Carte)
-        colonnes_affichage = ["marque", "modele", "prix", "kilometrage", "annee", "carburant", "boite_de_vitesse", "ville", "code_postal", "puissance_kw"]
+        colonnes_affichage = [
+            "lien_fiche",
+            "marque",
+            "modele",
+            "prix",
+            "kilometrage",
+            "annee",
+            "carburant",
+            "boite_de_vitesse",
+            "ville",
+            "code_postal",
+            "puissance_kw",
+        ]
         colonnes_valides = [col for col in colonnes_affichage if col in voitures_filtrees.columns]
         
         data_affichage = voitures_filtrees.select(colonnes_valides).to_dicts()
@@ -803,38 +816,45 @@ def afficher_selection_voitures():
                 # 4. Encodage One-Hot (génère les colonnes marque_Audi, carburant_Diesel, etc.)
                 X_encoded = pd.get_dummies(X_base)
                 
-                # 5. ALIGNEMENT avec le fichier de référence (771 colonnes)
+                # 5. Alignement des features sur le schéma du modèle
                 features_path = "models/model_features.pkl"
-                if os.path.exists(features_path):
+                expected_cols = None
+                if hasattr(model, "get_booster"):
+                    try:
+                        expected_cols = model.get_booster().feature_names
+                    except Exception:
+                        expected_cols = None
+                if not expected_cols and hasattr(model, "feature_names_in_"):
+                    expected_cols = list(model.feature_names_in_)
+                if not expected_cols and os.path.exists(features_path):
                     with open(features_path, "rb") as f:
                         expected_cols = pickle.load(f)
-                    
-                    # Reindex pour ajouter les colonnes manquantes (0) et supprimer les colonnes en trop
+
+                if expected_cols:
                     X_final = X_encoded.reindex(columns=expected_cols, fill_value=0)
-                    # Force l'ordre exact pour XGBoost
                     X_final = X_final[expected_cols]
-                    
-                    # 6. Faire les prédictions
-                    predictions = model.predict(X_final)
-                    predictions_disponibles = True
-                    
-                    # 7. Ajouter les prédictions et catégories aux données d'affichage
-                    for idx, v in enumerate(data_affichage):
-                        prix_reel = v.get('prix', 0)
-                        prix_predit = float(predictions[idx])
-                        difference_pct = ((prix_reel - prix_predit) / prix_predit * 100) if prix_predit != 0 else 0
-                        
-                        v["prix_predit"] = prix_predit
-                        v["difference_pct"] = difference_pct
-                        
-                        if difference_pct < -5:
-                            v["categorie_prix"] = "✅ Bonne Affaire"
-                        elif difference_pct > 5:
-                            v["categorie_prix"] = "❌ Arnaque"
-                        else:
-                            v["categorie_prix"] = "⚠️ Normal"
                 else:
-                    st.error("❌ Fichier 'model_features.pkl' introuvable. Relancez l'entraînement ML.")
+                    X_final = X_encoded
+                
+                # 6. Faire les prédictions
+                predictions = model.predict(X_final)
+                predictions_disponibles = True
+                
+                # 7. Ajouter les prédictions et catégories aux données d'affichage
+                for idx, v in enumerate(data_affichage):
+                    prix_reel = v.get('prix', 0)
+                    prix_predit = float(predictions[idx])
+                    difference_pct = ((prix_reel - prix_predit) / prix_predit * 100) if prix_predit != 0 else 0
+                    
+                    v["prix_predit"] = prix_predit
+                    v["difference_pct"] = difference_pct
+                    
+                    if difference_pct < -5:
+                        v["categorie_prix"] = "✅ Bonne Affaire"
+                    elif difference_pct > 5:
+                        v["categorie_prix"] = "❌ Arnaque"
+                    else:
+                        v["categorie_prix"] = "⚠️ Normal"
 
             except Exception as e:
                 st.error(f"❌ Erreur lors des prédictions: {e}")
@@ -1330,26 +1350,30 @@ def afficher_regression_ml():
                 X_all["cluster_vehicule"] = X_all["cluster_vehicule"].astype(str)
                 X_encoded = pd.get_dummies(X_all)
 
-                # 2. CHARGEMENT DE LA LISTE OFFICIELLE DES COLONNES
+                # 2. CHARGEMENT / DÉDUCTION DU SCHÉMA DE FEATURES
                 features_path = Path("models/model_features.pkl")
-                if not features_path.exists():
-                    st.error("❌ Fichier 'model_features.pkl' introuvable. Vous devez relancer l'entraînement une fois pour le générer.")
-                    return
+                model = st.session_state.model_ml
+                expected_cols = None
+                if hasattr(model, "get_booster"):
+                    try:
+                        expected_cols = model.get_booster().feature_names
+                    except Exception:
+                        expected_cols = None
+                if not expected_cols and hasattr(model, "feature_names_in_"):
+                    expected_cols = list(model.feature_names_in_)
+                if not expected_cols and features_path.exists():
+                    with open(features_path, "rb") as f:
+                        expected_cols = pickle.load(f)
 
-                with open(features_path, "rb") as f:
-                    expected_cols = pickle.load(f)
-
-                # 3. ALIGNEMENT STRICT (771 colonnes garanties)
-                # On force le DataFrame à avoir EXACTEMENT les colonnes du fichier pkl
-                X_final = X_encoded.reindex(columns=expected_cols, fill_value=0)
-                
-                # On s'assure de l'ordre pour XGBoost
-                X_final = X_final[expected_cols]
+                # 3. ALIGNEMENT STRICT
+                if expected_cols:
+                    X_final = X_encoded.reindex(columns=expected_cols, fill_value=0)
+                    X_final = X_final[expected_cols]
+                else:
+                    X_final = X_encoded
 
                 # 4. Split et Prédictions
                 _, X_test, _, y_test = train_test_split(X_final, y_all, test_size=0.2, random_state=42)
-                
-                model = st.session_state.model_ml
                 afficher_resultats_modele(model, X_test, y_test, feature_importance=None)
 
             except Exception as e:
