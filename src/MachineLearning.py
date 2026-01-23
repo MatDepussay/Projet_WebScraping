@@ -30,6 +30,7 @@ from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
 from sklearn.preprocessing import StandardScaler, OneHotEncoder
 from sklearn.compose import ColumnTransformer
 from sklearn.cluster import KMeans
+from sklearn.metrics import silhouette_score
 from sklearn.pipeline import Pipeline
 from sklearn.decomposition import PCA
 from sklearn.experimental import enable_iterative_imputer # A NE SURTOUT PAS ENLEVER
@@ -76,9 +77,13 @@ def ajouter_cluster_vehicule(df, n_clusters=5):
         ('kmeans', KMeans(n_clusters=n_clusters, random_state=42, n_init=10))
     ])
 
+    # --- Calcul et Intégration ---
     clusters = cluster_pipeline.fit_predict(data_pd)
     
-    # Ajout du résultat au DataFrame d'origine
+    # On ajoute la colonne à data_pd (essentiel pour ton print final !)
+    data_pd["cluster_vehicule"] = clusters
+    
+    # On met à jour l'objet d'origine (df)
     if isinstance(df, pl.DataFrame):
         df = df.with_columns(pl.Series("cluster_vehicule", clusters))
     else:
@@ -88,7 +93,24 @@ def ajouter_cluster_vehicule(df, n_clusters=5):
     Path("models").mkdir(parents=True, exist_ok=True)
     with open("models/cluster_full_pipeline.pkl", "wb") as f:
         pickle.dump(cluster_pipeline, f)
+    
+    print("\n📊 Répartition des clusters :")
     print(df['cluster_vehicule'].value_counts())
+    
+    # --- Analyse du Cluster 3 ---
+
+    cluster_3_cars = data_pd[data_pd["cluster_vehicule"] == 4]
+    print("\n🔍 Détail des voitures du Cluster 4 (les 6 premières) :")
+    
+    # Sécurité : on vérifie si des voitures existent dans ce cluster
+    if not cluster_3_cars.empty:
+        cols_affichage = ["marque", "modele", "prix", "kilometrage", "annee", "puissance_kw"]
+        # On ne garde que les colonnes présentes pour éviter une nouvelle KeyError
+        cols_presentes = [c for c in cols_affichage if c in cluster_3_cars.columns]
+        print(cluster_3_cars[cols_presentes].head(6))
+    else:
+        print("Aucun véhicule trouvé dans le cluster 3.")
+    
     print("✅ Clustering terminé et pipeline sauvegardé.")
     return df
 
@@ -157,16 +179,32 @@ def trouver_meilleur_k(df, max_k=10):
     num_features = ["annee", "kilometrage", "puissance_kw", "prix", "cylindree_l"]
     X = StandardScaler().fit_transform(data_pd[num_features].dropna())
     
+    # inerties
     inertias = []
     for k in range(1, max_k + 1):
         km = KMeans(n_clusters=k, random_state=42, n_init=10)
         km.fit(X)
         inertias.append(km.inertia_)
     
+    # Graphique des inerties
     plt.plot(range(1, max_k + 1), inertias, 'go-')
     plt.title("Méthode du Coude (Elbow)")
     plt.xlabel("Nombre de clusters")
     plt.ylabel("Inertie")
+    plt.show()
+    
+    # silhouette
+    silhouettes = []
+    for k in range(2, max_k + 1): # Silhouette commence à 2
+        km = KMeans(n_clusters=k, random_state=42, n_init=10)
+        km.fit(X)
+        inertias.append(km.inertia_)
+        silhouettes.append(silhouette_score(X, km.labels_))
+    
+    # Graphique de la Silhouette
+    plt.figure(figsize=(10, 4))
+    plt.plot(range(2, max_k + 1), silhouettes, 'bo-')
+    plt.title("Score de Silhouette (plus c'est haut, mieux c'est)")
     plt.show()
 
 # =========================
@@ -225,11 +263,11 @@ def charger_et_preparer_donnees(fichier="data/processed/autoscout_clean_ml.json"
 # =========================
 def evaluer_modele(model, X_test, y_test):
     y_pred = model.predict(X_test)
-    rmse = np.sqrt(mean_squared_error(y_test, y_pred))
-    r2 = r2_score(y_test, y_pred)
-    mae = mean_absolute_error(y_test, y_pred)
-    print(f"RMSE: €{rmse:,.2f} | R²: {r2:.4f} | MAE: €{mae:,.2f}")
-    return y_pred, rmse, r2, mae
+    rmse_test = np.sqrt(mean_squared_error(y_test, y_pred))
+    r2_test = r2_score(y_test, y_pred)
+    mae_test = mean_absolute_error(y_test, y_pred)
+    print(f"RMSE: €{rmse_test:,.2f} | R²: {r2_test:.4f} | MAE: €{mae_test:,.2f}")
+    return y_pred, rmse_test, r2_test, mae_test
 
 
 def cross_validation_model(model, X_train, y_train, cv=5):
@@ -238,13 +276,34 @@ def cross_validation_model(model, X_train, y_train, cv=5):
 
 
 def enregistrer_erreurs(X_test, y_test, y_pred, fichier):
-    df_err = X_test.copy()
-    df_err["prix_reel"] = y_test.values
-    df_err["prix_predit"] = y_pred
-    df_err["erreur_abs"] = np.abs(y_pred - y_test.values)
-    df_err["erreur_%"] = 100 * df_err["erreur_abs"] / df_err["prix_reel"]
-    df_err.sort_values("erreur_abs", ascending=False).to_excel(fichier, index=False)
+    # 1. On ne garde que les colonnes numériques "réelles" pour que l'Excel soit lisible
+    # On exclut les colonnes de type dummies
+    cols_lisibles = [c for c in X_test.columns if '_' not in c]
+    df_err = X_test[cols_lisibles].copy()
 
+    # 2. Calculs des erreurs
+    df_err["prix_reel"] = y_test.values
+    df_err["prix_predit"] = np.round(y_pred, 2)
+    df_err["erreur_abs"] = np.abs(df_err["prix_predit"] - df_err["prix_reel"])
+    df_err["erreur_%"] = (df_err["erreur_abs"] / df_err["prix_reel"] * 100).round(2)
+
+    # 3. Ajout d'un diagnostic métier
+    df_err["diagnostic"] = np.where(
+        df_err["prix_predit"] > df_err["prix_reel"], 
+        "Sur-estimé", 
+        "Sous-estimé"
+    )
+    
+    # 4. Tri par les plus grosses erreurs en pourcentage
+    df_err = df_err.sort_values("erreur_%", ascending=False)
+    
+    # 5. Sauvegarde
+    if fichier.endswith('.xlsx'):
+        df_err.to_excel(fichier, index=False)
+    else:
+        df_err.to_csv(fichier, index=False)
+        
+    print(f"💾 Fichier d'erreurs enregistré : {fichier} ({len(df_err)} lignes)")
 
 # =========================
 # MODÈLES
@@ -272,20 +331,25 @@ def tune_random_forest(X_train, y_train):
     print(f"✅ Meilleurs paramètres RF: {search.best_params_}")
     return search.best_estimator_
 
-def entrainer_random_forest(X_train, X_test, y_train, y_test): #casser pas les couilles faut prendre ce qu'on tune
+def entrainer_random_forest(model_tune, X_train, X_test, y_train, y_test): #casser pas les couilles faut prendre ce qu'on tune
     print("\n🌲 RANDOM FOREST")
-    model = RandomForestRegressor(
-        n_estimators=200,
-        max_depth=15,
-        min_samples_leaf=2,
-        random_state=42,
-        n_jobs=-1
-    )
-    model.fit(X_train, y_train)
+    model = model_tune
+    model.fit(X_train, y_train) #Optionnel
     
-    y_pred, rmse, r2, mae = evaluer_modele(model, X_test, y_test)
-    cross_validation_model(model, X_train, y_train)
+    # 1. Score R² sur les données d'entraînement (Train Score)
+    r2_train = model.score(X_train, y_train)
+    print(f"📊 R² sur données Train : {r2_train:.4f}")
+    
+    # 2. Évaluation sur test
+    y_pred, rmse_test, r2_test, mae_test = evaluer_modele(model, X_test, y_test)
+    
+    # 3. Cross-Validation (on récupère la moyenne des scores R²)
+    print("🔄 Calcul de la Cross-Validation (R²)...")
+    cv_scores = cross_val_score(model, X_train, y_train, cv=5, scoring='r2')
+    r2_cv = cv_scores.mean()
+    print(f"🎯 R² Moyen (Cross-Validation) : {r2_cv:.4f}")
 
+    # Importance des variables
     fi = pd.DataFrame({
         "feature": X_train.columns,
         "importance": model.feature_importances_
@@ -294,6 +358,7 @@ def entrainer_random_forest(X_train, X_test, y_train, y_test): #casser pas les c
     print(fi.head(10))
     print(fi[fi["feature"] == "cluster_vehicule"])
 
+    # Sauvegarde
     with open("models/random_forest_model.pkl", "wb") as f:
         pickle.dump(model, f)
 
@@ -301,9 +366,11 @@ def entrainer_random_forest(X_train, X_test, y_train, y_test): #casser pas les c
     
     return {
         'model': model,
-        'rmse': rmse,
-        'r2': r2, # prendre le r^2 de la cross validation #a verif prendre le R2 de cross validation et pas celui d'evaluation
-        'mae': mae,
+        'rmse': rmse_test,
+        'r2': r2_cv,
+        'r2_train': r2_train,
+        'r2_test': r2_test,
+        'mae': mae_test,
         'feature_importance': fi
     }
 
@@ -330,28 +397,35 @@ def tune_xgboost(X_train, y_train):
     print(f"✅ Meilleurs paramètres XGB: {search.best_params_}")
     return search.best_estimator_
 
-def entrainer_xgboost(X_train, X_test, y_train, y_test): # prendre les paramétres tune
+def entrainer_xgboost(model_tune,X_train, X_test, y_train, y_test): # prendre les paramétres tune
     print("\n⚡ XGBOOST")
-    model = xgb.XGBRegressor(
-        n_estimators=200,
-        max_depth=6,
-        learning_rate=0.1,
-        subsample=0.8,
-        colsample_bytree=0.8,
-        random_state=42,
-        n_jobs=-1,
-        verbosity=0
-    )
-    model.fit(X_train, y_train)
+    model = model_tune
     
-    y_pred, rmse, r2, mae = evaluer_modele(model, X_test, y_test)
-    cross_validation_model(model, X_train, y_train)
+    model.fit(X_train, y_train) # Optionnel
     
+    # 1. Score R² sur les données d'entraînement
+    r2_train = model.score(X_train, y_train)
+    print(f"📊 R² sur données Train : {r2_train:.4f}")
+    
+    # 2. Évaluation sur test
+    y_pred, rmse_test, r2_test, mae_test = evaluer_modele(model, X_test, y_test)
+    
+    # 3. Cross-Validation
+    print("🔄 Calcul de la Cross-Validation (R²)...")
+    cv_scores = cross_val_score(model, X_train, y_train, cv=5, scoring='r2')
+    r2_cv = cv_scores.mean()
+    print(f"🎯 R² Moyen (Cross-Validation) : {r2_cv:.4f}")
+    
+    # Importance des variables
     fi = pd.DataFrame({
         "feature": X_train.columns,
         "importance": model.feature_importances_
     }).sort_values("importance", ascending=False)
 
+    print(fi.head(10))
+    print(fi[fi["feature"] == "cluster_vehicule"])
+    
+    # Sauvegarde
     with open("models/xgboost_model.pkl", "wb") as f:
         pickle.dump(model, f)
     
@@ -359,9 +433,11 @@ def entrainer_xgboost(X_train, X_test, y_train, y_test): # prendre les paramétr
 
     return {
         'model': model,
-        'rmse': rmse,
-        'r2': r2, #a verif prendre le R2 de cross validation et pas celui d'evaluation
-        'mae': mae,
+        'rmse': rmse_test,
+        'r2': r2_cv, #a verif prendre le R2 de cross validation et pas celui d'evaluation
+        'r2_train': r2_train,
+        'r2_test': r2_test,
+        'mae': mae_test,
         'feature_importance': fi
     }
 
@@ -369,88 +445,143 @@ def entrainer_xgboost(X_train, X_test, y_train, y_test): # prendre les paramétr
 # MAIN
 # =========================
 def main():
+    # Configuration initiale
     os.makedirs("models", exist_ok=True)
-    print("🚀 Démarrage du Pipeline ML")
+    print("\n" + "="*50)
+    print("🚀 DÉMARRAGE DU PIPELINE MACHINE LEARNING")
+    print("="*50)
 
-    fichier = "data/processed/autoscout_clean_ml.json"
+    fichier_input = "data/processed/autoscout_clean_ml.json"
     rf_path = "models/best_rf_final.pkl"
     xgb_path = "models/best_xgb_final.pkl"
+    features_path = "models/model_features.pkl"
     
-    # 1. Préparation des données
-    X_train, X_test, y_train, y_test = charger_et_preparer_donnees(fichier)
+    # 1. PRÉPARATION DES DONNÉES & CLUSTERING
+    print("\n📦 1. Chargement et Préparation des données...")
+    X_train, X_test, y_train, y_test = charger_et_preparer_donnees(fichier_input)
     
     if X_train is None:
+        print("❌ Échec du chargement. Fin du programme.")
         return
     
-    print(f"💾 Sauvegarde de la liste des {len(X_train.columns)} colonnes...")
-    with open("models/model_features.pkl", "wb") as f:
+    # Sauvegarde des colonnes pour l'application Streamlit
+    with open(features_path, "wb") as f:
         pickle.dump(X_train.columns.tolist(), f)
         
-    print(f"📈 Dataset prêt: {X_train.shape[0]} train / {X_test.shape[0]} test")
-
-    # 2. CHARGEMENT ou TUNING (A revoir car conflits OneHotEncoder et get dummies)
+    print(f"✅ Dataset prêt : {X_train.shape[0]} train / {X_test.shape[0]} test")
+    print(f"📊 Nombre de features (colonnes) : {len(X_train.columns)}")
+    
+    # 2. CHARGEMENT OU TUNING (A revoir car conflits OneHotEncoder et get dummies)
     if os.path.exists(rf_path) and os.path.exists(xgb_path):
-        print("♻️  Modèles optimisés trouvés. Chargement en cours...")
+        print("\n♻️  2. Modèles optimisés trouvés. Chargement en cours...")
         with open(rf_path, "rb") as f:
             best_rf_model = pickle.load(f)
         with open(xgb_path, "rb") as f:
             best_xgb_model = pickle.load(f)
-        # On récupère les colonnes que XGBoost attend
-        expected_features = best_xgb_model.get_booster().feature_names
         
-        # On force X_test à avoir EXACTEMENT ces colonnes (et dans le bon ordre)
-        # Les colonnes manquantes sont remplies par 0, les colonnes en trop sont supprimées
+        # Sécurité : Alignement des données sur les modèles chargés
+        expected_features = best_rf_model.feature_names_in_ if hasattr(best_rf_model, "feature_names_in_") else X_train.columns.tolist()
+        X_train = X_train.reindex(columns=expected_features, fill_value=0)
         X_test = X_test.reindex(columns=expected_features, fill_value=0)
-        X_train = X_train.reindex(columns=expected_features, fill_value=0) # Sécurité pour la CV
     else:
-        print("🚀 Aucun modèle trouvé. Lancement du Tuning...")
+        print("\n🔍 2. Aucun modèle trouvé. Lancement de l'optimisation (Tuning)...")
+        # On utilise tes fonctions de tuning qui font le RandomizedSearchCV
         best_rf_model = tune_random_forest(X_train, y_train)
         best_xgb_model = tune_xgboost(X_train, y_train)
         
-        # Sauvegarde immédiate
+        # Sauvegarde des modèles optimisés
         with open(rf_path, "wb") as f:
             pickle.dump(best_rf_model, f)
         with open(xgb_path, "wb") as f:
             pickle.dump(best_xgb_model, f)
-        print("✅ Modèles tunés sauvegardés.")
+        print("✅ Tuning terminé et modèles sauvegardés.")
 
-    # --- ÉTAPE B : ANALYSE DES IMPORTANCES (Hors du else !) ---
-    print("\n📊 ANALYSE DES VARIABLES (Modèles optimisés)")
+    # 3. ANALYSE DES VARIABLES (Feature Importance)
+    print("\n📊 3. Analyse des variables d'influence...")
     
-    # Importance Random Forest
+    # --- GRAPHIQUE 1 : RANDOM FOREST ---
     fi_rf = pd.DataFrame({
         "feature": X_train.columns,
         "importance": best_rf_model.feature_importances_
-    }).sort_values("importance", ascending=False)
+    }).sort_values("importance", ascending=False).head(15)
     
-    plt.figure(figsize=(10, 6))
-    sns.barplot(x="importance", y="feature", data=fi_rf.head(15), palette="viridis")
-    plt.title("Top 15 - Importance RF (Optimisé)")
-    plt.tight_layout()
-    plt.show()
-
-    # Importance XGBoost
     plt.figure(figsize=(10, 8))
-    xgb.plot_importance(best_xgb_model, max_num_features=15, importance_type='weight')
-    plt.title("Top 15 - Importance XGBoost (Optimisé)")
+    sns.barplot(
+        x="importance", 
+        y="feature", 
+        data=fi_rf, 
+        hue="feature", 
+        palette="magma", 
+        legend=False
+    )
+    plt.title("Top 15 Features - Random Forest")
+    plt.tight_layout()
+    plt.show()  # Bloque ici jusqu'à ce que tu fermes la fenêtre
+
+    # --- GRAPHIQUE 2 : XGBOOST ---
+    xgb_importances = best_xgb_model.get_booster().get_score(importance_type='gain')
+    fi_xgb = pd.DataFrame({
+        "feature": list(xgb_importances.keys()),
+        "importance": list(xgb_importances.values())
+    }).sort_values("importance", ascending=False).head(15)
+    
+    plt.figure(figsize=(10, 8))
+    sns.barplot(
+        x="importance", 
+        y="feature", 
+        data=fi_xgb, 
+        hue="feature", 
+        palette="viridis", 
+        legend=False
+    )
+    plt.title("Top 15 Features - XGBoost (Importance par Gain)")
+    plt.xlabel("Gain moyen apporté par la variable")
+    plt.ylabel("Variables")
     plt.tight_layout()
     plt.show()
 
-    # --- ÉTAPE C : ÉVALUATION FINALE ---
-    print("\n🏆 PERFORMANCES DES MODÈLES OPTIMISÉS")
-    # a verif pk les rmse_rf et rmse_xgb sont pas utilisés
-    print("\n🌲 RANDOM FOREST (Paramètres tunés) :")
-    y_pred_rf, rmse_rf, r2_rf, mae_rf = evaluer_modele(best_rf_model, X_test, y_test)
+    # 4. ÉVALUATION FINALE & COMPARAISON
+    print("\n🏆 4. ÉVALUATION DÉTAILLÉE DES MODÈLES")
     
-    print("\n⚡ XGBOOST (Paramètres tunés) :")
-    y_pred_xgb, rmse_xgb, r2_xgb, mae_xgb = evaluer_modele(best_xgb_model, X_test, y_test)
+    # --- RANDOM FOREST ---
+    print("\n" + "="*40)
+    print("🌲 MODÈLE : RANDOM FOREST")
+    print("="*40)
+    # Cette fonction affiche déjà le R2 Train, le R2 CV et le R2 Test
+    res_rf = entrainer_random_forest(best_rf_model, X_train, X_test, y_train, y_test)
+    
+    # --- XGBOOST ---
+    print("\n" + "="*40)
+    print("⚡ MODÈLE : XGBOOST")
+    print("="*40)
+    res_xgb = entrainer_xgboost(best_xgb_model, X_train, X_test, y_train, y_test)
+    
+    print("\n" + "="*40)
+    
+    # 5. RÉSUMÉ COMPARATIF FINAL
+    print("\n🏁 RÉSUMÉ DES PERFORMANCES (R²)")
+    print(f"{'Modèle':<20} | {'CV (Train)':<12} | {'Test Set':<12}")
+    print("-" * 50)
+    print(f"{'Random Forest':<20} | {res_rf['r2']:.4f}     | {res_rf['r2_test']:.4f}")
+    print(f"{'XGBoost':<20} | {res_xgb['r2']:.4f}     | {res_xgb['r2_test']:.4f}")
 
-    # --- ÉTAPE D : SAUVEGARDE DES ERREURS ---
-    enregistrer_erreurs(X_test, y_test, y_pred_rf, "models/erreurs_rf_tuned.xlsx")
-    enregistrer_erreurs(X_test, y_test, y_pred_xgb, "models/erreurs_xgb_tuned.xlsx")
-
-    print("\n✅ Pipeline terminé.")
-    print(f"Meilleur score final : {'XGBoost' if r2_xgb > r2_rf else 'Random Forest'} (R²: {max(r2_rf, r2_xgb):.4f})")
+    # On récupère les scores pour la conclusion finale
+    r2_rf_final = res_rf['r2_test']
+    r2_xgb_final = res_xgb['r2_test']
+    
+    # 5. ENREGISTREMENT DES ERREURS
+    enregistrer_erreurs(X_test, y_test, res_rf['model'].predict(X_test), "models/erreurs_rf_tuned.xlsx")
+    enregistrer_erreurs(X_test, y_test, res_xgb['model'].predict(X_test), "models/erreurs_xgb_tuned.xlsx")
+    
+    # Conclusion
+    meilleur_modele = "XGBoost" if r2_xgb_final > r2_rf_final else "Random Forest"
+    best_score = max(r2_rf_final, r2_xgb_final)
+    
+    print("\n" + "="*50)
+    print(f"✅ PIPELINE TERMINÉ AVEC SUCCÈS")
+    print(f"⭐ MEILLEUR MODÈLE : {meilleur_modele}")
+    print(f"🎯 SCORE R² FINAL : {best_score:.4f}")
+    print("="*50 + "\n")
 
 if __name__ == "__main__":
     main()
