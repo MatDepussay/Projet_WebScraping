@@ -120,36 +120,60 @@ def ajouter_cluster_vehicule(df, n_clusters=5):
 def analyser_clusters(df):
     """
     Analyse statistique et graphique des clusters générés.
+    S'adapte dynamiquement aux colonnes présentes.
     """
     # Conversion pour l'analyse
     data_pd = df.to_pandas() if isinstance(df, pl.DataFrame) else df
 
+    if "cluster_vehicule" not in data_pd.columns:
+        print("⚠️ Erreur : Colonne 'cluster_vehicule' manquante pour l'analyse.")
+        return
+    
     # 1. Statistiques descriptives
-    resume = data_pd.groupby("cluster_vehicule").agg({
+    stats_config = {
         "prix": ["median", "mean"],
         "kilometrage": "median",
         "annee": "median",
-        "puissance_kw": "median"
-    }).round(0)
+        "puissance_kw": "median",
+        "cylindree_l": "median"
+    }
     
+    # On ne garde que les clés présentes dans le DataFrame
+    agg_dict = {k: v for k, v in stats_config.items() if k in data_pd.columns}
+
     print("\n🧠 Profil statistique des clusters :")
-    print(resume)
+    if agg_dict:
+        resume = data_pd.groupby("cluster_vehicule").agg(agg_dict).round(0)
+        print(resume)
+    else:
+        print("Aucune colonne numérique trouvée pour les statistiques.")
 
-    # 2. Visualisation des distributions (Boxplots)
-    cols_a_voir = ["prix", "kilometrage", "annee", "puissance_kw"]
-    fig, axes = plt.subplots(2, 2, figsize=(15, 10))
-    axes = axes.flatten()
-
-    for i, col in enumerate(cols_a_voir):
-        if col in data_pd.columns:
-            sns.boxplot(x="cluster_vehicule", y=col, data=data_pd, ax=axes[i], hue="cluster_vehicule", palette="Set2", legend=False)
-            axes[i].set_title(f"Distribution de {col}")
+    # 2. Visualisation (Boxplots) dynamique
+    cols_a_voir = [c for c in ["prix", "kilometrage", "annee", "puissance_kw"] if c in data_pd.columns]
     
-    plt.tight_layout()
-    plt.show()
+    if cols_a_voir:
+        # Calcul du nombre de lignes/colonnes pour les subplots
+        n_cols = 2
+        n_rows = (len(cols_a_voir) + 1) // 2
+        
+        fig, axes = plt.subplots(n_rows, n_cols, figsize=(15, 5 * n_rows))
+        axes = axes.flatten()
 
-    # 3. Visualisation 2D (PCA)
-    visualiser_pca(data_pd)
+        for i, col in enumerate(cols_a_voir):
+            sns.boxplot(x="cluster_vehicule", y=col, data=data_pd, ax=axes[i], 
+                        hue="cluster_vehicule", palette="Set2", legend=False)
+            axes[i].set_title(f"Distribution de {col}")
+        
+        # Supprimer les axes vides si nombre impair de graphiques
+        for j in range(i + 1, len(axes)):
+            fig.delaxes(axes[j])
+            
+        plt.tight_layout()
+        plt.show()
+
+    # 3. PCA (uniquement si on a assez de colonnes numériques)
+    if len(data_pd.select_dtypes(include=[np.number]).columns) >= 3:
+        visualiser_pca(data_pd)
 
 def visualiser_pca(df_pd):
     """ Projection des clusters en 2D pour vérifier la séparation """
@@ -173,39 +197,57 @@ def visualiser_pca(df_pd):
 
 def trouver_meilleur_k(df, max_k=10):
     from sklearn.cluster import KMeans
-    data_pd = df.to_pandas() if isinstance(df, pl.DataFrame) else df
+    data_pd = df.to_pandas() if isinstance(df, pl.DataFrame) else df.copy()
     
-    # Prétraitement rapide
-    num_features = ["annee", "kilometrage", "puissance_kw", "prix", "cylindree_l"]
-    X = StandardScaler().fit_transform(data_pd[num_features].dropna())
+    # Liste des features idéales
+    cibles = ["annee", "kilometrage", "puissance_kw", "prix", "cylindree_l"]
+    # On ne garde que celles qui existent vraiment dans le DF
+    num_features = [c for c in cibles if c in data_pd.columns]
     
-    # inerties
+    if len(num_features) < 2:
+        print("⚠️ Pas assez de colonnes numériques pour le clustering.")
+        return [], []
+
+    # Prétraitement : on drop les lignes avec des NaN uniquement sur ces colonnes
+    data_clean = data_pd[num_features].dropna()
+    
+    if len(data_clean) < max_k:
+        print(f"⚠️ Trop peu de données ({len(data_clean)}) pour max_k={max_k}.")
+        max_k = max(2, len(data_clean) - 1)
+
+    X = StandardScaler().fit_transform(data_clean)
+    
+    # 1. Calcul des inerties (Elbow)
     inertias = []
-    for k in range(1, max_k + 1):
+    ks_elbow = range(1, max_k + 1)
+    for k in ks_elbow:
         km = KMeans(n_clusters=k, random_state=42, n_init=10)
         km.fit(X)
         inertias.append(km.inertia_)
     
-    # Graphique des inerties
-    plt.plot(range(1, max_k + 1), inertias, 'go-')
+    plt.figure(figsize=(8, 4))
+    plt.plot(ks_elbow, inertias, 'go-')
     plt.title("Méthode du Coude (Elbow)")
     plt.xlabel("Nombre de clusters")
     plt.ylabel("Inertie")
     plt.show()
     
-    # silhouette
+    # 2. Calcul des silhouettes
     silhouettes = []
-    for k in range(2, max_k + 1): # Silhouette commence à 2
+    ks_sil = range(2, max_k + 1)
+    for k in ks_sil:
         km = KMeans(n_clusters=k, random_state=42, n_init=10)
         km.fit(X)
-        inertias.append(km.inertia_)
         silhouettes.append(silhouette_score(X, km.labels_))
     
-    # Graphique de la Silhouette
-    plt.figure(figsize=(10, 4))
-    plt.plot(range(2, max_k + 1), silhouettes, 'bo-')
-    plt.title("Score de Silhouette (plus c'est haut, mieux c'est)")
+    plt.figure(figsize=(8, 4))
+    plt.plot(ks_sil, silhouettes, 'bo-')
+    plt.title("Score de Silhouette")
+    plt.xlabel("Nombre de clusters")
+    plt.ylabel("Score")
     plt.show()
+
+    return inertias, silhouettes
 
 # =========================
 # CHARGEMENT & PRÉPARATION
@@ -252,6 +294,10 @@ def charger_et_preparer_donnees(fichier="data/processed/autoscout_clean_ml.json"
 
     X_train, X_test = X_train.align(X_test, join="left", axis=1, fill_value=0) # à vérifier
 
+    # Vérification de sécurité
+    if not any("cluster_vehicule" in col for col in X_train.columns):
+        raise ValueError("🚨 Erreur critique : la colonne cluster_vehicule a disparu lors de l'encodage !")
+    
     # Cherche n'importe quelle colonne qui commence par "cluster_vehicule"
     assert any("cluster_vehicule" in col for col in X_train.columns)
 
@@ -273,6 +319,7 @@ def evaluer_modele(model, X_test, y_test):
 def cross_validation_model(model, X_train, y_train, cv=5):
     scores = cross_val_score(model, X_train, y_train, scoring="r2", cv=cv, n_jobs=-1)
     print(f"🔁 CV R²: {scores.mean():.4f} ± {scores.std():.4f}")
+    return scores
 
 
 def enregistrer_erreurs(X_test, y_test, y_pred, fichier):
