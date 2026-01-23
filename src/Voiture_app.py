@@ -911,7 +911,16 @@ def afficher_selection_voitures():
                 )
         
         else:  # Affichage en carte
-            for idx, voiture in enumerate(data_affichage, 1):
+            # Trier les données par différence de prix (croissant)
+            if predictions_disponibles:
+                data_affichage_sorted = sorted(
+                    data_affichage,
+                    key=lambda x: x.get((prix_predit-prix_reel), 0)
+                )
+            else:
+                data_affichage_sorted = sorted(data_affichage, key=lambda x: x.get('marque', ''))
+            
+            for idx, voiture in enumerate(data_affichage_sorted, 1):
                 # Construire l'en-tête avec la catégorie si disponible
                 header = f"🚗 {voiture.get('marque')} {voiture.get('modele')} - {voiture.get('prix', 'N/A')}€"
                 if predictions_disponibles and "categorie_prix" in voiture:
