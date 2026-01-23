@@ -6,24 +6,9 @@ import os
 import matplotlib.pyplot as plt
 import warnings
 warnings.filterwarnings("ignore", category=PendingDeprecationWarning)
-from src.MachineLearning import (ajouter_cluster_vehicule,
-                                 evaluer_modele, analyser_clusters,
-                                 trouver_meilleur_k, 
-                                 charger_et_preparer_donnees, 
-                                 cross_validation_model,
-                                 enregistrer_erreurs,
-                                 tune_random_forest,
-                                 entrainer_random_forest,
-                                 tune_xgboost,
-                                 entrainer_xgboost,
-                                 main)
-from sklearn.dummy import DummyRegressor
-from sklearn.linear_model import LinearRegression
-from unittest.mock import MagicMock, patch
-from sklearn.ensemble import RandomForestRegressor
-import xgboost as xgb
 
 def test_ajouter_cluster_vehicule():
+    from src.MachineLearning import ajouter_cluster_vehicule
     # Création d'un mini-dataframe de test
     df_test = pd.DataFrame({
         "annee": [2020, 2015, 2010, 2022],
@@ -58,6 +43,7 @@ def sample_data():
 
 def test_analyser_clusters_pandas(sample_data, monkeypatch):
     """Vérifie que la fonction s'exécute sans erreur avec Pandas"""
+    from src.MachineLearning import analyser_clusters
     # monkeypatch permet d'empêcher l'ouverture des fenêtres de graphiques pendant le test
     monkeypatch.setattr(plt, 'show', lambda: None)
     
@@ -68,6 +54,7 @@ def test_analyser_clusters_pandas(sample_data, monkeypatch):
 
 def test_analyser_clusters_polars(sample_data, monkeypatch):
     """Vérifie la compatibilité avec Polars"""
+    from src.MachineLearning import analyser_clusters
     monkeypatch.setattr(plt, 'show', lambda: None)
     df_pl = pl.from_pandas(sample_data)
     
@@ -78,6 +65,7 @@ def test_analyser_clusters_polars(sample_data, monkeypatch):
 
 def test_analyser_clusters_missing_column(sample_data, monkeypatch):
     """Vérifie que la fonction gère l'absence d'une colonne optionnelle"""
+    from src.MachineLearning import analyser_clusters
     monkeypatch.setattr(plt, 'show', lambda: None)
     # On supprime 'puissance_kw' qui est dans cols_a_voir
     df_incomplete = sample_data.drop(columns=["puissance_kw"])
@@ -90,6 +78,7 @@ def test_analyser_clusters_missing_column(sample_data, monkeypatch):
 
 def test_trouver_meilleur_k_logic(sample_data, monkeypatch):
     """Vérifie que la fonction calcule les bonnes longueurs de scores"""
+    from src.MachineLearning import trouver_meilleur_k
     # On empêche l'affichage des graphiques
     monkeypatch.setattr(plt, 'show', lambda: None)
     
@@ -106,6 +95,7 @@ def test_trouver_meilleur_k_logic(sample_data, monkeypatch):
 
 def test_trouver_meilleur_k_min_data(monkeypatch):
     """Vérifie que la fonction gère un dataset très petit"""
+    from src.MachineLearning import trouver_meilleur_k
     monkeypatch.setattr(plt, 'show', lambda: None)
     
     # Dataset minimal avec 4 lignes (nécessaire pour k=3)
@@ -123,10 +113,13 @@ def test_trouver_meilleur_k_min_data(monkeypatch):
         pytest.fail(f"La fonction a planté sur un petit dataset : {e}")
 
 def test_colonnes_identiques():
+    from src.MachineLearning import charger_et_preparer_donnees
     X_train, X_test, _, _ = charger_et_preparer_donnees()
     assert list(X_train.columns) == list(X_test.columns)
 
 def test_evaluer_modele():
+    from sklearn.dummy import DummyRegressor
+    from src.MachineLearning import evaluer_modele
     X = np.array([[1], [2], [3]])
     y_true = np.array([10, 20, 30])
     
@@ -142,6 +135,8 @@ def test_evaluer_modele():
 
 def test_cross_validation_logic():
     """Vérifie que la CV retourne le bon nombre de folds et des scores valides"""
+    from sklearn.linear_model import LinearRegression
+    from src.MachineLearning import cross_validation_model
     # Création d'un dataset synthétique
     X = np.random.rand(100, 5)
     y = np.random.rand(100)
@@ -161,6 +156,8 @@ def test_cross_validation_logic():
 
 def test_cross_validation_empty_data():
     """Vérifie que la fonction lève une erreur si les données sont vides"""
+    from sklearn.linear_model import LinearRegression
+    from src.MachineLearning import cross_validation_model
     model = LinearRegression()
     X = np.array([]).reshape(0, 5)
     y = np.array([])
@@ -170,6 +167,7 @@ def test_cross_validation_empty_data():
 
 def test_enregistrer_erreurs_calculs(tmp_path):
     """Vérifie que les colonnes d'erreurs et le diagnostic sont mathématiquement corrects"""
+    from src.MachineLearning import enregistrer_erreurs
     # 1. Préparation des données de test
     X_test = pd.DataFrame({
         "kilometrage": [100, 200],
@@ -205,6 +203,7 @@ def test_enregistrer_erreurs_calculs(tmp_path):
 
 def test_enregistrer_erreurs_format_excel(tmp_path):
     """Vérifie que le format Excel est bien géré"""
+    from src.MachineLearning import enregistrer_erreurs
     X_test = pd.DataFrame({"km": [100]})
     y_test = pd.Series([10000])
     y_pred = np.array([10000])
@@ -220,6 +219,9 @@ def test_enregistrer_erreurs_format_excel(tmp_path):
 
 def test_tune_random_forest_logic(sample_data):
     """Vérifie que la fonction de tuning appelle bien RandomizedSearchCV"""
+    from sklearn.ensemble import RandomForestRegressor
+    from unittest.mock import patch
+    from src.MachineLearning import tune_random_forest
     # 1. Préparation des mini-données
     X = sample_data.drop(columns=["prix", "cluster_vehicule"])
     X = pd.get_dummies(X)
@@ -243,6 +245,8 @@ def test_tune_random_forest_logic(sample_data):
 
 def test_entrainer_random_forest_full(sample_data, tmp_path):
     """Vérifie le cycle complet d'entraînement et le dictionnaire de retour"""
+    from unittest.mock import MagicMock, patch
+    from src.MachineLearning import entrainer_random_forest
     # 1. Setup des données
     X = sample_data.drop(columns=["prix", "cluster_vehicule"])
     X = pd.get_dummies(X)
@@ -275,6 +279,9 @@ def test_entrainer_random_forest_full(sample_data, tmp_path):
 
 def test_tune_xgboost_logic(sample_data):
     """Vérifie le tuning XGBoost sans calcul réel"""
+    from unittest.mock import MagicMock, patch
+    import xgboost as xgb
+    from src.MachineLearning import tune_xgboost
     X = pd.get_dummies(sample_data.drop(columns=["prix", "cluster_vehicule"]))
     y = sample_data["prix"]
 
@@ -291,6 +298,8 @@ def test_tune_xgboost_logic(sample_data):
 
 def test_entrainer_xgboost_full(sample_data):
     """Vérifie le cycle complet XGBoost"""
+    from unittest.mock import MagicMock, patch
+    from src.MachineLearning import entrainer_xgboost
     X = pd.get_dummies(sample_data.drop(columns=["prix", "cluster_vehicule"]))
     y = sample_data["prix"]
     
@@ -313,10 +322,12 @@ def test_entrainer_xgboost_full(sample_data):
         assert result['r2'] == 0.86 # Moyenne de mock_cv
         assert result['r2_train'] == 0.92
         assert mock_pickle_dump.called
+        assert mock_err.called
 
 def test_main_pipeline_flow(monkeypatch, tmp_path):
     """Vérifie que le main s'exécute sans erreur en simulant les dépendances"""
-    
+    from unittest.mock import MagicMock, patch
+    from src.MachineLearning import main
     # 1. On détourne la création de dossier
     monkeypatch.setattr("os.makedirs", lambda x, exist_ok: None)
     

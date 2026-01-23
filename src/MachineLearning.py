@@ -625,7 +625,7 @@ def main():
     best_score = max(r2_rf_final, r2_xgb_final)
     
     print("\n" + "="*50)
-    print(f"✅ PIPELINE TERMINÉ AVEC SUCCÈS")
+    print("✅ PIPELINE TERMINÉ AVEC SUCCÈS")
     print(f"⭐ MEILLEUR MODÈLE : {meilleur_modele}")
     print(f"🎯 SCORE R² FINAL : {best_score:.4f}")
     print("="*50 + "\n")
