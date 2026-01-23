@@ -207,7 +207,7 @@ def charger_et_preparer_donnees(fichier="data/processed/autoscout_clean_ml.json"
 
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=0.2, random_state=42
-    )
+    )#test_size a verif pour que ce soit l'input de l'app (0.2 par defaut)
 
     X_train = pd.get_dummies(X_train, columns=categorical_cols)
     X_test = pd.get_dummies(X_test, columns=categorical_cols)
@@ -265,14 +265,14 @@ def tune_random_forest(X_train, y_train):
     # n_iter=10 teste 10 combinaisons au hasard
     search = RandomizedSearchCV(
         rf, param_distributions=param_dist, 
-        n_iter=10, cv=3, scoring='r2', verbose=1, random_state=42, n_jobs=-1
+        n_iter=10, cv=5, scoring='r2', verbose=1, random_state=42, n_jobs=-1
     )
-    
+    #scoring( 'r2' a passer en input metrique app) voir si il existe d'autre façons de scoring
     search.fit(X_train, y_train)
     print(f"✅ Meilleurs paramètres RF: {search.best_params_}")
     return search.best_estimator_
 
-def entrainer_random_forest(X_train, X_test, y_train, y_test):
+def entrainer_random_forest(X_train, X_test, y_train, y_test): #casser pas les couilles faut prendre ce qu'on tune
     print("\n🌲 RANDOM FOREST")
     model = RandomForestRegressor(
         n_estimators=200,
@@ -302,7 +302,7 @@ def entrainer_random_forest(X_train, X_test, y_train, y_test):
     return {
         'model': model,
         'rmse': rmse,
-        'r2': r2,
+        'r2': r2, #a verif prendre le R2 de cross validation et pas celui d'evaluation
         'mae': mae,
         'feature_importance': fi
     }
@@ -323,14 +323,14 @@ def tune_xgboost(X_train, y_train):
     
     search = RandomizedSearchCV(
         xgb_model, param_distributions=param_dist, 
-        n_iter=10, cv=3, scoring='r2', verbose=1, random_state=42, n_jobs=-1
-    )
+        n_iter=10, cv=5, scoring='r2', verbose=1, random_state=42, n_jobs=-1
+    ) #scoring comme pour RF passer a l'imput app
     
     search.fit(X_train, y_train)
     print(f"✅ Meilleurs paramètres XGB: {search.best_params_}")
     return search.best_estimator_
 
-def entrainer_xgboost(X_train, X_test, y_train, y_test):
+def entrainer_xgboost(X_train, X_test, y_train, y_test): 
     print("\n⚡ XGBOOST")
     model = xgb.XGBRegressor(
         n_estimators=200,
@@ -360,7 +360,7 @@ def entrainer_xgboost(X_train, X_test, y_train, y_test):
     return {
         'model': model,
         'rmse': rmse,
-        'r2': r2,
+        'r2': r2, #a verif prendre le R2 de cross validation et pas celui d'evaluation
         'mae': mae,
         'feature_importance': fi
     }
@@ -388,7 +388,7 @@ def main():
         
     print(f"📈 Dataset prêt: {X_train.shape[0]} train / {X_test.shape[0]} test")
 
-    # 2. CHARGEMENT ou TUNING
+    # 2. CHARGEMENT ou TUNING (A revoir car conflits OneHotEncoder et get dummies)
     if os.path.exists(rf_path) and os.path.exists(xgb_path):
         print("♻️  Modèles optimisés trouvés. Chargement en cours...")
         with open(rf_path, "rb") as f:
@@ -438,7 +438,7 @@ def main():
 
     # --- ÉTAPE C : ÉVALUATION FINALE ---
     print("\n🏆 PERFORMANCES DES MODÈLES OPTIMISÉS")
-    
+    # a verif pk les rmse_rf et rmse_xgb sont pas utilisés
     print("\n🌲 RANDOM FOREST (Paramètres tunés) :")
     y_pred_rf, rmse_rf, r2_rf, mae_rf = evaluer_modele(best_rf_model, X_test, y_test)
     
