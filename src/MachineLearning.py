@@ -154,7 +154,7 @@ def trouver_meilleur_k(df, max_k=10):
     data_pd = df.to_pandas() if isinstance(df, pl.DataFrame) else df
     
     # Prétraitement rapide
-    num_features = ["annee", "kilometrage", "puissance_kw", "prix"]
+    num_features = ["annee", "kilometrage", "puissance_kw", "prix", "cylindree_l"]
     X = StandardScaler().fit_transform(data_pd[num_features].dropna())
     
     inertias = []
@@ -179,10 +179,10 @@ def charger_et_preparer_donnees(fichier="data/processed/autoscout_clean_ml.json"
         print(f"❌ Erreur lors du chargement : {e}")
         return None, None, None, None
 
-    if "modele_identifie" in df.columns:
+    if "modele_identifie" in df.columns: #modele_identifié supp dans cleaning
         df = df[df["modele_identifie"]]
 
-    df = df.dropna(subset=["prix"])
+    df = df.dropna(subset=["prix"]) #pour être sûr
 
     # 🔹 1. Clustering
     df = ajouter_cluster_vehicule(df, n_clusters=5)
@@ -212,7 +212,7 @@ def charger_et_preparer_donnees(fichier="data/processed/autoscout_clean_ml.json"
     X_train = pd.get_dummies(X_train, columns=categorical_cols)
     X_test = pd.get_dummies(X_test, columns=categorical_cols)
 
-    X_train, X_test = X_train.align(X_test, join="left", axis=1, fill_value=0)
+    X_train, X_test = X_train.align(X_test, join="left", axis=1, fill_value=0) # à vérifier
 
     # Cherche n'importe quelle colonne qui commence par "cluster_vehicule"
     assert any("cluster_vehicule" in col for col in X_train.columns)
@@ -265,14 +265,14 @@ def tune_random_forest(X_train, y_train):
     # n_iter=10 teste 10 combinaisons au hasard
     search = RandomizedSearchCV(
         rf, param_distributions=param_dist, 
-        n_iter=10, cv=3, scoring='r2', verbose=1, random_state=42, n_jobs=-1
+        n_iter=10, cv=5, scoring='r2', verbose=1, random_state=42, n_jobs=-1
     )
     
     search.fit(X_train, y_train)
     print(f"✅ Meilleurs paramètres RF: {search.best_params_}")
     return search.best_estimator_
 
-def entrainer_random_forest(X_train, X_test, y_train, y_test):
+def entrainer_random_forest(X_train, X_test, y_train, y_test): 
     print("\n🌲 RANDOM FOREST")
     model = RandomForestRegressor(
         n_estimators=200,
@@ -302,7 +302,7 @@ def entrainer_random_forest(X_train, X_test, y_train, y_test):
     return {
         'model': model,
         'rmse': rmse,
-        'r2': r2,
+        'r2': r2, # prendre le r^2 de la cross validation
         'mae': mae,
         'feature_importance': fi
     }
@@ -323,14 +323,14 @@ def tune_xgboost(X_train, y_train):
     
     search = RandomizedSearchCV(
         xgb_model, param_distributions=param_dist, 
-        n_iter=10, cv=3, scoring='r2', verbose=1, random_state=42, n_jobs=-1
+        n_iter=10, cv=5, scoring='r2', verbose=1, random_state=42, n_jobs=-1
     )
     
     search.fit(X_train, y_train)
     print(f"✅ Meilleurs paramètres XGB: {search.best_params_}")
     return search.best_estimator_
 
-def entrainer_xgboost(X_train, X_test, y_train, y_test):
+def entrainer_xgboost(X_train, X_test, y_train, y_test): # prendre les paramétres tune
     print("\n⚡ XGBOOST")
     model = xgb.XGBRegressor(
         n_estimators=200,
