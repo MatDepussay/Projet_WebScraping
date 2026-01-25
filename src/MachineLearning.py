@@ -1,4 +1,25 @@
 # /// script
+#    """
+#       📑 Documentation : Pipeline de Machine Learning (Prix AutoScout24)
+#       Ce script est le "cerveau" du projet. Il analyse les données de voitures d'occasion pour apprendre à prédire leur prix de vente.
+#
+#       🎯 Objectif
+#       Transformer une base de données brute en un modèle capable d'estimer le prix d'un véhicule en fonction de ses caractéristiques (marque, kilométrage, puissance, etc.).
+#
+#       🛠️ Les 5 Étapes du Script
+#           1. Préparation et Clustering (Nettoyage final, Segmentation, Encodage)
+#           2. Tuning (Optimisation de Random Forest et XGBoost)
+#           3. Analyse d'Importance (Graphique)
+#           4. Évaluation et Comparaison (R², CV)
+#           5. Export des Résultats (sauvegarde des modèles .pkl + fichiers Excel des erreurs)
+#        
+#       📦 Sorties du Script (Dossier /models)
+#           - cluster_full_pipeline.pkl : Contient l'imputeur, le scaler et le modèle de clustering pour transformer les futures saisies utilisateur.
+#           - best_rf_final.pkl	: Le modèle Random Forest entraîné.
+#           - best_xgb_final.pkl : Le modèle XGBoost entraîné.
+#           - model_features.pkl : La liste exacte des colonnes (indispensable pour l'App Streamlit).
+#           - erreurs_rf_tuned.xlsx	: Liste des voitures où le modèle s'est trompé.
+#    """
 # requires-python = ">=3.12"
 # dependencies = [
 #     "polars",
@@ -42,8 +63,40 @@ from sklearn.impute import IterativeImputer, SimpleImputer
 # =========================
 def ajouter_cluster_vehicule(df, n_clusters=5):
     """
-    Crée un clustering robuste en utilisant un Pipeline Scikit-Learn.
-    Supporte Polars et Pandas.
+    Crée un clustering robuste des annonces via un Pipeline Scikit-Learn complet.
+    
+    Cette fonction automatise le prétraitement des données (imputation et mise à l'échelle) 
+    et l'application de l'algorithme K-Means. Elle gère intelligemment les données 
+    manquantes pour éviter de perdre des lignes précieuses.
+    
+    Logique d'Imputation :
+    --------------------
+    - Numérique (IterativeImputer) : Contrairement à une imputation simple par la 
+      moyenne, l'imputation itérative modélise chaque colonne avec des valeurs 
+      manquantes en fonction des autres colonnes. Elle "prédit" par exemple la 
+      'cylindree_l' en exploitant ses corrélations avec 'puissance_kw' et 'annee'.
+    - Catégoriel (SimpleImputer) : Remplace les valeurs manquantes par la valeur 
+      la plus fréquente (mode) du dataset.
+    
+    Parameters:
+    -----------
+    df : polars.DataFrame or pandas.DataFrame
+        Le dataset contenant les annonces automobiles nettoyées.
+    n_clusters : int, default=5
+        Le nombre de groupes (segments de marché) à créer.
+    
+    Workflow du Pipeline :
+    ---------------------
+    1. Prétraitement Numérique : Imputation itérative + Standardisation (Z-score).
+    2. Prétraitement Catégoriel : Imputation par mode + One-Hot Encoding.
+    3. Clustering : Application de K-Means sur les données transformées.
+    4. Persistance : Sauvegarde du pipeline complet (incluant scaler et imputer) 
+       pour une utilisation future en production.
+    
+    Returns:
+    --------
+    df : polars.DataFrame or pandas.DataFrame
+        Le DataFrame original enrichi d'une colonne 'cluster_vehicule'.
     """
     print(f"🔍 Clustering des véhicules ({n_clusters} clusters)...")
     
@@ -97,19 +150,19 @@ def ajouter_cluster_vehicule(df, n_clusters=5):
     print("\n📊 Répartition des clusters :")
     print(df['cluster_vehicule'].value_counts())
     
-    # --- Analyse du Cluster 3 ---
+    # --- Analyse du Cluster 4 ---
 
-    cluster_3_cars = data_pd[data_pd["cluster_vehicule"] == 4]
+    cluster_4_cars = data_pd[data_pd["cluster_vehicule"] == 4]
     print("\n🔍 Détail des voitures du Cluster 4 (les 6 premières) :")
     
     # Sécurité : on vérifie si des voitures existent dans ce cluster
-    if not cluster_3_cars.empty:
+    if not cluster_4_cars.empty:
         cols_affichage = ["marque", "modele", "prix", "kilometrage", "annee", "puissance_kw"]
         # On ne garde que les colonnes présentes pour éviter une nouvelle KeyError
-        cols_presentes = [c for c in cols_affichage if c in cluster_3_cars.columns]
-        print(cluster_3_cars[cols_presentes].head(6))
+        cols_presentes = [c for c in cols_affichage if c in cluster_4_cars.columns]
+        print(cluster_4_cars[cols_presentes].head(6))
     else:
-        print("Aucun véhicule trouvé dans le cluster 3.")
+        print("Aucun véhicule trouvé dans le cluster 4.")
     
     print("✅ Clustering terminé et pipeline sauvegardé.")
     return df
@@ -119,8 +172,17 @@ def ajouter_cluster_vehicule(df, n_clusters=5):
 # =========================
 def analyser_clusters(df):
     """
-    Analyse statistique et graphique des clusters générés.
-    S'adapte dynamiquement aux colonnes présentes.
+    Génère un profil complet des segments de marché identifiés.
+    
+    Cette fonction réalise une analyse à trois niveaux :
+    1. Statistique : Calcule les médianes par cluster pour identifier les segments 
+       (ex: cluster "Haut de gamme", cluster "Petit budget/Fort kilométrage").
+    2. Distribution : Génère des boxplots pour visualiser la dispersion et les 
+       valeurs aberrantes au sein de chaque groupe.
+    3. Structurelle : Appelle la PCA pour valider visuellement la cohérence du clustering.
+
+    Args:
+        df (pl.DataFrame|pd.DataFrame): Données incluant la colonne 'cluster_vehicule'.
     """
     # Conversion pour l'analyse
     data_pd = df.to_pandas() if isinstance(df, pl.DataFrame) else df
@@ -176,7 +238,20 @@ def analyser_clusters(df):
         visualiser_pca(data_pd)
 
 def visualiser_pca(df_pd):
-    """ Projection des clusters en 2D pour vérifier la séparation """
+    """
+    Projette le dataset multidimensionnel en 2D pour valider la séparation des clusters.
+    
+    Logique technique :
+    - Récupère le pipeline d'origine pour appliquer exactement le même prétraitement 
+      (Imputation + Scaling) que lors de l'entraînement.
+    - Utilise l'Analyse en Composantes Principales (PCA) pour réduire les features 
+      (prix, puissance, année...) en deux axes synthétiques.
+    - Permet de détecter visuellement si les clusters se chevauchent ou s'ils 
+      sont bien distincts dans l'espace latent.
+
+    Args:
+        df_pd (pd.DataFrame): Données au format Pandas pour compatibilité Scikit-Learn.
+    """
     try:
         # On recharge le pipeline pour transformer les données
         with open("models/cluster_full_pipeline.pkl", "rb") as f:
@@ -196,7 +271,41 @@ def visualiser_pca(df_pd):
         print(f"Impossible de générer la PCA : {e}")
 
 def trouver_meilleur_k(df, max_k=10):
-    from sklearn.cluster import KMeans
+    """
+    Optimise le paramètre K (nombre de clusters) via les méthodes du Coude et de la Silhouette.
+
+    Cette fonction aide à déterminer le partitionnement le plus naturel des données en 
+    analysant deux métriques complémentaires sur une plage de valeurs de K :
+
+    1. Méthode du Coude (Elbow) :
+       - Mesure l'inertie intra-classe (somme des carrés des distances au centroïde).
+       - Objectif : Identifier le point d'inflexion ("le coude") où l'ajout d'un 
+         cluster supplémentaire ne réduit plus l'inertie de manière significative.
+
+    2. Score de Silhouette :
+       - Mesure à quel point un objet est similaire à son propre cluster par rapport 
+         aux autres clusters (entre -1 et 1).
+       - Objectif : Un score élevé indique que les véhicules sont bien classés dans 
+         leur groupe et loin des groupes voisins.
+
+    Parameters:
+    -----------
+    df : polars.DataFrame or pandas.DataFrame
+        Le dataset contenant les caractéristiques techniques des véhicules.
+    max_k : int, default=10
+        Le nombre maximum de clusters à tester.
+
+    Workflow :
+    ----------
+    - Extraction automatique des features numériques disponibles (prix, km, etc.).
+    - Standardisation des données pour assurer une contribution équitable de chaque variable.
+    - Génération de graphiques décisionnels pour guider le choix de l'utilisateur.
+
+    Returns:
+    --------
+    tuple (list, list) :
+        Une liste des inerties et une liste des scores de silhouette pour chaque K testé.
+    """
     data_pd = df.to_pandas() if isinstance(df, pl.DataFrame) else df.copy()
     
     # Liste des features idéales
@@ -253,6 +362,23 @@ def trouver_meilleur_k(df, max_k=10):
 # CHARGEMENT & PRÉPARATION
 # =========================
 def charger_et_preparer_donnees(fichier="data/processed/autoscout_clean_ml.json"):
+    """
+    Transforme les données nettoyées en matrices de features (X) et cible (y) pour le ML.
+
+    Cette fonction orchestre le passage des données brutes vers un format numérique :
+    1. Enrichissement : Intègre le clustering comme une nouvelle feature prédictive.
+    2. Filtrage : Écarte les variables à haute cardinalité (ville, CP) qui pourraient 
+       causer du surapprentissage (overfitting).
+    3. Encodage (Dummy Coding) : Convertit les variables textuelles en colonnes binaires.
+    4. Alignement : Garantit que l'ensemble de test possède exactement les mêmes 
+       colonnes que l'ensemble d'entraînement, même si certaines catégories y sont absentes.
+
+    Args:
+        fichier (str): Chemin vers le fichier JSON traité.
+
+    Returns:
+        tuple: (X_train, X_test, y_train, y_test) sous forme de DataFrames/Series Pandas.
+    """
     try:
         df = pl.read_json(fichier).to_pandas()
     except Exception as e:
@@ -308,6 +434,23 @@ def charger_et_preparer_donnees(fichier="data/processed/autoscout_clean_ml.json"
 # ÉVALUATION
 # =========================
 def evaluer_modele(model, X_test, y_test):
+    """
+    Évalue la performance du modèle de régression sur l'ensemble de test.
+
+    Cette fonction calcule et affiche les trois métriques fondamentales pour la 
+    prédiction de prix :
+    1. RMSE (Root Mean Square Error)
+    2. R² (Coefficient de détermination)
+    3. MAE (Mean Absolute Error)
+
+    Args:
+        model: Le modèle entraîné (RandomForest, XGBoost, etc.).
+        X_test (pd.DataFrame): Les caractéristiques de l'ensemble de test.
+        y_test (pd.Series): Les prix réels correspondants.
+
+    Returns:
+        tuple: (y_pred, rmse, r2, mae) pour analyse ultérieure ou visualisation.
+    """
     y_pred = model.predict(X_test)
     rmse_test = np.sqrt(mean_squared_error(y_test, y_pred))
     r2_test = r2_score(y_test, y_pred)
@@ -317,12 +460,36 @@ def evaluer_modele(model, X_test, y_test):
 
 
 def cross_validation_model(model, X_train, y_train, cv=5):
+    """
+    Évalue la stabilité et la capacité de généralisation du modèle via une validation croisée.
+
+    Args:
+        model: L'estimateur scikit-learn à évaluer.
+        X_train (pd.DataFrame): Matrice des caractéristiques d'entraînement.
+        y_train (pd.Series): Vecteur de la variable cible (prix).
+        cv (int): Nombre de segments (folds). Par défaut 5.
+
+    Returns:
+        np.array: Liste des scores R² obtenus pour chaque segment.
+    """
     scores = cross_val_score(model, X_train, y_train, scoring="r2", cv=cv, n_jobs=-1)
     print(f"🔁 CV R²: {scores.mean():.4f} ± {scores.std():.4f}")
     return scores
 
 
 def enregistrer_erreurs(X_test, y_test, y_pred, fichier):
+    """
+    Génère un rapport détaillé des erreurs de prédiction pour analyse post-mortem.
+
+    Cette fonction crée un fichier (Excel ou CSV) permettant d'identifier les cas 
+    spécifiques où le modèle échoue. 
+
+    Args:
+        X_test (pd.DataFrame): Caractéristiques des véhicules de test.
+        y_test (pd.Series): Prix réels.
+        y_pred (np.array): Prix prédits par le modèle.
+        fichier (str): Chemin de destination (ex: 'data/errors/debug_cars.xlsx').
+    """
     # 1. On ne garde que les colonnes numériques "réelles" pour que l'Excel soit lisible
     # On exclut les colonnes de type dummies
     cols_lisibles = [c for c in X_test.columns if '_' not in c]
@@ -356,6 +523,28 @@ def enregistrer_erreurs(X_test, y_test, y_pred, fichier):
 # MODÈLES
 # =========================
 def tune_random_forest(X_train, y_train):
+    """
+    Optimise les réglages du RandomForest via une recherche aléatoire (Randomized Search).
+
+    Au lieu de tester toutes les combinaisons possibles (GridSearch), cette fonction 
+    explore intelligemment l'espace des hyperparamètres pour trouver le meilleur 
+    compromis entre précision et temps de calcul.
+
+    Paramètres clés optimisés :
+    -------------------------
+    - n_estimators
+    - max_depth
+    - min_samples_split
+    - min_samples_leaf
+    - max_features
+
+    Args:
+        X_train (pd.DataFrame): Données d'entraînement encodées.
+        y_train (pd.Series): Prix cibles.
+
+    Returns:
+        model: Le meilleur estimateur RandomForest trouvé lors de la recherche.
+    """
     print("\n🔍 Tuning Hyperparamètres : RANDOM FOREST")
     
     param_dist = {
@@ -378,7 +567,31 @@ def tune_random_forest(X_train, y_train):
     print(f"✅ Meilleurs paramètres RF: {search.best_params_}")
     return search.best_estimator_
 
-def entrainer_random_forest(model_tune, X_train, X_test, y_train, y_test): #casser pas les couilles faut prendre ce qu'on tune
+def entrainer_random_forest(model_tune, X_train, X_test, y_train, y_test):
+    """
+    Finalise l'entraînement du modèle Random Forest et archive les résultats.
+
+    Cette fonction prend le meilleur estimateur issu du tuning et réalise 
+    un cycle complet de validation pour garantir la fiabilité des prédictions.
+
+    Points clés du workflow :
+    ------------------------
+    1. Comparaison Train vs Test : Calcule le R² sur les deux sets pour détecter 
+       un éventuel surapprentissage (si R² Train >>> R² Test).
+    2. Validation Croisée : Confirme la stabilité du modèle sur 5 découpages différents.
+    3. Analyse d'Importance : Identifie les variables qui influencent le plus le prix 
+       (ex: l'année vs le kilométrage).
+    4. Persistance : Sauvegarde le modèle au format .pkl pour l'application web.
+    5. Debugging : Génère un rapport d'erreurs Excel pour l'analyse humaine.
+
+    Args:
+        model_tune: Le modèle RandomForest avec ses hyperparamètres déjà optimisés.
+        X_train, X_test: Matrices de caractéristiques (features).
+        y_train, y_test: Vecteurs cibles (prix).
+
+    Returns:
+        dict: Un dictionnaire complet contenant le modèle, les métriques et l'importance des variables.
+    """
     print("\n🌲 RANDOM FOREST")
     model = model_tune
     model.fit(X_train, y_train) #Optionnel
@@ -422,6 +635,29 @@ def entrainer_random_forest(model_tune, X_train, X_test, y_train, y_test): #cass
     }
 
 def tune_xgboost(X_train, y_train):
+    """
+    Optimise les hyperparamètres du modèle XGBoost via une recherche aléatoire.
+
+    Le XGBoost est un algorithme puissant mais sensible au réglage de ses paramètres. 
+    Cette fonction cherche l'équilibre optimal entre vitesse d'apprentissage et 
+    capacité de généralisation.
+
+    Paramètres clés optimisés :
+    -------------------------
+    - n_estimators
+    - max_depth
+    - learning_rate
+    - subsample
+    - colsample_bytree
+    - gamma
+
+    Args:
+        X_train (pd.DataFrame): Données d'entraînement encodées.
+        y_train (pd.Series): Prix cibles.
+
+    Returns:
+        model: Le meilleur estimateur XGBRegressor trouvé.
+    """
     print("\n🔍 Tuning Hyperparamètres : XGBOOST")
     
     param_dist = {
@@ -444,7 +680,27 @@ def tune_xgboost(X_train, y_train):
     print(f"✅ Meilleurs paramètres XGB: {search.best_params_}")
     return search.best_estimator_
 
-def entrainer_xgboost(model_tune,X_train, X_test, y_train, y_test): # prendre les paramétres tune
+def entrainer_xgboost(model_tune,X_train, X_test, y_train, y_test):
+    """
+    Exécute l'entraînement final du modèle XGBoost et génère le bilan de performance.
+
+    Points d'attention :
+    ------------------
+    1. Robustesse (R² CV)
+    2. Overfitting : La comparaison entre r2_train et r2_cv 
+    3. Explicabilité : Le calcul des 'feature_importances_' permet de justifier le prix 
+       prédit
+    4. Persistance : Le modèle est exporté en .pkl pour être chargé instantanément 
+       par ton application de prédiction.
+
+    Args:
+        model_tune: Le modèle XGBRegressor optimisé par RandomizedSearchCV.
+        X_train, X_test: Ensembles de caractéristiques.
+        y_train, y_test: Ensembles de prix cibles.
+
+    Returns:
+        dict: Dictionnaire complet des résultats (modèle, métriques d'erreur et importances).
+    """
     print("\n⚡ XGBOOST")
     model = model_tune
     
@@ -492,6 +748,22 @@ def entrainer_xgboost(model_tune,X_train, X_test, y_train, y_test): # prendre le
 # MAIN
 # =========================
 def main():
+    """
+    Chef d'orchestre du pipeline de Machine Learning AutoScout24.
+    
+    Cette fonction automatise le cycle de vie complet du modèle :
+    1. Infrastructure : Crée les dossiers nécessaires et initialise le logging.
+    2. Data : Charge, nettoie, clustérise et prépare les matrices X/y.
+    3. Persistance des Features : Sauvegarde la liste exacte des colonnes pour 
+       garantir que l'application de prédiction (Streamlit) utilise le même format.
+    4. Optimisation (Tuning) : Si aucun modèle n'est détecté, lance une recherche 
+       d'hyperparamètres (RandomizedSearchCV) pour RF et XGBoost.
+    5. Analyse : Génère des visualisations d'importance des variables pour 
+       comprendre les leviers du prix (Année, Puissance, Clusters).
+    6. Benchmarking : Compare les performances (R², RMSE, MAE) entre les deux 
+       algorithmes et désigne le vainqueur.
+    7. Audit : Exporte les erreurs de prédiction pour le débogage métier.
+    """
     # Configuration initiale
     os.makedirs("models", exist_ok=True)
     print("\n" + "="*50)
