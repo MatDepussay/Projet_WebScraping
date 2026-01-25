@@ -175,6 +175,12 @@ def reparer_marque_modele(df: pl.DataFrame) -> pl.DataFrame:
         pl.col("marque").str.extract(regex_str, 1).alias("marque_extracted")
     ])
 
+    # 1. On identifie les colonnes à supprimer qui existent réellement dans le DF
+    cols_to_drop = ["marque", "marque_extracted"]
+    if "modele" in df.columns:
+        cols_to_drop.append("modele")
+
+    # 2. On applique le drop et le rename
     return df_temp.with_columns([
         pl.col("marque_extracted")
         .str.to_lowercase()
@@ -186,10 +192,10 @@ def reparer_marque_modele(df: pl.DataFrame) -> pl.DataFrame:
         .str.replace_all(r"(?i)(TDI|TDCi|TGDI|TSI|CRDi|crdi|HDI|VTi|1\.2|1\.4|1\.6|2\.0|kW|CH|CV)", "")
         .str.strip_chars()
         .str.split(" ").list.slice(0, 2).list.join(" ")
+        .str.strip_chars()
         .alias("modele_clean")
-    ]).drop([
-        "marque", "marque_extracted"
-    ]).rename({
+    ]).drop(cols_to_drop) \
+      .rename({
         "marque_clean": "marque", 
         "modele_clean": "modele"
     }).filter(
@@ -232,7 +238,8 @@ def charger_modeles_json() -> dict:
             models = item.get("Models", [])
             
             if make and models:
-                modeles_par_marque[make] = [m.strip() for m in models if m.strip()]
+                existing_models = modeles_par_marque.get(make, [])
+                modeles_par_marque[make] = list(set(existing_models + [m.strip() for m in models if m.strip()]))
         
         print(f"✅ JSON chargé avec succès: {len(modeles_par_marque)} marques")
         return modeles_par_marque
@@ -364,6 +371,7 @@ def raffiner_modele_csv(df: pl.DataFrame) -> pl.DataFrame:
         pl.col("modele_split").struct.field("le_reste").alias("le_reste"),
         pl.col("modele_split").struct.field("modele_identifie").alias("modele_identifie")
     ]).drop("modele_split")
+    
 
 # =========================
 # 5. EXTRACTION SPECS & LOCALISATION
@@ -397,29 +405,31 @@ def extraire_specs_et_lieu(df: pl.DataFrame) -> pl.DataFrame:
         pl.col("localisation").str.extract(r"^(\d{4,5}(?:\s*[A-Z]{2})?)", 1).alias("code_postal"),
 
         # 4. Identification du PAYS (Ordre corrigé pour éviter l'erreur Cassano d'Adda)
-        pl.when(pl.col("localisation").str.contains(r" - [A-Z]{2}$"))
-          .then(pl.lit("Italie")) # Priorité 1 : Le suffixe province italien
+        pl.when(pl.col("localisation").str.contains(r"[–\-\s]+[A-Z]{2}$"))
+          .then(pl.lit("Italie"))
           
         .when(pl.col("localisation").str.contains(r"^\d{4}\s*[A-Z]{2}"))
           .then(pl.lit("Pays-Bas")) # Priorité 2 : Le format CP néerlandais
           
         .when(pl.col("localisation").str.contains(r"^\d{4}\s"))
-          .then(pl.lit("Belgique")) # 4 chiffres = Belgique/Lux
+          .then(pl.lit("Belgique"))
           
+        # On cherche des indices de l'allemand pour l'Allemagne
+        .when(pl.col("localisation").str.contains(r"(?i)(München|Berlin|Hamburg|Köln|Frankfurt|Stuttgart|Düsseldorf|Dortmund|ß|[üöä])"))
+          .then(pl.lit("Allemagne"))
+
+        # Si c'est 5 chiffres et que ce n'est pas l'un des cas au-dessus -> France
         .when(pl.col("localisation").str.contains(r"^\d{5}\s"))
-          .then(pl.lit("Allemagne")) # 5 chiffres sans suffixe italien = Allemagne
-          
-        .when(pl.col("localisation").str.extract(r"^(\d{4,5})", 1).is_not_null())
-          .then(pl.lit("France")) # Le reste avec un CP = France
+          .then(pl.lit("France"))
           
         .otherwise(None)
         .alias("pays"),
 
         # 5. Extraction de la Ville
         pl.col("localisation")
-          .str.replace(r"^\d{4,5}(?:\s*[A-Z]{2})?\s*", "")
-          .str.replace(r"\s*-\s*[A-Z]{2}$", "")
-          .str.replace(r"\s*-.*$", "")
+          .str.replace(r"^\d{4,5}(?:\s*[A-Z]{2})?\s*", "") # Vire le CP
+          .str.replace(r"\s*-\s*[A-Z]{2}$", "") # Vire " - Milano - MI" (format long italien)
+          .str.replace(r"\s*-.*$", "") # Vire " - MI" (format court)
           .str.strip_chars()
           .alias("ville")
     ]).drop("localisation")
@@ -532,13 +542,25 @@ def nettoyer_transmission(df: pl.DataFrame) -> pl.DataFrame:
     pl.DataFrame
         DataFrame avec les types de transmission normalisés.
     """
+    # Mapping des synonymes pour ne rien perdre
+    mapping = {
+        "propulsion": "arrière",
+        "arriere": "arrière",
+        "intégrale": "4x4",
+        "integrale": "4x4",
+        "awd": "4x4",
+        "quattro": "4x4"
+    }
     return df.with_columns(
-        pl.when(
-            pl.col("transmission")
-            .str.to_lowercase()
-            .is_in(["avant", "arriere", "arrière", "4x4"])
-        )
-        .then(pl.col("transmission").str.to_lowercase())
+        pl.col("transmission")
+        .str.to_lowercase()
+        .str.strip_chars()
+        .replace(mapping) # Remplace les synonymes
+        .cast(pl.Utf8)
+    ).with_columns(
+        # On ne garde que les valeurs finales souhaitées
+        pl.when(pl.col("transmission").is_in(["avant", "arrière", "4x4"]))
+        .then(pl.col("transmission"))
         .otherwise(None)
         .alias("transmission")
     )
@@ -594,7 +616,10 @@ def main():
     df = charger_donnees()
     if df.is_empty(): 
         return
+    initial_count = df.height
+    print(f"📊 Lignes initiales : {initial_count}")
 
+    # 1. Pipeline de transformation
     df = (
         df.pipe(nettoyer_numeriques)
           .pipe(reparer_marque_modele)
@@ -604,18 +629,29 @@ def main():
           .pipe(nettoyer_transmission)
           .pipe(corriger_cylindree)   
           .pipe(traiter_valeurs_aberrantes)
-          # On supprime les lignes où il manque une info capitale
-          .drop_nulls([
-              "prix", 
-              "ville", 
-              "annee", 
-              "kilometrage", 
-              "marque", 
-              "modele"
-          ])
-          # On supprime les colonnes de travail devenues inutiles
-          .drop(["lien_fiche", "puissance", "modele_identifie", "le_reste"])
     )
+    
+    # 2. Affichage des NA AVANT suppression
+    null_counts = df.null_count()
+    print(f"❓ Valeurs manquantes avant filtrage final : {null_counts}")
+    
+    # 3. Nettoyage des colonnes techniques
+    df = df.drop(["lien_fiche", "puissance", "modele_identifie", "le_reste"])
+    
+    # 4. Filtrage des colonnes capitales
+    cols_critiques = ["prix", "ville", "annee", "kilometrage", "marque", "modele"]
+    df = df.drop_nulls(cols_critiques)
+    
+    # 5. Affichage des NA APRÈS suppression
+    final_count = df.height
+    print(f"\n✅ Valeurs manquantes après filtrage (sur {final_count} lignes) :")
+    final_nulls = df.null_count()
+    for col in df.columns:
+        count = final_nulls[col][0]
+        if count > 0:
+            print(f"  - {col}: {count} ({ (count/final_count)*100:.1f}%)")
+            
+    print(f"📊 Lignes filtrées : {initial_count - final_count} ({((initial_count - final_count)/initial_count)*100:.1f}%)")
 
     # Export en JSON (format 'records' pour avoir une liste d'objets [{}, {}])
     df.write_json("data/processed/autoscout_clean_ml.json")
