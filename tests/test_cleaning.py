@@ -1,8 +1,6 @@
 import polars as pl
 import pytest
 import json
-import re
-from pathlib import Path
 from unittest.mock import patch, mock_open
 
 # --- Tests pour nettoyer_numeriques ---
