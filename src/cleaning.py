@@ -487,7 +487,7 @@ def corriger_cylindree(df: pl.DataFrame) -> pl.DataFrame:
         pl.col("le_reste").str.extract(r"(\d+\.\d+)", 1).cast(pl.Float32).alias("cylindree_extraite")
     ])
     
-    # Appliquer les règles finales
+    # Appliquer les règles finales (calcul de la cylindrée)
     df = df.with_columns(
         pl.when(pl.col("carburant").str.to_lowercase() == "électrique")
           .then(0.0)
@@ -509,15 +509,20 @@ def corriger_cylindree(df: pl.DataFrame) -> pl.DataFrame:
             pl.col("cylindree_extraite").is_not_null()
         )
           .then(pl.col("cylindree_extraite"))
-        
-        .when(
+
+        .otherwise(pl.col("cylindree_l"))
+        .alias("cylindree_l")
+    )
+    
+    # Validation des seuils (appliquée APRÈS le calcul)
+    df = df.with_columns(
+        pl.when(
             (pl.col("cylindree_l") < 0.6) |
             (pl.col("cylindree_l") > 8.5)
         )
           .then(None)
-
-        .otherwise(pl.col("cylindree_l"))
-        .alias("cylindree_l")
+          .otherwise(pl.col("cylindree_l"))
+          .alias("cylindree_l")
     ).drop("cylindree_bmw", "cylindree_mercedes", "cylindree_extraite")
 
     return df

@@ -62,6 +62,7 @@ from MachineLearning import (
     entrainer_random_forest,
     entrainer_xgboost,
     ajouter_cluster_vehicule,
+    asymmetric_mse_loss,  # 🔧 Import de la loss function custom pour pickle
     #comparer_modeles
 )
 

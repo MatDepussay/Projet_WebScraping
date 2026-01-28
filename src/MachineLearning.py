@@ -158,7 +158,7 @@ def ajouter_cluster_vehicule(df, n_clusters=5):
     
     # Sécurité : on vérifie si des voitures existent dans ce cluster
     if not cluster_4_cars.empty:
-        cols_affichage = ["marque", "modele", "prix", "kilometrage", "annee", "puissance_kw"]
+        cols_affichage = ["marque", "modele", "prix", "kilometrage", "annee", "puissance_kw", "cylindree_l"]
         # On ne garde que les colonnes présentes pour éviter une nouvelle KeyError
         cols_presentes = [c for c in cols_affichage if c in cluster_4_cars.columns]
         print(cluster_4_cars[cols_presentes].head(6))
@@ -634,6 +634,19 @@ def entrainer_random_forest(model_tune, X_train, X_test, y_train, y_test):
         'mae': mae_test,
         'feature_importance': fi
     }
+def asymmetric_mse_loss(y_true, y_pred):
+    """
+    Fonction de perte : pénalise 10x plus la sur-estimation que la sous-estimation.
+    """
+    residual = y_pred - y_true
+    # Gradient : dérivée de 0.5 * weight * residual^2
+    # Si residual > 0 (sur-estimation), on applique un poids fort (ex: 10.0)
+    # Si residual < 0 (sous-estimation), on applique un poids faible (1.0)
+    weights = np.where(residual > 0, 10.0, 1.0)
+    
+    grad = weights * residual
+    hess = weights
+    return grad, hess
 
 def tune_xgboost(X_train, y_train):
     """
@@ -670,7 +683,7 @@ def tune_xgboost(X_train, y_train):
         'gamma': [0, 0.1, 0.2]
     }
     
-    xgb_model = xgb.XGBRegressor(random_state=42, n_jobs=-1, verbosity=0)
+    xgb_model = xgb.XGBRegressor(objective=asymmetric_mse_loss, random_state=42, n_jobs=-1, verbosity=0)
     
     search = RandomizedSearchCV(
         xgb_model, param_distributions=param_dist, 
