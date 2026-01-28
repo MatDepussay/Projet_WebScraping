@@ -578,10 +578,17 @@ def run_scraping(nb_pages: int) -> list[Voiture] | None:
 
 @st.cache_data(ttl=300)
 def charger_donnees_nettoyees():
-    """Charge et nettoie les données (avec cache)"""
-    if not Path("data/raw/annonces_autoscout24.json").exists():
+    """Charge les données déjà nettoyées ou nettoie si nécessaire (avec cache)"""
+    # Priorité 1 : Charger le fichier déjà nettoyé (RAPIDE)
+    processed_file = Path("data/processed/autoscout_clean_ml.json")
+    if processed_file.exists():
+        return pl.read_json(processed_file)
+    
+    # Priorité 2 : Nettoyer le fichier raw (LENT)
+    raw_file = Path("data/raw/annonces_autoscout24.json")
+    if not raw_file.exists():
         return None
-    return appliquer_cleaning("data/raw/annonces_autoscout24.json")
+    return appliquer_cleaning(str(raw_file))
 
 def afficher_selection_voitures():
     """Interface pour visualiser, filtrer et sélectionner les voitures nettoyées"""

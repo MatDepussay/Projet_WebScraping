@@ -1,25 +1,4 @@
 # /// script
-#    """
-#       📑 Documentation : Pipeline de Machine Learning (Prix AutoScout24)
-#       Ce script est le "cerveau" du projet. Il analyse les données de voitures d'occasion pour apprendre à prédire leur prix de vente.
-#
-#       🎯 Objectif
-#       Transformer une base de données brute en un modèle capable d'estimer le prix d'un véhicule en fonction de ses caractéristiques (marque, kilométrage, puissance, etc.).
-#
-#       🛠️ Les 5 Étapes du Script
-#           1. Préparation et Clustering (Nettoyage final, Segmentation, Encodage)
-#           2. Tuning (Optimisation de Random Forest et XGBoost)
-#           3. Analyse d'Importance (Graphique)
-#           4. Évaluation et Comparaison (R², CV)
-#           5. Export des Résultats (sauvegarde des modèles .pkl + fichiers Excel des erreurs)
-#        
-#       📦 Sorties du Script (Dossier /models)
-#           - cluster_full_pipeline.pkl : Contient l'imputeur, le scaler et le modèle de clustering pour transformer les futures saisies utilisateur.
-#           - best_rf_final.pkl	: Le modèle Random Forest entraîné.
-#           - best_xgb_final.pkl : Le modèle XGBoost entraîné.
-#           - model_features.pkl : La liste exacte des colonnes (indispensable pour l'App Streamlit).
-#           - erreurs_rf_tuned.xlsx	: Liste des voitures où le modèle s'est trompé.
-#    """
 # requires-python = ">=3.12"
 # dependencies = [
 #     "polars",
@@ -33,6 +12,28 @@
 #     "seaborn",
 # ]
 # ///
+
+"""
+📑 Documentation : Pipeline de Machine Learning (Prix AutoScout24)
+Ce script est le "cerveau" du projet. Il analyse les données de voitures d'occasion pour apprendre à prédire leur prix de vente.
+
+🎯 Objectif
+Transformer une base de données brute en un modèle capable d'estimer le prix d'un véhicule en fonction de ses caractéristiques (marque, kilométrage, puissance, etc.).
+
+🛠️ Les 5 Étapes du Script
+    1. Préparation et Clustering (Nettoyage final, Segmentation, Encodage)
+    2. Tuning (Optimisation de Random Forest et XGBoost)
+    3. Analyse d'Importance (Graphique)
+    4. Évaluation et Comparaison (R², CV)
+    5. Export des Résultats (sauvegarde des modèles .pkl + fichiers Excel des erreurs)
+     
+📦 Sorties du Script (Dossier /models)
+    - cluster_full_pipeline.pkl : Contient l'imputeur, le scaler et le modèle de clustering pour transformer les futures saisies utilisateur.
+    - best_rf_final.pkl	: Le modèle Random Forest entraîné.
+    - best_xgb_final.pkl : Le modèle XGBoost entraîné.
+    - model_features.pkl : La liste exacte des colonnes (indispensable pour l'App Streamlit).
+    - erreurs_rf_tuned.xlsx	: Liste des voitures où le modèle s'est trompé.
+"""
 
 import polars as pl
 import pandas as pd
