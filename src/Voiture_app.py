@@ -56,6 +56,8 @@ from cleaning import (
 
 # Import des fonctions ML depuis MachineLearning.py
 from MachineLearning import (
+    tune_random_forest,
+    tune_xgboost,
     entrainer_random_forest,
     entrainer_xgboost,
     ajouter_cluster_vehicule,
@@ -666,15 +668,23 @@ def afficher_selection_voitures():
         modele_selectionne = st.multiselect("Modèle", modeles_disponibles, key="filter_modele")
     
     with col_filter3:
-        prix_range = st.slider(
-            "Prix (€)",
+        st.write("**Prix (€)**")
+        prix_min = st.number_input(
+            "Prix minimum",
             min_value=0,
-            max_value=prix_max_reel,
-            value=(0, prix_max_reel),
-            step=1000,
-            key="filter_prix_range"
+            max_value=int(prix_max_reel),
+            value=0,
+            step=500,
+            key="filter_prix_min"
         )
-        prix_min, prix_max = prix_range
+        prix_max = st.number_input(
+            "Prix maximum",
+            min_value=0,
+            max_value=int(prix_max_reel),
+            value=int(prix_max_reel),
+            step=500,
+            key="filter_prix_max"
+        )
     
     with col_filter4:
         carburants_disponibles = sorted(voitures_df["carburant"].drop_nulls().unique().to_list())
@@ -1288,13 +1298,21 @@ def afficher_regression_ml():
                 
                 st.success(f"✅ Données préparées: Train={len(X_train)}, Test={len(X_test)}")
                 
-                # Entraîner le modèle
+                # Tuning puis entraînement du modèle
                 if model_type == "Random Forest":
-                    with st.spinner("⏳ Entraînement Random Forest..."):
-                        results = entrainer_random_forest(X_train, X_test, y_train, y_test)
+                    with st.spinner("🔍 Tuning des hyperparamètres Random Forest..."):
+                        model_tune = tune_random_forest(X_train, y_train)
+                    st.success("✅ Tuning terminé")
+                    
+                    with st.spinner("⏳ Entraînement final Random Forest..."):
+                        results = entrainer_random_forest(model_tune, X_train, X_test, y_train, y_test)
                 else:
-                    with st.spinner("⏳ Entraînement XGBoost..."):
-                        results = entrainer_xgboost(X_train, X_test, y_train, y_test)
+                    with st.spinner("🔍 Tuning des hyperparamètres XGBoost..."):
+                        model_tune = tune_xgboost(X_train, y_train)
+                    st.success("✅ Tuning terminé")
+                    
+                    with st.spinner("⏳ Entraînement final XGBoost..."):
+                        results = entrainer_xgboost(model_tune, X_train, X_test, y_train, y_test)
                 
                 model = results['model']
                 
