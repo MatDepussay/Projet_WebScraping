@@ -22,6 +22,7 @@ import re
 import time
 import io
 import os
+import traceback
 from pathlib import Path
 import pandas as pd
 import plotly.graph_objects as go
@@ -1274,23 +1275,9 @@ def afficher_regression_ml():
                 cat_cols = X.select_dtypes(include=["object", "category", "string"]).columns.tolist()
                 X_encoded = pd.get_dummies(X, columns=cat_cols)
                 
-                # S'assurer que les features sont numériques pour sklearn
-                # 3. ALIGNEMENT (Si tu évalues un modèle existant)
-                if st.session_state.get("model_ml") is not None:
-                    model = st.session_state.model_ml
-                    # Récupérer les colonnes attendues par le modèle
-                    if hasattr(model, "feature_names_in_"): # Pour Random Forest
-                        expected_cols = model.feature_names_in_
-                    else: # Pour XGBoost
-                        expected_cols = model.get_booster().feature_names
-                    
-                    # Forcer l'alignement des colonnes
-                    X_final = X_encoded.reindex(columns=expected_cols, fill_value=0)
-                  
-                    if not hasattr(model, "feature_names_in_"):
-                        X_final = X_final[expected_cols]
-                else:
-                    X_final = X_encoded  
+                # Pour l'entraînement, on utilise directement X_encoded (pas d'alignement)
+                X_final = X_encoded
+                
                 # Split
                 X_train, X_test, y_train, y_test = train_test_split(
                     X_final, y, test_size=test_split, random_state=random_state
@@ -1314,7 +1301,14 @@ def afficher_regression_ml():
                     with st.spinner("⏳ Entraînement final XGBoost..."):
                         results = entrainer_xgboost(model_tune, X_train, X_test, y_train, y_test)
                 
-                model = results['model']
+                if results is None:
+                    st.error("❌ L'entraînement n'a pas retourné de résultats")
+                    raise ValueError("L'entraînement n'a pas retourné de résultats")
+                
+                model = results.get('model')
+                if model is None:
+                    st.error("❌ Aucun modèle trouvé dans les résultats")
+                    raise ValueError("Aucun modèle trouvé dans les résultats")
                 
                 # Sauvegarder le modèle en session state
                 st.session_state.model_ml = model
@@ -1358,10 +1352,12 @@ def afficher_regression_ml():
                         st.error(f"Erreur lors de la préparation du téléchargement: {e}")
                 
                 # Afficher les résultats avec la fonction réutilisable
-                afficher_resultats_modele(model, X_test, y_test, results['feature_importance'])
+                afficher_resultats_modele(model, X_test, y_test, results.get('feature_importance'))
                 
             except Exception as e:
                 st.error(f"❌ Erreur: {e}")
+                import traceback
+                st.code(traceback.format_exc())
     # Évaluer le modèle chargé si disponible
     if st.session_state.get("model_ml") is not None:
         st.divider()
