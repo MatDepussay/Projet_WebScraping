@@ -855,8 +855,10 @@ def afficher_selection_voitures():
                 else:
                     X_final = X_encoded
                 
-                # 6. Faire les prédictions
-                predictions = model.predict(X_final)
+                # 6. Faire les prédictions (en log)
+                predictions_log = model.predict(X_final)
+                # Reconversion en échelle normale
+                predictions = np.expm1(predictions_log)
                 predictions_disponibles = True
                 
                 # 7. Ajouter les prédictions et catégories aux données d'affichage
@@ -985,15 +987,19 @@ def afficher_selection_voitures():
 def afficher_resultats_modele(model, X_test, y_test, feature_importance=None):
     """Affiche les graphiques et résultats d'un modèle ML (réutilisable)"""
     
-    # Prédictions
-    y_pred_test = model.predict(X_test)
+    # Prédictions (en log)
+    y_pred_log = model.predict(X_test)
+    
+    # Reconversion en échelle normale pour l'affichage
+    y_pred_test = np.expm1(y_pred_log)
+    y_test_original = np.expm1(y_test)
     
     # Calculer les métriques
     from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
     
-    rmse = np.sqrt(mean_squared_error(y_test, y_pred_test))
-    r2 = r2_score(y_test, y_pred_test)
-    mae = mean_absolute_error(y_test, y_pred_test)
+    rmse = np.sqrt(mean_squared_error(y_test_original, y_pred_test))
+    r2 = r2_score(y_test_original, y_pred_test)
+    mae = mean_absolute_error(y_test_original, y_pred_test)
     
     # Affichage des métriques
     st.subheader("📊 Résultats")
@@ -1031,12 +1037,12 @@ def afficher_resultats_modele(model, X_test, y_test, feature_importance=None):
     # Visualisation: Prix réel vs Prix prédit
     st.subheader("💰 Prix réel vs Prix prédit")
     
-    # Créer un DataFrame pour les prédictions
+    # Créer un DataFrame pour les prédictions (valeurs déjà reconverties)
     results_df = pd.DataFrame({
-        'Prix réel': y_test.values,
+        'Prix réel': y_test_original,
         'Prix prédit': y_pred_test,
-        'Erreur (€)': y_test.values - y_pred_test,
-        'Erreur (%)': ((y_test.values - y_pred_test) / y_test.values * 100)
+        'Erreur (€)': y_test_original - y_pred_test,
+        'Erreur (%)': ((y_test_original - y_pred_test) / y_test_original * 100)
     }).reset_index(drop=True)
     
     col_viz1, col_viz2 = st.columns(2)
@@ -1045,7 +1051,7 @@ def afficher_resultats_modele(model, X_test, y_test, feature_importance=None):
         # Graphique de dispersion
         fig_scatter = go.Figure()
         fig_scatter.add_trace(go.Scatter(
-            x=y_test.values,
+            x=y_test_original,
             y=y_pred_test,
             mode='markers',
             marker=dict(
@@ -1056,14 +1062,14 @@ def afficher_resultats_modele(model, X_test, y_test, feature_importance=None):
                 colorbar=dict(title="Erreur (%)")
             ),
             text=[f"Réel: €{r:,.0f}<br>Prédit: €{p:,.0f}<br>Erreur: {e:+.1f}%" 
-                  for r, p, e in zip(y_test.values, y_pred_test, results_df['Erreur (%)'])],
+                  for r, p, e in zip(y_test_original, y_pred_test, results_df['Erreur (%)'])],
             hoverinfo='text',
             name='Prédictions'
         ))
         
         # Ajouter la ligne de perfection
-        min_val = min(y_test.min(), y_pred_test.min())
-        max_val = max(y_test.max(), y_pred_test.max())
+        min_val = min(y_test_original.min(), y_pred_test.min())
+        max_val = max(y_test_original.max(), y_pred_test.max())
         fig_scatter.add_trace(go.Scatter(
             x=[min_val, max_val],
             y=[min_val, max_val],
@@ -1276,7 +1282,7 @@ def afficher_regression_ml():
                 df_pd = df_clean_pl_clustered.to_pandas()
                 
                 # Construire X/y depuis les données nettoyées (via cleaning.py)
-                y = df_pd["prix"]
+                y = np.log1p(df_pd["prix"])  # Transformation log pour réduire l'impact des outliers
                 cols_exclure = ["prix", "code_postal", "ville", "modele_identifie"]
                 X = df_pd.drop(columns=[c for c in cols_exclure if c in df_pd.columns])
                 
@@ -1376,7 +1382,7 @@ def afficher_regression_ml():
                 # 1. Clustering et Préparation (comme avant)
                 df_clean_pl_clustered = ajouter_cluster_vehicule(df_clean_pl, n_clusters=5)
                 df_pd_eval = df_clean_pl_clustered.to_pandas()
-                y_all = df_pd_eval["prix"]
+                y_all = np.log1p(df_pd_eval["prix"])  # Transformation log
                 X_all = df_pd_eval.drop(columns=["prix", "code_postal", "ville", "modele_identifie"], errors="ignore")
                 X_all["cluster_vehicule"] = X_all["cluster_vehicule"].astype(str)
                 X_encoded = pd.get_dummies(X_all)
