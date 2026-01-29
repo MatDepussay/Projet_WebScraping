@@ -414,7 +414,7 @@ def extraire_specs_et_lieu(df: pl.DataFrame) -> pl.DataFrame:
     # Charger ton fichier JSON
     json_it = Path("data/references/it.json")
     with open(json_it, 'r', encoding='utf-8') as f:
-        data = json.load(f)
+        data = json.load(f) 
 
     # Extraire les noms de villes et créer une regex géante
     # On récupère "city" (ex: Milan) mais il serait sage d'ajouter aussi une version 
