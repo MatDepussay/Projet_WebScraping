@@ -394,6 +394,42 @@ def extraire_specs_et_lieu(df: pl.DataFrame) -> pl.DataFrame:
         DataFrame enrichi des colonnes 'puissance_kw', 'cylindree_l', 
         'code_postal', 'ville' et 'pays'.
     """
+    # Liste étendue incluant Mainz, Potsdam, Quickborn et les villes secondaires
+    villes_allemagne = (
+    r"(?i)(Berlin|Hamburg|München|Munich|Köln|Cologne|Frankfurt|Stuttgart|Düsseldorf|Dortmund|Essen|Leipzig|"
+    r"Bremen|Dresden|Hannover|Nürnberg|Nuremberg|Duisburg|Bochum|Wuppertal|Bielefeld|Bonn|Münster|Karlsruhe|"
+    r"Mannheim|Augsburg|Wiesbaden|Gelsenkirchen|Mönchengladbach|Braunschweig|Chemnitz|Kiel|Aachen|Halle|"
+    r"Magdeburg|Freiburg|Krefeld|Mainz|Lübeck|Erfurt|Oberhausen|Rostock|Kassel|Hagen|Saarbrücken|Potsdam|"
+    r"Ludwigshafen|Oldenburg|Osnabrück|Leverkusen|Heidelberg|Solingen|Darmstadt|Herne|Neuss|Regensburg|"
+    r"Paderborn|Ingolstadt|Offenbach|Fürth|Würzburg|Ulm|Heilbronn|Pforzheim|Wolfsburg|Göttingen|Bottrop|"
+    r"Reutlingen|Koblenz|Bremerhaven|Erlangen|Bergisch|Jena|Remscheid|Trier|Recklinghausen|Zwickau|"
+    r"Heidelberg|Salzgitter|Siegen|Gütersloh|Cottbus|Gera|Hildesheim|Hanau|Witten|Iserlohn|Ludwigsburg|"
+    r"Esslingen|Tübingen|Ratingen|Flensburg|Lünen|Villingen|Giessen|Marl|Konstanz|Worms|Velbert|Minden|"
+    r"Neumünster|Norderstedt|Delmenhorst|Wilhelmshaven|Viersen|Gladbeck|Rheine|Detmold|Troisdorf|Castrop|"
+    r"Arnsberg|Marburg|Lüdenscheid|Bamberg|Bayreuth|Brandenburg|Bocholt|Aschaffenburg|Landshut|Kempten|"
+    r"Fulda|Aalen|Lippstadt|Herford|Kerpen|Plauen|Neu-Ulm|Weimar|Düren|Quickborn|Pinneberg|Elmshorn)"
+)
+    regex_suffixes_allemands = r"(?i).*(berg|burg|furt|ingen|shafen|stadt|dorf|bach|wald|bruck|haven|stein|itz|ow|au)$"
+    
+    # Charger ton fichier JSON
+    json_it = Path("data/references/it.json")
+    with open(json_it, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+
+    # Extraire les noms de villes et créer une regex géante
+    # On récupère "city" (ex: Milan) mais il serait sage d'ajouter aussi une version 
+    # italienne si ton JSON ne l'a pas (ex: Milano)
+    noms_villes = set()
+    for item in data:
+        noms_villes.add(item['city'])
+        # Optionnel : si ton JSON est en anglais, on peut ajouter manuellement 
+        # des variantes ou gérer les accents
+        
+    # Transformer en pattern Regex : (Rome|Milan|Naples|...)
+    regex_villes_it_json = r"(?i)\b(" + "|".join(sorted(noms_villes, key=len, reverse=True)) + r")\b"
+    
+    sigle_it = r"(?i)\b(AG|AL|AN|AO|AP|AQ|AR|AT|AV|BA|BG|BI|BL|BN|BO|BR|BS|BT|BZ|CA|CB|CE|CH|CI|CL|CN|CO|CR|CS|CT|CZ|EN|FC|FE|FG|FI|FM|FR|GE|GO|GR|IM|IS|KR|LC|LE|LI|LO|LT|LU|MB|MC|ME|MI|MN|MO|MS|MT|NA|NO|NU|OG|OR|OT|PA|PC|PD|PE|PG|PI|PN|PO|PR|PT|PU|PV|PZ|RA|RC|RE|RI|RN|RM|RO|SA|SI|SO|SP|SR|SS|SU|SV|TA|TE|TN|TO|TP|TR|TS|TV|UD|VA|VB|VC|VE|VI|VR|VS|VT|VV)\b"
+        
     return df.with_columns([
         # 1. Puissance
         pl.col("puissance").str.extract(r"(\d+)\s*kW", 1).cast(pl.Int64, strict=False).alias("puissance_kw"),
@@ -404,21 +440,29 @@ def extraire_specs_et_lieu(df: pl.DataFrame) -> pl.DataFrame:
         # 3. Extraction du Code Postal
         pl.col("localisation").str.extract(r"^(\d{4,5}(?:\s*[A-Z]{2})?)", 1).alias("code_postal"),
 
-        # 4. Identification du PAYS (Ordre corrigé pour éviter l'erreur Cassano d'Adda)
-        pl.when(pl.col("localisation").str.contains(r"[–\-\s]+[A-Z]{2}$"))
-          .then(pl.lit("Italie"))
-          
+        # 4. Identification du PAYS
+        pl.when(
+            # On checke la liste issue du JSON
+            pl.col("localisation").str.contains(regex_villes_it_json) | 
+            # On checke la province à la fin ou entre tirets
+            pl.col("localisation").str.contains(sigle_it + r"$") |
+            pl.col("localisation").str.contains(r"[\s\-\(]" + sigle_it + r"[\s\)]")
+        ).then(pl.lit("Italie"))
+        
         .when(pl.col("localisation").str.contains(r"^\d{4}\s*[A-Z]{2}"))
-          .then(pl.lit("Pays-Bas")) # Priorité 2 : Le format CP néerlandais
+          .then(pl.lit("Pays-Bas"))
           
         .when(pl.col("localisation").str.contains(r"^\d{4}\s"))
           .then(pl.lit("Belgique"))
           
-        # On cherche des indices de l'allemand pour l'Allemagne
-        .when(pl.col("localisation").str.contains(r"(?i)(München|Berlin|Hamburg|Köln|Frankfurt|Stuttgart|Düsseldorf|Dortmund|ß|[üöä])"))
-          .then(pl.lit("Allemagne"))
+        # Bloc Allemagne
+        .when(
+            pl.col("localisation").str.contains(villes_allemagne) |
+            pl.col("localisation").str.contains(regex_suffixes_allemands) | # Attrape Senftenberg, Coburg, etc.
+            pl.col("localisation").str.contains(r"[ßüöäÜÖÄ]") |
+            pl.col("localisation").str.contains(r"^[D|d]-\d{5}")
+        ).then(pl.lit("Allemagne"))
 
-        # Si c'est 5 chiffres et que ce n'est pas l'un des cas au-dessus -> France
         .when(pl.col("localisation").str.contains(r"^\d{5}\s"))
           .then(pl.lit("France"))
           
@@ -428,8 +472,7 @@ def extraire_specs_et_lieu(df: pl.DataFrame) -> pl.DataFrame:
         # 5. Extraction de la Ville
         pl.col("localisation")
           .str.replace(r"^\d{4,5}(?:\s*[A-Z]{2})?\s*", "") # Vire le CP
-          .str.replace(r"\s*-\s*[A-Z]{2}$", "") # Vire " - Milano - MI" (format long italien)
-          .str.replace(r"\s*-.*$", "") # Vire " - MI" (format court)
+          .str.replace(r"[\s\-\(]+[A-Z]{2}\)?$", "")      # Vire la province italienne propre (ex: - MI)
           .str.strip_chars()
           .alias("ville")
     ]).drop("localisation")
