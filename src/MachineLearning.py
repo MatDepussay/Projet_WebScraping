@@ -400,7 +400,7 @@ def charger_et_preparer_donnees(fichier="data/processed/autoscout_clean_ml.json"
     analyser_clusters(df)
 
     # 🔹 3. Préparation des variables
-    y = df["prix"]
+    y = np.log1p(df["prix"]) # log1p calcule log(1 + x)
 
     colonnes_a_exclure = [
         "prix",
@@ -447,15 +447,20 @@ def evaluer_modele(model, X_test, y_test):
     Args:
         model: Le modèle entraîné (RandomForest, XGBoost, etc.).
         X_test (pd.DataFrame): Les caractéristiques de l'ensemble de test.
-        y_test (pd.Series): Les prix réels correspondants.
+        y_test (pd.Series): Les prix réels correspondants (en log).
 
     Returns:
-        tuple: (y_pred, rmse, r2, mae) pour analyse ultérieure ou visualisation.
+        tuple: (y_pred_original, rmse, r2, mae) pour analyse ultérieure ou visualisation.
     """
-    y_pred = model.predict(X_test)
-    rmse_test = np.sqrt(mean_squared_error(y_test, y_pred))
-    r2_test = r2_score(y_test, y_pred)
-    mae_test = mean_absolute_error(y_test, y_pred)
+    y_pred_log = model.predict(X_test)
+    
+    # Reconversion en échelle normale (inverse de log1p)
+    y_pred = np.expm1(y_pred_log)
+    y_test_original = np.expm1(y_test)
+    
+    rmse_test = np.sqrt(mean_squared_error(y_test_original, y_pred))
+    r2_test = r2_score(y_test_original, y_pred)
+    mae_test = mean_absolute_error(y_test_original, y_pred)
     print(f"RMSE: €{rmse_test:,.2f} | R²: {r2_test:.4f} | MAE: €{mae_test:,.2f}")
     return y_pred, rmse_test, r2_test, mae_test
 
@@ -487,8 +492,8 @@ def enregistrer_erreurs(X_test, y_test, y_pred, fichier):
 
     Args:
         X_test (pd.DataFrame): Caractéristiques des véhicules de test.
-        y_test (pd.Series): Prix réels.
-        y_pred (np.array): Prix prédits par le modèle.
+        y_test (pd.Series): Prix réels (en log).
+        y_pred (np.array): Prix prédits (en log).
         fichier (str): Chemin de destination (ex: 'data/errors/debug_cars.xlsx').
     """
     # 1. On ne garde que les colonnes numériques "réelles" pour que l'Excel soit lisible
@@ -496,23 +501,27 @@ def enregistrer_erreurs(X_test, y_test, y_pred, fichier):
     cols_lisibles = [c for c in X_test.columns if '_' not in c]
     df_err = X_test[cols_lisibles].copy()
 
-    # 2. Calculs des erreurs
-    df_err["prix_reel"] = y_test.values
-    df_err["prix_predit"] = np.round(y_pred, 2)
+    # 2. Reconversion en échelle normale
+    y_test_original = np.expm1(y_test.values)
+    y_pred_original = np.expm1(y_pred)
+
+    # 3. Calculs des erreurs
+    df_err["prix_reel"] = np.round(y_test_original, 2)
+    df_err["prix_predit"] = np.round(y_pred_original, 2)
     df_err["erreur_abs"] = np.abs(df_err["prix_predit"] - df_err["prix_reel"])
     df_err["erreur_%"] = (df_err["erreur_abs"] / df_err["prix_reel"] * 100).round(2)
 
-    # 3. Ajout d'un diagnostic métier
+    # 4. Ajout d'un diagnostic métier
     df_err["diagnostic"] = np.where(
         df_err["prix_predit"] > df_err["prix_reel"], 
         "Sur-estimé", 
         "Sous-estimé"
     )
     
-    # 4. Tri par les plus grosses erreurs en pourcentage
+    # 5. Tri par les plus grosses erreurs en pourcentage
     df_err = df_err.sort_values("erreur_%", ascending=False)
     
-    # 5. Sauvegarde
+    # 6. Sauvegarde
     if fichier.endswith('.xlsx'):
         df_err.to_excel(fichier, index=False)
     else:
@@ -623,7 +632,8 @@ def entrainer_random_forest(model_tune, X_train, X_test, y_train, y_test):
     with open("models/random_forest_model.pkl", "wb") as f:
         pickle.dump(model, f)
 
-    enregistrer_erreurs(X_test, y_test, y_pred, "models/erreurs_rf.xlsx")
+    # Note: y_pred est déjà en échelle normale (reconverti dans evaluer_modele)
+    enregistrer_erreurs(X_test, y_test, model.predict(X_test), "models/erreurs_rf.xlsx")
     
     return {
         'model': model,
@@ -663,7 +673,8 @@ def tune_xgboost(X_train, y_train):
     - learning_rate
     - subsample
     - colsample_bytree
-    - gamma
+    - reg_alpha
+    - reg_lambda
 
     Args:
         X_train (pd.DataFrame): Données d'entraînement encodées.
@@ -675,14 +686,15 @@ def tune_xgboost(X_train, y_train):
     print("\n🔍 Tuning Hyperparamètres : XGBOOST")
     
     param_dist = {
-        'n_estimators': [200, 500, 1000],
-        'max_depth': [3, 6, 9],
-        'learning_rate': [0.01, 0.05, 0.1],
-        'subsample': [0.7, 0.8, 0.9],
-        'colsample_bytree': [0.7, 0.8, 0.9],
-        'gamma': [0, 0.1, 0.2]
+        'n_estimators': [1000, 2000], # Plus d'arbres mais plus lents
+        'learning_rate': [0.01, 0.05],
+        'max_depth': [3, 4, 5], 
+        'subsample': [0.7, 0.8],
+        'colsample_bytree': [0.6, 0.7], # On prend moins de colonnes par arbre
+        'reg_alpha': [0.1, 1, 10],      # Régularisation L1
+        'reg_lambda': [1, 5, 10]        # Régularisation L2
     }
-    
+
     xgb_model = xgb.XGBRegressor(objective=asymmetric_mse_loss, random_state=42, n_jobs=-1, verbosity=0)
     
     search = RandomizedSearchCV(
@@ -746,7 +758,8 @@ def entrainer_xgboost(model_tune,X_train, X_test, y_train, y_test):
     with open("models/xgboost_model.pkl", "wb") as f:
         pickle.dump(model, f)
     
-    enregistrer_erreurs(X_test, y_test, y_pred, "models/erreurs_xgb.xlsx")
+    # Note: Passer les prédictions en log pour que enregistrer_erreurs fasse la reconversion
+    enregistrer_erreurs(X_test, y_test, model.predict(X_test), "models/erreurs_xgb.xlsx")
 
     return {
         'model': model,
@@ -902,7 +915,7 @@ def main():
     r2_rf_final = res_rf['r2_test']
     r2_xgb_final = res_xgb['r2_test']
     
-    # 5. ENREGISTREMENT DES ERREURS
+    # 5. ENREGISTREMENT DES ERREURS (les prédictions sont en log, enregistrer_erreurs les reconvertira)
     enregistrer_erreurs(X_test, y_test, res_rf['model'].predict(X_test), "models/erreurs_rf_tuned.xlsx")
     enregistrer_erreurs(X_test, y_test, res_xgb['model'].predict(X_test), "models/erreurs_xgb_tuned.xlsx")
     
