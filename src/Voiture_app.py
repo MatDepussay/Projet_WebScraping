@@ -657,101 +657,86 @@ def afficher_selection_voitures():
     km_max_reel = int(voitures_df["kilometrage"].max() or 500000)
     puissance_max_reel = int(voitures_df["puissance_kw"].max() or 500)
     
-    # --- Filtres ---
-    st.subheader("⚙️ Filtres")
+    ######## FILTRES ##########
+    if "reset_counter" not in st.session_state:
+        st.session_state.reset_counter = 0
+
+    # On définit un suffixe dynamique pour les clés
+    reset_id = st.session_state.reset_counter
     
-    # Première ligne de filtres
-    col_filter1, col_filter2, col_filter3, col_filter4 = st.columns(4)
-    
-    with col_filter1:
-        marques_disponibles = sorted(voitures_df["marque"].drop_nulls().unique().to_list())
-        marque_selectionnee = st.multiselect("Marque", marques_disponibles, key="filter_marque")
-     
-    with col_filter2:
-        # Filtrer les modèles selon la marque sélectionnée
-        if marque_selectionnee:
-            df_marques = voitures_df.filter(pl.col("marque").is_in(marque_selectionnee))
-        else:
-            df_marques = voitures_df
-        modeles_disponibles = sorted(df_marques["modele"].drop_nulls().unique().to_list())
-        modele_selectionne = st.multiselect("Modèle", modeles_disponibles, key="filter_modele")
-    
-    with col_filter3:
-        st.write("**Prix (€)**")
-        prix_min = st.number_input(
-            "Prix minimum",
-            min_value=0,
-            max_value=int(prix_max_reel),
-            value=0,
-            step=500,
-            key="filter_prix_min"
-        )
-        prix_max = st.number_input(
-            "Prix maximum",
-            min_value=0,
-            max_value=int(prix_max_reel),
-            value=int(prix_max_reel),
-            step=500,
-            key="filter_prix_max"
-        )
-    
-    with col_filter4:
-        carburants_disponibles = sorted(voitures_df["carburant"].drop_nulls().unique().to_list())
-        carburant_selectionne = st.multiselect("Carburant", carburants_disponibles, key="filter_carburant")
-    
-    # Deuxième ligne de filtres
-    col_filter5, col_filter6, col_filter7, col_filter8 = st.columns(4)
-    
-    with col_filter5:
-        km_range = st.slider(
-            "Kilométrage",
-            min_value=0,
-            max_value=km_max_reel,
-            value=(0, km_max_reel),
-            step=5000,
-            key="filter_km_range"
-        )
-        km_min, km_max = km_range
-    
-    with col_filter6:
-        portes_disponibles = sorted(voitures_df["portes"].drop_nulls().unique().to_list())
-        portes_selectionnees = st.multiselect("Portes", portes_disponibles, key="filter_portes")
-    
-    with col_filter7:
-        puissance_range = st.slider(
-            "Puissance (kW)",
-            min_value=0,
-            max_value=puissance_max_reel,
-            value=(0, puissance_max_reel),
-            step=5,
-            key="filter_puissance_range"
-        )
-        puissance_min, puissance_max = puissance_range
-    
-    with col_filter8:
-        villes_disponibles = sorted(voitures_df["ville"].drop_nulls().unique().to_list())
-        ville_selectionnee = st.multiselect("Ville", villes_disponibles, key="filter_ville")
-    
-    # Troisième ligne de filtres (Pays + Catégorie de prix)
-    col_filter9, col_filter10, col_filter_vide = st.columns([1, 1, 2])
-    
-    with col_filter9:
-        if "pays" in voitures_df.columns:
-            pays_disponibles = sorted(voitures_df["pays"].drop_nulls().unique().to_list())
-            pays_selectionne = st.multiselect("Pays", pays_disponibles, key="filter_pays")
-        else:
-            pays_selectionne = []
+    # --- Configuration du style ---
+    st.markdown("""
+        <style>
+        .stMultiSelect div div div div { color: #007BFF; }
+        </style>
+        """, unsafe_allow_html=True)
+
+    st.subheader("⚙️ Configuration de la recherche")
+
+    # Structure : Gauche (Véhicule + Budget/Score) | Droite (Localisation + Technique)
+    col_centrale, col_droite = st.columns([2, 1], gap="medium")
+
+    with col_centrale:
+        # 1. Bloc Véhicule
+        with st.expander("🚗 Sélection du Véhicule", expanded=True):
+            c1, c2 = st.columns(2)
+            marques_disponibles = sorted(voitures_df["marque"].drop_nulls().unique().to_list())
+            marque_selectionnee = c1.multiselect("Marque", marques_disponibles, key=f"marque_{reset_id}")
+
+            # Filtrage dynamique des modèles
+            if marque_selectionnee:
+                df_temp = voitures_df.filter(pl.col("marque").is_in(marque_selectionnee))
+            else:
+                df_temp = voitures_df
             
-    with col_filter10:
-        categorie_prix_selectionnee = None
-        if model is not None:
-            categories_disponibles = ["✅ Bonne Affaire", "⚠️ Normal", "❌ Arnaque"]
-            categorie_prix_selectionnee = st.multiselect(
-                "Catégorie de prix",
-                categories_disponibles,
-                default=categories_disponibles,
-                key="filter_categorie_prix_header"
-            )
+            modeles_disponibles = sorted(df_temp["modele"].drop_nulls().unique().to_list())
+            modele_selectionne = c2.multiselect("Modèle", modeles_disponibles, key=f"modele_{reset_id}")
+        
+        # 2. Bloc Budget & Score
+        with st.expander("💰 Budget & Analyse", expanded=True):
+            c_min, c_max = st.columns(2)
+            prix_min = c_min.number_input("Prix Minimum (€)", 0, int(prix_max_reel), 0, step=500, key=f"p_min_{reset_id}")
+            prix_max = c_max.number_input("Prix Maximum (€)", 0, int(prix_max_reel), int(prix_max_reel), step=500, key=f"p_max_{reset_id}")
+            
+            categorie_prix_selectionnee = []
+            if model is not None:
+                st.write("---")
+                categories_disponibles = ["✅ Bonne Affaire", "⚠️ Normal", "❌ Arnaque"]
+                categorie_prix_selectionnee = st.multiselect(
+                    "Filtrer par score", 
+                    categories_disponibles, 
+                    default=categories_disponibles,
+                    key=f"score_{reset_id}"
+                )
+
+    with col_droite:
+        # 3. Bloc Localisation
+        with st.expander("📍 Localisation", expanded=False):
+            pays_selectionne = []
+            if "pays" in voitures_df.columns:
+                pays_disponibles = sorted(voitures_df["pays"].drop_nulls().unique().to_list())
+                pays_selectionne = st.multiselect("Pays", pays_disponibles, key=f"pays_{reset_id}")
+                
+            villes_disponibles = sorted(voitures_df["ville"].drop_nulls().unique().to_list())
+            ville_selectionnee = st.multiselect("Ville", villes_disponibles, key=f"ville_{reset_id}")
+
+        # 4. Bloc Technique
+        with st.expander("⚙️ Détails Techniques", expanded=False):
+            carburants_disponibles = sorted(voitures_df["carburant"].drop_nulls().unique().to_list())
+            carburant_selectionne = st.multiselect("Carburant", carburants_disponibles, key=f"carb_{reset_id}")
+            
+            portes_disponibles = sorted(voitures_df["portes"].drop_nulls().unique().to_list())
+            portes_selectionnees = st.multiselect("Portes", portes_disponibles, key=f"portes_{reset_id}")
+            
+            km_range = st.slider("Kilométrage", 0, int(km_max_reel), (0, int(km_max_reel)), step=5000, key=f"km_{reset_id}")
+            km_min, km_max = km_range
+            
+            puissance_range = st.slider("Puissance (kW)", 0, int(puissance_max_reel), (0, int(puissance_max_reel)), step=5, key=f"puiss_{reset_id}")
+            puissance_min, puissance_max = puissance_range
+
+        if st.button("🔄 Réinitialiser les filtres", use_container_width=True):
+            st.session_state.reset_counter += 1
+            st.rerun()
     voitures_filtrees = voitures_df
     
     if marque_selectionnee:
@@ -980,8 +965,14 @@ def afficher_selection_voitures():
                     
                     st.write(f"**Localisation:** {voiture.get('code_postal')} {voiture.get('ville')}" if voiture.get('ville') else "**Localisation:** N/A")
                     
-                    if voiture.get('lien_fiche'):
-                        st.write(f"**[🔗 Lien de l'annonce]({voiture.get('lien_fiche')})**")
+                    # --- AFFICHAGE DU LIEN ---
+                    # On récupère le lien proprement
+                    url_annonce = voiture.get('lien_fiche')
+
+                    if url_annonce and str(url_annonce).startswith('http'):
+                        st.link_button("🌐 Voir l'annonce sur AutoScout24", url_annonce, use_container_width=True)
+                    else:
+                        st.warning("⚠️ Lien de l'annonce indisponible")
 
 
 def afficher_resultats_modele(model, X_test, y_test, feature_importance=None):
