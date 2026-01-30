@@ -637,9 +637,13 @@ def afficher_selection_voitures():
         st.warning("⚠️ Aucune donnée disponible. Veuillez d'abord scraper les annonces.")
         return
     
-    if voitures_df.height == 0:
+    if len(voitures_df) == 0:
         st.warning("⚠️ Aucune donnée valide après nettoyage.")
         return
+    
+    # Convertir en Pandas pour compatibilité avec toutes les opérations
+    if not isinstance(voitures_df, pd.DataFrame):
+        voitures_df = voitures_df.to_pandas()
     
     # Ajouter le clustering si un modèle est chargé (et si le clustering n'existe pas déjà)
     if model is not None and "cluster_vehicule" not in voitures_df.columns:
@@ -650,7 +654,7 @@ def afficher_selection_voitures():
         except Exception as e:
             st.warning(f"⚠️ Impossible d'ajouter le clustering: {e}")
     
-    st.info(f"📊 Total: {voitures_df.height} voitures disponibles après nettoyage")
+    st.info(f"📊 Total: {len(voitures_df)} voitures disponibles après nettoyage")
     
     # Calculer les valeurs min/max réelles pour les sliders
     prix_max_reel = int(voitures_df["prix"].max() or 200000)
@@ -680,16 +684,16 @@ def afficher_selection_voitures():
         # 1. Bloc Véhicule
         with st.expander("🚗 Sélection du Véhicule", expanded=True):
             c1, c2 = st.columns(2)
-            marques_disponibles = sorted(voitures_df["marque"].drop_nulls().unique().to_list())
+            marques_disponibles = sorted(voitures_df["marque"].dropna().unique().tolist())
             marque_selectionnee = c1.multiselect("Marque", marques_disponibles, key=f"marque_{reset_id}")
 
             # Filtrage dynamique des modèles
             if marque_selectionnee:
-                df_temp = voitures_df.filter(pl.col("marque").is_in(marque_selectionnee))
+                df_temp = voitures_df[voitures_df["marque"].isin(marque_selectionnee)]
             else:
                 df_temp = voitures_df
             
-            modeles_disponibles = sorted(df_temp["modele"].drop_nulls().unique().to_list())
+            modeles_disponibles = sorted(df_temp["modele"].dropna().unique().tolist())
             modele_selectionne = c2.multiselect("Modèle", modeles_disponibles, key=f"modele_{reset_id}")
         
         # 2. Bloc Budget & Score
@@ -712,20 +716,55 @@ def afficher_selection_voitures():
     with col_droite:
         # 3. Bloc Localisation
         with st.expander("📍 Localisation", expanded=False):
+            pays_key = f"pays_{reset_id}"
+            ville_key = f"ville_{reset_id}"
+            selected_pays = st.session_state.get(pays_key, []) or []
+            selected_villes = st.session_state.get(ville_key, []) or []
+
             pays_selectionne = []
             if "pays" in voitures_df.columns:
-                pays_disponibles = sorted(voitures_df["pays"].drop_nulls().unique().to_list())
-                pays_selectionne = st.multiselect("Pays", pays_disponibles, key=f"pays_{reset_id}")
-                
-            villes_disponibles = sorted(voitures_df["ville"].drop_nulls().unique().to_list())
-            ville_selectionnee = st.multiselect("Ville", villes_disponibles, key=f"ville_{reset_id}")
+                # Options pays liées aux villes sélectionnées (si présentes)
+                if selected_villes:
+                    pays_disponibles = sorted(
+                        voitures_df.loc[voitures_df["ville"].isin(selected_villes), "pays"]
+                        .dropna()
+                        .unique()
+                        .tolist()
+                    )
+                else:
+                    pays_disponibles = sorted(voitures_df["pays"].dropna().unique().tolist())
+
+                pays_selectionne = st.multiselect(
+                    "Pays",
+                    pays_disponibles,
+                    default=[p for p in selected_pays if p in pays_disponibles],
+                    key=pays_key,
+                )
+
+            # Options villes liées aux pays sélectionnés (si présents)
+            if "pays" in voitures_df.columns and pays_selectionne:
+                villes_disponibles = sorted(
+                    voitures_df.loc[voitures_df["pays"].isin(pays_selectionne), "ville"]
+                    .dropna()
+                    .unique()
+                    .tolist()
+                )
+            else:
+                villes_disponibles = sorted(voitures_df["ville"].dropna().unique().tolist())
+
+            ville_selectionnee = st.multiselect(
+                "Ville",
+                villes_disponibles,
+                default=[v for v in selected_villes if v in villes_disponibles],
+                key=ville_key,
+            )
 
         # 4. Bloc Technique
         with st.expander("⚙️ Détails Techniques", expanded=False):
-            carburants_disponibles = sorted(voitures_df["carburant"].drop_nulls().unique().to_list())
+            carburants_disponibles = sorted(voitures_df["carburant"].dropna().unique().tolist())
             carburant_selectionne = st.multiselect("Carburant", carburants_disponibles, key=f"carb_{reset_id}")
             
-            portes_disponibles = sorted(voitures_df["portes"].drop_nulls().unique().to_list())
+            portes_disponibles = sorted(voitures_df["portes"].dropna().unique().tolist())
             portes_selectionnees = st.multiselect("Portes", portes_disponibles, key=f"portes_{reset_id}")
             
             km_range = st.slider("Kilométrage", 0, int(km_max_reel), (0, int(km_max_reel)), step=5000, key=f"km_{reset_id}")
@@ -737,50 +776,50 @@ def afficher_selection_voitures():
         if st.button("🔄 Réinitialiser les filtres", use_container_width=True):
             st.session_state.reset_counter += 1
             st.rerun()
-    voitures_filtrees = voitures_df
+    voitures_filtrees = voitures_df.copy()
     
     if marque_selectionnee:
-        voitures_filtrees = voitures_filtrees.filter(pl.col("marque").is_in(marque_selectionnee))
+        voitures_filtrees = voitures_filtrees[voitures_filtrees["marque"].isin(marque_selectionnee)]
     
     if modele_selectionne:
-        voitures_filtrees = voitures_filtrees.filter(pl.col("modele").is_in(modele_selectionne))
+        voitures_filtrees = voitures_filtrees[voitures_filtrees["modele"].isin(modele_selectionne)]
     
     if carburant_selectionne:
-        voitures_filtrees = voitures_filtrees.filter(pl.col("carburant").is_in(carburant_selectionne))
+        voitures_filtrees = voitures_filtrees[voitures_filtrees["carburant"].isin(carburant_selectionne)]
     
     if ville_selectionnee:
-        voitures_filtrees = voitures_filtrees.filter(pl.col("ville").is_in(ville_selectionnee))
+        voitures_filtrees = voitures_filtrees[voitures_filtrees["ville"].isin(ville_selectionnee)]
     
     if pays_selectionne:
-        voitures_filtrees = voitures_filtrees.filter(pl.col("pays").is_in(pays_selectionne))
+        voitures_filtrees = voitures_filtrees[voitures_filtrees["pays"].isin(pays_selectionne)]
     
     if portes_selectionnees:
-        voitures_filtrees = voitures_filtrees.filter(pl.col("portes").is_in(portes_selectionnees))
+        voitures_filtrees = voitures_filtrees[voitures_filtrees["portes"].isin(portes_selectionnees)]
     
-    voitures_filtrees = voitures_filtrees.filter(
-        (pl.col("prix") >= prix_min) & (pl.col("prix") <= prix_max)
-    )
+    voitures_filtrees = voitures_filtrees[
+        (voitures_filtrees["prix"] >= prix_min) & (voitures_filtrees["prix"] <= prix_max)
+    ]
     
-    voitures_filtrees = voitures_filtrees.filter(
-        (pl.col("kilometrage") >= km_min) & (pl.col("kilometrage") <= km_max)
-    )
+    voitures_filtrees = voitures_filtrees[
+        (voitures_filtrees["kilometrage"] >= km_min) & (voitures_filtrees["kilometrage"] <= km_max)
+    ]
     
-    voitures_filtrees = voitures_filtrees.filter(
-        (pl.col("puissance_kw") >= puissance_min) & (pl.col("puissance_kw") <= puissance_max)
-    )
+    voitures_filtrees = voitures_filtrees[
+        (voitures_filtrees["puissance_kw"] >= puissance_min) & (voitures_filtrees["puissance_kw"] <= puissance_max)
+    ]
     
     # Filtrer pour ne garder que les annonces disponibles
     if "annonce_disponible" in voitures_filtrees.columns:
-        voitures_filtrees = voitures_filtrees.filter(pl.col("annonce_disponible") == 1)
+        voitures_filtrees = voitures_filtrees[voitures_filtrees["annonce_disponible"] == 1]
     
     # Appliquer le filtre de catégorie de prix si sélectionné et modèle disponible
     # (Ce filtre sera appliqué après le calcul des prédictions)
     
-    st.success(f"✅ {voitures_filtrees.height} voiture(s) correspondent aux critères")
+    st.success(f"✅ {len(voitures_filtrees)} voiture(s) correspondent aux critères")
     
     # --- Affichage des voitures ---
     
-    if voitures_filtrees.height == 0:
+    if len(voitures_filtrees) == 0:
         st.warning("Aucune voiture ne correspond aux critères de filtre.")
     else:
         # Préparer les données avec prédictions (pour Tableau ET Carte)
@@ -799,14 +838,18 @@ def afficher_selection_voitures():
         ]
         colonnes_valides = [col for col in colonnes_affichage if col in voitures_filtrees.columns]
         
-        data_affichage = voitures_filtrees.select(colonnes_valides).to_dicts()
+        data_affichage = voitures_filtrees[colonnes_valides].to_dict('records')
         
         # Ajouter les prédictions si le modèle est chargé
         predictions_disponibles = False
         if model is not None:
             try:
                 # 1. Préparer les données pour la prédiction (Pandas)
-                df_for_pred = voitures_filtrees.to_pandas()
+                # Vérifier si c'est déjà un DataFrame Pandas
+                if isinstance(voitures_filtrees, pd.DataFrame):
+                    df_for_pred = voitures_filtrees
+                else:
+                    df_for_pred = voitures_filtrees.to_pandas()
                 
                 # 2. Nettoyage des colonnes comme lors de l'entraînement
                 # On enlève le prix (la cible) et les colonnes textuelles inutiles
@@ -908,7 +951,7 @@ def afficher_selection_voitures():
             
             # Export en JSON
             if st.button("📥 Exporter les résultats en JSON", key="export_json"):
-                export_json = voitures_filtrees.write_json()
+                export_json = voitures_filtrees.to_json(orient='records', indent=2)
                 st.download_button(
                     label="Télécharger JSON",
                     data=export_json,
