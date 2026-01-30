@@ -834,6 +834,7 @@ def afficher_selection_voitures():
             "annee",
             "carburant",
             "boite_de_vitesse",
+            "cylindree_l",
             "ville",
             "code_postal",
             "puissance_kw",
