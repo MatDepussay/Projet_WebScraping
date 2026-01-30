@@ -582,12 +582,19 @@ def run_scraping(nb_pages: int) -> list[Voiture] | None:
 @st.cache_data(ttl=300)
 def charger_donnees_nettoyees():
     """Charge les données déjà nettoyées ou nettoie si nécessaire (avec cache)"""
-    # Priorité 1 : Charger le fichier déjà nettoyé (RAPIDE)
-    processed_file = Path("data/processed/autoscout_clean_ml.json")
+    # Priorité 1 : Charger voitures_nettoyees.json (le fichier avec lien_fiche)
+    processed_file = Path("data/processed/voitures_nettoyees.json")
     if processed_file.exists():
+        st.write("📁 Chargement depuis voitures_nettoyees.json")
         return pl.read_json(processed_file)
     
-    # Priorité 2 : Nettoyer le fichier raw (LENT)
+    # Priorité 2 : Charger autoscout_clean_ml.json si voitures_nettoyees.json n'existe pas
+    processed_file_old = Path("data/processed/autoscout_clean_ml.json")
+    if processed_file_old.exists():
+        st.write("📁 Chargement depuis autoscout_clean_ml.json (ancien format)")
+        return pl.read_json(processed_file_old)
+    
+    # Priorité 3 : Nettoyer le fichier raw (LENT)
     raw_file = Path("data/raw/annonces_autoscout24.json")
     if not raw_file.exists():
         return None
@@ -856,7 +863,7 @@ def afficher_selection_voitures():
                 
                 # 2. Nettoyage des colonnes comme lors de l'entraînement
                 # On enlève le prix (la cible) et les colonnes textuelles inutiles
-                cols_exclure = ["prix", "code_postal", "ville", "modele_identifie", "annonce_disponible"]
+                cols_exclure = ["prix", "code_postal", "ville", "modele_identifie", "annonce_disponible", "lien_fiche"]
                 X_base = df_for_pred.drop(columns=[c for c in cols_exclure if c in df_for_pred.columns])
                 
                 # 3. Forcer le type string pour le cluster avant l'encodage
@@ -967,11 +974,11 @@ def afficher_selection_voitures():
             if predictions_disponibles:
                 data_affichage_sorted = sorted(
                     data_affichage,
-                    key=lambda x: x.get((prix_predit-prix_reel), 0)
+                    key=lambda x: x.get('difference_pct', 0)
                 )
             else:
                 data_affichage_sorted = sorted(data_affichage, key=lambda x: x.get('marque', ''))
-            
+             
             for idx, voiture in enumerate(data_affichage_sorted, 1):
                 # Construire l'en-tête avec la catégorie si disponible
                 header = f"🚗 {voiture.get('marque')} {voiture.get('modele')} - {voiture.get('prix', 'N/A')}€"
