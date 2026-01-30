@@ -102,7 +102,7 @@ def ajouter_cluster_vehicule(df, n_clusters=5):
     print(f"🔍 Clustering des véhicules ({n_clusters} clusters)...")
     
     # Conversion en Pandas pour sklearn (plus stable pour les pipelines complexes)
-    data_pd = df.to_pandas() if isinstance(df, pl.DataFrame) else df.copy()
+    data_pd = df.to_pandas() if hasattr(df, 'to_pandas') else df.copy()
 
     num_features = ["annee", "kilometrage", "puissance_kw", "cylindree_l"]
     cat_features = ["carburant", "boite_de_vitesse", "transmission", "type_de_vehicule"]
@@ -166,7 +166,7 @@ def ajouter_cluster_vehicule(df, n_clusters=5):
         print("Aucun véhicule trouvé dans le cluster 4.")
     
     print("✅ Clustering terminé et pipeline sauvegardé.")
-    return df
+    return data_pd # On renvoie le DF complet
 
 # =========================
 # 2. ANALYSE ET VISUALISATION
@@ -384,41 +384,49 @@ def charger_et_preparer_donnees(fichier="data/processed/autoscout_clean_ml.json"
         df = pl.read_json(fichier).to_pandas()
     except Exception as e:
         print(f"❌ Erreur lors du chargement : {e}")
-        return None, None, None, None
+        return None, None, None, None, None
 
     if "modele_identifie" in df.columns: #modele_identifié supp dans cleaning
         df = df[df["modele_identifie"]]
 
     df = df.dropna(subset=["prix"]) #pour être sûr
 
-    # 🔹 1. Clustering
+    # 🔹 1. Clustering (df devient ici un pandas DataFrame via ta fonction)
     df = ajouter_cluster_vehicule(df, n_clusters=5)
     
-    # 🔹 2. AJOUT ICI : Conversion en string pour que get_dummies le traite en catégories
-    df["cluster_vehicule"] = df["cluster_vehicule"].astype(str) 
+    # 🔹 2. Création d'une copie pour le ML (pour garder l'original pour l'analyse)
+    df_ml = df.copy()
     
-    analyser_clusters(df)
+    # Garde uniquement les modèles qui apparaissent au moins 10 fois
+    counts = df['modele'].value_counts()
+    modeles_frequents = counts[counts >= 10].index
+    df_ml['modele'] = df_ml['modele'].apply(lambda x: x if x in modeles_frequents else 'Autre')
+    
+    df_ml["cluster_vehicule"] = df_ml["cluster_vehicule"].astype(str) 
 
     # 🔹 3. Préparation des variables
-    y = np.log1p(df["prix"]) # log1p calcule log(1 + x)
+    y = np.log1p(df_ml["prix"]) # log1p calcule log(1 + x)
 
     colonnes_a_exclure = [
         "prix",
         "code_postal",
         "ville",
     ]
-    X = df.drop(columns=[c for c in colonnes_a_exclure if c in df.columns])
+    X = df_ml.drop(columns=[c for c in colonnes_a_exclure if c in df.columns])
 
-    categorical_cols = X.select_dtypes(include=["object", "category", "string"]).columns.tolist()
-    print(f"📦 Colonnes encodées : {categorical_cols}")
-
+    # Split
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=0.2, random_state=42
-    )#test_size a verif pour que ce soit l'input de l'app (0.2 par defaut)
+    )#test_size a verif pour que ce soit l'input de l'app (0.2 par defaut
+
+    # Encodage
+    categorical_cols = X.select_dtypes(include=["object", "category", "string"]).columns.tolist()
+    print(f"📦 Colonnes encodées : {categorical_cols}")
 
     X_train = pd.get_dummies(X_train, columns=categorical_cols)
     X_test = pd.get_dummies(X_test, columns=categorical_cols)
 
+    # Alignement
     X_train, X_test = X_train.align(X_test, join="left", axis=1, fill_value=0) # à vérifier
 
     # Vérification de sécurité
@@ -428,7 +436,7 @@ def charger_et_preparer_donnees(fichier="data/processed/autoscout_clean_ml.json"
     # Cherche n'importe quelle colonne qui commence par "cluster_vehicule"
     assert any("cluster_vehicule" in col for col in X_train.columns)
 
-    return X_train, X_test, y_train, y_test
+    return X_train, X_test, y_train, y_test, df
 
 
 # =========================
@@ -626,7 +634,7 @@ def entrainer_random_forest(model_tune, X_train, X_test, y_train, y_test):
     }).sort_values("importance", ascending=False)
 
     print(fi.head(10))
-    print(fi[fi["feature"] == "cluster_vehicule"])
+    print(fi[fi["feature"].str.contains("cluster_vehicule")])
 
     # Sauvegarde
     with open("models/random_forest_model.pkl", "wb") as f:
@@ -798,17 +806,34 @@ def main():
     print("="*50)
 
     fichier_input = "data/processed/autoscout_clean_ml.json"
+    cluster_path = "models/cluster_full_pipeline.pkl"
     rf_path = "models/best_rf_final.pkl"
     xgb_path = "models/best_xgb_final.pkl"
     features_path = "models/model_features.pkl"
     
+    print("\n📦 1. Préparation des données...")
+    df_raw = pl.read_json(fichier_input)
+    
     # 1. PRÉPARATION DES DONNÉES & CLUSTERING
-    print("\n📦 1. Chargement et Préparation des données...")
-    X_train, X_test, y_train, y_test = charger_et_preparer_donnees(fichier_input)
+    # --- ÉTAPE 1 : CLUSTERING  ---
+    if not os.path.exists(cluster_path):
+        print(f"\n🧐 Aucun pipeline de clustering trouvé. Analyse en cours...")
+    else:
+        print(f"\n✅ 1. Pipeline de clustering trouvé. Chargement et transformation...")
+    
+    X_train, X_test, y_train, y_test, df_clustered = charger_et_preparer_donnees(fichier_input)
     
     if X_train is None:
         print("❌ Échec du chargement. Fin du programme.")
         return
+    
+    # --- ÉTAPE 2 : ANALYSE 
+    if not os.path.exists(cluster_path):
+        print("\n📊 Analyse approfondie du nouveau clustering...")
+        trouver_meilleur_k(df_clustered, max_k=10) 
+        analyser_clusters(df_clustered) 
+    else:
+        analyser_clusters(df_clustered)
     
     # Sauvegarde des colonnes pour l'application Streamlit
     with open(features_path, "wb") as f:
@@ -905,11 +930,16 @@ def main():
     print("\n" + "="*40)
     
     # 5. RÉSUMÉ COMPARATIF FINAL
-    print("\n🏁 RÉSUMÉ DES PERFORMANCES (R²)")
-    print(f"{'Modèle':<20} | {'CV (Train)':<12} | {'Test Set':<12}")
-    print("-" * 50)
-    print(f"{'Random Forest':<20} | {res_rf['r2']:.4f}     | {res_rf['r2_test']:.4f}")
-    print(f"{'XGBoost':<20} | {res_xgb['r2']:.4f}     | {res_xgb['r2_test']:.4f}")
+    print("\n🏁 RÉSUMÉ DES PERFORMANCES")
+    header = f"{'Modèle':<18} | {'R² Train':<10} | {'R² CV':<10} | {'R² Test':<10} | {'Écart (Overfit)'}"
+    print("-" * len(header))
+    print(header)
+    print("-" * len(header))
+
+    for name, res in [("Random Forest", res_rf), ("XGBoost", res_xgb)]:
+        overfit = res['r2_train'] - res['r2_test']
+        status = "⚠️ ÉLEVÉ" if overfit > 0.10 else "✅ OK"
+        print(f"{name:<18} | {res['r2_train']:<10.4f} | {res['r2']:<10.4f} | {res['r2_test']:<10.4f} | {overfit:>8.2%} {status}")
 
     # On récupère les scores pour la conclusion finale
     r2_rf_final = res_rf['r2_test']
