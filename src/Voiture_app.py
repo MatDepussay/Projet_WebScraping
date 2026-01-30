@@ -15,6 +15,8 @@
 #     "selenium",
 #     "beautifulsoup4",
 #     "lxml",
+#     "matplotlib",
+#     "seaborn",
 # ]
 # ///
 import json
@@ -1415,7 +1417,10 @@ def afficher_regression_ml():
             try:
                 # 1. Clustering et Préparation (comme avant)
                 df_clean_pl_clustered = ajouter_cluster_vehicule(df_clean_pl, n_clusters=5)
-                df_pd_eval = df_clean_pl_clustered.to_pandas()
+                if isinstance(df_clean_pl_clustered, pl.DataFrame):
+                    df_pd_eval = df_clean_pl_clustered.to_pandas()
+                else:
+                    df_pd_eval = df_clean_pl_clustered
                 y_all = np.log1p(df_pd_eval["prix"])  # Transformation log
                 X_all = df_pd_eval.drop(columns=["prix", "code_postal", "ville", "modele_identifie"], errors="ignore")
                 X_all["cluster_vehicule"] = X_all["cluster_vehicule"].astype(str)
