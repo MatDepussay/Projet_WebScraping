@@ -1215,7 +1215,7 @@ def afficher_regression_ml():
             except Exception as e:
                 st.error(f"❌ Échec du chargement du modèle uploadé: {e}")
     with col_path:
-        default_model_path = "models/random_forest_model.pkl"
+        default_model_path = "models/best_xgb_final.pkl"
         custom_model_path = st.text_input("Chemin vers un modèle local", value=default_model_path, key="custom_model_path_regression")
         if st.button("Charger ce fichier", key="load_custom_model_regression"):
             path_obj = Path(custom_model_path)

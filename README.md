@@ -96,6 +96,21 @@ uv run Scrapping_selenium_autodoc24.py
 ```
 Scrape AutoScout24 et fusionne les nouvelles annonces (utilisé par GitHub Actions).
 
+### 5️⃣ Workflow utilisateur (Streamlit)
+
+| 📥 **Scraper** : 
+- importer le fichier `/data/raw/annonces_autoscout24.json`
+- 📂 Charger le JSON
+- 🧹 Nettoyer
+
+| 📊 **Régression ML**
+- importer le fichier `models/best_xgb_final.pkl` puis 📈 Évaluer ce modèle sur les données actuelles
+- ou lancer un nouveau modèle dans ⚙️ Configuration du modèle
+
+| 🔍 **Sélectionner** 
+- Choix des filtres dans ⚙️ Configuration de la recherche
+- Affichage en Tableau ou en Carte
+
 ---
 
 ## 📂 Structure du projet
