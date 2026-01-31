@@ -24,7 +24,6 @@ import re
 import time
 import io
 import os
-import traceback
 from pathlib import Path
 import pandas as pd
 import plotly.graph_objects as go

@@ -12,8 +12,8 @@ import polars as pl
 from pathlib import Path
 import json
 import re
-import requests
-import pandas as pd
+
+
 
 # =========================
 # 1. CHARGEMENT DES DONNÉES

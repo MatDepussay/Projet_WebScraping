@@ -812,14 +812,13 @@ def main():
     features_path = "models/model_features.pkl"
     
     print("\n📦 1. Préparation des données...")
-    df_raw = pl.read_json(fichier_input)
     
     # 1. PRÉPARATION DES DONNÉES & CLUSTERING
     # --- ÉTAPE 1 : CLUSTERING  ---
     if not os.path.exists(cluster_path):
-        print(f"\n🧐 Aucun pipeline de clustering trouvé. Analyse en cours...")
+        print("\n🧐 Aucun pipeline de clustering trouvé. Analyse en cours...")
     else:
-        print(f"\n✅ 1. Pipeline de clustering trouvé. Chargement et transformation...")
+        print("\n✅ 1. Pipeline de clustering trouvé. Chargement et transformation...")
     
     X_train, X_test, y_train, y_test, df_clustered = charger_et_preparer_donnees(fichier_input)
     
